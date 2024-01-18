@@ -1,0 +1,5 @@
+# Cheatsheet
+[Chili Bullet Weapons](https://github.com/Iunius118/ChiliBulletWeapons)
+Version 1.0.0
+
+## How to Get Started
