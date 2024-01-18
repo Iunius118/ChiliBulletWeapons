@@ -1,0 +1,42 @@
+package com.github.iunius118.chilibulletweapons.registry;
+
+import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
+import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
+import com.github.iunius118.chilibulletweapons.item.ModItems;
+import net.minecraft.core.registries.Registries;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+
+public class ModRegistries {
+    public static void registerGameObjects(IEventBus modEventBus) {
+        registerBlocks(modEventBus);
+        registerItems(modEventBus);
+        registerCreativeModeTabs(modEventBus);
+    }
+
+    private static void registerBlocks(IEventBus modEventBus) {
+        var blockRegister = DeferredRegister.create(ForgeRegistries.BLOCKS, ChiliBulletWeapons.MOD_ID);
+
+        blockRegister.register(modEventBus);
+    }
+
+    private static void registerItems(IEventBus modEventBus) {
+        var itemRegister = DeferredRegister.create(ForgeRegistries.ITEMS, ChiliBulletWeapons.MOD_ID);
+
+        itemRegister.register("bullet_chili", () -> ModItems.BULLET_CHILI);
+        itemRegister.register("curved_chili", () -> ModItems.CURVED_CHILI);
+        itemRegister.register("chili_seeds", () -> ModItems.CHILI_SEEDS);
+        itemRegister.register("chili_bullet", () -> ModItems.CHILI_BULLET);
+
+        itemRegister.register(modEventBus);
+    }
+
+    private static void registerCreativeModeTabs(IEventBus modEventBus) {
+        var creativeModeTabRegister = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ChiliBulletWeapons.MOD_ID);
+
+        creativeModeTabRegister.register("main", () -> ModCreativeModeTabs.MAIN);
+
+        creativeModeTabRegister.register(modEventBus);
+    }
+}
