@@ -1,6 +1,8 @@
 package com.github.iunius118.chilibulletweapons.registry;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
+import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
+import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import net.minecraft.core.registries.Registries;
@@ -12,6 +14,7 @@ public class ModRegistries {
     public static void registerGameObjects(IEventBus modEventBus) {
         registerBlocks(modEventBus);
         registerItems(modEventBus);
+        registerEntityTypes(modEventBus);
         registerCreativeModeTabs(modEventBus);
     }
 
@@ -30,6 +33,14 @@ public class ModRegistries {
         itemRegister.register("chili_bullet", () -> ModItems.CHILI_BULLET);
 
         itemRegister.register(modEventBus);
+    }
+
+    private static void registerEntityTypes(IEventBus modEventBus) {
+        var entityTypeRegister = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, ChiliBulletWeapons.MOD_ID);
+
+        entityTypeRegister.register(ChiliBullet.ID.getPath(), () -> ModEntityTypes.CHILI_BULLET);
+
+        entityTypeRegister.register(modEventBus);
     }
 
     private static void registerCreativeModeTabs(IEventBus modEventBus) {
