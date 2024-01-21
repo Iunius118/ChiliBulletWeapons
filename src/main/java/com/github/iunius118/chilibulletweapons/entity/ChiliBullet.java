@@ -53,15 +53,15 @@ public class ChiliBullet extends ThrowableProjectile {
         super.onHitEntity(result);
         Entity entity = result.getEntity();
         entity.invulnerableTime = 0;
-        entity.hurt(this.damageSources().thrown(this, this.getOwner()), getDamage());
+        entity.hurt(this.damageSources().thrown(this, this.getOwner()), (float) getDamage());
         this.discard();
     }
 
-    private float getDamage() {
-        double forceSqr = this.getDeltaMovement().lengthSqr();
-        int physicalDamage = Mth.ceil(Mth.clamp(forceSqr * BASE_DAMAGE, 0.0D, Integer.MAX_VALUE));
-        long randomDamage = this.random.nextInt(physicalDamage / 2 + 2);
-        return (int) Math.min(randomDamage + physicalDamage, Integer.MAX_VALUE);
+    private int getDamage() {
+        double speedSqr = this.getDeltaMovement().lengthSqr();
+        int force = Mth.ceil(Mth.clamp(speedSqr * BASE_DAMAGE, 0.0D, Integer.MAX_VALUE));
+        long randomDamage = this.random.nextInt(force / 2 + 2);
+        return (int) Math.min((long) force + randomDamage, Integer.MAX_VALUE);
     }
 
     @Override
