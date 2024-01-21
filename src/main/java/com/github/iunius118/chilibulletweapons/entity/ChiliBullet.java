@@ -13,7 +13,7 @@ import net.minecraft.world.phys.EntityHitResult;
 
 public class ChiliBullet extends ThrowableProjectile {
     public static final ResourceLocation ID = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "chili_bullet");
-    public static final double BASE_DAMAGE = 2.0D;
+    public static final double BASE_DAMAGE = 0.85D;
 
     protected ChiliBullet(EntityType<? extends ThrowableProjectile> entityType, Level level) {
         super(entityType, level);
@@ -45,7 +45,7 @@ public class ChiliBullet extends ThrowableProjectile {
 
     @Override
     protected float getGravity() {
-        return 0;
+        return super.getGravity();
     }
 
     @Override
@@ -58,9 +58,9 @@ public class ChiliBullet extends ThrowableProjectile {
     }
 
     private float getDamage() {
-        double force = this.getDeltaMovement().length();
-        long physicalDamage = Mth.ceil(Mth.clamp(force * BASE_DAMAGE, 0.0D, Integer.MAX_VALUE));
-        long randomDamage = this.random.nextInt((int) Math.min(physicalDamage * 2 + 1, Integer.MAX_VALUE));
+        double forceSqr = this.getDeltaMovement().lengthSqr();
+        int physicalDamage = Mth.ceil(Mth.clamp(forceSqr * BASE_DAMAGE, 0.0D, Integer.MAX_VALUE));
+        long randomDamage = this.random.nextInt(physicalDamage / 2 + 2);
         return (int) Math.min(randomDamage + physicalDamage, Integer.MAX_VALUE);
     }
 

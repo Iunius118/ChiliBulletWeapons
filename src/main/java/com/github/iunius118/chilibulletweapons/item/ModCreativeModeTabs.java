@@ -6,7 +6,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
 public class ModCreativeModeTabs {
-    public final static String KEY_MAIN = "itemGroup." + ChiliBulletWeapons.MOD_ID + ".main";
+    public static final String KEY_MAIN = "itemGroup." + ChiliBulletWeapons.MOD_ID + ".main";
     public static final CreativeModeTab MAIN = CreativeModeTab.builder()
             .title(Component.translatable(KEY_MAIN))
             .icon(() -> new ItemStack(ModItems.BULLET_CHILI))

@@ -5,8 +5,6 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 public class ChiliBulletWeaponsClient {
-
-
     public static void onInitializeClient(IEventBus modEventBus) {
         modEventBus.addListener(ChiliBulletWeaponsClient::onRegisterRenderer);
     }
