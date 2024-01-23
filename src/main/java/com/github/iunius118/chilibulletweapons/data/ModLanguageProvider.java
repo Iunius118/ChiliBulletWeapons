@@ -21,10 +21,12 @@ public class ModLanguageProvider extends LanguageProvider {
     }
 
     public static class TranslatedNameProvider {
-        public String bulletChiliName = "Bullet-like Chili Pepper";
-        public String curvedChiliName = "Curved Chili Pepper";
-        public String chiliSeedsName = "Chili Pepper Seeds";
-        public String chiliBulletName = "Chili Bullet";
+        public final String bulletChiliName = "Bullet-like Chili Pepper";
+        public final String curvedChiliName = "Curved Chili Pepper";
+        public final String chiliSeedsName = "Chili Pepper Seeds";
+        public final String chiliBulletName = "Chili Bullet";
+        public final String pistolName = "Chili Bullet Pistol";
+        public final String rifleName = "Chili Bullet Rifle";
     }
 
     @Override
@@ -37,5 +39,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CURVED_CHILI, translatedNameProvider.curvedChiliName);
         add(ModItems.CHILI_SEEDS, translatedNameProvider.chiliSeedsName);
         add(ModItems.CHILI_BULLET, translatedNameProvider.chiliBulletName);
+        add(ModItems.PISTOL, translatedNameProvider.pistolName);
+        add(ModItems.RIFLE, translatedNameProvider.rifleName);
     }
 }

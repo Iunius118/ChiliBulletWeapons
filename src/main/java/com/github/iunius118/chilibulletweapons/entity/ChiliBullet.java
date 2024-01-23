@@ -15,16 +15,16 @@ public class ChiliBullet extends ThrowableProjectile {
     public static final ResourceLocation ID = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "chili_bullet");
     public static final double BASE_DAMAGE = 0.85D;
 
-    protected ChiliBullet(EntityType<? extends ThrowableProjectile> entityType, Level level) {
+    public ChiliBullet(EntityType<? extends ThrowableProjectile> entityType, Level level) {
         super(entityType, level);
     }
 
-    protected ChiliBullet(EntityType<? extends ThrowableProjectile> entityType, double x, double y, double z, Level level) {
-        super(entityType, x, y, z, level);
+    public ChiliBullet(double x, double y, double z, Level level) {
+        super(ModEntityTypes.CHILI_BULLET, x, y, z, level);
     }
 
-    protected ChiliBullet(EntityType<? extends ThrowableProjectile> entityType, LivingEntity thrower, Level level) {
-        super(entityType, thrower, level);
+    public ChiliBullet(LivingEntity thrower, Level level) {
+        this(thrower.getX(), thrower.getEyeY() - (double) 0.05F, thrower.getZ(), level);
     }
 
     @Override
@@ -37,9 +37,10 @@ public class ChiliBullet extends ThrowableProjectile {
 
     @Override
     public void shootFromRotation(Entity thrower, float rotX, float rotY, float elevation, float velocity, float inaccuracy) {
-        float deltaX = -Mth.sin(rotY * ((float)Math.PI / 180F)) * Mth.cos(rotX * ((float)Math.PI / 180F));
-        float deltaY = -Mth.sin((rotX + elevation) * ((float)Math.PI / 180F));
-        float deltaZ = Mth.cos(rotY * ((float)Math.PI / 180F)) * Mth.cos(rotX * ((float)Math.PI / 180F));
+        final float pi = (float) Math.PI;
+        float deltaX = -Mth.sin(rotY * (pi / 180F)) * Mth.cos(rotX * (pi / 180F));
+        float deltaY = -Mth.sin((rotX + elevation) * (pi / 180F));
+        float deltaZ = Mth.cos(rotY * (pi / 180F)) * Mth.cos(rotX * (pi / 180F));
         this.shoot(deltaX, deltaY, deltaZ, velocity, inaccuracy);
     }
 

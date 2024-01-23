@@ -15,6 +15,8 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.CURVED_CHILI);
                 output.accept(ModItems.CHILI_SEEDS);
                 output.accept(ModItems.CHILI_BULLET);
+                output.accept(ModItems.PISTOL);
+                output.accept(ModItems.RIFLE);
             })
             .build();
 }

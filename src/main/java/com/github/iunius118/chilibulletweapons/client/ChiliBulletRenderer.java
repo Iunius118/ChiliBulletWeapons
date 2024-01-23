@@ -25,14 +25,14 @@ public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet> {
     }
 
     private static final Vector3f[] vertices = {
-            new Vector3f(-0.0625F, 0.0625F, 0.0625F),
-            new Vector3f(-0.0625F, -0.0625F, 0.0625F),
-            new Vector3f(0.0625F, 0.0625F, 0.0625F),
-            new Vector3f(0.0625F, -0.0625F, 0.0625F),
-            new Vector3f(0.0625F, 0.0625F, -0.0625F),
-            new Vector3f(0.0625F, -0.0625F, -0.0625F),
-            new Vector3f(-0.0625F, 0.0625F, -0.0625F),
-            new Vector3f(-0.0625F, -0.0625F, -0.0625F)
+            new Vector3f(-0.03125F, 0.03125F, 0.03125F),
+            new Vector3f(-0.03125F, -0.03125F, 0.03125F),
+            new Vector3f(0.03125F, 0.03125F, 0.03125F),
+            new Vector3f(0.03125F, -0.03125F, 0.03125F),
+            new Vector3f(0.03125F, 0.03125F, -0.03125F),
+            new Vector3f(0.03125F, -0.03125F, -0.03125F),
+            new Vector3f(-0.03125F, 0.03125F, -0.03125F),
+            new Vector3f(-0.03125F, -0.03125F, -0.03125F)
     };
 
     @Override

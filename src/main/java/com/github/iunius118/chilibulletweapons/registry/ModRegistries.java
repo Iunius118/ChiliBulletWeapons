@@ -31,6 +31,8 @@ public class ModRegistries {
         itemRegister.register("curved_chili", () -> ModItems.CURVED_CHILI);
         itemRegister.register("chili_seeds", () -> ModItems.CHILI_SEEDS);
         itemRegister.register("chili_bullet", () -> ModItems.CHILI_BULLET);
+        itemRegister.register("pistol", () -> ModItems.PISTOL);
+        itemRegister.register("rifle", () -> ModItems.RIFLE);
 
         itemRegister.register(modEventBus);
     }
