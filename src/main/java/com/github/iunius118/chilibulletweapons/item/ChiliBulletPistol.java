@@ -2,8 +2,10 @@ package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
+import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -55,7 +57,12 @@ public class ChiliBulletPistol extends ProjectileWeaponItem {
         } else if (!player.getProjectile(itemStack).isEmpty()) {
             // Start reloading
             player.startUsingItem(hand);
-            setReloading(itemStack, true);
+
+            if (!isReloading(itemStack)) {
+                setReloading(itemStack, true);
+                level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.PISTOL_ACTION_OPEN, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+            }
+
             return InteractionResultHolder.consume(itemStack);
         } else {
             return InteractionResultHolder.fail(itemStack);
@@ -71,6 +78,7 @@ public class ChiliBulletPistol extends ProjectileWeaponItem {
         ChiliBullet bullet = new ChiliBullet(player, level);
         bullet.shootFromRotation(player, shootingPower, inaccuracy);
         level.addFreshEntity(bullet);
+        level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.PISTOL_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
     }
 
     @Override
@@ -82,8 +90,10 @@ public class ChiliBulletPistol extends ProjectileWeaponItem {
 
         if ((itemStack.getUseDuration() - ticks) >= getReloadDuration()
                 && !isReloaded(itemStack) && tryLoadProjectile(entity, itemStack)) {
+            // Load complete
             setReloading(itemStack, false);
             setShot(itemStack, false);
+            level.playSound(null, entity.getX(), entity.getY(), entity.getZ(), ModSoundEvents.PISTOL_ACTION_CLOSE, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
         }
     }
 

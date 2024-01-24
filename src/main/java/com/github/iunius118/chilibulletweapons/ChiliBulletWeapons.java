@@ -3,6 +3,7 @@ package com.github.iunius118.chilibulletweapons;
 import com.github.iunius118.chilibulletweapons.client.ChiliBulletWeaponsClient;
 import com.github.iunius118.chilibulletweapons.data.ModItemModelProvider;
 import com.github.iunius118.chilibulletweapons.data.ModLanguageProvider;
+import com.github.iunius118.chilibulletweapons.data.ModSoundDefinitionsProvider;
 import com.github.iunius118.chilibulletweapons.registry.ModRegistries;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -41,7 +42,8 @@ public class ChiliBulletWeapons {
 
         // Client
         final boolean includesClient = event.includeClient();
-        dataGenerator.addProvider(includesClient, new ModItemModelProvider(packOutput, ChiliBulletWeapons.MOD_ID, existingFileHelper));
         ModLanguageProvider.addProviders(includesClient, ChiliBulletWeapons.MOD_ID, dataGenerator);
+        dataGenerator.addProvider(includesClient, new ModItemModelProvider(packOutput, ChiliBulletWeapons.MOD_ID, existingFileHelper));
+        dataGenerator.addProvider(includesClient, new ModSoundDefinitionsProvider(packOutput, ChiliBulletWeapons.MOD_ID, existingFileHelper));
     }
 }

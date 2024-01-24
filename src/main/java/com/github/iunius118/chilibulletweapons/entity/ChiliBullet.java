@@ -1,11 +1,14 @@
 package com.github.iunius118.chilibulletweapons.entity;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
+import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
@@ -25,6 +28,7 @@ public class ChiliBullet extends ThrowableProjectile {
 
     public ChiliBullet(LivingEntity thrower, Level level) {
         this(thrower.getX(), thrower.getEyeY() - (double) 0.05F, thrower.getZ(), level);
+        this.setOwner(thrower);
     }
 
     @Override
@@ -53,8 +57,16 @@ public class ChiliBullet extends ThrowableProjectile {
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
         Entity entity = result.getEntity();
+        Entity owner = this.getOwner();
         entity.invulnerableTime = 0;
-        entity.hurt(this.damageSources().thrown(this, this.getOwner()), (float) getDamage());
+
+        if (entity.hurt(this.damageSources().thrown(this, owner), (float) getDamage())) {
+            if (entity != owner && entity instanceof Player && owner instanceof ServerPlayer ownerInServer && !this.isSilent()) {
+                // Play a ding when the bullet hit a player
+                ownerInServer.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.ARROW_HIT_PLAYER, 0.0F));
+            }
+        }
+
         this.discard();
     }
 

@@ -5,6 +5,7 @@ import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
+import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.core.registries.Registries;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,6 +15,7 @@ public class ModRegistries {
     public static void registerGameObjects(IEventBus modEventBus) {
         registerBlocks(modEventBus);
         registerItems(modEventBus);
+        registerSoundEvents(modEventBus);
         registerEntityTypes(modEventBus);
         registerCreativeModeTabs(modEventBus);
     }
@@ -35,6 +37,16 @@ public class ModRegistries {
         itemRegister.register("rifle", () -> ModItems.RIFLE);
 
         itemRegister.register(modEventBus);
+    }
+
+    private static void registerSoundEvents(IEventBus modEventBus) {
+        var soundEventRegister = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, ChiliBulletWeapons.MOD_ID);
+
+        soundEventRegister.register("item_pistol_shoot", () -> ModSoundEvents.PISTOL_SHOOT);
+        soundEventRegister.register("item_pistol_action_open", () -> ModSoundEvents.PISTOL_ACTION_OPEN);
+        soundEventRegister.register("item_pistol_action_close", () -> ModSoundEvents.PISTOL_ACTION_CLOSE);
+
+        soundEventRegister.register(modEventBus);
     }
 
     private static void registerEntityTypes(IEventBus modEventBus) {
