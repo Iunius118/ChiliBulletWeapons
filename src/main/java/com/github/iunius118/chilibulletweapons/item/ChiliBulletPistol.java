@@ -4,19 +4,24 @@ import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ProjectileWeaponItem;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.Predicate;
 
-public class ChiliBulletPistol extends ProjectileWeaponItem {
+public class ChiliBulletPistol extends CrossbowItem {
     public static final float POWER_PISTOL = 3F;
     public static final float POWER_RIFLE = 4F;
     public static final float INACCURACY_PISTOL = 1F;
@@ -46,6 +51,19 @@ public class ChiliBulletPistol extends ProjectileWeaponItem {
     }
 
     @Override
+    public Predicate<ItemStack> getSupportedHeldProjectiles() {
+        return getAllSupportedProjectiles();
+    }
+
+    @Override
+    public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int i, boolean b) {
+        if (!itemStack.hasTag()) {
+            // For using crossbow animation
+            setCharged(itemStack, true);
+        }
+    }
+
+    @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
 
@@ -53,6 +71,8 @@ public class ChiliBulletPistol extends ProjectileWeaponItem {
             // Shoot
             shootProjectile(level, player, hand, itemStack, getShootingPower(), getInaccuracy());
             setShot(itemStack, true);
+            // For using crossbow animation
+            setCharged(itemStack, false);
             return InteractionResultHolder.consume(itemStack);
         } else if (!player.getProjectile(itemStack).isEmpty()) {
             // Start reloading
@@ -79,6 +99,14 @@ public class ChiliBulletPistol extends ProjectileWeaponItem {
         bullet.shootFromRotation(player, shootingPower, inaccuracy);
         level.addFreshEntity(bullet);
         level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.PISTOL_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+    }
+
+    @Override
+    public void releaseUsing(ItemStack itemStack, Level level, LivingEntity entity, int ticks) {
+        if ((itemStack.getUseDuration() - ticks) >= getReloadDuration() && !isCharged(itemStack) && !isShot(itemStack)) {
+            // For using crossbow animation
+            setCharged(itemStack, true);
+        }
     }
 
     @Override
@@ -120,28 +148,28 @@ public class ChiliBulletPistol extends ProjectileWeaponItem {
     }
 
     public static boolean isReloaded(ItemStack itemStack) {
-        CompoundTag compoundtag = itemStack.getTag();
-        return compoundtag == null || (!isShot(itemStack) && !isReloading(itemStack));
+        CompoundTag compoundTag = itemStack.getTag();
+        return compoundTag == null || (!isShot(itemStack) && !isReloading(itemStack));
     }
 
     public static boolean isShot(ItemStack itemStack) {
-        CompoundTag compoundtag = itemStack.getTag();
-        return compoundtag != null && compoundtag.getBoolean(TAG_IS_SHOT);
+        CompoundTag compoundTag = itemStack.getTag();
+        return compoundTag != null && compoundTag.getBoolean(TAG_IS_SHOT);
     }
 
     public static void setShot(ItemStack itemStack, boolean isShot) {
-        CompoundTag compoundtag = itemStack.getOrCreateTag();
-        compoundtag.putBoolean(TAG_IS_SHOT, isShot);
+        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        compoundTag.putBoolean(TAG_IS_SHOT, isShot);
     }
 
     public static boolean isReloading(ItemStack itemStack) {
-        CompoundTag compoundtag = itemStack.getTag();
-        return compoundtag != null && compoundtag.getBoolean(TAG_RELOADING);
+        CompoundTag compoundTag = itemStack.getTag();
+        return compoundTag != null && compoundTag.getBoolean(TAG_RELOADING);
     }
 
     public static void setReloading(ItemStack itemStack, boolean isReloading) {
-        CompoundTag compoundtag = itemStack.getOrCreateTag();
-        compoundtag.putBoolean(TAG_RELOADING, isReloading);
+        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        compoundTag.putBoolean(TAG_RELOADING, isReloading);
     }
 
     public float getShootingPower() {
@@ -157,12 +185,11 @@ public class ChiliBulletPistol extends ProjectileWeaponItem {
     }
 
     @Override
-    public boolean useOnRelease(ItemStack itemStack) {
-        return itemStack.is(this);
+    public int getDefaultProjectileRange() {
+        return 15;
     }
 
     @Override
-    public int getDefaultProjectileRange() {
-        return 15;
+    public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> componentList, TooltipFlag tooltipFlag) {
     }
 }
