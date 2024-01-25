@@ -1,9 +1,13 @@
 {
+  "entity.chilibulletweapons.chili_bullet": "Chili Bullet",
   "item.chilibulletweapons.bullet_chili": "Bullet-like Chili Pepper",
   "item.chilibulletweapons.chili_bullet": "Chili Bullet",
   "item.chilibulletweapons.chili_seeds": "Chili Pepper Seeds",
   "item.chilibulletweapons.curved_chili": "Curved Chili Pepper",
   "item.chilibulletweapons.pistol": "Chili Bullet Pistol",
   "item.chilibulletweapons.rifle": "Chili Bullet Rifle",
-  "itemGroup.chilibulletweapons.main": "Chili Bullet Weapons"
+  "itemGroup.chilibulletweapons.main": "Chili Bullet Weapons",
+  "subtitles.item.chilibulletweapons.pistol.action_close": "Chili Bullet gun closes",
+  "subtitles.item.chilibulletweapons.pistol.action_open": "Chili Bullet gun opens",
+  "subtitles.item.chilibulletweapons.pistol.shoot": "Chili Bullet gun fires"
 }

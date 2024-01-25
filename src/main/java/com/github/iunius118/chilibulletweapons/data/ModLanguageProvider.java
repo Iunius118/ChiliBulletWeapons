@@ -1,10 +1,13 @@
 package com.github.iunius118.chilibulletweapons.data;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
+import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
+import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class ModLanguageProvider extends LanguageProvider {
@@ -27,6 +30,12 @@ public class ModLanguageProvider extends LanguageProvider {
         public final String chiliBulletName = "Chili Bullet";
         public final String pistolName = "Chili Bullet Pistol";
         public final String rifleName = "Chili Bullet Rifle";
+
+        public final String chiliBulletEntityName = "Chili Bullet";
+
+        public final String subtitlePistolShoot = "Chili Bullet gun fires";
+        public final String subtitlePistolActionOpen = "Chili Bullet gun opens";
+        public final String subtitlePistolActionClose = "Chili Bullet gun closes";
     }
 
     @Override
@@ -41,5 +50,17 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CHILI_BULLET, translatedNameProvider.chiliBulletName);
         add(ModItems.PISTOL, translatedNameProvider.pistolName);
         add(ModItems.RIFLE, translatedNameProvider.rifleName);
+
+        // Entity
+        add(ModEntityTypes.CHILI_BULLET, translatedNameProvider.chiliBulletEntityName);
+
+        // Subtitles
+        add(ModSoundEvents.PISTOL_SHOOT, translatedNameProvider.subtitlePistolShoot);
+        add(ModSoundEvents.PISTOL_ACTION_OPEN, translatedNameProvider.subtitlePistolActionOpen);
+        add(ModSoundEvents.PISTOL_ACTION_CLOSE, translatedNameProvider.subtitlePistolActionClose);
+    }
+
+    private void add(SoundEvent soundEvent, String name) {
+        add("subtitles." + soundEvent.getLocation().getPath(), name);
     }
 }

@@ -3,6 +3,7 @@ package com.github.iunius118.chilibulletweapons.data;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.SoundDefinition;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
@@ -27,13 +28,21 @@ public class ModSoundDefinitionsProvider extends SoundDefinitionsProvider {
                 new ResourceLocation("block/iron_trapdoor/close3"),
                 new ResourceLocation("block/iron_trapdoor/close4")};
 
-        add(ModSoundEvents.PISTOL_SHOOT, getDefinition(new ResourceLocation("fireworks/blast1")));
-        add(ModSoundEvents.PISTOL_ACTION_OPEN, getDefinition(actionOpenSoundLocations));
-        add(ModSoundEvents.PISTOL_ACTION_CLOSE, getDefinition(actionCloseSoundLocations));
+        addSoundEvent(ModSoundEvents.PISTOL_SHOOT, new ResourceLocation("fireworks/blast1"));
+        addSoundEvent(ModSoundEvents.PISTOL_ACTION_OPEN, actionOpenSoundLocations);
+        addSoundEvent(ModSoundEvents.PISTOL_ACTION_CLOSE, actionCloseSoundLocations);
+    }
+
+    private void addSoundEvent(SoundEvent soundEvent, ResourceLocation... locations) {
+        add(soundEvent, getDefinition(locations).subtitle(getSubtitle(soundEvent)));
     }
 
     private SoundDefinition getDefinition(ResourceLocation... locations) {
         SoundDefinition.Sound[] sounds = Arrays.stream(locations).map(SoundDefinitionsProvider::sound).toArray(SoundDefinition.Sound[]::new);
         return definition().with(sounds);
+    }
+
+    private String getSubtitle(SoundEvent soundEvent) {
+        return "subtitles." + soundEvent.getLocation().getPath();
     }
 }

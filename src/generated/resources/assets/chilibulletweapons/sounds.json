@@ -1,23 +1,26 @@
 {
-  "item.pistol.action_close": {
+  "item.chilibulletweapons.pistol.action_close": {
     "sounds": [
       "block/iron_trapdoor/close1",
       "block/iron_trapdoor/close2",
       "block/iron_trapdoor/close3",
       "block/iron_trapdoor/close4"
-    ]
+    ],
+    "subtitle": "subtitles.item.chilibulletweapons.pistol.action_close"
   },
-  "item.pistol.action_open": {
+  "item.chilibulletweapons.pistol.action_open": {
     "sounds": [
       "block/iron_trapdoor/open1",
       "block/iron_trapdoor/open2",
       "block/iron_trapdoor/open3",
       "block/iron_trapdoor/open4"
-    ]
+    ],
+    "subtitle": "subtitles.item.chilibulletweapons.pistol.action_open"
   },
-  "item.pistol.shoot": {
+  "item.chilibulletweapons.pistol.shoot": {
     "sounds": [
       "fireworks/blast1"
-    ]
+    ],
+    "subtitle": "subtitles.item.chilibulletweapons.pistol.shoot"
   }
 }
