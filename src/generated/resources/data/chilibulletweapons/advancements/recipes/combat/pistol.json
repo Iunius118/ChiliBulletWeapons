@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chili_bullet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "chilibulletweapons:chili_bullet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "chilibulletweapons:pistol"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chili_bullet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "chilibulletweapons:pistol"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -3,6 +3,7 @@ package com.github.iunius118.chilibulletweapons;
 import com.github.iunius118.chilibulletweapons.client.ChiliBulletWeaponsClient;
 import com.github.iunius118.chilibulletweapons.data.ModItemModelProvider;
 import com.github.iunius118.chilibulletweapons.data.ModLanguageProvider;
+import com.github.iunius118.chilibulletweapons.data.ModRecipeProvider;
 import com.github.iunius118.chilibulletweapons.data.ModSoundDefinitionsProvider;
 import com.github.iunius118.chilibulletweapons.registry.ModRegistries;
 import com.mojang.logging.LogUtils;
@@ -39,6 +40,7 @@ public class ChiliBulletWeapons {
 
         // Server
         final boolean includesServer = event.includeServer();
+        dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput));
 
         // Client
         final boolean includesClient = event.includeClient();

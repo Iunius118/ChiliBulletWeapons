@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "chilibulletweapons:curved_chili"
+    }
+  ],
+  "result": {
+    "item": "chilibulletweapons:chili_seeds"
+  }
+}

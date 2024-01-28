@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "g": {
+      "item": "chilibulletweapons:pistol"
+    },
+    "i": {
+      "tag": "forge:ingots/iron"
+    },
+    "p": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "i  ",
+    " i ",
+    " pg"
+  ],
+  "result": {
+    "item": "chilibulletweapons:rifle"
+  },
+  "show_notification": true
+}
