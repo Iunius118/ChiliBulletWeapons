@@ -28,12 +28,16 @@ public class ModSoundDefinitionsProvider extends SoundDefinitionsProvider {
                 new ResourceLocation("block/iron_trapdoor/close3"),
                 new ResourceLocation("block/iron_trapdoor/close4")};
 
-        addSoundEvent(ModSoundEvents.PISTOL_SHOOT, new ResourceLocation("fireworks/blast1"));
+        addSoundEventWithSubtitle(ModSoundEvents.PISTOL_SHOOT, new ResourceLocation("fireworks/blast1"));
         addSoundEvent(ModSoundEvents.PISTOL_ACTION_OPEN, actionOpenSoundLocations);
-        addSoundEvent(ModSoundEvents.PISTOL_ACTION_CLOSE, actionCloseSoundLocations);
+        addSoundEventWithSubtitle(ModSoundEvents.PISTOL_ACTION_CLOSE, actionCloseSoundLocations);
     }
 
     private void addSoundEvent(SoundEvent soundEvent, ResourceLocation... locations) {
+        add(soundEvent, getDefinition(locations));
+    }
+
+    private void addSoundEventWithSubtitle(SoundEvent soundEvent, ResourceLocation... locations) {
         add(soundEvent, getDefinition(locations).subtitle(getSubtitle(soundEvent)));
     }
 

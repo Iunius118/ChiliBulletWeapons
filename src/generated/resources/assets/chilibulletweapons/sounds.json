@@ -14,8 +14,7 @@
       "block/iron_trapdoor/open2",
       "block/iron_trapdoor/open3",
       "block/iron_trapdoor/open4"
-    ],
-    "subtitle": "subtitles.item.chilibulletweapons.pistol.action_open"
+    ]
   },
   "item.chilibulletweapons.pistol.shoot": {
     "sounds": [
