@@ -43,8 +43,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         }
 
         final String item_name = item_id.getPath();
-        final ResourceLocation reload_model = new ResourceLocation(item_id.getNamespace(), "item/" + item_name + "_reload");
         final ModelFile modelFile = new ModelFile.UncheckedModelFile("item/generated");
+        final ResourceLocation loading_model = new ResourceLocation(item_id.getNamespace(), "item/" + item_name + "_loading");
         getBuilder(item_name).parent(modelFile).texture("layer0", "item/" + item_name)
                 .transforms()
                     .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).scale(0.68F).rotation(0F, -90F, 25F).translation(3.0F, 3.2F, 1.13F).end()
@@ -52,9 +52,9 @@ public class ModItemModelProvider extends ItemModelProvider {
                     .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).scale(0.85F).rotation(-40F, -90F, 0F).translation(0F, 1F, -0.25F).end()
                     .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).scale(0.85F).rotation(-40F, 90F, 0F).translation(0F, 1F, -0.25F).end()
                     .end()
-                .override().predicate(ChiliBulletPistol.PROPERTY_RELOAD, 1F).model(new ModelFile.UncheckedModelFile(reload_model)).end();
+                .override().predicate(ChiliBulletPistol.PROPERTY_LOADING, 1F).model(new ModelFile.UncheckedModelFile(loading_model)).end();
 
-        getBuilder(item_name + "_reload").parent(modelFile).texture("layer0", reload_model.getPath())
+        getBuilder(item_name + "_loading").parent(modelFile).texture("layer0", loading_model.getPath())
                 .transforms()
                 .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).scale(0.68F).rotation(0F, -90F, 25F).translation(1.13F, 3.2F, 1.13F).end()
                 .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).scale(0.68F).rotation(0F, 90F, -25F).translation(1.13F, 3.2F, 1.13F).end()
@@ -72,7 +72,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         final String item_name = item_id.getPath();
         final ModelFile modelFile = new ModelFile.UncheckedModelFile("item/generated");
-        final ResourceLocation reload_model = new ResourceLocation(item_id.getNamespace(), "item/" + item_name + "_reload");
+        final ResourceLocation loading_model = new ResourceLocation(item_id.getNamespace(), "item/" + item_name + "_loading");
         getBuilder(item_name).parent(modelFile).texture("layer0", "item/" + item_name)
                 .transforms()
                     .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).scale(0.68F).rotation(0F, -90F, 25F).translation(3.0F, 3.2F, -0.4F).end()
@@ -80,9 +80,9 @@ public class ModItemModelProvider extends ItemModelProvider {
                     .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).scale(0.85F).rotation(-40F, -90F, 0F).translation(0F, 0.5F, -2.2F).end()
                     .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).scale(0.85F).rotation(-40F, 90F, 0F).translation(0F, 0.5F, -2.2F).end()
                 .end()
-                .override().predicate(ChiliBulletPistol.PROPERTY_RELOAD, 1F).model(new ModelFile.UncheckedModelFile(reload_model)).end();
+                .override().predicate(ChiliBulletPistol.PROPERTY_LOADING, 1F).model(new ModelFile.UncheckedModelFile(loading_model)).end();
 
-        getBuilder(item_name + "_reload").parent(modelFile).texture("layer0", reload_model.getPath())
+        getBuilder(item_name + "_loading").parent(modelFile).texture("layer0", loading_model.getPath())
                 .transforms()
                 .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).scale(0.68F).rotation(0F, -90F, 25F).translation(1.13F, 3.2F, -0.4F).end()
                 .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).scale(0.68F).rotation(0F, 90F, -25F).translation(1.13F, 3.2F, -0.4F).end()

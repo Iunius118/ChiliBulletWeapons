@@ -72,9 +72,9 @@
   },
   "overrides": [
     {
-      "model": "chilibulletweapons:item/rifle_reload",
+      "model": "chilibulletweapons:item/rifle_loading",
       "predicate": {
-        "chilibulletweapons:reload": 1.0
+        "chilibulletweapons:loading": 1.0
       }
     }
   ],

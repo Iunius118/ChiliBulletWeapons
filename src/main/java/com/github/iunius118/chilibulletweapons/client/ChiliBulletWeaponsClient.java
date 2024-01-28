@@ -17,6 +17,6 @@ public class ChiliBulletWeaponsClient {
     }
 
     public static void registerItemProperties() {
-        ItemProperties.registerGeneric(ChiliBulletPistol.PROPERTY_RELOAD, (stack, l, e, i) -> ChiliBulletPistol.isReloading(stack) ? 1.0F : 0.0F);
+        ItemProperties.registerGeneric(ChiliBulletPistol.PROPERTY_LOADING, (stack, l, e, i) -> ChiliBulletPistol.isLoading(stack) ? 1.0F : 0.0F);
     }
 }

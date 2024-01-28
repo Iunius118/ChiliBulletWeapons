@@ -29,10 +29,10 @@ public class ChiliBulletPistol extends CrossbowItem {
     public static final int RELOAD_PISTOL = 10;
     public static final int RELOAD_RIFLE = 15;
     public static final Predicate<ItemStack> IS_CHILI_BULLET = itemStack -> itemStack.is(ModItems.CHILI_BULLET);
-    public static final ResourceLocation PROPERTY_RELOAD = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "reload");
+    public static final ResourceLocation PROPERTY_LOADING = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "loading");
 
     private static final String TAG_IS_SHOT = "IsShot";
-    private static final String TAG_RELOADING = "Reload";
+    private static final String TAG_LOADING = "Loading";
 
     private final float shootingPower;
     private final float inaccuracy;
@@ -67,7 +67,7 @@ public class ChiliBulletPistol extends CrossbowItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
 
-        if (isReloaded(itemStack)) {
+        if (isLoaded(itemStack)) {
             // Shoot
             shootProjectile(level, player, hand, itemStack, getShootingPower(), getInaccuracy());
             setShot(itemStack, true);
@@ -75,14 +75,13 @@ public class ChiliBulletPistol extends CrossbowItem {
             setCharged(itemStack, false);
             return InteractionResultHolder.consume(itemStack);
         } else if (!player.getProjectile(itemStack).isEmpty()) {
-            // Start reloading
-            player.startUsingItem(hand);
-
-            if (!isReloading(itemStack)) {
-                setReloading(itemStack, true);
+            // Begin loading
+            if (!isLoading(itemStack)) {
+                setLoading(itemStack, true);
                 level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.PISTOL_ACTION_OPEN, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
             }
 
+            player.startUsingItem(hand);
             return InteractionResultHolder.consume(itemStack);
         } else {
             return InteractionResultHolder.fail(itemStack);
@@ -117,9 +116,9 @@ public class ChiliBulletPistol extends CrossbowItem {
         }
 
         if ((itemStack.getUseDuration() - ticks) >= getReloadDuration()
-                && !isReloaded(itemStack) && tryLoadProjectile(entity, itemStack)) {
-            // Load complete
-            setReloading(itemStack, false);
+                && isLoading(itemStack) && tryLoadProjectile(entity, itemStack)) {
+            // Finish loading
+            setLoading(itemStack, false);
             setShot(itemStack, false);
             level.playSound(null, entity.getX(), entity.getY(), entity.getZ(), ModSoundEvents.PISTOL_ACTION_CLOSE, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
         }
@@ -131,7 +130,7 @@ public class ChiliBulletPistol extends CrossbowItem {
 
     public boolean tryLoadProjectile(LivingEntity entity, ItemStack pistolStack) {
         if (entity instanceof Player player && player.getAbilities().instabuild) {
-            // The player is creative mode.
+            // The player is creative mode
             return true;
         }
 
@@ -147,9 +146,9 @@ public class ChiliBulletPistol extends CrossbowItem {
         return true;
     }
 
-    public static boolean isReloaded(ItemStack itemStack) {
+    public static boolean isLoaded(ItemStack itemStack) {
         CompoundTag compoundTag = itemStack.getTag();
-        return compoundTag == null || (!isShot(itemStack) && !isReloading(itemStack));
+        return compoundTag == null || (!isShot(itemStack) && !isLoading(itemStack));
     }
 
     public static boolean isShot(ItemStack itemStack) {
@@ -162,14 +161,14 @@ public class ChiliBulletPistol extends CrossbowItem {
         compoundTag.putBoolean(TAG_IS_SHOT, isShot);
     }
 
-    public static boolean isReloading(ItemStack itemStack) {
+    public static boolean isLoading(ItemStack itemStack) {
         CompoundTag compoundTag = itemStack.getTag();
-        return compoundTag != null && compoundTag.getBoolean(TAG_RELOADING);
+        return compoundTag != null && compoundTag.getBoolean(TAG_LOADING);
     }
 
-    public static void setReloading(ItemStack itemStack, boolean isReloading) {
+    public static void setLoading(ItemStack itemStack, boolean isReloading) {
         CompoundTag compoundTag = itemStack.getOrCreateTag();
-        compoundTag.putBoolean(TAG_RELOADING, isReloading);
+        compoundTag.putBoolean(TAG_LOADING, isReloading);
     }
 
     public float getShootingPower() {
