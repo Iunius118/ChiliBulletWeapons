@@ -53,11 +53,9 @@ public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet> {
     }
 
     private void renderQuad(VertexConsumer vertexConsumer, Matrix4f pose, int light, Vector3f... v) {
-        if (v.length < 4) return;
-
         for (int i = 0; i < 4; i++) {
             Vector3f vertex = new Vector3f(v[i]);
-            vertexConsumer.vertex(pose, vertex.x(), vertex.y(), vertex.z()).color(255, 0, 0, 255).uv2(light).endVertex();
+            vertexConsumer.vertex(pose, vertex.x(), vertex.y(), vertex.z()).color(155, 0, 0, 255).uv2(light).endVertex();
         }
     }
 
