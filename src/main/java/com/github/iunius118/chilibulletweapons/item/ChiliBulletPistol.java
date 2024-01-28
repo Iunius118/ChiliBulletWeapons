@@ -94,9 +94,13 @@ public class ChiliBulletPistol extends CrossbowItem {
             return;
         }
 
+        // Shoot bullet entity
         ChiliBullet bullet = new ChiliBullet(player, level);
         bullet.shootFromRotation(player, shootingPower, inaccuracy);
         level.addFreshEntity(bullet);
+        // Wear out gun
+        itemStack.hurtAndBreak(1, player, e -> e.broadcastBreakEvent(hand));
+        // Play firing sound
         level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.PISTOL_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
     }
 
