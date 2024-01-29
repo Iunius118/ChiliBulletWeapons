@@ -9,6 +9,6 @@ public class ModItems {
     public static final Item CHILI_SEEDS = new Item(new Item.Properties());
     // Weapons
     public static final Item CHILI_BULLET = new Item(new Item.Properties());
-    public static final Item PISTOL = new ChiliBulletPistol(new Item.Properties().stacksTo(1).durability(512), ChiliBulletPistol.POWER_PISTOL, ChiliBulletPistol.INACCURACY_PISTOL, ChiliBulletPistol.RELOAD_PISTOL);
-    public static final Item RIFLE = new ChiliBulletPistol(new Item.Properties().stacksTo(1).durability(512), ChiliBulletPistol.POWER_RIFLE, ChiliBulletPistol.INACCURACY_RIFLE, ChiliBulletPistol.RELOAD_RIFLE);
+    public static final Item PISTOL = new ChiliBulletPistol(new Item.Properties().stacksTo(1).durability(512));
+    public static final Item RIFLE = new ChiliBulletRifle(new Item.Properties().stacksTo(1).durability(512));
 }

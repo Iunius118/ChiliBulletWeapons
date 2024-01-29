@@ -1,7 +1,7 @@
 package com.github.iunius118.chilibulletweapons.client;
 
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
-import com.github.iunius118.chilibulletweapons.item.ChiliBulletPistol;
+import com.github.iunius118.chilibulletweapons.item.ChiliBulletGun;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -17,6 +17,6 @@ public class ChiliBulletWeaponsClient {
     }
 
     public static void registerItemProperties() {
-        ItemProperties.registerGeneric(ChiliBulletPistol.PROPERTY_LOADING, (stack, l, e, i) -> ChiliBulletPistol.isLoading(stack) ? 1.0F : 0.0F);
+        ItemProperties.registerGeneric(ChiliBulletGun.PROPERTY_LOADING, (stack, l, e, i) -> ChiliBulletGun.isLoading(stack) ? 1.0F : 0.0F);
     }
 }

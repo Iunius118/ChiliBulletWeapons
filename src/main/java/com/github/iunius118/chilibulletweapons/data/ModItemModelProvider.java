@@ -1,6 +1,6 @@
 package com.github.iunius118.chilibulletweapons.data;
 
-import com.github.iunius118.chilibulletweapons.item.ChiliBulletPistol;
+import com.github.iunius118.chilibulletweapons.item.ChiliBulletGun;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -52,7 +52,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                     .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).scale(0.85F).rotation(-40F, -90F, 0F).translation(0F, 1F, -0.25F).end()
                     .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).scale(0.85F).rotation(-40F, 90F, 0F).translation(0F, 1F, -0.25F).end()
                     .end()
-                .override().predicate(ChiliBulletPistol.PROPERTY_LOADING, 1F).model(new ModelFile.UncheckedModelFile(loading_model)).end();
+                .override().predicate(ChiliBulletGun.PROPERTY_LOADING, 1F).model(new ModelFile.UncheckedModelFile(loading_model)).end();
 
         getBuilder(item_name + "_loading").parent(modelFile).texture("layer0", loading_model.getPath())
                 .transforms()
@@ -80,7 +80,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                     .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).scale(0.85F).rotation(-40F, -90F, 0F).translation(0F, 0.5F, -2.2F).end()
                     .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).scale(0.85F).rotation(-40F, 90F, 0F).translation(0F, 0.5F, -2.2F).end()
                 .end()
-                .override().predicate(ChiliBulletPistol.PROPERTY_LOADING, 1F).model(new ModelFile.UncheckedModelFile(loading_model)).end();
+                .override().predicate(ChiliBulletGun.PROPERTY_LOADING, 1F).model(new ModelFile.UncheckedModelFile(loading_model)).end();
 
         getBuilder(item_name + "_loading").parent(modelFile).texture("layer0", loading_model.getPath())
                 .transforms()
