@@ -46,6 +46,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('g', ModItems.PISTOL)
                 .unlockedBy("has_pistol", has(ModItems.PISTOL))
                 .save(recipeOutput, getItemId(ModItems.RIFLE));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.SHOTGUN)
+                .pattern("ii ")
+                .pattern(" ii")
+                .pattern(" pg")
+                .define('i', Tags.Items.INGOTS_IRON)
+                .define('p', ItemTags.PLANKS)
+                .define('g', ModItems.PISTOL)
+                .unlockedBy("has_pistol", has(ModItems.PISTOL))
+                .save(recipeOutput, getItemId(ModItems.SHOTGUN));
     }
 
     private ResourceLocation getItemId(Item item) {

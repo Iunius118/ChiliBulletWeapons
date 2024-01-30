@@ -30,6 +30,7 @@ public class ModLanguageProvider extends LanguageProvider {
         public final String chiliBulletName = "Chili Bullet";
         public final String pistolName = "Chili Bullet Pistol";
         public final String rifleName = "Chili Bullet Rifle";
+        public final String shotgunName = "Chili Bullet Shotgun";
 
         public final String chiliBulletEntityName = "Chili Bullet";
 
@@ -49,6 +50,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CHILI_BULLET, translatedNameProvider.chiliBulletName);
         add(ModItems.PISTOL, translatedNameProvider.pistolName);
         add(ModItems.RIFLE, translatedNameProvider.rifleName);
+        add(ModItems.SHOTGUN, translatedNameProvider.shotgunName);
 
         // Entity
         add(ModEntityTypes.CHILI_BULLET, translatedNameProvider.chiliBulletEntityName);

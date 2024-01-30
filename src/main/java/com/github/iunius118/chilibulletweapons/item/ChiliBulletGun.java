@@ -9,12 +9,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
@@ -24,16 +25,17 @@ import java.util.function.Predicate;
 public class ChiliBulletGun extends CrossbowItem {
     public static final Predicate<ItemStack> IS_CHILI_BULLET = itemStack -> itemStack.is(ModItems.CHILI_BULLET);
     public static final ResourceLocation PROPERTY_LOADING = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "loading");
+    public static final String TAG_LOADING = "Loading";
+    public static final String TAG_LOADED_BULLETS = "LoadedBullets";
 
-    private static final String TAG_IS_SHOT = "IsShot";
-    private static final String TAG_LOADING = "Loading";
-
+    private final int maxLoadedBullets;
     private final float shootingPower;
     private final float inaccuracy;
     private final int reloadDuration;
 
-    public ChiliBulletGun(Properties properties, float shootingPower, float inaccuracy, int reloadDuration) {
+    public ChiliBulletGun(Properties properties, int maxLoadedBullets, float shootingPower, float inaccuracy, int reloadDuration) {
         super(properties);
+        this.maxLoadedBullets = maxLoadedBullets;
         this.shootingPower = shootingPower;
         this.inaccuracy = inaccuracy;
         this.reloadDuration = reloadDuration;
@@ -50,23 +52,14 @@ public class ChiliBulletGun extends CrossbowItem {
     }
 
     @Override
-    public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int i, boolean b) {
-        if (!itemStack.hasTag()) {
-            // For using crossbow animation
-            setCharged(itemStack, true);
-        }
-    }
-
-    @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack itemStack = player.getItemInHand(hand);
 
-        if (isLoaded(itemStack)) {
+        if (isLoaded(itemStack) && !isLoading(itemStack)) {
             // Shoot
             shootProjectile(level, player, hand, itemStack, getShootingPower(), getInaccuracy());
-            setShot(itemStack, true);
-            // For using crossbow animation
-            setCharged(itemStack, false);
+            setLoaded(itemStack, false);
+            setBullets(itemStack, 0);
             return InteractionResultHolder.consume(itemStack);
         } else if (!player.getProjectile(itemStack).isEmpty()) {
             // Begin loading
@@ -88,21 +81,27 @@ public class ChiliBulletGun extends CrossbowItem {
             return;
         }
 
-        // Shoot bullet entity
-        ChiliBullet bullet = new ChiliBullet(player, level);
-        bullet.shootFromRotation(player, shootingPower, inaccuracy);
-        level.addFreshEntity(bullet);
+        int bullets = getBullets(itemStack);
+
+        for (int i = 0; i < bullets; i++) {
+            // Shoot bullet entity
+            ChiliBullet bullet = new ChiliBullet(player, level);
+            bullet.shootFromRotation(player, shootingPower, inaccuracy);
+            level.addFreshEntity(bullet);
+            // Play firing sound
+            level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.GUN_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+        }
+
         // Wear out gun
-        itemStack.hurtAndBreak(1, player, e -> e.broadcastBreakEvent(hand));
-        // Play firing sound
-        level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.PISTOL_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+        itemStack.hurtAndBreak(bullets, player, e -> e.broadcastBreakEvent(hand));
     }
 
     @Override
     public void releaseUsing(ItemStack itemStack, Level level, LivingEntity entity, int ticks) {
-        if ((itemStack.getUseDuration() - ticks) >= getReloadDuration() && !isCharged(itemStack) && !isShot(itemStack)) {
-            // For using crossbow animation
-            setCharged(itemStack, true);
+        // ChiliBulletWeapons.LOGGER.debug("Release {}/{}", itemStack.getUseDuration() - ticks, getReloadDuration());
+        if ((itemStack.getUseDuration() - ticks) >= getReloadDuration(itemStack) && !isLoaded(itemStack)) {
+            // Ready to fire
+            setLoaded(itemStack, true);
         }
     }
 
@@ -113,7 +112,9 @@ public class ChiliBulletGun extends CrossbowItem {
             return;
         }
 
-        if ((itemStack.getUseDuration() - ticks) >= getReloadDuration()
+        // ChiliBulletWeapons.LOGGER.debug("Using {}/{}", itemStack.getUseDuration() - ticks, getReloadDuration());
+
+        if ((itemStack.getUseDuration() - ticks) >= getReloadDuration(itemStack)
                 && isLoading(itemStack) && tryLoadProjectile(entity, itemStack)) {
             // Finish loading
             setLoading(itemStack, false);
@@ -122,40 +123,40 @@ public class ChiliBulletGun extends CrossbowItem {
     }
 
     public int getUseDuration(ItemStack itemStack) {
-        return getReloadDuration() + 3;
+        return getReloadDuration(itemStack) + 3;
     }
 
-    public boolean tryLoadProjectile(LivingEntity entity, ItemStack pistolStack) {
+    public boolean tryLoadProjectile(LivingEntity entity, ItemStack itemStack) {
+        // Apply Multi-shot enchantment
+        int multiShotLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MULTISHOT, itemStack);
+        int loadingBullets = (multiShotLevel == 0) ? maxLoadedBullets : maxLoadedBullets * 2;
+
         if (entity instanceof Player player && player.getAbilities().instabuild) {
-            // The player is creative mode
+            // For creative mode player
+            setBullets(itemStack, loadingBullets);
             return true;
         }
 
-        ItemStack bulletStack = entity.getProjectile(pistolStack);
+        ItemStack bulletStack = entity.getProjectile(itemStack);
 
         if (bulletStack.isEmpty()) {
-            // The player had no ammo
+            // Player had no ammo
             return false;
         }
 
         // Load ammo
-        bulletStack.shrink(1);
+        int bullets = Math.min(bulletStack.getCount(), loadingBullets);
+        setBullets(itemStack, bullets);
+        bulletStack.shrink(bullets);
         return true;
     }
 
     public static boolean isLoaded(ItemStack itemStack) {
-        CompoundTag compoundTag = itemStack.getTag();
-        return compoundTag == null || (!isShot(itemStack) && !isLoading(itemStack));
+        return isCharged(itemStack);
     }
 
-    public static boolean isShot(ItemStack itemStack) {
-        CompoundTag compoundTag = itemStack.getTag();
-        return compoundTag != null && compoundTag.getBoolean(TAG_IS_SHOT);
-    }
-
-    public static void setShot(ItemStack itemStack, boolean isShot) {
-        CompoundTag compoundTag = itemStack.getOrCreateTag();
-        compoundTag.putBoolean(TAG_IS_SHOT, isShot);
+    public static void setLoaded(ItemStack itemStack, boolean isLoaded) {
+        setCharged(itemStack, isLoaded);
     }
 
     public static boolean isLoading(ItemStack itemStack) {
@@ -168,6 +169,16 @@ public class ChiliBulletGun extends CrossbowItem {
         compoundTag.putBoolean(TAG_LOADING, isReloading);
     }
 
+    public static int getBullets(ItemStack itemStack) {
+        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        return compoundTag.getInt(TAG_LOADED_BULLETS);
+    }
+
+    public static void setBullets(ItemStack itemStack, int count) {
+        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        compoundTag.putInt(TAG_LOADED_BULLETS, count);
+    }
+
     public float getShootingPower() {
         return shootingPower;
     }
@@ -176,8 +187,10 @@ public class ChiliBulletGun extends CrossbowItem {
         return inaccuracy;
     }
 
-    public int getReloadDuration() {
-        return reloadDuration;
+    public int getReloadDuration(ItemStack itemStack) {
+        // Apply Quick Charge enchantment
+        int quickChargeLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.QUICK_CHARGE, itemStack);
+        return quickChargeLevel == 0 ? reloadDuration : reloadDuration - 4 * quickChargeLevel;
     }
 
     @Override

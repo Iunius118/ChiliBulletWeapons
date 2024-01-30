@@ -24,6 +24,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.CHILI_BULLET);
         registerPistolModel(ModItems.PISTOL);
         registerRifleModel(ModItems.RIFLE);
+        registerRifleModel(ModItems.SHOTGUN);
     }
 
     private void registerSimpleItemModel(Item item, ModelFile modelFile, String suffix) {

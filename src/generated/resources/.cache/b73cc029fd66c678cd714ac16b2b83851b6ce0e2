@@ -1,4 +1,4 @@
-// 1.20.2	2024-01-28T15:17:17.096551	Item Models: chilibulletweapons
+// 1.20.2	2024-01-30T23:53:36.41706	Item Models: chilibulletweapons
 04beba56d579567ec03732bb1a44732542ba09f7 assets/chilibulletweapons/models/item/bullet_chili.json
 c72ccf8655f70e093a1217bb47c35588780cf82c assets/chilibulletweapons/models/item/chili_bullet.json
 39e01a1aefb4267141f1d6af8e17bd92d680705d assets/chilibulletweapons/models/item/chili_seeds.json
@@ -7,3 +7,5 @@ df6e2ea95e54156cd93e1d38731be6850bf42277 assets/chilibulletweapons/models/item/c
 b91d83551b5698267eee91a1ee1c54a200533304 assets/chilibulletweapons/models/item/pistol_loading.json
 30b533b0126f65c5d5c65ad319252689b0aa62de assets/chilibulletweapons/models/item/rifle.json
 fbb13241c3536931bcd1dbb69cca73dda6bd7c53 assets/chilibulletweapons/models/item/rifle_loading.json
+c3ec7bbdd9cdc8f24e2e292898f6502c07232581 assets/chilibulletweapons/models/item/shotgun.json
+a1a4e1f2366bfc08a5babe94daf7499a4bec3933 assets/chilibulletweapons/models/item/shotgun_loading.json

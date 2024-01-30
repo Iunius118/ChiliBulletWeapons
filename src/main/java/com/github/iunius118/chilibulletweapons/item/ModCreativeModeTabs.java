@@ -17,6 +17,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.CHILI_BULLET);
                 output.accept(ModItems.PISTOL);
                 output.accept(ModItems.RIFLE);
+                output.accept(ModItems.SHOTGUN);
             })
             .build();
 }
