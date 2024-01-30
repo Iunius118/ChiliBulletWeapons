@@ -33,8 +33,8 @@ public class ModLanguageProvider extends LanguageProvider {
 
         public final String chiliBulletEntityName = "Chili Bullet";
 
-        public final String subtitlePistolShoot = "Chili Bullet gun fires";
-        public final String subtitlePistolActionClose = "Chili Bullet gun loads";
+        public final String subtitleGunShoot = "Chili Bullet gun fires";
+        public final String subtitleGunActionClose = "Chili Bullet gun loads";
     }
 
     @Override
@@ -54,8 +54,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModEntityTypes.CHILI_BULLET, translatedNameProvider.chiliBulletEntityName);
 
         // Subtitles
-        add(ModSoundEvents.PISTOL_SHOOT, translatedNameProvider.subtitlePistolShoot);
-        add(ModSoundEvents.PISTOL_ACTION_CLOSE, translatedNameProvider.subtitlePistolActionClose);
+        add(ModSoundEvents.GUN_SHOOT, translatedNameProvider.subtitleGunShoot);
+        add(ModSoundEvents.GUN_ACTION_CLOSE, translatedNameProvider.subtitleGunActionClose);
     }
 
     private void add(SoundEvent soundEvent, String name) {

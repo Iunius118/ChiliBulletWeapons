@@ -7,6 +7,6 @@
   "item.chilibulletweapons.pistol": "Chili Bullet Pistol",
   "item.chilibulletweapons.rifle": "Chili Bullet Rifle",
   "itemGroup.chilibulletweapons.main": "Chili Bullet Weapons",
-  "subtitles.item.chilibulletweapons.pistol.action_close": "Chili Bullet gun loads",
-  "subtitles.item.chilibulletweapons.pistol.shoot": "Chili Bullet gun fires"
+  "subtitles.item.chilibulletweapons.gun.action_close": "Chili Bullet gun loads",
+  "subtitles.item.chilibulletweapons.gun.shoot": "Chili Bullet gun fires"
 }

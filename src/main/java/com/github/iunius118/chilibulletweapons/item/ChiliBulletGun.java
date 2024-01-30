@@ -72,7 +72,7 @@ public class ChiliBulletGun extends CrossbowItem {
             // Begin loading
             if (!isLoading(itemStack)) {
                 setLoading(itemStack, true);
-                level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.PISTOL_ACTION_OPEN, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+                level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.GUN_ACTION_OPEN, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
             }
 
             player.startUsingItem(hand);
@@ -117,8 +117,7 @@ public class ChiliBulletGun extends CrossbowItem {
                 && isLoading(itemStack) && tryLoadProjectile(entity, itemStack)) {
             // Finish loading
             setLoading(itemStack, false);
-            setShot(itemStack, false);
-            level.playSound(null, entity.getX(), entity.getY(), entity.getZ(), ModSoundEvents.PISTOL_ACTION_CLOSE, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+            level.playSound(null, entity.getX(), entity.getY(), entity.getZ(), ModSoundEvents.GUN_ACTION_CLOSE, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
         }
     }
 

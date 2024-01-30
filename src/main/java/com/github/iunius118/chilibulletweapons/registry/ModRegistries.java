@@ -42,9 +42,9 @@ public class ModRegistries {
     private static void registerSoundEvents(IEventBus modEventBus) {
         var soundEventRegister = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, ChiliBulletWeapons.MOD_ID);
 
-        soundEventRegister.register("item_pistol_shoot", () -> ModSoundEvents.PISTOL_SHOOT);
-        soundEventRegister.register("item_pistol_action_open", () -> ModSoundEvents.PISTOL_ACTION_OPEN);
-        soundEventRegister.register("item_pistol_action_close", () -> ModSoundEvents.PISTOL_ACTION_CLOSE);
+        soundEventRegister.register("item_gun_shoot", () -> ModSoundEvents.GUN_SHOOT);
+        soundEventRegister.register("item_gun_action_open", () -> ModSoundEvents.GUN_ACTION_OPEN);
+        soundEventRegister.register("item_gun_action_close", () -> ModSoundEvents.GUN_ACTION_CLOSE);
 
         soundEventRegister.register(modEventBus);
     }
