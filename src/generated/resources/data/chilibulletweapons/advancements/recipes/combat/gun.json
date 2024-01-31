@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "chilibulletweapons:pistol"
+        "recipe": "chilibulletweapons:gun"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "chilibulletweapons:pistol"
+      "chilibulletweapons:gun"
     ]
   },
   "sends_telemetry_event": false

@@ -2,6 +2,7 @@ package com.github.iunius118.chilibulletweapons.data;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
+import com.github.iunius118.chilibulletweapons.item.ChiliBulletGun;
 import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
@@ -24,18 +25,22 @@ public class ModLanguageProvider extends LanguageProvider {
     }
 
     public static class TranslatedNameProvider {
+        // Items
         public final String bulletChiliName = "Bullet-like Chili Pepper";
         public final String curvedChiliName = "Curved Chili Pepper";
         public final String chiliSeedsName = "Chili Pepper Seeds";
         public final String chiliBulletName = "Chili Bullet";
+        public final String gunName = "Chili Bullet Gun";
         public final String pistolName = "Chili Bullet Pistol";
         public final String rifleName = "Chili Bullet Rifle";
         public final String shotgunName = "Chili Bullet Shotgun";
 
+        // Entity
         public final String chiliBulletEntityName = "Chili Bullet";
 
-        public final String subtitleGunShoot = "Chili Bullet gun fires";
-        public final String subtitleGunActionClose = "Chili Bullet gun loads";
+        // Subtitles
+        public final String subtitleGunShoot = "Chili Bullet Gun fires";
+        public final String subtitleGunActionClose = "Chili Bullet Gun loads";
     }
 
     @Override
@@ -48,9 +53,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CURVED_CHILI, translatedNameProvider.curvedChiliName);
         add(ModItems.CHILI_SEEDS, translatedNameProvider.chiliSeedsName);
         add(ModItems.CHILI_BULLET, translatedNameProvider.chiliBulletName);
-        add(ModItems.PISTOL, translatedNameProvider.pistolName);
-        add(ModItems.RIFLE, translatedNameProvider.rifleName);
-        add(ModItems.SHOTGUN, translatedNameProvider.shotgunName);
+        add(ModItems.GUN, translatedNameProvider.gunName);
+        add(ChiliBulletGun.DESCRIPTION_PISTOL, translatedNameProvider.pistolName);
+        add(ChiliBulletGun.DESCRIPTION_RIFLE, translatedNameProvider.rifleName);
+        add(ChiliBulletGun.DESCRIPTION_SHOTGUN, translatedNameProvider.shotgunName);
 
         // Entity
         add(ModEntityTypes.CHILI_BULLET, translatedNameProvider.chiliBulletEntityName);

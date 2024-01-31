@@ -4,10 +4,11 @@
   "item.chilibulletweapons.chili_bullet": "Chili Bullet",
   "item.chilibulletweapons.chili_seeds": "Chili Pepper Seeds",
   "item.chilibulletweapons.curved_chili": "Curved Chili Pepper",
-  "item.chilibulletweapons.pistol": "Chili Bullet Pistol",
-  "item.chilibulletweapons.rifle": "Chili Bullet Rifle",
-  "item.chilibulletweapons.shotgun": "Chili Bullet Shotgun",
+  "item.chilibulletweapons.gun": "Chili Bullet Gun",
+  "item.chilibulletweapons.gun.pistol": "Chili Bullet Pistol",
+  "item.chilibulletweapons.gun.rifle": "Chili Bullet Rifle",
+  "item.chilibulletweapons.gun.shotgun": "Chili Bullet Shotgun",
   "itemGroup.chilibulletweapons.main": "Chili Bullet Weapons",
-  "subtitles.item.chilibulletweapons.gun.action_close": "Chili Bullet gun loads",
-  "subtitles.item.chilibulletweapons.gun.shoot": "Chili Bullet gun fires"
+  "subtitles.item.chilibulletweapons.gun.action_close": "Chili Bullet Gun loads",
+  "subtitles.item.chilibulletweapons.gun.shoot": "Chili Bullet Gun fires"
 }

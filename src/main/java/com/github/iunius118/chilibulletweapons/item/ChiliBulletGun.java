@@ -14,31 +14,42 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
 public class ChiliBulletGun extends CrossbowItem {
     public static final Predicate<ItemStack> IS_CHILI_BULLET = itemStack -> itemStack.is(ModItems.CHILI_BULLET);
     public static final ResourceLocation PROPERTY_LOADING = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "loading");
+    public static final ResourceLocation PROPERTY_MULTISHOT = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "multishot");
+    public static final ResourceLocation PROPERTY_PIERCING = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "piercing");
     public static final String TAG_LOADING = "Loading";
     public static final String TAG_LOADED_BULLETS = "LoadedBullets";
+    public static final String DESCRIPTION_PISTOL = "item.chilibulletweapons.gun.pistol";
+    public static final String DESCRIPTION_RIFLE = "item.chilibulletweapons.gun.rifle";
+    public static final String DESCRIPTION_SHOTGUN = "item.chilibulletweapons.gun.shotgun";
 
-    private final int maxLoadedBullets;
-    private final float shootingPower;
-    private final float inaccuracy;
-    private final int reloadDuration;
+    public static final int ENCHANTMENT_VALUE = 10;
+    public static final int CAPACITY_BASIC = 1;
+    public static final int CAPACITY_MULTISHOT = 4;
+    public static final float POWER_BASIC = 3F;
+    public static final float POWER_PIERCING = 4F;
+    public static final float INACCURACY_BASIC = 1F;
+    public static final float INACCURACY_PIERCING = 0.5F;
+    public static final float INACCURACY_MULTISHOT = 5F;
+    public static final int RELOAD_BASIC = 20;
+    public static final int RELOAD_MULTISHOT = 28;
+    public static final int RELOAD_PER_QUICK_CHARGE = 4;
 
-    public ChiliBulletGun(Properties properties, int maxLoadedBullets, float shootingPower, float inaccuracy, int reloadDuration) {
+    public ChiliBulletGun(Properties properties) {
         super(properties);
-        this.maxLoadedBullets = maxLoadedBullets;
-        this.shootingPower = shootingPower;
-        this.inaccuracy = inaccuracy;
-        this.reloadDuration = reloadDuration;
     }
 
     @Override
@@ -57,7 +68,7 @@ public class ChiliBulletGun extends CrossbowItem {
 
         if (isLoaded(itemStack) && !isLoading(itemStack)) {
             // Shoot
-            shootProjectile(level, player, hand, itemStack, getShootingPower(), getInaccuracy());
+            shootProjectile(level, player, hand, itemStack);
             setLoaded(itemStack, false);
             setBullets(itemStack, 0);
             return InteractionResultHolder.consume(itemStack);
@@ -75,13 +86,15 @@ public class ChiliBulletGun extends CrossbowItem {
         }
     }
 
-    public void shootProjectile(Level level, Player player, InteractionHand hand, ItemStack itemStack, float shootingPower, float inaccuracy) {
+    public void shootProjectile(Level level, Player player, InteractionHand hand, ItemStack itemStack) {
         // Server side only
         if (level.isClientSide) {
             return;
         }
 
-        int bullets = getBullets(itemStack);
+        final float shootingPower = getShootingPower(itemStack);
+        final float inaccuracy = getInaccuracy(itemStack);
+        final int bullets = getBullets(itemStack);
 
         for (int i = 0; i < bullets; i++) {
             // Shoot bullet entity
@@ -127,9 +140,8 @@ public class ChiliBulletGun extends CrossbowItem {
     }
 
     public boolean tryLoadProjectile(LivingEntity entity, ItemStack itemStack) {
-        // Apply Multi-shot enchantment
-        int multiShotLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MULTISHOT, itemStack);
-        int loadingBullets = (multiShotLevel == 0) ? maxLoadedBullets : maxLoadedBullets * 2;
+        // Apply Multishot enchantment
+        final int loadingBullets = (getMultishotLevel(itemStack) == 0) ? CAPACITY_BASIC : CAPACITY_MULTISHOT;
 
         if (entity instanceof Player player && player.getAbilities().instabuild) {
             // For creative mode player
@@ -179,18 +191,50 @@ public class ChiliBulletGun extends CrossbowItem {
         compoundTag.putInt(TAG_LOADED_BULLETS, count);
     }
 
-    public float getShootingPower() {
-        return shootingPower;
+    public static int getQuickChargeLevel(ItemStack itemStack) {
+        return EnchantmentHelper.getItemEnchantmentLevel(Enchantments.QUICK_CHARGE, itemStack);
     }
 
-    public float getInaccuracy() {
-        return inaccuracy;
+    public static int getMultishotLevel(ItemStack itemStack) {
+        return EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MULTISHOT, itemStack);
+    }
+
+    public static int getPiercingLevel(ItemStack itemStack) {
+        return EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PIERCING, itemStack);
+    }
+
+    public float getShootingPower(ItemStack itemStack) {
+        // Apply Piercing enchantment
+        return (getPiercingLevel(itemStack) == 0) ? POWER_BASIC : POWER_PIERCING;
+    }
+
+    public float getInaccuracy(ItemStack itemStack) {
+        // Apply enchantments;
+        if (getMultishotLevel(itemStack) != 0) {
+            return INACCURACY_MULTISHOT;
+        } else if (getPiercingLevel(itemStack) != 0) {
+            return INACCURACY_PIERCING;
+        } else {
+            return INACCURACY_BASIC;
+        }
     }
 
     public int getReloadDuration(ItemStack itemStack) {
-        // Apply Quick Charge enchantment
-        int quickChargeLevel = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.QUICK_CHARGE, itemStack);
-        return quickChargeLevel == 0 ? reloadDuration : reloadDuration - 4 * quickChargeLevel;
+        // Apply Quick Charge and Multishot enchantments
+        int basicDuration = (getMultishotLevel(itemStack) == 0) ? RELOAD_BASIC : RELOAD_MULTISHOT;
+        int quickChargeLevel = getQuickChargeLevel(itemStack);
+        return (quickChargeLevel == 0) ? basicDuration : basicDuration - RELOAD_PER_QUICK_CHARGE * quickChargeLevel;
+    }
+
+    public static ItemStack enchant(ItemLike item, Enchantment... enchantments) {
+        ItemStack itemStack = new ItemStack(item);
+        Arrays.asList(enchantments).forEach(e -> itemStack.enchant(e, e.getMaxLevel()));
+        return itemStack;
+    }
+
+    @Override
+    public int getEnchantmentValue() {
+        return ENCHANTMENT_VALUE;
     }
 
     @Override
@@ -200,5 +244,17 @@ public class ChiliBulletGun extends CrossbowItem {
 
     @Override
     public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> componentList, TooltipFlag tooltipFlag) {
+    }
+
+    @Override
+    public String getDescriptionId(ItemStack itemStack) {
+        // Change item display name by enchantment
+        if (getMultishotLevel(itemStack) != 0) {
+            return DESCRIPTION_SHOTGUN;
+        } else if (getPiercingLevel(itemStack) != 0) {
+            return DESCRIPTION_RIFLE;
+        } else {
+            return DESCRIPTION_PISTOL;
+        }
     }
 }

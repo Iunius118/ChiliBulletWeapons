@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "g": {
-      "item": "chilibulletweapons:pistol"
+    "b": {
+      "item": "chilibulletweapons:chili_bullet"
     },
     "i": {
       "tag": "forge:ingots/iron"
@@ -13,12 +13,12 @@
     }
   },
   "pattern": [
-    "ii ",
-    " ii",
-    " pg"
+    "i  ",
+    " i ",
+    " pb"
   ],
   "result": {
-    "item": "chilibulletweapons:shotgun"
+    "item": "chilibulletweapons:gun"
   },
   "show_notification": true
 }

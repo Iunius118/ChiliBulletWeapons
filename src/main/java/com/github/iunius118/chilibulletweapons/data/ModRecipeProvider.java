@@ -27,7 +27,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_bullet_chili", has(ModItems.BULLET_CHILI))
                 .save(recipeOutput, getItemId(ModItems.CHILI_BULLET));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.PISTOL)
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.GUN)
                 .pattern("i  ")
                 .pattern(" i ")
                 .pattern(" pb")
@@ -35,27 +35,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('p', ItemTags.PLANKS)
                 .define('b', ModItems.CHILI_BULLET)
                 .unlockedBy("has_chili_bullet", has(ModItems.CHILI_BULLET))
-                .save(recipeOutput, getItemId(ModItems.PISTOL));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.RIFLE)
-                .pattern("i  ")
-                .pattern(" i ")
-                .pattern(" pg")
-                .define('i', Tags.Items.INGOTS_IRON)
-                .define('p', ItemTags.PLANKS)
-                .define('g', ModItems.PISTOL)
-                .unlockedBy("has_pistol", has(ModItems.PISTOL))
-                .save(recipeOutput, getItemId(ModItems.RIFLE));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.SHOTGUN)
-                .pattern("ii ")
-                .pattern(" ii")
-                .pattern(" pg")
-                .define('i', Tags.Items.INGOTS_IRON)
-                .define('p', ItemTags.PLANKS)
-                .define('g', ModItems.PISTOL)
-                .unlockedBy("has_pistol", has(ModItems.PISTOL))
-                .save(recipeOutput, getItemId(ModItems.SHOTGUN));
+                .save(recipeOutput, getItemId(ModItems.GUN));
     }
 
     private ResourceLocation getItemId(Item item) {

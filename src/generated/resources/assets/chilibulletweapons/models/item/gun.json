@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "chilibulletweapons:item/pistol",
+      "predicate": {}
+    },
+    {
+      "model": "chilibulletweapons:item/pistol_loading",
+      "predicate": {
+        "chilibulletweapons:loading": 1.0
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/rifle",
+      "predicate": {
+        "chilibulletweapons:piercing": 1.0
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/rifle_loading",
+      "predicate": {
+        "chilibulletweapons:loading": 1.0,
+        "chilibulletweapons:piercing": 1.0
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/shotgun",
+      "predicate": {
+        "chilibulletweapons:multishot": 1.0
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/shotgun_loading",
+      "predicate": {
+        "chilibulletweapons:loading": 1.0,
+        "chilibulletweapons:multishot": 1.0
+      }
+    }
+  ]
+}

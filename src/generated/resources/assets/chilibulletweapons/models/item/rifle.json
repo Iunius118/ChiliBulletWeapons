@@ -70,14 +70,6 @@
       ]
     }
   },
-  "overrides": [
-    {
-      "model": "chilibulletweapons:item/rifle_loading",
-      "predicate": {
-        "chilibulletweapons:loading": 1.0
-      }
-    }
-  ],
   "textures": {
     "layer0": "chilibulletweapons:item/rifle"
   }

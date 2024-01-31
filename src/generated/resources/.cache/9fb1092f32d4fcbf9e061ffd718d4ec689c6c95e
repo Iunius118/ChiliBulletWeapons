@@ -1,11 +1,7 @@
-// 1.20.2	2024-01-30T23:53:36.4208141	Recipes
+// 1.20.2	2024-01-31T18:47:45.6050551	Recipes
 49b64d298cf5b719096b1b798ef1e5527dffc463 data/chilibulletweapons/advancements/recipes/combat/chili_bullet.json
-ac1487e7729b1f7f406b748671a1ac86a46408c2 data/chilibulletweapons/advancements/recipes/combat/pistol.json
-33f4d675c028d7cd3a3dc5f0d0e72c7dcb55cd78 data/chilibulletweapons/advancements/recipes/combat/rifle.json
-d200d0b88d1406ea250861e48bd1c2a8bdb9c6a6 data/chilibulletweapons/advancements/recipes/combat/shotgun.json
+a87698a84af8b7f5207171dfbc39a8c341cb412c data/chilibulletweapons/advancements/recipes/combat/gun.json
 eb0d73a1d3f05e65899f9a7a91864ee33dc2f7bd data/chilibulletweapons/advancements/recipes/misc/chili_seeds.json
 f51652659b03401db01b010acc39813e271175fe data/chilibulletweapons/recipes/chili_bullet.json
 1b2a3529775774f400cdcb4d766218ac8f646c57 data/chilibulletweapons/recipes/chili_seeds.json
-252f6fb2ee681b16e2cbf3736daf67c2488be9ad data/chilibulletweapons/recipes/pistol.json
-0e8e389e63dd9d45a020aa9c873e0fdbacdff616 data/chilibulletweapons/recipes/rifle.json
-d23e58e0de7ec16393b09583df786a902940b290 data/chilibulletweapons/recipes/shotgun.json
+eb6a06d71e7be557d85bf5852e04a2adf9eebff4 data/chilibulletweapons/recipes/gun.json
