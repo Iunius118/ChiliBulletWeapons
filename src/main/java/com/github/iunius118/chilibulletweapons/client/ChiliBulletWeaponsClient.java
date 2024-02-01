@@ -17,7 +17,7 @@ public class ChiliBulletWeaponsClient {
     public static void registerItemProperties(final FMLClientSetupEvent event) {
         ItemProperties.register(ModItems.GUN, ChiliBulletGun.PROPERTY_LOADING, (stack, l, e, i) -> ChiliBulletGun.isLoading(stack) ? 1.0F : 0.0F);
         ItemProperties.register(ModItems.GUN, ChiliBulletGun.PROPERTY_MULTISHOT, (stack, l, e, i) -> ChiliBulletGun.getMultishotLevel(stack) != 0 ? 1.0F : 0.0F);
-        ItemProperties.register(ModItems.GUN, ChiliBulletGun.PROPERTY_PIERCING, (stack, l, e, i) -> ChiliBulletGun.getPiercingLevel(stack) != 0 ? 1.0F : 0.0F);
+        ItemProperties.register(ModItems.GUN, ChiliBulletGun.PROPERTY_PIERCING, (stack, l, e, i) -> ChiliBulletGun.getPiercingLevel(stack) > 0 ? 1.0F : 0.0F);
     }
 
     public static void onRegisterEntityRenderer(final EntityRenderersEvent.RegisterRenderers event) {

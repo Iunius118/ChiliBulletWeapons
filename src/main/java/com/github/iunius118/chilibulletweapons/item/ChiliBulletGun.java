@@ -93,13 +93,18 @@ public class ChiliBulletGun extends CrossbowItem {
         }
 
         final float shootingPower = getShootingPower(itemStack);
-        final float inaccuracy = getInaccuracy(itemStack);
+        final int piercingLevel = getPiercingLevel(itemStack);
         final int bullets = getBullets(itemStack);
 
         for (int i = 0; i < bullets; i++) {
             // Shoot bullet entity
             ChiliBullet bullet = new ChiliBullet(player, level);
             bullet.shootFromRotation(player, shootingPower, inaccuracy);
+
+            if (piercingLevel > 0) {
+                bullet.setPierceLevel((byte) piercingLevel);
+            }
+
             level.addFreshEntity(bullet);
             // Play firing sound
             level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.GUN_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
@@ -112,6 +117,7 @@ public class ChiliBulletGun extends CrossbowItem {
     @Override
     public void releaseUsing(ItemStack itemStack, Level level, LivingEntity entity, int ticks) {
         // ChiliBulletWeapons.LOGGER.debug("Release {}/{}", itemStack.getUseDuration() - ticks, getReloadDuration());
+
         if ((itemStack.getUseDuration() - ticks) >= getReloadDuration(itemStack) && !isLoaded(itemStack)) {
             // Ready to fire
             setLoaded(itemStack, true);
@@ -205,7 +211,7 @@ public class ChiliBulletGun extends CrossbowItem {
 
     public float getShootingPower(ItemStack itemStack) {
         // Apply Piercing enchantment
-        return (getPiercingLevel(itemStack) == 0) ? POWER_BASIC : POWER_PIERCING;
+        return (getPiercingLevel(itemStack) <= 0) ? POWER_BASIC : POWER_PIERCING;
     }
 
     public float getInaccuracy(ItemStack itemStack) {
@@ -251,7 +257,7 @@ public class ChiliBulletGun extends CrossbowItem {
         // Change item display name by enchantment
         if (getMultishotLevel(itemStack) != 0) {
             return DESCRIPTION_SHOTGUN;
-        } else if (getPiercingLevel(itemStack) != 0) {
+        } else if (getPiercingLevel(itemStack) > 0) {
             return DESCRIPTION_RIFLE;
         } else {
             return DESCRIPTION_PISTOL;
