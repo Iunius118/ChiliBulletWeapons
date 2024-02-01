@@ -3,9 +3,11 @@ package com.github.iunius118.chilibulletweapons.item;
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -19,6 +21,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
@@ -113,12 +116,18 @@ public class ChiliBulletGun extends CrossbowItem {
             }
 
             level.addFreshEntity(bullet);
-            // Play firing sound
+            // Add firing effects
+            addSmokeParticle(level, bullet);
             level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.GUN_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
         }
 
         // Wear out gun
         itemStack.hurtAndBreak(bullets, player, e -> e.broadcastBreakEvent(hand));
+    }
+
+    private void addSmokeParticle(Level level, ChiliBullet bullet) {
+        Vec3 pos = bullet.position().add(bullet.getDeltaMovement().normalize());
+        ((ServerLevel) level).sendParticles(ParticleTypes.SMOKE, pos.x, pos.y, pos.z, 0, 0D, 0D, 0D, 2D);
     }
 
     @Override
