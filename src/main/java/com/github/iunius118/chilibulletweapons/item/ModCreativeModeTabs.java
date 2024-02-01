@@ -17,15 +17,16 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.CURVED_CHILI);
                 output.accept(ModItems.CHILI_SEEDS);
                 output.accept(ModItems.CHILI_BULLET);
+
                 // Weapons
                 output.accept(ModItems.GUN);
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING));
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.MULTISHOT));
-                output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.MULTISHOT));
+                // output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.MULTISHOT)); // For debug
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.QUICK_CHARGE));
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.QUICK_CHARGE));
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));
-                output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));
+                // output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));  // For debug
             })
             .build();
 }

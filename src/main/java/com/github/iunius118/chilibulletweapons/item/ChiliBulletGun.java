@@ -43,7 +43,7 @@ public class ChiliBulletGun extends CrossbowItem {
     public static final float POWER_PIERCING = 4F;
     public static final float INACCURACY_BASIC = 1F;
     public static final float INACCURACY_PIERCING = 0.5F;
-    public static final float INACCURACY_MULTISHOT = 5F;
+    public static final float INACCURACY_MULTISHOT_CORRECTION = 4F;
     public static final int RELOAD_BASIC = 20;
     public static final int RELOAD_MULTISHOT = 28;
     public static final int RELOAD_PER_QUICK_CHARGE = 4;
@@ -97,6 +97,13 @@ public class ChiliBulletGun extends CrossbowItem {
         final int bullets = getBullets(itemStack);
 
         for (int i = 0; i < bullets; i++) {
+            float inaccuracy = getInaccuracy(itemStack);
+
+            if (i > 0 && getMultishotLevel(itemStack) != 0) {
+                // Multishot is less accurate after the second shot
+                inaccuracy += INACCURACY_MULTISHOT_CORRECTION;
+            }
+
             // Shoot bullet entity
             ChiliBullet bullet = new ChiliBullet(player, level);
             bullet.shootFromRotation(player, shootingPower, inaccuracy);
@@ -215,14 +222,8 @@ public class ChiliBulletGun extends CrossbowItem {
     }
 
     public float getInaccuracy(ItemStack itemStack) {
-        // Apply enchantments;
-        if (getMultishotLevel(itemStack) != 0) {
-            return INACCURACY_MULTISHOT;
-        } else if (getPiercingLevel(itemStack) != 0) {
-            return INACCURACY_PIERCING;
-        } else {
-            return INACCURACY_BASIC;
-        }
+        // Apply Piercing enchantment
+        return (getPiercingLevel(itemStack) <= 0) ? INACCURACY_BASIC : INACCURACY_PIERCING;
     }
 
     public int getReloadDuration(ItemStack itemStack) {
