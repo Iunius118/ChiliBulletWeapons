@@ -1,2 +1,2 @@
 # ChiliBulletWeapons
-A Minecraft mod to add chili pepper, weapons, and foods.
+A Minecraft mod to add a chili pepper, foods, and weapons. 
