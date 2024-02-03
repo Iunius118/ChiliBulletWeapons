@@ -18,9 +18,16 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
+        // Plants
         basicItem(ModItems.BULLET_CHILI);
         basicItem(ModItems.CURVED_CHILI);
         basicItem(ModItems.CHILI_SEEDS);
+        // Foods
+        basicItem(ModItems.CHILI_CHICKEN_SANDWICH);
+        basicItem(ModItems.CHILI_FISH_SANDWICH);
+        basicItem(ModItems.CHILI_MEAT_SANDWICH);
+        basicItem(ModItems.CHILI_POTATO_SANDWICH);
+        // Weapons
         basicItem(ModItems.CHILI_BULLET);
         registerGunModels();
     }

@@ -25,10 +25,16 @@ public class ModLanguageProvider extends LanguageProvider {
     }
 
     public static class TranslatedNameProvider {
-        // Items
+        // Item.Plants
         public final String bulletChiliName = "Bullet-like Chili Pepper";
         public final String curvedChiliName = "Curved Chili Pepper";
         public final String chiliSeedsName = "Chili Pepper Seeds";
+        // Item.Foods
+        public final String chiliChickenSandwichName = "Chili Chicken Sandwich";
+        public final String chiliFishSandwichName = "Chili Fish Sandwich";
+        public final String chiliMeatSandwichName = "Chili Meat Sandwich";
+        public final String chiliPotatoSandwichName = "Chili Potato Sandwich";
+        // Item.Weapons
         public final String chiliBulletName = "Chili Bullet";
         public final String gunName = "Chili Bullet Gun";
         public final String pistolName = "Chili Bullet Pistol";
@@ -48,10 +54,16 @@ public class ModLanguageProvider extends LanguageProvider {
         // Creative mode tabs
         add(ModCreativeModeTabs.KEY_MAIN, ChiliBulletWeapons.MOD_NAME);
 
-        // Items
+        // Item.Plants
         add(ModItems.BULLET_CHILI, translatedNameProvider.bulletChiliName);
         add(ModItems.CURVED_CHILI, translatedNameProvider.curvedChiliName);
         add(ModItems.CHILI_SEEDS, translatedNameProvider.chiliSeedsName);
+        // Item.Foods
+        add(ModItems.CHILI_CHICKEN_SANDWICH, translatedNameProvider.chiliChickenSandwichName);
+        add(ModItems.CHILI_FISH_SANDWICH, translatedNameProvider.chiliFishSandwichName);
+        add(ModItems.CHILI_MEAT_SANDWICH, translatedNameProvider.chiliMeatSandwichName);
+        add(ModItems.CHILI_POTATO_SANDWICH, translatedNameProvider.chiliPotatoSandwichName);
+        // Item.Weapons
         add(ModItems.CHILI_BULLET, translatedNameProvider.chiliBulletName);
         add(ModItems.GUN, translatedNameProvider.gunName);
         add(ChiliBulletGun.DESCRIPTION_PISTOL, translatedNameProvider.pistolName);

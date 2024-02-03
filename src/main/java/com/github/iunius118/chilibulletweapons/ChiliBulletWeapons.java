@@ -1,10 +1,7 @@
 package com.github.iunius118.chilibulletweapons;
 
 import com.github.iunius118.chilibulletweapons.client.ChiliBulletWeaponsClient;
-import com.github.iunius118.chilibulletweapons.data.ModItemModelProvider;
-import com.github.iunius118.chilibulletweapons.data.ModLanguageProvider;
-import com.github.iunius118.chilibulletweapons.data.ModRecipeProvider;
-import com.github.iunius118.chilibulletweapons.data.ModSoundDefinitionsProvider;
+import com.github.iunius118.chilibulletweapons.data.*;
 import com.github.iunius118.chilibulletweapons.registry.ModRegistries;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -37,10 +34,13 @@ public class ChiliBulletWeapons {
         var packOutput = dataGenerator.getPackOutput();
         var lookupProvider = event.getLookupProvider();
         var existingFileHelper = event.getExistingFileHelper();
+        var blockTagsProvider = new ModBlockTagsProvider(packOutput, lookupProvider, ChiliBulletWeapons.MOD_ID, existingFileHelper);
 
         // Server
         final boolean includesServer = event.includeServer();
         dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput));
+        dataGenerator.addProvider(includesServer, blockTagsProvider);
+        dataGenerator.addProvider(includesServer, new ModItemTagsProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), ChiliBulletWeapons.MOD_ID, existingFileHelper));
 
         // Client
         final boolean includesClient = event.includeClient();

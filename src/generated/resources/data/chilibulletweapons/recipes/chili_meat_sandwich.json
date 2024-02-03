@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "chilibulletweapons:curved_chili"
+    },
+    {
+      "tag": "chilibulletweapons:foods/cooked_meat"
+    },
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "chilibulletweapons:chili_meat_sandwich"
+  }
+}

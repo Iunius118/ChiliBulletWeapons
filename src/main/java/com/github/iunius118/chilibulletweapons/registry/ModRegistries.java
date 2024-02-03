@@ -29,9 +29,16 @@ public class ModRegistries {
     private static void registerItems(IEventBus modEventBus) {
         var itemRegister = DeferredRegister.create(ForgeRegistries.ITEMS, ChiliBulletWeapons.MOD_ID);
 
+        // Plants
         itemRegister.register("bullet_chili", () -> ModItems.BULLET_CHILI);
         itemRegister.register("curved_chili", () -> ModItems.CURVED_CHILI);
         itemRegister.register("chili_seeds", () -> ModItems.CHILI_SEEDS);
+        // Foods
+        itemRegister.register("chili_chicken_sandwich", () -> ModItems.CHILI_CHICKEN_SANDWICH);
+        itemRegister.register("chili_fish_sandwich", () -> ModItems.CHILI_FISH_SANDWICH);
+        itemRegister.register("chili_meat_sandwich", () -> ModItems.CHILI_MEAT_SANDWICH);
+        itemRegister.register("chili_potato_sandwich", () -> ModItems.CHILI_POTATO_SANDWICH);
+        // Weapons
         itemRegister.register("chili_bullet", () -> ModItems.CHILI_BULLET);
         itemRegister.register("gun", () -> ModItems.GUN);
 
