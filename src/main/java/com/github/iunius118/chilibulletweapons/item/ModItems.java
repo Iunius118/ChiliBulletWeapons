@@ -1,12 +1,14 @@
 package com.github.iunius118.chilibulletweapons.item;
 
+import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 
 public class ModItems {
     // Plants
     public static final Item BULLET_CHILI = new Item(new Item.Properties());
     public static final Item CURVED_CHILI = new Item(new Item.Properties());
-    public static final Item CHILI_SEEDS = new Item(new Item.Properties());
+    public static final Item CHILI_SEEDS = new ItemNameBlockItem(ModBlocks.CHILI_PEPPER, new Item.Properties());
 
     // Foods
     public static final Item CHILI_CHICKEN_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_CHICKEN_SANDWICH));

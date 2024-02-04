@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.registry;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
+import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
@@ -22,6 +23,8 @@ public class ModRegistries {
 
     private static void registerBlocks(IEventBus modEventBus) {
         var blockRegister = DeferredRegister.create(ForgeRegistries.BLOCKS, ChiliBulletWeapons.MOD_ID);
+
+        blockRegister.register("chili_pepper", () -> ModBlocks.CHILI_PEPPER);
 
         blockRegister.register(modEventBus);
     }
@@ -48,6 +51,7 @@ public class ModRegistries {
     private static void registerSoundEvents(IEventBus modEventBus) {
         var soundEventRegister = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, ChiliBulletWeapons.MOD_ID);
 
+        soundEventRegister.register("block_chili_pepper_pick_chili_peppers", () -> ModSoundEvents.CHILI_PEPPER_PICK_CHILI_PEPPERS);
         soundEventRegister.register("item_gun_shoot", () -> ModSoundEvents.GUN_SHOOT);
         soundEventRegister.register("item_gun_action_open", () -> ModSoundEvents.GUN_ACTION_OPEN);
         soundEventRegister.register("item_gun_action_close", () -> ModSoundEvents.GUN_ACTION_CLOSE);

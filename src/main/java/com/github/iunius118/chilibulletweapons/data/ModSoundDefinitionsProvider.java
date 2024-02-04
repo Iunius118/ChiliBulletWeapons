@@ -28,6 +28,8 @@ public class ModSoundDefinitionsProvider extends SoundDefinitionsProvider {
                 new ResourceLocation("block/iron_trapdoor/close3"),
                 new ResourceLocation("block/iron_trapdoor/close4")};
 
+        add(ModSoundEvents.CHILI_PEPPER_PICK_CHILI_PEPPERS, getDefinition(new ResourceLocation("mob/sheep/shear"))
+                .subtitle("subtitles.item.shears.shear"));
         addSoundEventWithSubtitle(ModSoundEvents.GUN_SHOOT, new ResourceLocation("fireworks/blast1"));
         addSoundEvent(ModSoundEvents.GUN_ACTION_OPEN, actionOpenSoundLocations);
         addSoundEventWithSubtitle(ModSoundEvents.GUN_ACTION_CLOSE, actionCloseSoundLocations);
