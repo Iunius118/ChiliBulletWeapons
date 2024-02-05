@@ -5,8 +5,16 @@ import com.github.iunius118.chilibulletweapons.data.*;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.registry.ModRegistries;
 import com.mojang.logging.LogUtils;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -21,23 +29,45 @@ public class ChiliBulletWeapons {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public ChiliBulletWeapons() {
+        // Register mod event listeners
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModRegistries.registerGameObjects(modEventBus);
         modEventBus.addListener(this::gatherData);
-        modEventBus.addListener(this::registerCompostableItems);
+        modEventBus.addListener(this::onCommonSetup);
 
-        // Init client
         if (FMLLoader.getDist().isClient()) {
+            // Init client
             ChiliBulletWeaponsClient.onInitializeClient(modEventBus);
         }
+
+        // Register forge event listeners
+        MinecraftForge.EVENT_BUS.addListener(this::onLootTableLoad);
     }
 
-    private void registerCompostableItems(final FMLCommonSetupEvent event) {
+    private void onCommonSetup(final FMLCommonSetupEvent event) {
+        registerCompostableItems();
+    }
+
+    private void registerCompostableItems() {
         ComposterBlock.COMPOSTABLES.put(ModItems.BULLET_CHILI, 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.CURVED_CHILI, 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.CHILI_SEEDS, 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.CHILI_POTATO_SANDWICH, 0.85F);
+    }
+
+    private void onLootTableLoad(final LootTableLoadEvent event) {
+        ResourceLocation name = event.getName();
+
+        // Add chili pepper loot pool to short grass
+        if (name.equals(new ResourceLocation("blocks/grass"))) {
+            LootPool pool = LootPool.lootPool()
+                    .add(LootItem.lootTableItem(ModItems.CURVED_CHILI)
+                            .when(LootItemRandomChanceCondition.randomChance(0.125F))
+                            .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1)))
+                    .build();
+            event.getTable().addPool(pool);
+        }
     }
 
     private void gatherData(final GatherDataEvent event) {
