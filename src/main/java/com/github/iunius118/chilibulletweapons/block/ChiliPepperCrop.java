@@ -12,11 +12,11 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -26,6 +26,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.ToolActions;
 
 import java.util.Collections;
 import java.util.List;
@@ -63,24 +64,24 @@ public class ChiliPepperCrop extends CropBlock {
 
         if (!isHarvestable && itemStack.is(Items.BONE_MEAL)) {
             return InteractionResult.PASS;
-        } else if (isHarvestable && itemStack.is(Items.SHEARS)) {
+        } else if (isHarvestable && /* Forge */ itemStack.canPerformAction(ToolActions.SHEARS_HARVEST) /* itemStack.is(Items.SHEARS) */) {
             if (level.isClientSide) {
                 return InteractionResult.CONSUME;
             }
 
-            // Drop harvested items
-            level.playSound(null, pos, ModSoundEvents.CHILI_PEPPER_PICK_CHILI_PEPPERS, SoundSource.BLOCKS, 0.8F, 1.0F);
+            // Harvest
             List<ItemStack> dropItems = getRandomItemsFromLootTable(level, pos, blockState, itemStack);
 
             for(ItemStack dropItem : dropItems) {
+                // Drop harvested items
                 popResource(level, pos, dropItem);
             }
 
+            // Remove crop block
+            var blockstate = Blocks.AIR.defaultBlockState();
+            level.setBlockAndUpdate(pos, blockstate);
+            level.gameEvent(player, GameEvent.SHEAR, pos);
             level.playSound(null, pos, ModSoundEvents.CHILI_PEPPER_PICK_CHILI_PEPPERS, SoundSource.BLOCKS, 0.8F, 1.0F);
-            // Update block state to age 3
-            var blockstate = blockState.setValue(AGE, ChiliPepperCrop.REPRODUCTION_AGE);
-            level.setBlock(pos, blockstate, 2);
-            level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, blockstate));
 
             if (!player.getAbilities().instabuild) {
                 // Wear out shears when player is not creative mode
@@ -102,13 +103,11 @@ public class ChiliPepperCrop extends CropBlock {
 
         var lootTableLocation = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "blocks/chili_pepper");
         var lootTable = server.getLootData().getLootTable(lootTableLocation);
-        int fortuneLevel = tool.getEnchantmentLevel(Enchantments.BLOCK_FORTUNE);
         var lootParams = new LootParams.Builder((ServerLevel) level)
                 .withParameter(LootContextParams.ORIGIN, pos.getCenter())
                 .withParameter(LootContextParams.TOOL, tool)
                 .withParameter(LootContextParams.BLOCK_STATE, blockState)
-                .withLuck(fortuneLevel)
                 .create(LootContextParamSets.BLOCK);
         return lootTable.getRandomItems(lootParams);
-    };
+    }
 }
