@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_full_sandwich": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "chilibulletweapons:chili_meat_sandwich"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "chilibulletweapons:half_chili_meat_sandwich"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_full_sandwich"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "chilibulletweapons:half_chili_meat_sandwich"
+    ]
+  },
+  "sends_telemetry_event": false
+}

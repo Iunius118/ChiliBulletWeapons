@@ -27,6 +27,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.CHILI_FISH_SANDWICH);
         basicItem(ModItems.CHILI_MEAT_SANDWICH);
         basicItem(ModItems.CHILI_POTATO_SANDWICH);
+        basicItem(ModItems.HALF_CHILI_CHICKEN_SANDWICH);
+        basicItem(ModItems.HALF_CHILI_FISH_SANDWICH);
+        basicItem(ModItems.HALF_CHILI_MEAT_SANDWICH);
+        basicItem(ModItems.HALF_CHILI_POTATO_SANDWICH);
         // Weapons
         basicItem(ModItems.CHILI_BULLET);
         registerGunModels();

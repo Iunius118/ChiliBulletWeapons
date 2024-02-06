@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "chilibulletweapons:chili_fish_sandwich"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "chilibulletweapons:half_chili_fish_sandwich"
+  }
+}

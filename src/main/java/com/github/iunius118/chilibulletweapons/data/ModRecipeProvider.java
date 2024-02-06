@@ -54,6 +54,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
                 .save(recipeOutput, getItemId(ModItems.CHILI_POTATO_SANDWICH));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.HALF_CHILI_CHICKEN_SANDWICH, 2)
+                .requires(ModItems.CHILI_CHICKEN_SANDWICH)
+                .unlockedBy("has_full_sandwich", has(ModItems.CHILI_CHICKEN_SANDWICH))
+                .save(recipeOutput, getItemId(ModItems.HALF_CHILI_CHICKEN_SANDWICH));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.HALF_CHILI_FISH_SANDWICH, 2)
+                .requires(ModItems.CHILI_FISH_SANDWICH)
+                .unlockedBy("has_full_sandwich", has(ModItems.CHILI_FISH_SANDWICH))
+                .save(recipeOutput, getItemId(ModItems.HALF_CHILI_FISH_SANDWICH));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.HALF_CHILI_MEAT_SANDWICH, 2)
+                .requires(ModItems.CHILI_MEAT_SANDWICH)
+                .unlockedBy("has_full_sandwich", has(ModItems.CHILI_MEAT_SANDWICH))
+                .save(recipeOutput, getItemId(ModItems.HALF_CHILI_MEAT_SANDWICH));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.HALF_CHILI_POTATO_SANDWICH, 2)
+                .requires(ModItems.CHILI_POTATO_SANDWICH)
+                .unlockedBy("has_curved_chili", has(ModItems.CHILI_POTATO_SANDWICH))
+                .save(recipeOutput, getItemId(ModItems.HALF_CHILI_POTATO_SANDWICH));
+
         // Weapons
         ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, ModItems.CHILI_BULLET)
                 .requires(ModItems.BULLET_CHILI)

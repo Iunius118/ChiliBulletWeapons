@@ -15,6 +15,10 @@ public class ModItems {
     public static final Item CHILI_FISH_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_FISH_SANDWICH));
     public static final Item CHILI_MEAT_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_MEAT_SANDWICH));
     public static final Item CHILI_POTATO_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_POTATO_SANDWICH));
+    public static final Item HALF_CHILI_CHICKEN_SANDWICH = new Item(new Item.Properties().food(ModFoods.HALF_CHILI_CHICKEN_SANDWICH));
+    public static final Item HALF_CHILI_FISH_SANDWICH = new Item(new Item.Properties().food(ModFoods.HALF_CHILI_FISH_SANDWICH));
+    public static final Item HALF_CHILI_MEAT_SANDWICH = new Item(new Item.Properties().food(ModFoods.HALF_CHILI_MEAT_SANDWICH));
+    public static final Item HALF_CHILI_POTATO_SANDWICH = new Item(new Item.Properties().food(ModFoods.HALF_CHILI_POTATO_SANDWICH));
 
     // Weapons
     public static final Item CHILI_BULLET = new Item(new Item.Properties());

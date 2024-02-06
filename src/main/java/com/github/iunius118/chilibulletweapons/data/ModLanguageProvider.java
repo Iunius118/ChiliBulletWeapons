@@ -38,6 +38,10 @@ public class ModLanguageProvider extends LanguageProvider {
         public final String chiliFishSandwichName = "Chili Fish Sandwich";
         public final String chiliMeatSandwichName = "Chili Meat Sandwich";
         public final String chiliPotatoSandwichName = "Chili Potato Sandwich";
+        public final String halfChiliChickenSandwichName = "Half Chili Chicken Sandwich";
+        public final String halfChiliFishSandwichName = "Half Chili Fish Sandwich";
+        public final String halfChiliMeatSandwichName = "Half Chili Meat Sandwich";
+        public final String halfChiliPotatoSandwichName = "Half Chili Potato Sandwich";
         // Item.Weapons
         public final String chiliBulletName = "Chili Bullet";
         public final String gunName = "Chili Bullet Gun";
@@ -70,6 +74,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CHILI_FISH_SANDWICH, translatedNameProvider.chiliFishSandwichName);
         add(ModItems.CHILI_MEAT_SANDWICH, translatedNameProvider.chiliMeatSandwichName);
         add(ModItems.CHILI_POTATO_SANDWICH, translatedNameProvider.chiliPotatoSandwichName);
+        add(ModItems.HALF_CHILI_CHICKEN_SANDWICH, translatedNameProvider.halfChiliChickenSandwichName);
+        add(ModItems.HALF_CHILI_FISH_SANDWICH, translatedNameProvider.halfChiliFishSandwichName);
+        add(ModItems.HALF_CHILI_MEAT_SANDWICH, translatedNameProvider.halfChiliMeatSandwichName);
+        add(ModItems.HALF_CHILI_POTATO_SANDWICH, translatedNameProvider.halfChiliPotatoSandwichName);
         // Item.Weapons
         add(ModItems.CHILI_BULLET, translatedNameProvider.chiliBulletName);
         add(ModItems.GUN, translatedNameProvider.gunName);
