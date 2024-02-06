@@ -3,6 +3,20 @@
 
 ## [Unreleased]
 
+## [1.0.0-alpha.2]
+- Require Minecraft 1.20.2 and Forge 48.1.0.
+
+### Added
+- Half sandwich items.
+
+### Changed
+- Reduce nourishment of food items.
+- Reduce gun loading time.
+- Change texture image of 7th stage of Chili Pepper Crops to improve visibility.
+
+### Fixed
+- Block name of Chili Pepper Crops.
+
 ## [1.0.0-alpha.1]
-- First alpha release
+- First alpha release.
 - Require Minecraft 1.20.2 and Forge 48.1.0.
