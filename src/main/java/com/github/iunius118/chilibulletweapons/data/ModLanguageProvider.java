@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.data;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
+import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ChiliBulletGun;
 import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
@@ -25,6 +26,9 @@ public class ModLanguageProvider extends LanguageProvider {
     }
 
     public static class TranslatedNameProvider {
+        // Block
+        public final String chiliPepperCropName = "Chili Pepper Crops";
+
         // Item.Plants
         public final String bulletChiliName = "Bullet-like Chili Pepper";
         public final String curvedChiliName = "Curved Chili Pepper";
@@ -53,6 +57,9 @@ public class ModLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
         // Creative mode tabs
         add(ModCreativeModeTabs.KEY_MAIN, ChiliBulletWeapons.MOD_NAME);
+
+        // Block
+        add(ModBlocks.CHILI_PEPPER, translatedNameProvider.chiliPepperCropName);
 
         // Item.Plants
         add(ModItems.BULLET_CHILI, translatedNameProvider.bulletChiliName);
