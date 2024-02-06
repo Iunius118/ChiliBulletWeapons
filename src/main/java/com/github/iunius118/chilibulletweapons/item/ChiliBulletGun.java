@@ -47,9 +47,9 @@ public class ChiliBulletGun extends CrossbowItem {
     public static final float INACCURACY_BASIC = 1F;
     public static final float INACCURACY_PIERCING = 0.5F;
     public static final float INACCURACY_MULTISHOT_CORRECTION = 4F;
-    public static final int RELOAD_BASIC = 20;
-    public static final int RELOAD_MULTISHOT = 28;
-    public static final int RELOAD_PER_QUICK_CHARGE = 4;
+    public static final int RELOAD_BASIC = 14;
+    public static final int RELOAD_MULTISHOT = 22;
+    public static final int RELOAD_PER_QUICK_CHARGE = 2;
 
     public ChiliBulletGun(Properties properties) {
         super(properties);
