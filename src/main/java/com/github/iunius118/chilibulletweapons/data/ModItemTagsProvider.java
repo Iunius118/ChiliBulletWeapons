@@ -25,6 +25,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ModItemTags.FORGE_SEEDS_CHILI).add(ModItems.CHILI_SEEDS);
 
         tag(ModItemTags.FOODS_COOKED_FISH).add(Items.COOKED_COD, Items.COOKED_SALMON);
-        tag(ModItemTags.FOODS_COOKED_MEAT).add(Items.COOKED_BEEF, Items.COOKED_MUTTON, Items.COOKED_PORKCHOP);
+        tag(ModItemTags.FOODS_COOKED_MEAT).add(Items.COOKED_BEEF, Items.COOKED_MUTTON, Items.COOKED_PORKCHOP, Items.COOKED_RABBIT);
     }
 }
