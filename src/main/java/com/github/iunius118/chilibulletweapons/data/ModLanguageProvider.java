@@ -38,10 +38,10 @@ public class ModLanguageProvider extends LanguageProvider {
         public final String chiliFishSandwichName = "Chili Fish Sandwich";
         public final String chiliMeatSandwichName = "Chili Meat Sandwich";
         public final String chiliPotatoSandwichName = "Chili Potato Sandwich";
-        public final String halfChiliChickenSandwichName = "Half Chili Chicken Sandwich";
-        public final String halfChiliFishSandwichName = "Half Chili Fish Sandwich";
-        public final String halfChiliMeatSandwichName = "Half Chili Meat Sandwich";
-        public final String halfChiliPotatoSandwichName = "Half Chili Potato Sandwich";
+        public final String halfChiliChickenSandwichName = "Half-sized Chili Chicken Sandwich";
+        public final String halfChiliFishSandwichName = "Half-sized Chili Fish Sandwich";
+        public final String halfChiliMeatSandwichName = "Half-sized Chili Meat Sandwich";
+        public final String halfChiliPotatoSandwichName = "Half-sized Chili Potato Sandwich";
         // Item.Weapons
         public final String chiliBulletName = "Chili Bullet";
         public final String gunName = "Chili Bullet Gun";
