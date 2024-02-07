@@ -3,6 +3,16 @@
 
 ## [Unreleased]
 
+## [1.0.0-alpha.3]
+- Require Minecraft 1.20.2 and Forge 48.1.0.
+
+### Changed
+- Add cooked rabbit to chili meat sandwich ingredients.
+- Rename half-sized sandwich items.
+
+### Fixed
+- Add half-sized chili potato sandwich to compostable items.
+
 ## [1.0.0-alpha.2]
 - Require Minecraft 1.20.2 and Forge 48.1.0.
 
