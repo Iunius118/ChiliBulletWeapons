@@ -1,37 +1,37 @@
-# Chili Bullet Weapons
+<!-- # Chili Bullet Weapons -->
 
-A Minecraft mod to add a chili pepper, foods, and weapons.
+<!-- A Minecraft mod to add a chili pepper, foods, and weapons.-->
 
-## Download Mod
+# Download Mod
 
 - [Modrinth](#)
 - [CurseForge](#)
 
-## How to Get Started
+# How to Get Started
 
-### 1. Obtain Curved Chili Pepper
+## 1. Obtain Curved Chili Pepper
 
 Curved chili peppers can be obtained from breaking short grass.
 
-### 2. Craft Chili Pepper Seeds
+## 2. Craft Chili Pepper Seeds
 
 Chili pepper seeds can be crafted from curved chili pepper.
 
-### 3. Grow Chili Pepper Crops
+## 3. Grow Chili Pepper Crops
 
 Chili pepper seeds can be placed on farmland by right-clicking, where they grow through eight stages.
 
 Breaking the final stage produces 1 to 3 curved chili peppers and 1 to 3 bullet-like chili peppers.
 
-## Crop Farming
+# Crop Farming
 
-### Chili Pepper Seeds
+## Chili Pepper Seeds
 
 Chili pepper seeds can be obtained from a curved chili pepper, which can be obtained by breaking short grass or mature chili pepper crops.
 
 When extracting chili pepper seeds from a curved chili pepper, use a crafting table or the player's crafting grid.
 
-### Chili Pepper Crops
+## Chili Pepper Crops
 
 Chili pepper seeds can be planted on farmland and the crops will grow to stage 8.
 
@@ -52,11 +52,11 @@ Drop items when crops are broken:
 
 If harvested with Fortune enchanted tool, the number of chili peppers dropped would increase.
 
-### Composting
+## Composting
 
 Chili pepper seeds, curved chili pepper, bullet-like chili pepper, chili potato sandwich, and half chili potato sandwich can be added to a composter.
 
-## Sandwiches
+# Sandwiches
 
 Sandwiches can be crafted by combining curved chili pepper, cooked food, and bread.
 
@@ -72,7 +72,7 @@ Sandwiches can be crafted by combining curved chili pepper, cooked food, and bre
 
 Each sandwich can be divided into two half-size sandwiches ![ ](media/item/half_chili_chicken_sandwich.png)![ ](media/item/half_chili_fish_sandwich.png)![ ](media/item/half_chili_meat_sandwich.png)![ ](media/item/half_chili_potato_sandwich.png) by crafting.
 
-## Chili Bullet Gun
+# Chili Bullet Gun
 
 // TODO:
 
