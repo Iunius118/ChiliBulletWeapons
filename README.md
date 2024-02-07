@@ -27,7 +27,7 @@ Breaking the final stage produces 1 to 3 curved chili peppers and 1 to 3 bullet-
 
 ### Chili Pepper Seeds
 
-Chili pepper seeds can be obtained from a curved chili pepper, which can be obtained by breaking short grass or mature chili pepper crops.
+Chili pepper seeds can be obtained from curved chili pepper that can be obtained by breaking short grass or mature chili pepper crops.
 
 When extracting chili pepper seeds from a curved chili pepper, use a crafting table or the player's crafting grid.
 
@@ -54,7 +54,7 @@ If harvested with Fortune enchanted tool, the number of chili peppers dropped wo
 
 ### Composting
 
-Chili pepper seeds, curved chili pepper, bullet-like chili pepper, chili potato sandwich, and half chili potato sandwich can be added to a composter.
+Chili pepper seeds, curved chili pepper, bullet-like chili pepper, chili potato sandwich, and half-sized chili potato sandwich can be added to a composter.
 
 ## Sandwiches
 
@@ -71,7 +71,8 @@ Sandwiches can be crafted by combining curved chili pepper, cooked food, and bre
 |Steak|![ ](docs/media/item/chili_meat_sandwich.png) Chili Meat Sandwich|2|
 |Baked Potato|![ ](docs/media/item/chili_potato_sandwich.png) Chili Potato Sandwich|2|
 
-Each sandwich can be divided into two half-size sandwiches ![ ](docs/media/item/half_chili_chicken_sandwich.png)![ ](docs/media/item/half_chili_fish_sandwich.png)![ ](docs/media/item/half_chili_meat_sandwich.png)![ ](docs/media/item/half_chili_potato_sandwich.png) by crafting.
+Each sandwich can be divided into two half-sized pieces by crafting. ![ ](docs/media/item/half_chili_chicken_sandwich.png)![ ](docs/media/item/half_chili_fish_sandwich.png)![ ](docs/media/item/half_chili_meat_sandwich.png)![ ](docs/media/item/half_chili_potato_sandwich.png)
+
 
 ## Chili Bullet Gun
 
