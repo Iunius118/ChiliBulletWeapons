@@ -2,6 +2,8 @@
 
 A Minecraft mod to add chili peppers, foods, and weapons.
 
+![Logo](docs/media/icon_100.png) ![Items](docs/media/item/misc/items.png)
+
 ## Download
 
 - ~~[Modrinth](#)~~
@@ -62,7 +64,14 @@ If harvested with Fortune enchanted tool, the number of chili peppers dropped wo
 
 ### Composting
 
-Chili pepper seeds, curved chili pepper, bullet-like chili pepper, chili potato sandwich, and half-sized chili potato sandwich can be added to a composter.
+The following items can be added to a composter:
+
+- ![ ](docs/media/item/chili_seeds.png) Chili Pepper Seeds
+- ![ ](docs/media/item/curved_chili.png) Curved Chili Pepper
+- ![ ](docs/media/item/bullet_chili.png) Bullet-like Chili Pepper
+- ![ ](docs/media/item/chili_potato_sandwich.png) Chili Potato Sandwich
+- ![ ](docs/media/item/half_chili_potato_sandwich.png) Half-sized Chili Potato Sandwich
+- ![ ](docs/media/item/fried_chili_pepper.png) Fried Chili Pepper
 
 ## Foods
 
@@ -94,6 +103,12 @@ Each sandwich can be divided into two half-sized pieces by crafting.
 |![ ](docs/media/item/chili_meat_sandwich.png) Chili Meat Sandwich|![ ](docs/media/item/half_chili_meat_sandwich.png) Half-sized Chili Meat Sandwich|2|
 |![ ](docs/media/item/chili_potato_sandwich.png) Chili Potato Sandwich|![ ](docs/media/item/half_chili_potato_sandwich.png) Half-sized Chili Potato Sandwich|2|
 
+### Fried Chili Pepper
+
+A fried chili pepper can be crafted from curved chili peppers and wheat and gives Speed effect (0:30) when eaten by the player.
+
+![Crafting fried chili peppers](docs/media/item/crafting/crafting_fried_chili_pepper.png)
+
 ## Weapons
 
 ### Chili Bullet
@@ -102,9 +117,11 @@ A chili bullet serves as ammunition for chili bullet guns and can be crafted fro
 
 ![Crafting chili bullet](docs/media/item/crafting/crafting_chili_bullet.png)
 
+Chili bullets will disappear two seconds after they are fired.
+
 ### Chili Bullet Gun
 
-A chili bullet gun  is a break-action single-shot firearm that fires chili bullets to attack mobs at a distance.
+A chili bullet gun is a break-action single-shot firearm that fires chili bullets to attack mobs at a distance.
 
 ![Crafting chili bullet gun](docs/media/item/crafting/crafting_chili_bullet_gun.png)
 
@@ -113,12 +130,14 @@ Chili bullet guns can be fired with the same operation as crossbows. Empty guns 
 Chili bullet guns can have the same enchantments as crossbows, and each gun can have a different appearance and display name depending on the enchantment it has.
 
 |Enchantment|Appearance<br/>(Closed/Open)|Display Name|
-|-----------|:--------:|------------|
+|-----------|:--------------------------:|------------|
 |Piercing|![ ](docs/media/item/rifle_32.png)![ ](docs/media/item/rifle_loading_32.png)|Chili Bullet Rifle|
 |Multishot|![ ](docs/media/item/shotgun_32.png)![ ](docs/media/item/shotgun_loading_32.png)|Chili Bullet Shotgun|
 |Other than above|![ ](docs/media/item/pistol_32.png)![ ](docs/media/item/pistol_loading_32.png)|Chili Bullet Pistol|
 
-Chili bullet shotguns can fire four bullets in a single shot, but also have four times the ammunition consumption and wear per shot.
+Chili bullet rifles are highly accurate, and bullets from them pass through the number of entities equal to the Piercing level.
+
+Chili bullet shotguns are less accurate, and they can fire four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
 
 ---
 © 2024 Iunius118
