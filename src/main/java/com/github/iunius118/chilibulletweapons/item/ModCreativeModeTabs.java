@@ -26,6 +26,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.HALF_CHILI_FISH_SANDWICH);
                 output.accept(ModItems.HALF_CHILI_MEAT_SANDWICH);
                 output.accept(ModItems.HALF_CHILI_POTATO_SANDWICH);
+                output.accept(ModItems.FRIED_CHILI_PEPPER);
 
                 // Weapons
                 output.accept(ModItems.CHILI_BULLET);

@@ -55,6 +55,7 @@ public class ChiliBulletWeapons {
         ComposterBlock.COMPOSTABLES.put(ModItems.CHILI_SEEDS, 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.CHILI_POTATO_SANDWICH, 0.85F);
         ComposterBlock.COMPOSTABLES.put(ModItems.HALF_CHILI_POTATO_SANDWICH, 0.43F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.FRIED_CHILI_PEPPER, 0.3F);
     }
 
     private void onLootTableLoad(final LootTableLoadEvent event) {

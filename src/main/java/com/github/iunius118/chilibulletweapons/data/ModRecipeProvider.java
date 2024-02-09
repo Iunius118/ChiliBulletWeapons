@@ -74,6 +74,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_curved_chili", has(ModItems.CHILI_POTATO_SANDWICH))
                 .save(recipeOutput, getItemId(ModItems.HALF_CHILI_POTATO_SANDWICH));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.FRIED_CHILI_PEPPER, 3)
+                .requires(ModItems.CURVED_CHILI, 3)
+                .requires(Items.WHEAT)
+                .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
+                .save(recipeOutput, getItemId(ModItems.FRIED_CHILI_PEPPER));
+
         // Weapons
         ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, ModItems.CHILI_BULLET)
                 .requires(ModItems.BULLET_CHILI)
