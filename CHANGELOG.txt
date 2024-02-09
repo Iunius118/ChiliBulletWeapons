@@ -1,7 +1,15 @@
 # Change Log
-[Chili Bullet Weapons](https://github.com/Iunius118/ChiliBulletWeapons).
+[Chili Bullet Weapons](https://github.com/Iunius118/ChiliBulletWeapons#readme).
+[Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+
+## [1.0.0-alpha.4]
+### Added
+- Fried chili pepper.
+
+### Changed
+- Mod icon.
 
 ## [1.0.0-alpha.3]
 - Require Minecraft 1.20.2 and Forge 48.1.0.
@@ -22,7 +30,7 @@
 ### Changed
 - Reduce nourishment of food items.
 - Reduce gun loading time.
-- Change texture image of 7th stage of Chili Pepper Crops to improve visibility.
+- Change texture image of 8th stage of Chili Pepper Crops to improve visibility.
 
 ### Fixed
 - Block name of Chili Pepper Crops.

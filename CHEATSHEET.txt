@@ -1,5 +1,99 @@
 # Cheatsheet
-[Chili Bullet Weapons](https://github.com/Iunius118/ChiliBulletWeapons)
+[Chili Bullet Weapons](https://github.com/Iunius118/ChiliBulletWeapons#readme).
 Version 1.0.0
 
 ## How to Get Started
+### 1. Obtain Curved Chili Pepper
+Curved chili peppers can be obtained from breaking short grass.
+
+### 2. Craft Chili Pepper Seeds
+Chili pepper seeds can be crafted from curved chili pepper.
+
+### 3. Grow Chili Pepper Crops
+Chili pepper seeds can be placed on farmland by right-clicking, where they grow through eight stages.
+
+Breaking the final stage produces 1 to 3 curved chili peppers and 1 to 3 bullet-like chili peppers.
+
+## Crop Farming
+### Chili Pepper Seeds
+Chili pepper seeds can be obtained from curved chili pepper that can be obtained by breaking short grass or mature chili pepper crops.
+
+When extracting chili pepper seeds from a curved chili pepper, use a crafting table or the player's crafting grid.
+
+Crafting:
+- Curved Chili Pepper -> Chili Pepper Seeds
+
+### Chili Pepper Crops
+Chili pepper seeds can be planted on farmland and the crops will grow to stage eight.
+
+Chili peppers can be harvested from the crop in the final growth stage.
+
+Items produced when crops are broken at each stage:
+- Stage 1-7 - 1x Chili Pepper Seeds
+- Stage  8  - 1-3x Curved Chili Pepper and 1-3x Bullet-like Chili Pepper
+
+If harvested with Fortune enchanted tool, the number of chili peppers dropped would increase.
+
+### Composting
+The following items can be added to a composter:
+- Chili Pepper Seeds
+- Curved Chili Pepper
+- Bullet-like Chili Pepper
+- Chili Potato Sandwich
+- Half-sized Chili Potato Sandwich
+- Fried Chili Pepper
+
+## Foods
+### Sandwiches
+Sandwiches can be crafted by combining curved chili pepper, cooked food, and bread.
+
+Crafting (shapeless recipe):
+- Curved Chili Pepper + Cooked Chicken + Bread -> 2x Chili Chicken Sandwich
+- Curved Chili Pepper + Cooked Cod/Cooked Salmon + Bread -> 2x Chili Fish Sandwich
+- Curved Chili Pepper + Cooked Mutton/Cooked Porkchop/Cooked Rabbit/Steak + Bread -> 2x Chili Meat Sandwich
+- Curved Chili Pepper + Baked Potato + Bread -> 2x Chili Potato Sandwich
+
+Each sandwich can be divided into two half-sized pieces by crafting.
+
+Crafting:
+- Chili Chicken Sandwich -> 2x Half-sized Chili Chicken Sandwich
+- Chili Fish Sandwich -> 2x Half-sized Chili Fish Sandwich
+- Chili Meat Sandwich -> 2x Half-sized Chili Meat Sandwich
+- Chili Potato Sandwich -> 2x Half-sized Chili Potato Sandwich
+
+### Fried Chili Pepper
+A fried chili pepper can be crafted from curved chili peppers and wheat and gives Speed effect (0:30) when eaten by the player.
+
+Crafting (shapeless recipe):
+- 3x Curved Chili Pepper + Wheat -> 3x Fried Chili Pepper
+
+## Weapons
+### Chili Bullet
+A chili bullet serves as ammunition for chili bullet guns and can be crafted from a bullet-like chili pepper.
+
+Crafting:
+- Bullet-like Chili Pepper -> Chili Bullet
+
+Chili bullets will disappear two seconds after they are fired.
+
+### Chili Bullet Gun
+A chili bullet gun is a break-action single-shot firearm that fires chili bullets to attack mobs at a distance.
+
+Crafting (shaped recipe):
+- 2x Iron Ingot (i) + 1x Chili Bullet (b) + 1x Any Planks (p) -> Chili Bullet Pistol
+| i |   |   |
+|   | i |   |
+|   | p | b |
+
+Chili bullet guns can be fired with the same operation as crossbows. Empty guns can be loaded by holding down the right mouse button, and loaded guns can be fired by right-clicking.
+
+Chili bullet guns can have the same enchantments as crossbows, and each gun can have a different appearance and display name depending on the enchantment it has.
+
+Below is a list of enchantments that guns have and their corresponding display names:
+- Piercing - Chili Bullet Rifle
+- Multishot - Chili Bullet Shotgun
+- Other than above - Chili Bullet Pistol
+
+Chili bullet rifles are highly accurate, and bullets from them pass through the number of entities equal to the Piercing level.
+
+Chili bullet shotguns are less accurate, and they can fire four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
