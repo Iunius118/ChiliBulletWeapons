@@ -3,6 +3,7 @@ package com.github.iunius118.chilibulletweapons.item;
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Rarity;
 
 public class ModItems {
     // Plants
@@ -24,4 +25,5 @@ public class ModItems {
     // Weapons
     public static final Item CHILI_BULLET = new Item(new Item.Properties());
     public static final Item GUN = new ChiliBulletGun(new Item.Properties().stacksTo(1).durability(512));
+    public static final Item MACHINE_GUN = new ChiliBulletMachineGun(new Item.Properties().stacksTo(1).durability(512).rarity(Rarity.RARE).fireResistant());
 }

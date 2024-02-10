@@ -35,6 +35,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         // Weapons
         basicItem(ModItems.CHILI_BULLET);
         registerGunModels();
+        registerMachineGunModel();
     }
 
     private void registerSimpleItemModel(Item item, ModelFile modelFile, String suffix) {
@@ -99,6 +100,17 @@ public class ModItemModelProvider extends ItemModelProvider {
                     .end();
         getBuilder(shotgun).parent(new ModelFile.UncheckedModelFile(getModelLocation(rifle))).texture("layer0", "item/" + shotgun);
         getBuilder(shotgun_loading).parent(new ModelFile.UncheckedModelFile(getModelLocation(rifle_loading))).texture("layer0", "item/" + shotgun_loading);
+    }
+
+    private void registerMachineGunModel() {
+        final String machineGun = "machine_gun";
+        getBuilder(machineGun).parent(new ModelFile.UncheckedModelFile("item/generated")).texture("layer0", "item/" + machineGun)
+                .transforms()
+                .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND).scale(0.68F).rotation(0F, -90F, 25F).translation(3.0F, 3.2F, -0.4F).end()
+                .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND).scale(0.68F).rotation(0F, 90F, -25F).translation(3.0F, 3.2F, -0.4F).end()
+                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND).scale(0.85F).rotation(-40F, -90F, 0F).translation(0F, 0.5F, -2.2F).end()
+                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND).scale(0.85F).rotation(-40F, 90F, 0F).translation(0F, 0.5F, -2.2F).end()
+                .end();
     }
 
     private ResourceLocation getModelLocation(String name) {
