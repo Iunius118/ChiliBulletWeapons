@@ -4,48 +4,6 @@
 
 ## [Unreleased]
 
-## [1.0.0-alpha.5]
-- Require Minecraft 1.20.2 and Forge 48.1.0.
-
-### Added
-- Chili bullet machine gun for creative mode players.
-
-### Changed
-- Speed up eating of fried chili pepper.
-
-## [1.0.0-alpha.4]
-- Require Minecraft 1.20.2 and Forge 48.1.0.
-
-### Added
-- Fried chili pepper.
-
-### Changed
-- Mod icon.
-
-## [1.0.0-alpha.3]
-- Require Minecraft 1.20.2 and Forge 48.1.0.
-
-### Changed
-- Add cooked rabbit to chili meat sandwich ingredients.
-- Rename half-sized sandwich items.
-
-### Fixed
-- Add half-sized chili potato sandwich to compostable items.
-
-## [1.0.0-alpha.2]
-- Require Minecraft 1.20.2 and Forge 48.1.0.
-
-### Added
-- Half sandwich items.
-
-### Changed
-- Reduce nourishment of food items.
-- Reduce gun loading time.
-- Change texture image of 8th stage of Chili Pepper Crops to improve visibility.
-
-### Fixed
-- Block name of Chili Pepper Crops.
-
-## [1.0.0-alpha.1]
-- First alpha release.
+## [1.0.0]
+- Initial public release.
 - Require Minecraft 1.20.2 and Forge 48.1.0.
