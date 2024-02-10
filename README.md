@@ -4,10 +4,10 @@ A Minecraft mod to add chili peppers, foods, and weapons.
 
 ![Logo](docs/media/icon_100.png) ![Items](docs/media/item/misc/items.png)
 
-## Download
+## Download Mod
 
-- ~~[Modrinth](#)~~
-- ~~[CurseForge](#)~~
+- [Modrinth](https://modrinth.com/project/chili-bullet-weapons)
+- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/chili-bullet-weapons)
 
 ## How to Get Started
 
@@ -15,7 +15,7 @@ A Minecraft mod to add chili peppers, foods, and weapons.
 
 Curved chili peppers can be obtained from breaking short grass.
 
-![Doroped chili pepper seeds](docs/media/item/misc/droped_chili_seeds.png)
+![Dropped chili pepper seeds](docs/media/item/misc/dropped_chili_seeds.png)
 
 ### 2. Craft Chili Pepper Seeds
 
