@@ -97,3 +97,6 @@ Below is a list of enchantments that guns have and their corresponding display n
 Chili bullet rifles are highly accurate, and bullets from them pass through the number of entities equal to the Piercing level.
 
 Chili bullet shotguns are less accurate, and they can fire four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
+
+### Chili Bullet Machine Gun
+A chili bullet machine gun is a gun for creative mode players and can only be obtained from the creative mode tab or command.
