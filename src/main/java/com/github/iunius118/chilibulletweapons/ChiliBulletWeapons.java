@@ -62,7 +62,8 @@ public class ChiliBulletWeapons {
         ResourceLocation name = event.getName();
 
         // Add chili pepper loot pool to short grass
-        if (name.equals(new ResourceLocation("blocks/grass"))) {
+        if (name.equals(new ResourceLocation("blocks/grass")) /* -1.20.2 */
+                || name.equals(new ResourceLocation("blocks/short_grass")) /* 1.20.3- */) {
             LootPool pool = LootPool.lootPool()
                     .add(LootItem.lootTableItem(ModItems.CURVED_CHILI)
                             .when(LootItemRandomChanceCondition.randomChance(0.125F))
