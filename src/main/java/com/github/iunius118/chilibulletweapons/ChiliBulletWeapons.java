@@ -12,7 +12,6 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -42,7 +41,7 @@ public class ChiliBulletWeapons {
         }
 
         // Register forge event listeners
-        MinecraftForge.EVENT_BUS.addListener(this::onLootTableLoad);
+        // MinecraftForge.EVENT_BUS.addListener(this::onLootTableLoad);
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {
@@ -85,6 +84,7 @@ public class ChiliBulletWeapons {
         dataGenerator.addProvider(includesServer, blockTagsProvider);
         dataGenerator.addProvider(includesServer, new ModItemTagsProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), ChiliBulletWeapons.MOD_ID, existingFileHelper));
         dataGenerator.addProvider(includesServer, new ModLootTableProvider(packOutput));
+        dataGenerator.addProvider(includesServer, new ModGlobalLootModifierProvider(packOutput, ChiliBulletWeapons.MOD_ID));
         dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput));
 
         // Client

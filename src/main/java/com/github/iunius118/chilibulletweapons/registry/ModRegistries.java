@@ -6,6 +6,7 @@ import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
+import com.github.iunius118.chilibulletweapons.loot.CurvedChiliLootModifier;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.core.registries.Registries;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,6 +19,7 @@ public class ModRegistries {
         registerItems(modEventBus);
         registerSoundEvents(modEventBus);
         registerEntityTypes(modEventBus);
+        registerGlobalLootModifierSerializers(modEventBus);
         registerCreativeModeTabs(modEventBus);
     }
 
@@ -71,6 +73,14 @@ public class ModRegistries {
         entityTypeRegister.register(ChiliBullet.ID.getPath(), () -> ModEntityTypes.CHILI_BULLET);
 
         entityTypeRegister.register(modEventBus);
+    }
+
+    private static void registerGlobalLootModifierSerializers(IEventBus modEventBus) {
+        var globalLootModifierSerializerRegister = DeferredRegister.create(ForgeRegistries.GLOBAL_LOOT_MODIFIER_SERIALIZERS, ChiliBulletWeapons.MOD_ID);
+
+        globalLootModifierSerializerRegister.register("curved_chili_loot_modifier", CurvedChiliLootModifier.CODEC);
+
+        globalLootModifierSerializerRegister.register(modEventBus);
     }
 
     private static void registerCreativeModeTabs(IEventBus modEventBus) {
