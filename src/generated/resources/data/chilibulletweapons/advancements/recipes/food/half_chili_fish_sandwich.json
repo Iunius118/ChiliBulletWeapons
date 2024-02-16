@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_the_recipe",
-      "has_full_sandwich"
+      "has_full_sandwich",
+      "has_the_recipe"
     ]
   ],
   "rewards": {
