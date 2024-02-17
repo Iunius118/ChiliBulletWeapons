@@ -5,11 +5,5 @@
 ## [Unreleased]
 
 ## [1.0.1]
-- Require Minecraft 1.20.2+ and Forge.
-
-### Fixed
-- Fix loot table addition so that short grass can drop curved chili pepper in 1.20.3+.
-
-## [1.0.0]
-- Initial public release.
-- Require Minecraft 1.20.2 and Forge 48.1.0.
+- Port to 1.20.4 NeoForge.
+- Require Minecraft 1.20.4 and NeoForge 20.4.80-beta+.
