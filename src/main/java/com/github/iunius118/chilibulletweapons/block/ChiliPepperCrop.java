@@ -26,7 +26,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.common.ToolActions;
+import net.neoforged.neoforge.common.ToolActions;
 
 import java.util.Collections;
 import java.util.List;
@@ -64,7 +64,7 @@ public class ChiliPepperCrop extends CropBlock {
 
         if (!isHarvestable && itemStack.is(Items.BONE_MEAL)) {
             return InteractionResult.PASS;
-        } else if (isHarvestable && /* Forge */ itemStack.canPerformAction(ToolActions.SHEARS_HARVEST) /* itemStack.is(Items.SHEARS) */) {
+        } else if (isHarvestable && /* NeoForge */ itemStack.canPerformAction(ToolActions.SHEARS_HARVEST) /* itemStack.is(Items.SHEARS) */) {
             if (level.isClientSide) {
                 return InteractionResult.CONSUME;
             }

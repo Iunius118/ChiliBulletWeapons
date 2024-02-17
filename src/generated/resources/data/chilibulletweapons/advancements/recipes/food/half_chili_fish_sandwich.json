@@ -30,6 +30,5 @@
     "recipes": [
       "chilibulletweapons:half_chili_fish_sandwich"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

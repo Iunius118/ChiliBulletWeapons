@@ -12,14 +12,14 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.event.LootTableLoadEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLLoader;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.loading.FMLLoader;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.event.LootTableLoadEvent;
 import org.slf4j.Logger;
 
 @Mod(ChiliBulletWeapons.MOD_ID)
@@ -28,10 +28,8 @@ public class ChiliBulletWeapons {
     public static final String MOD_NAME = "Chili Bullet Weapons";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public ChiliBulletWeapons() {
+    public ChiliBulletWeapons(IEventBus modEventBus, Dist dist) {
         // Register mod event listeners
-        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
         ModRegistries.registerGameObjects(modEventBus);
         modEventBus.addListener(this::gatherData);
         modEventBus.addListener(this::onCommonSetup);
@@ -42,7 +40,7 @@ public class ChiliBulletWeapons {
         }
 
         // Register forge event listeners
-        MinecraftForge.EVENT_BUS.addListener(this::onLootTableLoad);
+        NeoForge.EVENT_BUS.addListener(this::onLootTableLoad);
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {
@@ -62,8 +60,7 @@ public class ChiliBulletWeapons {
         ResourceLocation name = event.getName();
 
         // Add chili pepper loot pool to short grass
-        if (name.equals(new ResourceLocation("blocks/grass")) /* -1.20.2 */
-                || name.equals(new ResourceLocation("blocks/short_grass")) /* 1.20.3- */) {
+        if (name != null && name.equals(new ResourceLocation("blocks/short_grass"))) {
             LootPool pool = LootPool.lootPool()
                     .add(LootItem.lootTableItem(ModItems.CURVED_CHILI)
                             .when(LootItemRandomChanceCondition.randomChance(0.125F))
@@ -85,7 +82,7 @@ public class ChiliBulletWeapons {
         dataGenerator.addProvider(includesServer, blockTagsProvider);
         dataGenerator.addProvider(includesServer, new ModItemTagsProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), ChiliBulletWeapons.MOD_ID, existingFileHelper));
         dataGenerator.addProvider(includesServer, new ModLootTableProvider(packOutput));
-        dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput));
+        dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput, lookupProvider));
 
         // Client
         final boolean includesClient = event.includeClient();

@@ -10,7 +10,7 @@ import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class ModLanguageProvider extends LanguageProvider {
     public final TranslatedNameProvider translatedNameProvider;

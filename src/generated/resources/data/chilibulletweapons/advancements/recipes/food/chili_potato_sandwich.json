@@ -30,6 +30,5 @@
     "recipes": [
       "chilibulletweapons:chili_potato_sandwich"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

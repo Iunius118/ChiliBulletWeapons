@@ -30,6 +30,5 @@
     "recipes": [
       "chilibulletweapons:fried_chili_pepper"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

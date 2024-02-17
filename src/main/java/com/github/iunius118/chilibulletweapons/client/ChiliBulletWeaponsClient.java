@@ -4,9 +4,9 @@ import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ChiliBulletGun;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public class ChiliBulletWeaponsClient {
     public static void onInitializeClient(IEventBus modEventBus) {

@@ -8,9 +8,8 @@ import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.core.registries.Registries;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModRegistries {
     public static void registerGameObjects(IEventBus modEventBus) {
@@ -22,7 +21,7 @@ public class ModRegistries {
     }
 
     private static void registerBlocks(IEventBus modEventBus) {
-        var blockRegister = DeferredRegister.create(ForgeRegistries.BLOCKS, ChiliBulletWeapons.MOD_ID);
+        var blockRegister = DeferredRegister.createBlocks(ChiliBulletWeapons.MOD_ID);
 
         blockRegister.register("chili_pepper", () -> ModBlocks.CHILI_PEPPER);
 
@@ -30,7 +29,7 @@ public class ModRegistries {
     }
 
     private static void registerItems(IEventBus modEventBus) {
-        var itemRegister = DeferredRegister.create(ForgeRegistries.ITEMS, ChiliBulletWeapons.MOD_ID);
+        var itemRegister = DeferredRegister.createItems(ChiliBulletWeapons.MOD_ID);
 
         // Plants
         itemRegister.register("bullet_chili", () -> ModItems.BULLET_CHILI);
@@ -55,7 +54,7 @@ public class ModRegistries {
     }
 
     private static void registerSoundEvents(IEventBus modEventBus) {
-        var soundEventRegister = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, ChiliBulletWeapons.MOD_ID);
+        var soundEventRegister = DeferredRegister.create(Registries.SOUND_EVENT, ChiliBulletWeapons.MOD_ID);
 
         soundEventRegister.register("block_chili_pepper_pick_chili_peppers", () -> ModSoundEvents.CHILI_PEPPER_PICK_CHILI_PEPPERS);
         soundEventRegister.register("item_gun_shoot", () -> ModSoundEvents.GUN_SHOOT);
@@ -66,7 +65,7 @@ public class ModRegistries {
     }
 
     private static void registerEntityTypes(IEventBus modEventBus) {
-        var entityTypeRegister = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, ChiliBulletWeapons.MOD_ID);
+        var entityTypeRegister = DeferredRegister.create(Registries.ENTITY_TYPE, ChiliBulletWeapons.MOD_ID);
 
         entityTypeRegister.register(ChiliBullet.ID.getPath(), () -> ModEntityTypes.CHILI_BULLET);
 
