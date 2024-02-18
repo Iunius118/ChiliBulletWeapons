@@ -125,7 +125,7 @@ A chili bullet gun is a break-action single-shot firearm that fires chili bullet
 
 ![Crafting chili bullet gun](media/item/crafting/crafting_chili_bullet_gun.png)
 
-Chili bullet guns can be fired with the same operation as crossbows. Empty guns can be loaded by holding down the right mouse button, and loaded guns can be fired by right-clicking.
+Chili bullet guns can be fired with the same operation as crossbows. Specifically, unloaded guns can be loaded by holding down the right mouse button, and loaded guns can be fired by right-clicking.
 
 Chili bullet guns can have the same enchantments as crossbows, and each gun can have a different appearance and display name depending on the enchantment it has.
 

@@ -10,6 +10,6 @@ A Minecraft mod to add chili peppers, foods, and weapons.
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/chili-bullet-weapons)
 
 
-## Mod Description
+## Mod Descriptions
 
-- [Mod description on GitHub Pages](https://iunius118.github.io/ChiliBulletWeapons/)
+- [Mod Descriptions on GitHub Pages](https://iunius118.github.io/ChiliBulletWeapons/)
