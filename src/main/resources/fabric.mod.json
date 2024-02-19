@@ -33,6 +33,7 @@
       "environment": "client"
     }
   ],
+  "accessWidener": "chilibulletweapons.accesswidener",
   "depends": {
     "fabricloader": ">=0.15.7",
     "minecraft": "~1.20.1",
