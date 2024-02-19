@@ -4,6 +4,15 @@
 
 ## [Unreleased]
 
+## [1.0.2]
+- Require Minecraft 1.20.2+ and Forge.
+
+### Changed
+- Change mod icon.
+
+### Fixed
+- Fix ammo consumption when loading machine gun.
+
 ## [1.0.1]
 - Require Minecraft 1.20.2+ and Forge.
 
