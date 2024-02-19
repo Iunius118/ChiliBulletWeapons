@@ -4,6 +4,15 @@
 
 ## [Unreleased]
 
+## [1.0.2]
+- Require Minecraft 1.20.4 and NeoForge 20.4.80-beta+.
+
+### Changed
+- Change mod icon.
+
+### Fixed
+- Fix ammo consumption when loading machine gun.
+
 ## [1.0.1]
 - Port to 1.20.4 NeoForge.
 - Require Minecraft 1.20.4 and NeoForge 20.4.80-beta+.
