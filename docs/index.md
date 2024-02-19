@@ -1,6 +1,6 @@
-# Chili Bullet Weapons
+# Mod Descriptions
 
-A Minecraft mod to add chili peppers, foods, and weapons.
+Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons.
 
 ![Items](media/item/misc/items.png)
 
@@ -138,3 +138,9 @@ Chili bullet guns can have the same enchantments as crossbows, and each gun can 
 Chili bullet rifles are highly accurate, and bullets from them pass through the number of entities equal to the Piercing level.
 
 Chili bullet shotguns are less accurate, and they can fire four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
+
+### Chili Bullet Machine Gun
+
+![ ](media/item/machine_gun_32.png)
+
+A chili bullet machine gun is a gun for creative mode players and can only be obtained from the creative mode tab or command.
