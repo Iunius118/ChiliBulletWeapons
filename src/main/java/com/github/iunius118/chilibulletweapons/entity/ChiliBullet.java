@@ -23,9 +23,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.event.ForgeEventFactory;
-
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class ChiliBullet extends Projectile {
     public static final ResourceLocation ID = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "chili_bullet");
@@ -118,7 +116,7 @@ public class ChiliBullet extends Projectile {
                 }
             }
 
-            if (hitResult != null && hitResult.getType() != HitResult.Type.MISS && !ForgeEventFactory.onProjectileImpact(this, hitResult)) {
+            if (hitResult != null && hitResult.getType() != HitResult.Type.MISS) {
                 this.onHit(hitResult);
                 this.hasImpulse = true;
             }

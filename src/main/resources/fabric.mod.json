@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "chilibulletweapons",
+  "version": "${version}",
+  "name": "Chili Bullet Weapons",
+  "description": "Adds chili peppers, foods, and weapons.",
+  "authors": [
+    "Iunius118"
+  ],
+  "contributors": [
+  ],
+  "contact": {
+    "homepage": "https://iunius118.github.io/ChiliBulletWeapons/",
+    "sources": "https://github.com/Iunius118/ChiliBulletWeapons"
+  },
+  "license": "MIT License",
+  "icon": "assets/chilibulletweapons/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.iunius118.chilibulletweapons.ChiliBulletWeapons"
+    ],
+    "client": [
+      "com.github.iunius118.chilibulletweapons.client.ChiliBulletWeaponsClient"
+    ],
+    "fabric-datagen": [
+      "com.github.iunius118.chilibulletweapons.data.ChiliBulletWeaponsDataGenerator"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "chilibulletweapons.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.7",
+    "minecraft": "~1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

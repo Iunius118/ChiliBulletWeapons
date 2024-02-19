@@ -1,21 +1,21 @@
 package com.github.iunius118.chilibulletweapons.client;
 
+import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ChiliBulletGun;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-public class ChiliBulletWeaponsClient {
-    public static void onInitializeClient(IEventBus modEventBus) {
-        modEventBus.addListener(ChiliBulletWeaponsClient::onClientSetup);
-        modEventBus.addListener(ChiliBulletWeaponsClient::onRegisterEntityRenderer);
-    }
-
-    private static void onClientSetup(final FMLClientSetupEvent event) {
+public class ChiliBulletWeaponsClient implements ClientModInitializer {
+    @Override
+    public void onInitializeClient() {
         registerItemProperties();
+        registerCropBlockLayer();
+        registerEntityRenderer();
     }
 
     private static void registerItemProperties() {
@@ -24,7 +24,12 @@ public class ChiliBulletWeaponsClient {
         ItemProperties.register(ModItems.GUN, ChiliBulletGun.PROPERTY_PIERCING, (stack, l, e, i) -> ChiliBulletGun.getPiercingLevel(stack) > 0 ? 1.0F : 0.0F);
     }
 
-    private static void onRegisterEntityRenderer(final EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(ModEntityTypes.CHILI_BULLET, ChiliBulletRenderer::new);
+    private void registerCropBlockLayer() {
+        // Set render type of crop block to cutout
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHILI_PEPPER, RenderType.cutout());
+    }
+
+    private void registerEntityRenderer() {
+        EntityRendererRegistry.register(ModEntityTypes.CHILI_BULLET, ChiliBulletRenderer::new);
     }
 }

@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -8,7 +9,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 
 public class ModCreativeModeTabs {
     public static final String KEY_MAIN = "itemGroup." + ChiliBulletWeapons.MOD_ID + ".main";
-    public static final CreativeModeTab MAIN = CreativeModeTab.builder()
+    public static final CreativeModeTab MAIN = FabricItemGroup.builder()
             .title(Component.translatable(KEY_MAIN))
             .icon(() -> new ItemStack(ModItems.BULLET_CHILI))
             .displayItems((params, output) -> {

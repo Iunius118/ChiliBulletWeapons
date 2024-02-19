@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "chilibulletweapons:chili_bullet"
+    },
+    "i": {
+      "tag": "c:iron_ingots"
+    },
+    "p": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "i  ",
+    " i ",
+    " pb"
+  ],
+  "result": {
+    "item": "chilibulletweapons:gun"
+  },
+  "show_notification": true
+}
