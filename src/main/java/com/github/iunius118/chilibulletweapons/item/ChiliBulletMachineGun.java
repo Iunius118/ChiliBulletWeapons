@@ -15,9 +15,13 @@ public class ChiliBulletMachineGun extends ChiliBulletGun {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         final var resultHolder = super.use(level, player, hand);
         var itemStack = player.getItemInHand(hand);
+
         // Feed bullets automatically
-        boolean isLoaded = tryLoadProjectile(player, itemStack);
-        setLoaded(itemStack, isLoaded);
+        if (!isLoading(itemStack)) {
+            boolean isLoaded = tryLoadProjectile(player, itemStack);
+            setLoaded(itemStack, isLoaded);
+        }
+
         return resultHolder;
     }
 
