@@ -1,8 +1,8 @@
-# Mod Descriptions
+# Mod Descriptions (Version 1.1.0)
 
 Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons.
 
-![Items](media/item/misc/items.png)
+![Items](media/item/misc/items_v1.1.0.png)
 
 ## Download Mod
 
@@ -33,7 +33,7 @@ Breaking the final stage produces 1 to 3 curved chili peppers and 1 to 3 bullet-
 
 ## Crop Farming
 
-### Chili Pepper Seeds
+### Chili Pepper Seeds (CBW)
 
 Chili pepper seeds can be obtained from curved chili pepper that can be obtained by breaking short grass or mature chili pepper crops.
 
@@ -41,7 +41,7 @@ When extracting chili pepper seeds from a curved chili pepper, use a crafting ta
 
 ![Crafting chili pepper seeds](media/item/crafting/crafting_chili_seeds.png)
 
-### Chili Pepper Crops
+### Chili Pepper Crops (CBW)
 
 Chili pepper seeds can be planted on farmland and the crops will grow to stage eight.
 
@@ -57,7 +57,7 @@ Items produced when crops are broken at each stage:
 
 |Stage|Drop Items|Quantity|
 |:---:|----------|:------:|
-|1–7|![ ](media/item/chili_seeds.png) Chili Pepper Seeds|1|
+|1–7|![ ](media/item/chili_seeds.png) Chili Pepper Seeds (CBW)|1|
 |8|![ ](media/item/curved_chili.png) Curved Chili Pepper <br />![ ](media/item/bullet_chili.png) Bullet-like Chili Pepper|1–3 each|
 
 If harvested with Fortune enchanted tool, the number of chili peppers dropped would increase.
@@ -66,7 +66,7 @@ If harvested with Fortune enchanted tool, the number of chili peppers dropped wo
 
 The following items can be added to a composter:
 
-- ![ ](media/item/chili_seeds.png) Chili Pepper Seeds
+- ![ ](media/item/chili_seeds.png) Chili Pepper Seeds (CBW)
 - ![ ](media/item/curved_chili.png) Curved Chili Pepper
 - ![ ](media/item/bullet_chili.png) Bullet-like Chili Pepper
 - ![ ](media/item/chili_potato_sandwich.png) Chili Potato Sandwich
@@ -127,7 +127,7 @@ A chili bullet gun is a break-action single-shot firearm that fires chili bullet
 
 Chili bullet guns can be fired with the same operation as crossbows. Specifically, unloaded guns can be loaded by holding down the right mouse button, and loaded guns can be fired by right-clicking.
 
-Chili bullet guns can have the same enchantments as crossbows, and each gun can have a different appearance and display name depending on the enchantment it has.
+Chili bullet guns can have the same enchantments as crossbows, and each gun can have a different appearance, display name, and performance depending on the enchantment it has.
 
 |Enchantment|Appearance<br/>(Closed/Open)|Display Name|
 |-----------|:--------------------------:|------------|
@@ -138,6 +138,24 @@ Chili bullet guns can have the same enchantments as crossbows, and each gun can 
 Chili bullet rifles are highly accurate, and bullets from them pass through the number of entities equal to the Piercing level.
 
 Chili bullet shotguns are less accurate, and they can fire four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
+
+### Chili Bullet Gun with Bayonet
+
+A chili bullet gun with bayonet is a chili bullet gun with an iron sword fitted and can deal 6 (♥ × 3) damage in melee combat.
+
+![Crafting chili bullet gun with bayonet](media/item/crafting/crafting_bayoneted_gun.png)
+
+Smithing tables can be used to make a chili bullet gun with bayonet retaining its enchantments.
+
+![Upgrading chili bullet gun](media/item/crafting/upgrading_chili_bullet_gun.png)
+
+Each chili bullet gun with bayonet can also have a different appearance, display name, and performance depending on the enchantment it has.
+
+|Enchantment|Appearance<br/>(Closed/Open)|Display Name|
+|-----------|:--------------------------:|------------|
+|Piercing|![ ](media/item/rifle_bayoneted_32.png)![ ](media/item/rifle_bayoneted_loading_32.png)|Chili Bullet Rifle with Bayonet|
+|Multishot|![ ](media/item/shotgun_bayoneted_32.png)![ ](media/item/shotgun_bayoneted_loading_32.png)|Chili Bullet Shotgun with Bayonet|
+|Other than above|![ ](media/item/pistol_bayoneted_32.png)![ ](media/item/pistol_bayoneted_loading_32.png)|Chili Bullet Pistol with Bayonet|
 
 ### Chili Bullet Machine Gun
 

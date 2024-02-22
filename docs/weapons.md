@@ -1,4 +1,5 @@
 # Chili Bullet Weapons
+
 ## Pistol/Shotgun
 
 | Angle | Ticks | Dist. | Speed | MinDmg. | MaxDmg. |
