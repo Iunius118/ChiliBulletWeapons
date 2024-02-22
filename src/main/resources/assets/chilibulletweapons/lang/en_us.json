@@ -1,6 +1,10 @@
 {
   "block.chilibulletweapons.chili_pepper": "Chili Pepper Crops (CBW)",
   "entity.chilibulletweapons.chili_bullet": "Chili Bullet",
+  "item.chilibulletweapons.bayoneted_gun": "Chili Bullet Gun with Bayonet",
+  "item.chilibulletweapons.bayoneted_gun.pistol": "Chili Bullet Pistol with Bayonet",
+  "item.chilibulletweapons.bayoneted_gun.rifle": "Chili Bullet Rifle with Bayonet",
+  "item.chilibulletweapons.bayoneted_gun.shotgun": "Chili Bullet Shotgun with Bayonet",
   "item.chilibulletweapons.bullet_chili": "Bullet-like Chili Pepper",
   "item.chilibulletweapons.chili_bullet": "Chili Bullet",
   "item.chilibulletweapons.chili_chicken_sandwich": "Chili Chicken Sandwich",

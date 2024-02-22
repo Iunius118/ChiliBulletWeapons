@@ -46,6 +46,7 @@ public class ModRegistries {
         // Weapons
         itemRegister.register("chili_bullet", ModItems.CHILI_BULLET);
         itemRegister.register("gun", ModItems.GUN);
+        itemRegister.register("bayoneted_gun", ModItems.BAYONETED_GUN);
         itemRegister.register("machine_gun", ModItems.MACHINE_GUN);
     }
 
