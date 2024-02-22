@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "chilibulletweapons:item/pistol_bayoneted",
+      "predicate": {}
+    },
+    {
+      "model": "chilibulletweapons:item/pistol_bayoneted_loading",
+      "predicate": {
+        "chilibulletweapons:loading": 1.0
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/rifle_bayoneted",
+      "predicate": {
+        "chilibulletweapons:piercing": 1.0
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/rifle_bayoneted_loading",
+      "predicate": {
+        "chilibulletweapons:loading": 1.0,
+        "chilibulletweapons:piercing": 1.0
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/shotgun_bayoneted",
+      "predicate": {
+        "chilibulletweapons:multishot": 1.0
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/shotgun_bayoneted_loading",
+      "predicate": {
+        "chilibulletweapons:loading": 1.0,
+        "chilibulletweapons:multishot": 1.0
+      }
+    }
+  ]
+}

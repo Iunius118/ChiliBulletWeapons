@@ -1,4 +1,6 @@
-// 1.20.1	2024-02-16T23:46:50.9999454	Recipes
+// 1.20.1	2024-02-22T20:38:21.5309347	Recipes
+4b4d517a9d089ca8364caa37e6af046036ac7e4b data/chilibulletweapons/advancements/recipes/combat/bayoneted_gun.json
+69d766b801d4696be5dc354a707d441975772e1f data/chilibulletweapons/advancements/recipes/combat/bayoneted_gun_upgrading.json
 7ffa02ab3daf2efe7cf0743d694a8c87bed270f0 data/chilibulletweapons/advancements/recipes/combat/chili_bullet.json
 d1033981031f8108c90e0d28a3154715009e80b8 data/chilibulletweapons/advancements/recipes/combat/gun.json
 9d06cf0b2822a10a7d5b9e74aac2c9b2836b485d data/chilibulletweapons/advancements/recipes/food/chili_chicken_sandwich.json
@@ -11,6 +13,8 @@ fbd23f8578937b79e2b96c0d3feeb143871d08de data/chilibulletweapons/advancements/re
 b2515a763fc5b294b4a79a2f1fca1730c3f72d4a data/chilibulletweapons/advancements/recipes/food/half_chili_meat_sandwich.json
 fee57ccdc1c2f5d8c2711443669e7995e89bfb16 data/chilibulletweapons/advancements/recipes/food/half_chili_potato_sandwich.json
 6904bee18322e0ade707fede6c168b64b82dbe23 data/chilibulletweapons/advancements/recipes/misc/chili_seeds.json
+66122f0136e1a4144fd06d078d817860808ff3d2 data/chilibulletweapons/recipes/bayoneted_gun.json
+effeb35e01257e8c2751582cd9e40a2fce7b05db data/chilibulletweapons/recipes/bayoneted_gun_upgrading.json
 f51652659b03401db01b010acc39813e271175fe data/chilibulletweapons/recipes/chili_bullet.json
 cd9b01a373142bf2a6b654911c71ea3abcdd1e7f data/chilibulletweapons/recipes/chili_chicken_sandwich.json
 49ea7c5ce4ad8b0a4253e954e6fef16fa921575c data/chilibulletweapons/recipes/chili_fish_sandwich.json
