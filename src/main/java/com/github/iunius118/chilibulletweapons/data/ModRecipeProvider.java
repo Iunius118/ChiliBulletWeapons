@@ -106,7 +106,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_gun", has(ModItems.GUN))
                 .save(recipeOutput, getItemId(ModItems.BAYONETED_GUN));
 
-        SmithingTransformRecipeBuilder.smithing(Ingredient.EMPTY, Ingredient.of(ModItems.GUN), Ingredient.of(Items.IRON_SWORD), RecipeCategory.COMBAT, ModItems.BAYONETED_GUN)
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(Items.AIR), Ingredient.of(ModItems.GUN), Ingredient.of(Items.IRON_SWORD), RecipeCategory.COMBAT, ModItems.BAYONETED_GUN)
                 .unlocks("has_gun", has(ModItems.GUN))
                 .save(recipeOutput, getItemId(ModItems.BAYONETED_GUN) + "_upgrading");
     }

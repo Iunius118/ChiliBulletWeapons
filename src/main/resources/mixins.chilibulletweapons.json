@@ -1,0 +1,10 @@
+{
+  "package": "com.github.iunius118.chilibulletweapons.mixin",
+  "mixins": [
+    "MixinSmithingTransformRecipe"
+  ],
+  "refmap": "mixins.tolaserblade.refmap.json",
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17"
+}
