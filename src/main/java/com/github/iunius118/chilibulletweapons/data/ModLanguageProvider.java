@@ -4,6 +4,7 @@ import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ChiliBulletGun;
+import com.github.iunius118.chilibulletweapons.item.ChiliBulletGunBayoneted;
 import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
@@ -49,6 +50,10 @@ public class ModLanguageProvider extends LanguageProvider {
         public final String pistolName = "Chili Bullet Pistol";
         public final String rifleName = "Chili Bullet Rifle";
         public final String shotgunName = "Chili Bullet Shotgun";
+        public final String bayonetedGunName = "Chili Bullet Gun with Bayonet";
+        public final String bayonetedPistolName = "Chili Bullet Pistol with Bayonet";
+        public final String bayonetedRifleName = "Chili Bullet Rifle with Bayonet";
+        public final String bayonetedShotgunName = "Chili Bullet Shotgun with Bayonet";
         public final String machineGunName = "Chili Bullet Machine Gun";
 
         // Entity
@@ -87,6 +92,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ChiliBulletGun.DESCRIPTION_PISTOL, translatedNameProvider.pistolName);
         add(ChiliBulletGun.DESCRIPTION_RIFLE, translatedNameProvider.rifleName);
         add(ChiliBulletGun.DESCRIPTION_SHOTGUN, translatedNameProvider.shotgunName);
+        add(ModItems.BAYONETED_GUN, translatedNameProvider.bayonetedGunName);
+        add(ChiliBulletGunBayoneted.DESCRIPTION_PISTOL, translatedNameProvider.bayonetedPistolName);
+        add(ChiliBulletGunBayoneted.DESCRIPTION_RIFLE, translatedNameProvider.bayonetedRifleName);
+        add(ChiliBulletGunBayoneted.DESCRIPTION_SHOTGUN, translatedNameProvider.bayonetedShotgunName);
         add(ModItems.MACHINE_GUN, translatedNameProvider.machineGunName);
 
         // Entity

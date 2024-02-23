@@ -1,0 +1,6 @@
+{
+  "parent": "chilibulletweapons:item/rifle_bayoneted_loading",
+  "textures": {
+    "layer0": "chilibulletweapons:item/shotgun_bayoneted_loading"
+  }
+}
