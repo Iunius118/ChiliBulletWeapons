@@ -1,8 +1,18 @@
 # Change Log
-[Chili Bullet Weapons](https://github.com/Iunius118/ChiliBulletWeapons#readme).
+[Chili Bullet Weapons](https://iunius118.github.io/ChiliBulletWeapons/).
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+
+## [1.1.0]
+- Require Minecraft 1.20.4 and NeoForge 20.4.80-beta+.
+
+### Added
+- Chili bullet gun with bayonet.
+
+### Changed
+- Rename `Chili Pepper Seeds` to `Chili Pepper Seeds (CBW)`.
+- Change gun item textures.
 
 ## [1.0.2]
 - Require Minecraft 1.20.4 and NeoForge 20.4.80-beta+.
