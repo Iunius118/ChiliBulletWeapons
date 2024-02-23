@@ -27,12 +27,12 @@ public class ModLanguageProvider extends LanguageProvider {
 
     public static class TranslatedNameProvider {
         // Block
-        public final String chiliPepperCropName = "Chili Pepper Crops";
+        public final String chiliPepperCropName = "Chili Pepper Crops (CBW)";
 
         // Item.Plants
         public final String bulletChiliName = "Bullet-like Chili Pepper";
         public final String curvedChiliName = "Curved Chili Pepper";
-        public final String chiliSeedsName = "Chili Pepper Seeds";
+        public final String chiliSeedsName = "Chili Pepper Seeds (CBW)";
         // Item.Foods
         public final String chiliChickenSandwichName = "Chili Chicken Sandwich";
         public final String chiliFishSandwichName = "Chili Fish Sandwich";
