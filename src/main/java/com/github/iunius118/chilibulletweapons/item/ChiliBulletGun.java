@@ -39,7 +39,7 @@ public class ChiliBulletGun extends CrossbowItem {
     public static final String DESCRIPTION_RIFLE = "item.chilibulletweapons.gun.rifle";
     public static final String DESCRIPTION_SHOTGUN = "item.chilibulletweapons.gun.shotgun";
 
-    public static final int ENCHANTMENT_VALUE = 10;
+    public static final int ENCHANTMENT_VALUE = 15;
     public static final int CAPACITY_BASIC = 1;
     public static final int CAPACITY_MULTISHOT = 4;
     public static final float POWER_BASIC = 3F;

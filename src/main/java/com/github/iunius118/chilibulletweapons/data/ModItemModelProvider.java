@@ -34,7 +34,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.FRIED_CHILI_PEPPER);
         // Weapons
         basicItem(ModItems.CHILI_BULLET);
-        registerGunModels();
+        registerGunModels("gun", "pistol", "rifle", "shotgun");
+        registerGunModels("bayoneted_gun", "pistol_bayoneted", "rifle_bayoneted", "shotgun_bayoneted");
         registerMachineGunModel();
     }
 
@@ -47,16 +48,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         }
     }
 
-    private void registerGunModels() {
+    private void registerGunModels(String gun, String pistol, String rifle, String shotgun) {
         final ModelFile parent = new ModelFile.UncheckedModelFile("item/generated");
-        final String pistol = "pistol";
-        final String pistol_loading = "pistol_loading";
-        final String rifle = "rifle";
-        final String rifle_loading = "rifle_loading";
-        final String shotgun = "shotgun";
-        final String shotgun_loading = "shotgun_loading";
+        final String pistol_loading = pistol + "_loading";
+        final String rifle_loading = rifle + "_loading";
+        final String shotgun_loading = shotgun + "_loading";
 
-        getBuilder("gun").parent(parent)
+        getBuilder(gun).parent(parent)
                 .override()
                     .model(new ModelFile.UncheckedModelFile(getModelLocation(pistol))).end()
                 .override().predicate(ChiliBulletGun.PROPERTY_LOADING, 1F)
