@@ -36,6 +36,8 @@ public class ModRegistries {
         itemRegister.register("bullet_chili", () -> ModItems.BULLET_CHILI);
         itemRegister.register("curved_chili", () -> ModItems.CURVED_CHILI);
         itemRegister.register("chili_seeds", () -> ModItems.CHILI_SEEDS);
+        itemRegister.register("bullet_chili_sack", () -> ModItems.BULLET_CHILI_SACK);
+        itemRegister.register("curved_chili_sack", () -> ModItems.CURVED_CHILI_SACK);
         // Foods
         itemRegister.register("chili_chicken_sandwich", () -> ModItems.CHILI_CHICKEN_SANDWICH);
         itemRegister.register("chili_fish_sandwich", () -> ModItems.CHILI_FISH_SANDWICH);

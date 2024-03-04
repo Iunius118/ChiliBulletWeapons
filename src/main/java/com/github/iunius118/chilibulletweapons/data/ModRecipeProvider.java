@@ -2,6 +2,7 @@ package com.github.iunius118.chilibulletweapons.data;
 
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.tags.ModItemTags;
+import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -22,13 +23,42 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> recipeOutput) {
-        // Plants
+        /* Plants */
+        // Seeds
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CHILI_SEEDS)
                 .requires(ModItems.CURVED_CHILI)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
                 .save(recipeOutput, getItemId(ModItems.CHILI_SEEDS));
 
-        // Foods
+        // Storage items
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BULLET_CHILI_SACK)
+                .pattern("bbb")
+                .pattern("bbb")
+                .pattern("bbb")
+                .define('b', ModItems.BULLET_CHILI)
+                .unlockedBy("has_bullet_chilies", has(MinMaxBounds.Ints.atLeast(9), ModItems.BULLET_CHILI))
+                .save(recipeOutput, getItemId(ModItems.BULLET_CHILI_SACK));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BULLET_CHILI, 9)
+                .requires(ModItems.BULLET_CHILI_SACK)
+                .unlockedBy("has_bullet_chili_sack", has(ModItems.BULLET_CHILI_SACK))
+                .save(recipeOutput, getItemId(ModItems.BULLET_CHILI) + "_from_sack");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CURVED_CHILI_SACK)
+                .pattern("ccc")
+                .pattern("ccc")
+                .pattern("ccc")
+                .define('c', ModItems.CURVED_CHILI)
+                .unlockedBy("has_curved_chilies", has(MinMaxBounds.Ints.atLeast(9), ModItems.CURVED_CHILI))
+                .save(recipeOutput, getItemId(ModItems.CURVED_CHILI_SACK));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CURVED_CHILI, 9)
+                .requires(ModItems.CURVED_CHILI_SACK)
+                .unlockedBy("has_curved_chili_sack", has(ModItems.CURVED_CHILI_SACK))
+                .save(recipeOutput, getItemId(ModItems.CURVED_CHILI) + "_from_sack");
+
+        /* Foods */
+        // Sandwiches
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.CHILI_CHICKEN_SANDWICH, 2)
                 .requires(ModItems.CURVED_CHILI)
                 .requires(Items.COOKED_CHICKEN)
@@ -57,6 +87,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
                 .save(recipeOutput, getItemId(ModItems.CHILI_POTATO_SANDWICH));
 
+        // Half-sized sandwiches
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.HALF_CHILI_CHICKEN_SANDWICH, 2)
                 .requires(ModItems.CHILI_CHICKEN_SANDWICH)
                 .unlockedBy("has_full_sandwich", has(ModItems.CHILI_CHICKEN_SANDWICH))
@@ -77,18 +108,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_curved_chili", has(ModItems.CHILI_POTATO_SANDWICH))
                 .save(recipeOutput, getItemId(ModItems.HALF_CHILI_POTATO_SANDWICH));
 
+        // Fried chili pepper
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.FRIED_CHILI_PEPPER, 3)
                 .requires(ModItems.CURVED_CHILI, 3)
                 .requires(Items.WHEAT)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
                 .save(recipeOutput, getItemId(ModItems.FRIED_CHILI_PEPPER));
 
-        // Weapons
+        /* Weapons */
+        // Bullet
         ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, ModItems.CHILI_BULLET)
                 .requires(ModItems.BULLET_CHILI)
                 .unlockedBy("has_bullet_chili", has(ModItems.BULLET_CHILI))
                 .save(recipeOutput, getItemId(ModItems.CHILI_BULLET));
 
+        // Guns
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.GUN)
                 .pattern("i  ")
                 .pattern(" i ")

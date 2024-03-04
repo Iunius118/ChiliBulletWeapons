@@ -10,6 +10,8 @@ public class ModItems {
     public static final Item BULLET_CHILI = new Item(new Item.Properties());
     public static final Item CURVED_CHILI = new Item(new Item.Properties());
     public static final Item CHILI_SEEDS = new ItemNameBlockItem(ModBlocks.CHILI_PEPPER, new Item.Properties());
+    public static final Item BULLET_CHILI_SACK = new Item(new Item.Properties());
+    public static final Item CURVED_CHILI_SACK = new Item(new Item.Properties());
 
     // Foods
     public static final Item CHILI_CHICKEN_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_CHICKEN_SANDWICH));

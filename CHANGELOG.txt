@@ -3,6 +3,8 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+### Added
+- Items for compact storage of chili peppers: `Sack of Bullet-like Chili Peppers` and `Sack of Curved Chili Peppers`.
 
 ## [1.1.0]
 - Require Minecraft 1.20.1 and Forge 47.2.0+.
