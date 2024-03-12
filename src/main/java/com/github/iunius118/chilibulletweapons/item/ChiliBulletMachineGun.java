@@ -26,6 +26,11 @@ public class ChiliBulletMachineGun extends ChiliBulletGun {
     }
 
     @Override
+    public boolean isUpgradable() {
+        return false;
+    }
+
+    @Override
     public String getDescriptionId(ItemStack itemStack) {
         return this.getDescriptionId();
     }

@@ -36,6 +36,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.FRIED_CHILI_PEPPER);
         // Weapons
         basicItem(ModItems.CHILI_BULLET);
+        basicItem(ModItems.UPGRADE_GUN_BAYONET);
+        basicItem(ModItems.UPGRADE_GUN_BARREL);
+        basicItem(ModItems.UPGRADE_GUN_MECHANISM);
         registerGunModels("gun", "pistol", "rifle", "shotgun");
         registerGunModels("bayoneted_gun", "pistol_bayoneted", "rifle_bayoneted", "shotgun_bayoneted");
         registerMachineGunModel();

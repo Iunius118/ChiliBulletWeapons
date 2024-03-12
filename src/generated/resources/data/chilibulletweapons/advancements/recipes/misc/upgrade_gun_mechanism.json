@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gun": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "chilibulletweapons:gun"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "chilibulletweapons:upgrade_gun_mechanism"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_gun",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "chilibulletweapons:upgrade_gun_mechanism"
+    ]
+  },
+  "sends_telemetry_event": false
+}

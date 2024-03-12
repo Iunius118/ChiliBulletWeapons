@@ -3,7 +3,7 @@
   "category": "equipment",
   "ingredients": [
     {
-      "item": "minecraft:iron_sword"
+      "item": "chilibulletweapons:upgrade_gun_bayonet"
     },
     {
       "item": "chilibulletweapons:gun"

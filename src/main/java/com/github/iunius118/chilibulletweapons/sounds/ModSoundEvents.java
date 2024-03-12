@@ -8,4 +8,5 @@ public class ModSoundEvents {
     public static final SoundEvent GUN_SHOOT = SoundEvent.createVariableRangeEvent(ChiliBulletWeapons.makeId("item.chilibulletweapons.gun.shoot"));
     public static final SoundEvent GUN_ACTION_OPEN = SoundEvent.createVariableRangeEvent(ChiliBulletWeapons.makeId("item.chilibulletweapons.gun.action_open"));
     public static final SoundEvent GUN_ACTION_CLOSE = SoundEvent.createVariableRangeEvent(ChiliBulletWeapons.makeId("item.chilibulletweapons.gun.action_close"));
+    public static final SoundEvent GUN_UPGRADE = SoundEvent.createVariableRangeEvent(ChiliBulletWeapons.makeId("item.chilibulletweapons.gun.upgrade"));
 }

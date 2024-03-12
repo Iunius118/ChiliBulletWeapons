@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-04T20:23:07.2725355	Item Models: chilibulletweapons
+// 1.20.1	2024-03-12T20:33:51.5892468	Item Models: chilibulletweapons
 a3f34e7c906ece5045655eaf4982e13d29ab32b3 assets/chilibulletweapons/models/item/bayoneted_gun.json
 04beba56d579567ec03732bb1a44732542ba09f7 assets/chilibulletweapons/models/item/bullet_chili.json
 586781a63776d5dcdfea55f65c041b2727a0dc06 assets/chilibulletweapons/models/item/bullet_chili_sack.json
@@ -29,3 +29,6 @@ fbb13241c3536931bcd1dbb69cca73dda6bd7c53 assets/chilibulletweapons/models/item/r
 90544a3704b689c5461fa3d0635156d8feca0e16 assets/chilibulletweapons/models/item/shotgun_bayoneted.json
 58eddd44d50d8848771fad90ccb65d6ef43423e2 assets/chilibulletweapons/models/item/shotgun_bayoneted_loading.json
 648c2c4be993ffdb7aefe36ecccf9725c1bf851e assets/chilibulletweapons/models/item/shotgun_loading.json
+d3525e5e902fc33aa72d171033ac2c5692d1f26a assets/chilibulletweapons/models/item/upgrade_gun_barrel.json
+89ea117ae07495f40a7d41991ce86656b6ff4646 assets/chilibulletweapons/models/item/upgrade_gun_bayonet.json
+4683b0c6000b9dffc9479920feeee3de3bfb6f32 assets/chilibulletweapons/models/item/upgrade_gun_mechanism.json
