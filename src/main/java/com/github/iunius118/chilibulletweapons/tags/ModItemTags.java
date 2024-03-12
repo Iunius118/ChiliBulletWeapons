@@ -16,7 +16,7 @@ public class ModItemTags {
     public static final TagKey<Item> FOODS_COOKED_MEAT = makeModTag("foods/cooked_meat");
 
     private static TagKey<Item> makeModTag(String id) {
-        return ItemTags.create(new ResourceLocation(ChiliBulletWeapons.MOD_ID, id));
+        return ItemTags.create(ChiliBulletWeapons.makeId(id));
     }
 
     private static TagKey<Item> makeForgeTag(String path) {

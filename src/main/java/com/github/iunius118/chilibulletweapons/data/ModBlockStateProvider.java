@@ -3,7 +3,6 @@ package com.github.iunius118.chilibulletweapons.data;
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -24,7 +23,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         getVariantBuilder(ModBlocks.CHILI_PEPPER).forAllStatesExcept(state -> {
             Integer age = state.getValue(CropBlock.AGE);
             String name = "chili_pepper_stage" + age;
-            ModelFile model = models().crop(name, new ResourceLocation(ChiliBulletWeapons.MOD_ID, "block/" + name)).renderType("cutout");
+            ModelFile model = models().crop(name, ChiliBulletWeapons.makeId("block/" + name)).renderType("cutout");
             return ConfiguredModel.builder().modelFile(model).build();
         });
     }
