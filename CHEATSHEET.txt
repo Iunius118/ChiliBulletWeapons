@@ -1,41 +1,63 @@
 # Cheatsheet
-[Chili Bullet Weapons](https://iunius118.github.io/ChiliBulletWeapons/).
-Version 1.1.0
+
+[Chili Bullet Weapons](https://iunius118.github.io/ChiliBulletWeapons/)
+
+Version 1.2.0
 
 ## How to Get Started
+
 ### 1. Obtain Curved Chili Pepper
+
 Curved chili peppers can be obtained from breaking short grass.
 
 ### 2. Craft Chili Pepper Seeds
+
 Chili pepper seeds can be crafted from curved chili pepper.
 
 ### 3. Grow Chili Pepper Crops
+
 Chili pepper seeds can be placed on farmland by right-clicking, where they grow through eight stages.
 
 Breaking the final stage produces 1 to 3 curved chili peppers and 1 to 3 bullet-like chili peppers.
 
-## Crop Farming
+## Farming
+
 ### Chili Pepper Seeds (CBW)
+
 Chili pepper seeds can be obtained from curved chili pepper that can be obtained by breaking short grass or mature chili pepper crops.
 
 When extracting chili pepper seeds from a curved chili pepper, use a crafting table or the player's crafting grid.
 
 Crafting:
+
 - Curved Chili Pepper -> Chili Pepper Seeds
 
 ### Chili Pepper Crops (CBW)
+
 Chili pepper seeds can be planted on farmland and the crops will grow to stage eight.
 
 Chili peppers can be harvested from the crop in the final growth stage.
 
 Items produced when crops are broken at each stage:
+
 - Stage 1-7 - 1x Chili Pepper Seeds (CBW)
 - Stage  8  - 1-3x Curved Chili Pepper and 1-3x Bullet-like Chili Pepper
 
 If harvested with Fortune enchanted tool, the number of chili peppers dropped would increase.
 
+### Compact Storage of Chili Peppers
+
+Sacks of chili peppers can be used to store chili peppers in a compact fashion.
+
+Crafting:
+
+- 9x Curved Chili Pepper <-> Sack of Curved Chili Peppers
+- 9x Bullet-like Chili Pepper <-> Sack of Bullet-like Chili Peppers
+
 ### Composting
+
 The following items can be added to a composter:
+
 - Chili Pepper Seeds (CBW)
 - Curved Chili Pepper
 - Bullet-like Chili Pepper
@@ -44,52 +66,79 @@ The following items can be added to a composter:
 - Fried Chili Pepper
 
 ## Foods
+
 ### Sandwiches
+
 Sandwiches can be crafted by combining curved chili pepper, cooked food, and bread.
 
 Crafting (shapeless recipe):
+
 - Curved Chili Pepper + Cooked Chicken + Bread -> 2x Chili Chicken Sandwich
 - Curved Chili Pepper + Cooked Cod/Cooked Salmon + Bread -> 2x Chili Fish Sandwich
 - Curved Chili Pepper + Cooked Mutton/Cooked Porkchop/Cooked Rabbit/Steak + Bread -> 2x Chili Meat Sandwich
 - Curved Chili Pepper + Baked Potato + Bread -> 2x Chili Potato Sandwich
 
+### Half-sized Sandwiches
+
 Each sandwich can be divided into two half-sized pieces by crafting.
 
 Crafting:
+
 - Chili Chicken Sandwich -> 2x Half-sized Chili Chicken Sandwich
 - Chili Fish Sandwich -> 2x Half-sized Chili Fish Sandwich
 - Chili Meat Sandwich -> 2x Half-sized Chili Meat Sandwich
 - Chili Potato Sandwich -> 2x Half-sized Chili Potato Sandwich
 
+### Pasta Olio e Peperoncino
+
+Pasta olio e peperoncino is a dish of pasta cooked in salted water, tossed with oil and crushed chili peppers, and served in a bowl. This dish is really simple and poor, but it will prevent starvation.
+
+Crafting (shaped recipe):
+
+    Pasta Olio e Peperoncino
+    1x Curved Chili Pepper (c), 1x Wheat (w), and 1x Bowl (b)
+    |   | c |   |
+    | w | w | w |
+    |   | b |   |
+
 ### Fried Chili Pepper
+
 A fried chili pepper can be crafted from curved chili peppers and wheat and gives Speed effect (0:30) when eaten by the player.
 
 Crafting (shapeless recipe):
+
 - 3x Curved Chili Pepper + Wheat -> 3x Fried Chili Pepper
 
 ## Weapons
+
 ### Chili Bullet
+
 A chili bullet serves as ammunition for chili bullet guns and can be crafted from a bullet-like chili pepper.
 
 Crafting:
+
 - Bullet-like Chili Pepper -> Chili Bullet
 
 Chili bullets will disappear two seconds after they are fired.
 
 ### Chili Bullet Gun
+
 A chili bullet gun is a break-action single-shot firearm that fires chili bullets to attack mobs at a distance.
 
 Crafting (shaped recipe):
-- 2x Iron Ingot (i) + 1x Chili Bullet (b) + 1x Any Planks (p) -> Chili Bullet Pistol
-| i |   |   |
-|   | i |   |
-|   | p | b |
+
+    Chili Bullet Pistol
+    2x Iron Ingot (i), 1x Chili Bullet (b), and 1x Any Planks (p)
+    | i |   |   |
+    |   | i |   |
+    |   | p | b |
 
 Chili bullet guns can be fired with the same operation as crossbows. Specifically, unloaded guns can be loaded by holding down the right mouse button, and loaded guns can be fired by right-clicking.
 
 Chili bullet guns can have the same enchantments as crossbows, and each gun can have a different appearance, display name, and performance depending on the enchantment it has.
 
 Below is a list of enchantments that guns have and their corresponding display names:
+
 - Piercing - Chili Bullet Rifle
 - Multishot - Chili Bullet Shotgun
 - Other than above - Chili Bullet Pistol
@@ -98,23 +147,66 @@ Chili bullet rifles are highly accurate, and bullets from them pass through the 
 
 Chili bullet shotguns are less accurate, and they can fire four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
 
+#### Upgrading Guns
+
+A chili bullet gun can be upgraded by using upgrade items.
+
+To upgrade a chili bullet gun, follow these steps:
+
+1. Hold a gun in the off-hand
+2. Hold an upgrade item in the main hand
+3. Use (right-click) the item in the main hand
+
+Currently, there are three types of upgrade items available.
+
+- Bayonet Upgrade
+- Gun Barrel Upgrade
+- Gun Mechanism Upgrade
+
+A bayonet upgrade is an item to upgrade a chili bullet gun to a chili bullet gun with bayonet.
+
+A gun barrel upgrade gives Piercing II to a gun without Piercing and Multishot to a gun with Piercing IV.
+
+A gun mechanism upgrade gives Quick Charge I to a gun without Quick Charge.
+
+Crafting (shaped recipe):
+
+    Bayonet Upgrade
+    2x Iron Ingot (i), 1x Stick (s), and 6x Chili Bullet (b)
+    | b | b | b |
+    | i | i | s |
+    | b | b | b |
+
+    Gun Barrel Upgrade
+    3x Iron Ingot (i) and 6x Chili Bullet (b)
+    | b | b | b |
+    | i | i | i |
+    | b | b | b |
+
+    Gun Mechanism Upgrade
+    1x Any Planks (p), 2x Iron Ingot (i), and 6x Chili Bullet (b)
+    | b | b | b |
+    | p | i | i |
+    | b | b | b |
+
 ### Chili Bullet Gun with Bayonet
-A chili bullet gun with bayonet is a chili bullet gun with an iron sword fitted and can deal 6 (heart × 3) damage in melee combat.
+
+A chili bullet gun with bayonet is a chili bullet gun with a bayonet fitted and can deal 6 (heart × 3) damage in melee combat.
 
 Crafting (shapeless recipe):
-- Iron Sword + Any chili bullet gun -> Chili Bullet Pistol with Bayonet
 
-Smithing tables can be used to make a chili bullet gun with bayonet retaining its enchantments.
+- Bayonet Upgrade + Any chili bullet gun -> Chili Bullet Pistol with Bayonet
 
-Upgrading (smithing table recipe):
-- (Empty) + Any chili bullet gun + Iron Sword -> Chili bullet gun with bayonet retaining the enchantments
+Bayonet upgrade items can be used to make a chili bullet gun with bayonet retaining the enchantments.
 
 Each chili bullet gun with bayonet can also have a different appearance, display name, and performance depending on the enchantment it has.
 
 Below is a list of enchantments that guns have and their corresponding display names:
+
 - Piercing - Chili Bullet Rifle with Bayonet
 - Multishot - Chili Bullet Shotgun with Bayonet
 - Other than above - Chili Bullet Pistol with Bayonet
 
 ### Chili Bullet Machine Gun
+
 A chili bullet machine gun is a gun for creative mode players and can only be obtained from the creative mode tab or command.

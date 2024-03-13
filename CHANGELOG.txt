@@ -3,10 +3,15 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+
+## [1.2.0]
+- Require Minecraft 1.20.1 and Forge 47.2.0+.
+
 ### Added
 - Items for compact storage of chili peppers: `Sack of Bullet-like Chili Peppers` and `Sack of Curved Chili Peppers`.
 - Pasta olio e peperoncino.
 - Gun upgrade system and upgrade items.
+  - To upgrade a gun, hold the gun in the off-hand and use (right-click) the upgrade item held in the main hand.
 
 ### Changed
 - Increase composting chance of half-sized chili potato sandwich.
