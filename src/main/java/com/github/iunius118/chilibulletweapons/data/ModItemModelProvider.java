@@ -33,6 +33,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.HALF_CHILI_FISH_SANDWICH);
         basicItem(ModItems.HALF_CHILI_MEAT_SANDWICH);
         basicItem(ModItems.HALF_CHILI_POTATO_SANDWICH);
+        basicItem(ModItems.PASTA_OIL_AND_CHILI);
         basicItem(ModItems.FRIED_CHILI_PEPPER);
         // Weapons
         basicItem(ModItems.CHILI_BULLET);

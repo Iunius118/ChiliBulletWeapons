@@ -1,4 +1,4 @@
-// 1.20.1	2024-03-12T20:33:51.5892468	Item Models: chilibulletweapons
+// 1.20.1	2024-03-13T19:52:28.143083	Item Models: chilibulletweapons
 a3f34e7c906ece5045655eaf4982e13d29ab32b3 assets/chilibulletweapons/models/item/bayoneted_gun.json
 04beba56d579567ec03732bb1a44732542ba09f7 assets/chilibulletweapons/models/item/bullet_chili.json
 586781a63776d5dcdfea55f65c041b2727a0dc06 assets/chilibulletweapons/models/item/bullet_chili_sack.json
@@ -17,6 +17,7 @@ fc177edab7310db57d6d3101f46c1857c039da44 assets/chilibulletweapons/models/item/h
 fb66fdb3215770cad08ed62bab800ee62fd5c2d6 assets/chilibulletweapons/models/item/half_chili_meat_sandwich.json
 85f60790a174850badb91a1d3fa32d2b29e1dd8c assets/chilibulletweapons/models/item/half_chili_potato_sandwich.json
 71b2a8cf1934956560cdde5dc3e672054fe92fb3 assets/chilibulletweapons/models/item/machine_gun.json
+a351d1b134afb3d6c0990f154fb6803c4f9a59b0 assets/chilibulletweapons/models/item/pasta_oil_and_chili.json
 17219c34baa58be679c21f809d7a0e2d5d69bc42 assets/chilibulletweapons/models/item/pistol.json
 ebed399ec529640fa6f803d62f7dc5705eabb95c assets/chilibulletweapons/models/item/pistol_bayoneted.json
 0284b9cad618f4b724cbad0d34ca8c6b3b8bfbc8 assets/chilibulletweapons/models/item/pistol_bayoneted_loading.json
