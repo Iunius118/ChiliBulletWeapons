@@ -7,9 +7,14 @@
 ### Added
 - Items for compact storage of chili peppers: `Sack of Bullet-like Chili Peppers` and `Sack of Curved Chili Peppers`.
 - Pasta olio e peperoncino.
+- Gun upgrade system and upgrade items.
+  - To upgrade a gun, hold the gun in the off-hand and use (right-click) the upgrade item held in the main hand.
 
 ### Changed
 - Increase composting chance of half-sized chili potato sandwich.
+
+### Removed
+- Smithing table recipe for gun with bayonet.
 
 ## [1.1.0]
 - Require Minecraft 1.20.2+ and Forge.

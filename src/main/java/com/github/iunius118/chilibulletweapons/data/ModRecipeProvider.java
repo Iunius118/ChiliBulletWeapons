@@ -8,7 +8,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -130,6 +129,36 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_bullet_chili", has(ModItems.BULLET_CHILI))
                 .save(recipeOutput, getItemId(ModItems.CHILI_BULLET));
 
+        // Upgrade parts
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.UPGRADE_GUN_BAYONET)
+                .pattern("bbb")
+                .pattern("iis")
+                .pattern("bbb")
+                .define('b', ModItems.CHILI_BULLET)
+                .define('i', Tags.Items.INGOTS_IRON)
+                .define('s', Tags.Items.RODS_WOODEN)
+                .unlockedBy("has_gun", has(ModItems.GUN))
+                .save(recipeOutput, getItemId(ModItems.UPGRADE_GUN_BAYONET));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.UPGRADE_GUN_BARREL)
+                .pattern("bbb")
+                .pattern("iii")
+                .pattern("bbb")
+                .define('b', ModItems.CHILI_BULLET)
+                .define('i', Tags.Items.INGOTS_IRON)
+                .unlockedBy("has_gun", has(ModItems.GUN))
+                .save(recipeOutput, getItemId(ModItems.UPGRADE_GUN_BARREL));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.UPGRADE_GUN_MECHANISM)
+                .pattern("bbb")
+                .pattern("pii")
+                .pattern("bbb")
+                .define('b', ModItems.CHILI_BULLET)
+                .define('p', ItemTags.PLANKS)
+                .define('i', Tags.Items.INGOTS_IRON)
+                .unlockedBy("has_gun", has(ModItems.GUN))
+                .save(recipeOutput, getItemId(ModItems.UPGRADE_GUN_MECHANISM));
+
         // Guns
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.GUN)
                 .pattern("i  ")
@@ -142,14 +171,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput, getItemId(ModItems.GUN));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, ModItems.BAYONETED_GUN)
-                .requires(Items.IRON_SWORD)
+                .requires(ModItems.UPGRADE_GUN_BAYONET)
                 .requires(ModItems.GUN)
                 .unlockedBy("has_gun", has(ModItems.GUN))
                 .save(recipeOutput, getItemId(ModItems.BAYONETED_GUN));
-
-        SmithingTransformRecipeBuilder.smithing(Ingredient.EMPTY, Ingredient.of(ModItems.GUN), Ingredient.of(Items.IRON_SWORD), RecipeCategory.COMBAT, ModItems.BAYONETED_GUN)
-                .unlocks("has_gun", has(ModItems.GUN))
-                .save(recipeOutput, getItemId(ModItems.BAYONETED_GUN) + "_upgrading");
     }
 
     private ResourceLocation getItemId(Item item) {

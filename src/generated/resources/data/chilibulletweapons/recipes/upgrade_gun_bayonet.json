@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "chilibulletweapons:chili_bullet"
+    },
+    "i": {
+      "tag": "forge:ingots/iron"
+    },
+    "s": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "iis",
+    "bbb"
+  ],
+  "result": {
+    "item": "chilibulletweapons:upgrade_gun_bayonet"
+  },
+  "show_notification": true
+}

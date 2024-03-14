@@ -26,7 +26,11 @@
   "item.chilibulletweapons.half_chili_potato_sandwich": "Half-sized Chili Potato Sandwich",
   "item.chilibulletweapons.machine_gun": "Chili Bullet Machine Gun",
   "item.chilibulletweapons.pasta_oil_and_chili": "Pasta Olio e Peperoncino",
+  "item.chilibulletweapons.upgrade_gun_barrel": "Gun Barrel Upgrade",
+  "item.chilibulletweapons.upgrade_gun_bayonet": "Bayonet Upgrade",
+  "item.chilibulletweapons.upgrade_gun_mechanism": "Gun Mechanism Upgrade",
   "itemGroup.chilibulletweapons.main": "Chili Bullet Weapons",
   "subtitles.item.chilibulletweapons.gun.action_close": "Chili Bullet Gun loads",
-  "subtitles.item.chilibulletweapons.gun.shoot": "Chili Bullet Gun fires"
+  "subtitles.item.chilibulletweapons.gun.shoot": "Chili Bullet Gun fires",
+  "subtitles.item.chilibulletweapons.gun.upgrade": "Chili Bullet Gun upgraded"
 }

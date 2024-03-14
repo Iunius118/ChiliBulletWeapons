@@ -242,6 +242,10 @@ public class ChiliBulletGun extends CrossbowItem {
         return (quickChargeLevel == 0) ? basicDuration : basicDuration - RELOAD_PER_QUICK_CHARGE * quickChargeLevel;
     }
 
+    public boolean isUpgradable() {
+        return true;
+    }
+
     public static ItemStack enchant(ItemLike item, Enchantment... enchantments) {
         ItemStack itemStack = new ItemStack(item);
         Arrays.asList(enchantments).forEach(e -> itemStack.enchant(e, e.getMaxLevel()));
