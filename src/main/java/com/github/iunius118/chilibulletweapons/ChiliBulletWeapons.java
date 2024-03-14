@@ -45,6 +45,10 @@ public class ChiliBulletWeapons {
         MinecraftForge.EVENT_BUS.addListener(this::onLootTableLoad);
     }
 
+    public static ResourceLocation makeId(String name) {
+        return new ResourceLocation(MOD_ID, name);
+    }
+
     private void onCommonSetup(final FMLCommonSetupEvent event) {
         registerCompostableItems();
     }
