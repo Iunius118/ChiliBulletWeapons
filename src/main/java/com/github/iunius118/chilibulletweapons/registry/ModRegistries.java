@@ -47,6 +47,7 @@ public class ModRegistries {
         itemRegister.register("half_chili_fish_sandwich", () -> ModItems.HALF_CHILI_FISH_SANDWICH);
         itemRegister.register("half_chili_meat_sandwich", () -> ModItems.HALF_CHILI_MEAT_SANDWICH);
         itemRegister.register("half_chili_potato_sandwich", () -> ModItems.HALF_CHILI_POTATO_SANDWICH);
+        itemRegister.register("pasta_oil_and_chili", () -> ModItems.PASTA_OIL_AND_CHILI);
         itemRegister.register("fried_chili_pepper", () -> ModItems.FRIED_CHILI_PEPPER);
         // Weapons
         itemRegister.register("chili_bullet", () -> ModItems.CHILI_BULLET);
