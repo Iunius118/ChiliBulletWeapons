@@ -4,6 +4,9 @@
 
 ## [Unreleased]
 
+### Added
+- Items for compact storage of chili peppers: `Sack of Bullet-like Chili Peppers` and `Sack of Curved Chili Peppers`.
+
 ### Changed
 - Increase composting chance of half-sized chili potato sandwich.
 
