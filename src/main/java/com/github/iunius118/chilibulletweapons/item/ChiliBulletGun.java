@@ -30,9 +30,9 @@ import java.util.function.Predicate;
 
 public class ChiliBulletGun extends CrossbowItem {
     public static final Predicate<ItemStack> IS_CHILI_BULLET = itemStack -> itemStack.is(ModItems.CHILI_BULLET);
-    public static final ResourceLocation PROPERTY_LOADING = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "loading");
-    public static final ResourceLocation PROPERTY_MULTISHOT = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "multishot");
-    public static final ResourceLocation PROPERTY_PIERCING = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "piercing");
+    public static final ResourceLocation PROPERTY_LOADING = ChiliBulletWeapons.makeId("loading");
+    public static final ResourceLocation PROPERTY_MULTISHOT = ChiliBulletWeapons.makeId("multishot");
+    public static final ResourceLocation PROPERTY_PIERCING = ChiliBulletWeapons.makeId("piercing");
     public static final String TAG_LOADING = "Loading";
     public static final String TAG_LOADED_BULLETS = "LoadedBullets";
     public static final String DESCRIPTION_PISTOL = "item.chilibulletweapons.gun.pistol";
