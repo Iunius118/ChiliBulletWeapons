@@ -4,6 +4,9 @@
 
 ## [Unreleased]
 
+## [1.2.0]
+- Require Minecraft 1.20.2+ and Forge.
+
 ### Added
 - Items for compact storage of chili peppers: `Sack of Bullet-like Chili Peppers` and `Sack of Curved Chili Peppers`.
 - Pasta olio e peperoncino.
