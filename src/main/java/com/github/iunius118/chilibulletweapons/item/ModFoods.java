@@ -13,5 +13,6 @@ public class ModFoods {
     public static final FoodProperties HALF_CHILI_FISH_SANDWICH = new FoodProperties.Builder().nutrition(3).saturationMod(0.8F).build();
     public static final FoodProperties HALF_CHILI_MEAT_SANDWICH = new FoodProperties.Builder().nutrition(4).saturationMod(0.8F).build();
     public static final FoodProperties HALF_CHILI_POTATO_SANDWICH = new FoodProperties.Builder().nutrition(3).saturationMod(0.6F).build();
+    public static final FoodProperties PASTA_OIL_AND_CHILI = new FoodProperties.Builder().nutrition(6).saturationMod(0.6F).build();
     public static final FoodProperties FRIED_CHILI_PEPPER = new FoodProperties.Builder().nutrition(2).saturationMod(0.6F).effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600), 1.0F).alwaysEat().fast().build();
 }

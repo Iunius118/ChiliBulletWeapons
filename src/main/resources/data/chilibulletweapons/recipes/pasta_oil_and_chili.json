@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:bowl"
+    },
+    "c": {
+      "item": "chilibulletweapons:curved_chili"
+    },
+    "w": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "pattern": [
+    " c ",
+    "www",
+    " b "
+  ],
+  "result": {
+    "item": "chilibulletweapons:pasta_oil_and_chili"
+  },
+  "show_notification": true
+}
