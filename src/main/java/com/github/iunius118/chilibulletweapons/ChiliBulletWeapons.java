@@ -30,6 +30,10 @@ public class ChiliBulletWeapons implements ModInitializer {
         LootTableEvents.MODIFY.register(this::onLootTableLoad);
     }
 
+    public static ResourceLocation makeId(String name) {
+        return new ResourceLocation(MOD_ID, name);
+    }
+
     private void registerCompostableItems() {
         ComposterBlock.COMPOSTABLES.put(ModItems.BULLET_CHILI, 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.CURVED_CHILI, 0.3F);

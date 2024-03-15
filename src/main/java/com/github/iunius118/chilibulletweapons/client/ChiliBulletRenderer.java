@@ -18,7 +18,7 @@ import org.joml.Vector3f;
 
 @Environment(EnvType.CLIENT)
 public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet> {
-    public static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "textures/item/chili_bullet.png");
+    public static final ResourceLocation TEXTURE_LOCATION = ChiliBulletWeapons.makeId("textures/item/chili_bullet.png");
 
     protected ChiliBulletRenderer(EntityRendererProvider.Context context) {
         super(context);

@@ -16,7 +16,7 @@ public class ModItemTags {
     public static final TagKey<Item> FOODS_COOKED_MEAT = makeModTag("foods/cooked_meat");
 
     private static TagKey<Item> makeModTag(String id) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation(ChiliBulletWeapons.MOD_ID, id));
+        return TagKey.create(Registries.ITEM, ChiliBulletWeapons.makeId(id));
     }
 
     private static TagKey<Item> makeCommonTag(String path) {
