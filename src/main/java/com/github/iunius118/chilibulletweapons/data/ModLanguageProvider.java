@@ -34,6 +34,8 @@ public class ModLanguageProvider extends LanguageProvider {
         public final String bulletChiliName = "Bullet-like Chili Pepper";
         public final String curvedChiliName = "Curved Chili Pepper";
         public final String chiliSeedsName = "Chili Pepper Seeds (CBW)";
+        public final String bulletChiliSackName = "Sack of Bullet-like Chili Peppers";
+        public final String curvedChiliSackName = "Sack of Curved Chili Peppers";
         // Item.Foods
         public final String chiliChickenSandwichName = "Chili Chicken Sandwich";
         public final String chiliFishSandwichName = "Chili Fish Sandwich";
@@ -76,6 +78,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.BULLET_CHILI, translatedNameProvider.bulletChiliName);
         add(ModItems.CURVED_CHILI, translatedNameProvider.curvedChiliName);
         add(ModItems.CHILI_SEEDS, translatedNameProvider.chiliSeedsName);
+        add(ModItems.BULLET_CHILI_SACK, translatedNameProvider.bulletChiliSackName);
+        add(ModItems.CURVED_CHILI_SACK, translatedNameProvider.curvedChiliSackName);
         // Item.Foods
         add(ModItems.CHILI_CHICKEN_SANDWICH, translatedNameProvider.chiliChickenSandwichName);
         add(ModItems.CHILI_FISH_SANDWICH, translatedNameProvider.chiliFishSandwichName);

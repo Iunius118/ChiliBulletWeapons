@@ -22,6 +22,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BULLET_CHILI);
         basicItem(ModItems.CURVED_CHILI);
         basicItem(ModItems.CHILI_SEEDS);
+        basicItem(ModItems.BULLET_CHILI_SACK);
+        basicItem(ModItems.CURVED_CHILI_SACK);
         // Foods
         basicItem(ModItems.CHILI_CHICKEN_SANDWICH);
         basicItem(ModItems.CHILI_FISH_SANDWICH);

@@ -5,6 +5,9 @@
 ## [Unreleased]
 - Require Minecraft 1.20.4 and NeoForge 20.4.200+.
 
+### Added
+- Items for compact storage of chili peppers: `Sack of Bullet-like Chili Peppers` and `Sack of Curved Chili Peppers`.
+
 ### Changed
 - Require NeoForge 20.4.200+.
 - Increase composting chance of half-sized chili potato sandwich.
