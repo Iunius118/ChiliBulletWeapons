@@ -7,6 +7,7 @@
 
 ### Added
 - Items for compact storage of chili peppers: `Sack of Bullet-like Chili Peppers` and `Sack of Curved Chili Peppers`.
+- Pasta olio e peperoncino.
 
 ### Changed
 - Require NeoForge 20.4.200+.
