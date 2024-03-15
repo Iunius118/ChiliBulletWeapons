@@ -5,6 +5,9 @@
 ## [Unreleased]
 - Require Minecraft 1.20.1+, Fabric Loader, and Fabric API.
 
+### Added
+- Items for compact storage of chili peppers: `Sack of Bullet-like Chili Peppers` and `Sack of Curved Chili Peppers`.
+
 ### Changed
 - Increase composting chance of half-sized chili potato sandwich.
 
