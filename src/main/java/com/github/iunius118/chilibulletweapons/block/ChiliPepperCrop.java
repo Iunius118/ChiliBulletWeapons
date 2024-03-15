@@ -4,7 +4,6 @@ import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -101,7 +100,7 @@ public class ChiliPepperCrop extends CropBlock {
             return Collections.emptyList();
         }
 
-        var lootTableLocation = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "blocks/chili_pepper");
+        var lootTableLocation = ChiliBulletWeapons.makeId("blocks/chili_pepper");
         var lootTable = server.getLootData().getLootTable(lootTableLocation);
         var lootParams = new LootParams.Builder((ServerLevel) level)
                 .withParameter(LootContextParams.ORIGIN, pos.getCenter())

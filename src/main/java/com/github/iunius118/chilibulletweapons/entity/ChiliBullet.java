@@ -28,7 +28,7 @@ import net.neoforged.neoforge.event.EventHooks;
 import javax.annotation.Nullable;
 
 public class ChiliBullet extends Projectile {
-    public static final ResourceLocation ID = new ResourceLocation(ChiliBulletWeapons.MOD_ID, "chili_bullet");
+    public static final ResourceLocation ID = ChiliBulletWeapons.makeId("chili_bullet");
     public static final String TAG_AGE = "Age";
     public static final String TAG_PIERCE_LEVEL = "PierceLevel";
     public static final double BASE_DAMAGE = 0.85D;
