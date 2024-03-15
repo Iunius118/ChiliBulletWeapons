@@ -27,5 +27,11 @@
       "fireworks/blast1"
     ],
     "subtitle": "subtitles.item.chilibulletweapons.gun.shoot"
+  },
+  "item.chilibulletweapons.gun.upgrade": {
+    "sounds": [
+      "random/anvil_use"
+    ],
+    "subtitle": "subtitles.item.chilibulletweapons.gun.upgrade"
   }
 }
