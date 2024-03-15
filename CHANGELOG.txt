@@ -3,7 +3,9 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
-- Require Minecraft 1.20.1+, Fabric Loader, and Fabric API.
+
+## [1.2.0]
+- Require Minecraft 1.20.1+, Fabric Loader 0.15.7+, and Fabric API.
 
 ### Added
 - Items for compact storage of chili peppers: `Sack of Bullet-like Chili Peppers` and `Sack of Curved Chili Peppers`.
