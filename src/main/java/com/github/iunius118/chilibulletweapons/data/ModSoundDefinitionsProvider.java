@@ -33,6 +33,7 @@ public class ModSoundDefinitionsProvider extends SoundDefinitionsProvider {
         addSoundEventWithSubtitle(ModSoundEvents.GUN_SHOOT, new ResourceLocation("fireworks/blast1"));
         addSoundEvent(ModSoundEvents.GUN_ACTION_OPEN, actionOpenSoundLocations);
         addSoundEventWithSubtitle(ModSoundEvents.GUN_ACTION_CLOSE, actionCloseSoundLocations);
+        addSoundEventWithSubtitle(ModSoundEvents.GUN_UPGRADE, new ResourceLocation("random/anvil_use"));
     }
 
     private void addSoundEvent(SoundEvent soundEvent, ResourceLocation... locations) {

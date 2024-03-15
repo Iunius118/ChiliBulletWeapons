@@ -50,6 +50,9 @@ public class ModRegistries {
         itemRegister.register("fried_chili_pepper", () -> ModItems.FRIED_CHILI_PEPPER);
         // Weapons
         itemRegister.register("chili_bullet", () -> ModItems.CHILI_BULLET);
+        itemRegister.register("upgrade_gun_bayonet", () -> ModItems.UPGRADE_GUN_BAYONET);
+        itemRegister.register("upgrade_gun_barrel", () -> ModItems.UPGRADE_GUN_BARREL);
+        itemRegister.register("upgrade_gun_mechanism", () -> ModItems.UPGRADE_GUN_MECHANISM);
         itemRegister.register("gun", () -> ModItems.GUN);
         itemRegister.register("bayoneted_gun", () -> ModItems.BAYONETED_GUN);
         itemRegister.register("machine_gun", () -> ModItems.MACHINE_GUN);
@@ -64,6 +67,7 @@ public class ModRegistries {
         soundEventRegister.register("item_gun_shoot", () -> ModSoundEvents.GUN_SHOOT);
         soundEventRegister.register("item_gun_action_open", () -> ModSoundEvents.GUN_ACTION_OPEN);
         soundEventRegister.register("item_gun_action_close", () -> ModSoundEvents.GUN_ACTION_CLOSE);
+        soundEventRegister.register("item_gun_upgrade", () -> ModSoundEvents.GUN_UPGRADE);
 
         soundEventRegister.register(modEventBus);
     }

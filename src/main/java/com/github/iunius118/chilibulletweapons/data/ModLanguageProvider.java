@@ -49,6 +49,9 @@ public class ModLanguageProvider extends LanguageProvider {
         public final String friedChiliPepperName = "Fried Chili Pepper";
         // Item.Weapons
         public final String chiliBulletName = "Chili Bullet";
+        public final String upgradeGunBayonetName = "Bayonet Upgrade";
+        public final String upgradeGunBarrelName = "Gun Barrel Upgrade";
+        public final String upgradeGunMechanismName = "Gun Mechanism Upgrade";
         public final String gunName = "Chili Bullet Gun";
         public final String pistolName = "Chili Bullet Pistol";
         public final String rifleName = "Chili Bullet Rifle";
@@ -65,6 +68,7 @@ public class ModLanguageProvider extends LanguageProvider {
         // Subtitles
         public final String subtitleGunShoot = "Chili Bullet Gun fires";
         public final String subtitleGunActionClose = "Chili Bullet Gun loads";
+        public final String subtitleGunUpgrade = "Chili Bullet Gun upgraded";
     }
 
     @Override
@@ -94,6 +98,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.FRIED_CHILI_PEPPER, translatedNameProvider.friedChiliPepperName);
         // Item.Weapons
         add(ModItems.CHILI_BULLET, translatedNameProvider.chiliBulletName);
+        add(ModItems.UPGRADE_GUN_BAYONET, translatedNameProvider.upgradeGunBayonetName);
+        add(ModItems.UPGRADE_GUN_BARREL, translatedNameProvider.upgradeGunBarrelName);
+        add(ModItems.UPGRADE_GUN_MECHANISM, translatedNameProvider.upgradeGunMechanismName);
         add(ModItems.GUN, translatedNameProvider.gunName);
         add(ChiliBulletGun.DESCRIPTION_PISTOL, translatedNameProvider.pistolName);
         add(ChiliBulletGun.DESCRIPTION_RIFLE, translatedNameProvider.rifleName);
@@ -110,6 +117,7 @@ public class ModLanguageProvider extends LanguageProvider {
         // Subtitles
         add(ModSoundEvents.GUN_SHOOT, translatedNameProvider.subtitleGunShoot);
         add(ModSoundEvents.GUN_ACTION_CLOSE, translatedNameProvider.subtitleGunActionClose);
+        add(ModSoundEvents.GUN_UPGRADE, translatedNameProvider.subtitleGunUpgrade);
     }
 
     private void add(SoundEvent soundEvent, String name) {
