@@ -6,6 +6,7 @@
   - **Foods**
     - [Sandwiches](#sandwiches)
     - [Half-sized Sandwiches](#half-sized-sandwiches)
+    - [Pasta Olio e Peperoncino](#pasta-olio-e-peperoncino)
     - [Fried Chili Pepper](#fried-chili-pepper)
   - [Weapons](weapons.html)
 
@@ -38,6 +39,12 @@ Each sandwich can be divided into two half-sized pieces by crafting.
 |![ ](../media/item/chili_fish_sandwich.png) Chili Fish Sandwich|![ ](../media/item/half_chili_fish_sandwich.png) Half-sized Chili Fish Sandwich|2|
 |![ ](../media/item/chili_meat_sandwich.png) Chili Meat Sandwich|![ ](../media/item/half_chili_meat_sandwich.png) Half-sized Chili Meat Sandwich|2|
 |![ ](../media/item/chili_potato_sandwich.png) Chili Potato Sandwich|![ ](../media/item/half_chili_potato_sandwich.png) Half-sized Chili Potato Sandwich|2|
+
+## Pasta Olio e Peperoncino
+
+Pasta olio e peperoncino is a dish of pasta cooked in salted water, tossed with oil and crushed chili peppers, and served in a bowl. This dish is really simple and poor, but it will prevent starvation.
+
+![Crafting pasta Olio e Peperoncino](../media/item/crafting/crafting_pasta_oil_and_chili.png)
 
 ## Fried Chili Pepper
 

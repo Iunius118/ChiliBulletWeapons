@@ -7,6 +7,7 @@
   - **Weapons**
     - [Chili Bullet](#chili-bullet)
     - [Chili Bullet Gun](#chili-bullet-gun)
+      - [Upgrading Guns](#upgrading-guns)
     - [Chili Bullet Gun with Bayonet](#chili-bullet-gun-with-bayonet)
     - [Chili Bullet Machine Gun](#chili-bullet-machine-gun)
 
@@ -38,15 +39,48 @@ Chili bullet rifles are highly accurate, and bullets from them pass through the 
 
 Chili bullet shotguns are less accurate, and they can fire four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
 
+### Upgrading Guns
+
+A chili bullet gun can be upgraded by using upgrade items.
+
+To upgrade a chili bullet gun, follow these steps:
+
+1. Hold a gun in the off-hand
+2. Hold an upgrade item in the main hand
+3. Use (right-click) the item in the main hand
+
+![Upgrading chili bullet gun](../media/item/misc/upgrading_chili_bullet_gun.png)
+
+Currently, there are three types of upgrade items available.
+
+- ![ ](../media/item/upgrade_gun_bayonet.png) Bayonet Upgrade
+- ![ ](../media/item/upgrade_gun_barrel.png) Gun Barrel Upgrade
+- ![ ](../media/item/upgrade_gun_mechanism.png) Gun Mechanism Upgrade
+
+Bayonet Upgrade  
+![Crafting bayonet upgrade](../media/item/crafting/crafting_upgrade_gun_bayonet.png)
+
+A bayonet upgrade is an item to upgrade a chili bullet gun to a chili bullet gun with bayonet.
+
+Gun Barrel Upgrade  
+![Crafting gun barrel upgrade](../media/item/crafting/crafting_upgrade_gun_barrel.png)
+
+A gun barrel upgrade gives Piercing II to a gun without Piercing and Multishot to a gun with Piercing IV.
+
+Gun Mechanism Upgrade  
+![Crafting gun mechanism upgrade](../media/item/crafting/crafting_upgrade_gun_mechanism.png)
+
+A gun mechanism upgrade gives Quick Charge I to a gun without Quick Charge.
+
 ## Chili Bullet Gun with Bayonet
 
 A chili bullet gun with bayonet is a chili bullet gun with an iron sword fitted and can deal 6 (♥ × 3) damage in melee combat.
 
-![Crafting chili bullet gun with bayonet](../media/item/crafting/crafting_bayoneted_gun.png)
+![Crafting chili bullet gun with bayonet](../media/item/crafting/crafting_bayoneted_gun_v1.2.0.png)
 
-Smithing tables can be used to make a chili bullet gun with bayonet retaining its enchantments.
+Bayonet upgrade items can be used to make a chili bullet gun with bayonet retaining the enchantments.
 
-![Upgrading chili bullet gun](../media/item/crafting/upgrading_chili_bullet_gun.png)
+![Upgrading chili bullet gun](../media/item/misc/upgrading_chili_bullet_gun.png)
 
 Each chili bullet gun with bayonet can also have a different appearance, display name, and performance depending on the enchantment it has.
 

@@ -5,6 +5,7 @@
   - **Farming**
     - [Chili Pepper Seeds (CBW)](#chili-pepper-seeds-cbw)
     - [Chili Pepper Crops (CBW)](#chili-pepper-crops-cbw)
+    - [Compact Storage of Chili Peppers](#compact-storage-of-chili-peppers)
     - [Composting](#composting)
   - [Foods](foods.html)
   - [Weapons](weapons.html)
@@ -38,9 +39,19 @@ Items produced when crops are broken at each stage:
 
 If harvested with Fortune enchanted tool, the number of chili peppers dropped would increase.
 
+## Compact Storage of Chili Peppers
+
+Sacks of chili peppers can be used to store chili peppers in a compact fashion.
+
+Sack of Curved Chili Peppers  
+![Crafting sack of curved chili peppers](../media/item/crafting/crafting_curved_chili_sack.png) ![Crafting curved chilis peppers from sack](../media/item/crafting/crafting_curved_chili_from_sack.png)
+
+Sack of Bullet-like Chili Peppers  
+![Crafting sack of bullet-like chili peppers](../media/item/crafting/crafting_bullet_chili_sack.png) ![Crafting bullet-like chili peppers from sack](../media/item/crafting/crafting_bullet_chili_from_sack.png)
+
 ## Composting
 
-The following items can be added to a composter:
+The following items can be added to composters:
 
 - ![ ](../media/item/chili_seeds.png) Chili Pepper Seeds (CBW)
 - ![ ](../media/item/curved_chili.png) Curved Chili Pepper
