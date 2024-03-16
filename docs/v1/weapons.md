@@ -74,7 +74,7 @@ A gun mechanism upgrade gives Quick Charge I to a gun without Quick Charge.
 
 ## Chili Bullet Gun with Bayonet
 
-A chili bullet gun with bayonet is a chili bullet gun with an iron sword fitted and can deal 6 (♥ × 3) damage in melee combat.
+A chili bullet gun with bayonet is a chili bullet gun with a bayonet fitted and can deal 6 (♥ × 3) damage in melee combat.
 
 ![Crafting chili bullet gun with bayonet](../media/item/crafting/crafting_bayoneted_gun_v1.2.0.png)
 
