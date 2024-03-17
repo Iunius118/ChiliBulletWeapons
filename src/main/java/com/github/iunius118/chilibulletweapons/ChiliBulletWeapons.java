@@ -62,12 +62,16 @@ public class ChiliBulletWeapons {
         ComposterBlock.COMPOSTABLES.put(ModItems.FRIED_CHILI_PEPPER, 0.3F);
     }
 
+    // 1.20.2 or earlier
+    private static final ResourceLocation OLD_GRASS_LOOT_PATH = new ResourceLocation("blocks/grass");
+    // 1.20.3 or later
+    private static final ResourceLocation NEW_GRASS_LOOT_PATH = new ResourceLocation("blocks/short_grass");
+
     private void onLootTableLoad(final LootTableLoadEvent event) {
         ResourceLocation name = event.getName();
 
-        // Add chili pepper loot pool to short grass
-        if (name.equals(new ResourceLocation("blocks/grass")) /* -1.20.2 */
-                || name.equals(new ResourceLocation("blocks/short_grass")) /* 1.20.3- */) {
+        // Add loot pool of chili pepper to loot table of short grass
+        if (OLD_GRASS_LOOT_PATH.equals(name) || NEW_GRASS_LOOT_PATH.equals(name)) {
             LootPool pool = LootPool.lootPool()
                     .add(LootItem.lootTableItem(ModItems.CURVED_CHILI)
                             .when(LootItemRandomChanceCondition.randomChance(0.125F))

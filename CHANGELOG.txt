@@ -3,9 +3,13 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+- Require Minecraft 1.20.1-1.20.4 and Forge.
+
+### Changed
+- Compatible with 1.20.2-1.20.4 except for data generators.
 
 ## [1.2.0]
-- Require Minecraft 1.20.2+ and Forge.
+- Require Minecraft 1.20.1 and Forge 47.2.0+.
 
 ### Added
 - Items for compact storage of chili peppers: `Sack of Bullet-like Chili Peppers` and `Sack of Curved Chili Peppers`.
@@ -20,7 +24,7 @@
 - Smithing table recipe for gun with bayonet.
 
 ## [1.1.0]
-- Require Minecraft 1.20.2+ and Forge.
+- Require Minecraft 1.20.1 and Forge 47.2.0+.
 
 ### Added
 - Chili bullet gun with bayonet.
@@ -30,7 +34,7 @@
 - Change gun item textures.
 
 ## [1.0.2]
-- Require Minecraft 1.20.2+ and Forge.
+- Require Minecraft 1.20.1 and Forge 47.2.0+.
 
 ### Changed
 - Change mod icon.
@@ -39,11 +43,5 @@
 - Fix ammo consumption when loading machine gun.
 
 ## [1.0.1]
-- Require Minecraft 1.20.2+ and Forge.
-
-### Fixed
-- Fix loot table addition so that short grass can drop curved chili pepper in 1.20.3+.
-
-## [1.0.0]
-- Initial public release.
-- Require Minecraft 1.20.2 and Forge 48.1.0.
+- Backport to 1.20.1 Forge.
+- Require Minecraft 1.20.1 and Forge 47.2.0+.
