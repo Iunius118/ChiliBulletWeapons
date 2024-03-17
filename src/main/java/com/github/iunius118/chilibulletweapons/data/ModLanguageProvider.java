@@ -3,10 +3,7 @@ package com.github.iunius118.chilibulletweapons.data;
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
-import com.github.iunius118.chilibulletweapons.item.ChiliBulletGun;
-import com.github.iunius118.chilibulletweapons.item.ChiliBulletGunBayoneted;
-import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
-import com.github.iunius118.chilibulletweapons.item.ModItems;
+import com.github.iunius118.chilibulletweapons.item.*;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -62,6 +59,11 @@ public class ModLanguageProvider extends LanguageProvider {
         public final String bayonetedShotgunName = "Chili Bullet Shotgun with Bayonet";
         public final String machineGunName = "Chili Bullet Machine Gun";
 
+        // Tooltips
+        public final String tooltipUpgradeGun1 = "Hold gun in off-hand and";
+        public final String tooltipUpgradeGun2 = "use this item in main hand";
+        public final String tooltipUpgradeGun3 = "to upgrade gun.";
+
         // Entity
         public final String chiliBulletEntityName = "Chili Bullet";
 
@@ -110,6 +112,11 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ChiliBulletGunBayoneted.DESCRIPTION_RIFLE, translatedNameProvider.bayonetedRifleName);
         add(ChiliBulletGunBayoneted.DESCRIPTION_SHOTGUN, translatedNameProvider.bayonetedShotgunName);
         add(ModItems.MACHINE_GUN, translatedNameProvider.machineGunName);
+
+        // Tooltips
+        add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_1, translatedNameProvider.tooltipUpgradeGun1);
+        add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_2, translatedNameProvider.tooltipUpgradeGun2);
+        add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_3, translatedNameProvider.tooltipUpgradeGun3);
 
         // Entity
         add(ModEntityTypes.CHILI_BULLET, translatedNameProvider.chiliBulletEntityName);

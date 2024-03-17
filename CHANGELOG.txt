@@ -5,6 +5,9 @@
 ## [Unreleased]
 - Require Minecraft 1.20.1-1.20.4 and Forge.
 
+### Added
+- Add item descriptions to tooltips of gun upgrade items.
+
 ### Changed
 - Compatible with 1.20.2-1.20.4 except for data generators.
 
