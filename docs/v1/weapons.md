@@ -80,7 +80,7 @@ A chili bullet gun with bayonet is a chili bullet gun with a bayonet fitted and 
 
 Bayonet upgrade items can be used to make a chili bullet gun with bayonet retaining the enchantments.
 
-![Upgrading chili bullet gun](../media/item/misc/upgrading_chili_bullet_gun.png)
+![Upgrading chili bullet gun](../media/item/misc/upgrading_chili_bullet_gun_with_enchantments_and_damage.png)
 
 Each chili bullet gun with bayonet can also have a different appearance, display name, and performance depending on the enchantment it has.
 
