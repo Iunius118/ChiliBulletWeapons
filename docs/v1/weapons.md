@@ -9,7 +9,7 @@
     - [Chili Bullet Gun](#chili-bullet-gun)
       - [Upgrading Guns](#upgrading-guns)
     - [Chili Bullet Gun with Bayonet](#chili-bullet-gun-with-bayonet)
-    - [Chili Bullet Machine Gun](#chili-bullet-machine-gun)
+    - [Chili Bullet Machine Gun (Creative Mode)](#chili-bullet-machine-gun-creative-mode)
 
 ## Chili Bullet
 
@@ -90,7 +90,7 @@ Each chili bullet gun with bayonet can also have a different appearance, display
 |Multishot|![ ](../media/item/shotgun_bayoneted_32.png)![ ](../media/item/shotgun_bayoneted_loading_32.png)|Chili Bullet Shotgun with Bayonet|
 |Other than above|![ ](../media/item/pistol_bayoneted_32.png)![ ](../media/item/pistol_bayoneted_loading_32.png)|Chili Bullet Pistol with Bayonet|
 
-## Chili Bullet Machine Gun
+## Chili Bullet Machine Gun (Creative Mode)
 
 ![ ](../media/item/machine_gun_32.png)
 
