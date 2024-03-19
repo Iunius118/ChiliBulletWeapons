@@ -9,10 +9,11 @@
 - Add item descriptions to tooltips of gun upgrade items.
 
 ### Changed
-- Compatible with 1.20.2-1.20.4 except for data generators.
+- Compatible with 1.20.1-1.20.4 except for data generators.
+- Order of weapon items in creative mode tab.
 
 ### Fixed
-- Fix Rendering of fired chili bullets.
+- Rendering of fired chili bullets.
 
 ## [1.2.0]
 - Require Minecraft 1.20.1 and Forge 47.2.0+.
