@@ -3,6 +3,8 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+
+## [1.2.1]
 - Require Minecraft 1.20.1-1.20.4 and Forge.
 
 ### Added

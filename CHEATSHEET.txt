@@ -51,8 +51,8 @@ Sacks of chili peppers can be used to store chili peppers in a compact fashion.
 
 Crafting:
 
-- 9x Curved Chili Pepper <-> Sack of Curved Chili Peppers
-- 9x Bullet-like Chili Pepper <-> Sack of Bullet-like Chili Peppers
+- 9x Curved Chili Pepper <-> 1x Sack of Curved Chili Peppers
+- 9x Bullet-like Chili Pepper <-> 1x Sack of Bullet-like Chili Peppers
 
 ### Composting
 
@@ -149,7 +149,7 @@ Chili bullet shotguns are less accurate, and they can fire four bullets in a sin
 
 #### Upgrading Guns
 
-A chili bullet gun can be upgraded by using upgrade items.
+Chili bullet guns can be upgraded by using upgrade items.
 
 To upgrade a chili bullet gun, follow these steps:
 
