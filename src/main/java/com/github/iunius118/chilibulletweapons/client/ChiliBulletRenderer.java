@@ -37,6 +37,14 @@ public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet> {
 
     @Override
     public void render(ChiliBullet chiliBullet, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource bufferSource, int light) {
+        if (chiliBullet.getAge() > 0) {
+            render(poseStack, bufferSource, light);
+        }
+
+        super.render(chiliBullet, entityYaw, partialTicks, poseStack, bufferSource, light);
+    }
+
+    private void render(PoseStack poseStack, MultiBufferSource bufferSource, int light) {
         poseStack.pushPose();
         var vertexConsumer = bufferSource.getBuffer(ChiliBulletRenderType.CHILI_BULLET);
         Matrix4f pose = poseStack.last().pose();
@@ -49,7 +57,6 @@ public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet> {
         renderQuad(vertexConsumer, pose, light, vertices[7], vertices[5], vertices[3], vertices[1]);
 
         poseStack.popPose();
-        super.render(chiliBullet, entityYaw, partialTicks, poseStack, bufferSource, light);
     }
 
     private void renderQuad(VertexConsumer vertexConsumer, Matrix4f pose, int light, Vector3f... v) {

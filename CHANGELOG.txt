@@ -6,6 +6,9 @@
 ### Added
 - Add item descriptions to tooltips of gun upgrade items.
 
+### Fixed
+- Rendering of fired chili bullets.
+
 ## [1.2.0]
 - Require Minecraft 1.20.1+, Fabric Loader 0.15.7+, and Fabric API.
 
