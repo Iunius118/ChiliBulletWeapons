@@ -167,6 +167,7 @@ public class ChiliBullet extends Projectile {
         this.setPos(nextX, nextY, nextZ);
 
         /* Lifespan Management */
+        age++;
 
         if (!level().isClientSide) {
             tickDespawn();
@@ -184,7 +185,7 @@ public class ChiliBullet extends Projectile {
     }
 
     private void tickDespawn() {
-        if (++age >= LIFETIME && !this.isRemoved()) {
+        if (age >= LIFETIME && !this.isRemoved()) {
             this.discard();
         }
     }
@@ -247,6 +248,10 @@ public class ChiliBullet extends Projectile {
         super.onHitBlock(result);
         setPierceLevel((byte) 0);
         this.discard();
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public void addAdditionalSaveData(CompoundTag compoundTag) {
