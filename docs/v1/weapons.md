@@ -29,8 +29,8 @@ Chili bullet guns can be fired with the same operation as crossbows. Specificall
 
 Chili bullet guns can have the same enchantments as crossbows, and each gun can have a different appearance, display name, and performance depending on the enchantment it has.
 
-|Enchantment|Appearance<br/>(Closed/Open)|Display Name|
-|-----------|:--------------------------:|------------|
+|Enchantment|Appearances<br/>(Closed/Open)|Display Name|
+|-----------|:---------------------------:|------------|
 |Piercing|![ ](../media/item/rifle_32.png)![ ](../media/item/rifle_loading_32.png)|Chili Bullet Rifle|
 |Multishot|![ ](../media/item/shotgun_32.png)![ ](../media/item/shotgun_loading_32.png)|Chili Bullet Shotgun|
 |Other than above|![ ](../media/item/pistol_32.png)![ ](../media/item/pistol_loading_32.png)|Chili Bullet Pistol|
@@ -41,7 +41,7 @@ Chili bullet shotguns are less accurate, and they can fire four bullets in a sin
 
 ### Upgrading Guns
 
-A chili bullet gun can be upgraded by using upgrade items.
+Chili bullet guns can be upgraded by using upgrade items.
 
 To upgrade a chili bullet gun, follow these steps:
 
@@ -84,8 +84,8 @@ Bayonet upgrade items can be used to make a chili bullet gun with bayonet retain
 
 Each chili bullet gun with bayonet can also have a different appearance, display name, and performance depending on the enchantment it has.
 
-|Enchantment|Appearance<br/>(Closed/Open)|Display Name|
-|-----------|:--------------------------:|------------|
+|Enchantment|Appearances<br/>(Closed/Open)|Display Name|
+|-----------|:---------------------------:|------------|
 |Piercing|![ ](../media/item/rifle_bayoneted_32.png)![ ](../media/item/rifle_bayoneted_loading_32.png)|Chili Bullet Rifle with Bayonet|
 |Multishot|![ ](../media/item/shotgun_bayoneted_32.png)![ ](../media/item/shotgun_bayoneted_loading_32.png)|Chili Bullet Shotgun with Bayonet|
 |Other than above|![ ](../media/item/pistol_bayoneted_32.png)![ ](../media/item/pistol_bayoneted_loading_32.png)|Chili Bullet Pistol with Bayonet|
