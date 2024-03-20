@@ -43,9 +43,14 @@ public class ChiliBulletWeapons implements ModInitializer {
         ComposterBlock.COMPOSTABLES.put(ModItems.FRIED_CHILI_PEPPER, 0.3F);
     }
 
+    // 1.20.2 or earlier
+    private static final ResourceLocation OLD_GRASS_LOOT_PATH = new ResourceLocation("blocks/grass");
+    // 1.20.3 or later
+    private static final ResourceLocation NEW_GRASS_LOOT_PATH = new ResourceLocation("blocks/short_grass");
+
     void onLootTableLoad(ResourceManager resourceManager, LootDataManager lootManager, ResourceLocation id, LootTable.Builder tableBuilder, LootTableSource source) {
         if (source.isBuiltin()) {
-            if (id.equals(new ResourceLocation("blocks/grass")) || id.equals(new ResourceLocation("blocks/short_grass"))) {
+            if (OLD_GRASS_LOOT_PATH.equals(id) || NEW_GRASS_LOOT_PATH.equals(id)) {
                 // Is grass (-1.20.2) || short_grass (1.20.3-)
                 // Add chili pepper loot pool to short grass
                 var lootPool = LootPool.lootPool()
