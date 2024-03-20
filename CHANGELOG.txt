@@ -6,6 +6,9 @@
 ### Added
 - Add item descriptions to tooltips of gun upgrade items.
 
+### Changed
+- Order of weapon items in creative mode tab.
+
 ### Fixed
 - Rendering of fired chili bullets.
 

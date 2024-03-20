@@ -34,21 +34,21 @@ public class ModCreativeModeTabs {
 
                 // Weapons
                 output.accept(ModItems.CHILI_BULLET);
+                output.accept(ModItems.GUN);
+                output.accept(ModItems.BAYONETED_GUN);
                 output.accept(ModItems.UPGRADE_GUN_BAYONET);
                 output.accept(ModItems.UPGRADE_GUN_BARREL);
                 output.accept(ModItems.UPGRADE_GUN_MECHANISM);
-                output.accept(ModItems.GUN);
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING));
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.MULTISHOT));
                 // output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.MULTISHOT)); // For debug
-                output.accept(ModItems.BAYONETED_GUN);
-                output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING));
-                output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.MULTISHOT));
-                // output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING, Enchantments.MULTISHOT)); // For debug
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.QUICK_CHARGE));
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.QUICK_CHARGE));
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));
                 // output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));  // For debug
+                output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING));
+                output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.MULTISHOT));
+                // output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING, Enchantments.MULTISHOT)); // For debug
                 output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.QUICK_CHARGE));
                 output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING, Enchantments.QUICK_CHARGE));
                 output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));
