@@ -3,6 +3,7 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+- Require Minecraft 1.20.1+, Fabric Loader 0.15.0+, and Fabric API.
 
 ## [1.2.1]
 - Require Minecraft 1.20.1+, Fabric Loader 0.15.7+, and Fabric API.
