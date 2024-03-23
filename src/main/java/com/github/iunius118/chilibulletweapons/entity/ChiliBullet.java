@@ -50,7 +50,7 @@ public class ChiliBullet extends Projectile {
     }
 
     public ChiliBullet(LivingEntity thrower, Level level) {
-        this(thrower.getX(), thrower.getEyeY(), thrower.getZ(), level);
+        this(thrower.getX(), thrower.getEyeY() - (double) 0.05F, thrower.getZ(), level);
         this.setOwner(thrower);
     }
 
