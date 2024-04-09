@@ -7,10 +7,10 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 public class ModItemTags {
-    public static final TagKey<Item> FORGE_CROPS = makeCommonTag("crops");
-    public static final TagKey<Item> FORGE_CROPS_CHILI = makeCommonTag("crops/chili");
-    public static final TagKey<Item> FORGE_SEEDS = makeCommonTag("seeds");
-    public static final TagKey<Item> FORGE_SEEDS_CHILI = makeCommonTag("seeds/chili");
+    public static final TagKey<Item> COMMON_CROPS = makeCommonTag("crops");
+    public static final TagKey<Item> COMMON_CROPS_CHILI = makeCommonTag("crops/chili");
+    public static final TagKey<Item> COMMON_SEEDS = makeCommonTag("seeds");
+    public static final TagKey<Item> COMMON_SEEDS_CHILI = makeCommonTag("seeds/chili");
 
     public static final TagKey<Item> FOODS_COOKED_FISH = makeModTag("foods/cooked_fish");
     public static final TagKey<Item> FOODS_COOKED_MEAT = makeModTag("foods/cooked_meat");
