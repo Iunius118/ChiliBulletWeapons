@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "chilibulletweapons:chili_potato_sandwich",
   "ingredients": [
     {
       "item": "chilibulletweapons:curved_chili"

@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "chilibulletweapons:upgrade_gun_bayonet",
   "key": {
     "b": {
       "item": "chilibulletweapons:chili_bullet"

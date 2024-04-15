@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "equipment",
+  "group": "chilibulletweapons:chili_bullet",
   "ingredients": [
     {
       "item": "chilibulletweapons:bullet_chili"

@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "equipment",
+  "group": "chilibulletweapons:bayoneted_gun",
   "ingredients": [
     {
       "item": "chilibulletweapons:upgrade_gun_bayonet"
