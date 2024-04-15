@@ -4,6 +4,15 @@
 
 ## [Unreleased]
 
+## [1.3.0]
+- Require Minecraft 1.20.4 and NeoForge 20.4.200+.
+
+### Added
+- Bullet chili arrow. This item causes a small explosion, dealing explosive damage to nearby entities.
+
+### Changed
+- Add group values to recipes.
+
 ## [1.2.1]
 - Require Minecraft 1.20.4 and NeoForge 20.4.200+.
 
