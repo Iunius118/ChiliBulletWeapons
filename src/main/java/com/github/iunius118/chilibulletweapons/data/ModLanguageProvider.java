@@ -1,6 +1,5 @@
 package com.github.iunius118.chilibulletweapons.data;
 
-import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.*;
@@ -10,124 +9,74 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.common.data.LanguageProvider;
 
-public class ModLanguageProvider extends LanguageProvider {
-    public final TranslatedNameProvider translatedNameProvider;
-
-    public ModLanguageProvider(PackOutput output, String modId, String locale, TranslatedNameProvider translatedNameProvider) {
-        super(output, modId, locale);
-        this.translatedNameProvider = translatedNameProvider;
-    }
-
+public class ModLanguageProvider {
     public static void addProviders(boolean needsRun, String modId, DataGenerator gen) {
         var packOutput = gen.getPackOutput();
-        gen.addProvider(needsRun, new ModLanguageProvider(packOutput, modId, "en_us", new TranslatedNameProvider()));
+        gen.addProvider(needsRun, new ModEnglishLanguageProvider(packOutput, modId));
     }
 
-    public static class TranslatedNameProvider {
-        // Block
-        public final String chiliPepperCropName = "Chili Pepper Crops (CBW)";
-
-        // Item.Plants
-        public final String bulletChiliName = "Bullet-like Chili Pepper";
-        public final String curvedChiliName = "Curved Chili Pepper";
-        public final String chiliSeedsName = "Chili Pepper Seeds (CBW)";
-        public final String bulletChiliSackName = "Sack of Bullet-like Chili Peppers";
-        public final String curvedChiliSackName = "Sack of Curved Chili Peppers";
-        // Item.Foods
-        public final String chiliChickenSandwichName = "Chili Chicken Sandwich";
-        public final String chiliFishSandwichName = "Chili Fish Sandwich";
-        public final String chiliMeatSandwichName = "Chili Meat Sandwich";
-        public final String chiliPotatoSandwichName = "Chili Potato Sandwich";
-        public final String halfChiliChickenSandwichName = "Half-sized Chili Chicken Sandwich";
-        public final String halfChiliFishSandwichName = "Half-sized Chili Fish Sandwich";
-        public final String halfChiliMeatSandwichName = "Half-sized Chili Meat Sandwich";
-        public final String halfChiliPotatoSandwichName = "Half-sized Chili Potato Sandwich";
-        public final String pastaOilAndChiliName = "Pasta Olio e Peperoncino";
-        public final String friedChiliPepperName = "Fried Chili Pepper";
-        // Item.Weapons
-        public final String chiliBulletName = "Chili Bullet";
-        public final String upgradeGunBayonetName = "Bayonet Upgrade";
-        public final String upgradeGunBarrelName = "Gun Barrel Upgrade";
-        public final String upgradeGunMechanismName = "Gun Mechanism Upgrade";
-        public final String gunName = "Chili Bullet Gun";
-        public final String pistolName = "Chili Bullet Pistol";
-        public final String rifleName = "Chili Bullet Rifle";
-        public final String shotgunName = "Chili Bullet Shotgun";
-        public final String bayonetedGunName = "Chili Bullet Gun with Bayonet";
-        public final String bayonetedPistolName = "Chili Bullet Pistol with Bayonet";
-        public final String bayonetedRifleName = "Chili Bullet Rifle with Bayonet";
-        public final String bayonetedShotgunName = "Chili Bullet Shotgun with Bayonet";
-        public final String machineGunName = "Chili Bullet Machine Gun";
-
-        // Tooltips
-        public final String tooltipUpgradeGun1 = "Hold gun in off-hand and";
-        public final String tooltipUpgradeGun2 = "use this item in main hand";
-        public final String tooltipUpgradeGun3 = "to upgrade gun.";
-
-        // Entity
-        public final String chiliBulletEntityName = "Chili Bullet";
-
-        // Subtitles
-        public final String subtitleGunShoot = "Chili Bullet Gun fires";
-        public final String subtitleGunActionClose = "Chili Bullet Gun loads";
-        public final String subtitleGunUpgrade = "Chili Bullet Gun upgraded";
+    private static String getSubtitleKey(SoundEvent soundEvent) {
+        return "subtitles." + soundEvent.getLocation().getPath();
     }
 
-    @Override
-    protected void addTranslations() {
-        // Creative mode tabs
-        add(ModCreativeModeTabs.KEY_MAIN, ChiliBulletWeapons.MOD_NAME);
+    public static class ModEnglishLanguageProvider extends LanguageProvider {
 
-        // Block
-        add(ModBlocks.CHILI_PEPPER, translatedNameProvider.chiliPepperCropName);
+        public ModEnglishLanguageProvider(PackOutput output, String modId) {
+            super(output, modId, "en_us");
+        }
 
-        // Item.Plants
-        add(ModItems.BULLET_CHILI, translatedNameProvider.bulletChiliName);
-        add(ModItems.CURVED_CHILI, translatedNameProvider.curvedChiliName);
-        add(ModItems.CHILI_SEEDS, translatedNameProvider.chiliSeedsName);
-        add(ModItems.BULLET_CHILI_SACK, translatedNameProvider.bulletChiliSackName);
-        add(ModItems.CURVED_CHILI_SACK, translatedNameProvider.curvedChiliSackName);
-        // Item.Foods
-        add(ModItems.CHILI_CHICKEN_SANDWICH, translatedNameProvider.chiliChickenSandwichName);
-        add(ModItems.CHILI_FISH_SANDWICH, translatedNameProvider.chiliFishSandwichName);
-        add(ModItems.CHILI_MEAT_SANDWICH, translatedNameProvider.chiliMeatSandwichName);
-        add(ModItems.CHILI_POTATO_SANDWICH, translatedNameProvider.chiliPotatoSandwichName);
-        add(ModItems.HALF_CHILI_CHICKEN_SANDWICH, translatedNameProvider.halfChiliChickenSandwichName);
-        add(ModItems.HALF_CHILI_FISH_SANDWICH, translatedNameProvider.halfChiliFishSandwichName);
-        add(ModItems.HALF_CHILI_MEAT_SANDWICH, translatedNameProvider.halfChiliMeatSandwichName);
-        add(ModItems.HALF_CHILI_POTATO_SANDWICH, translatedNameProvider.halfChiliPotatoSandwichName);
-        add(ModItems.PASTA_OIL_AND_CHILI, translatedNameProvider.pastaOilAndChiliName);
-        add(ModItems.FRIED_CHILI_PEPPER, translatedNameProvider.friedChiliPepperName);
-        // Item.Weapons
-        add(ModItems.CHILI_BULLET, translatedNameProvider.chiliBulletName);
-        add(ModItems.UPGRADE_GUN_BAYONET, translatedNameProvider.upgradeGunBayonetName);
-        add(ModItems.UPGRADE_GUN_BARREL, translatedNameProvider.upgradeGunBarrelName);
-        add(ModItems.UPGRADE_GUN_MECHANISM, translatedNameProvider.upgradeGunMechanismName);
-        add(ModItems.GUN, translatedNameProvider.gunName);
-        add(ChiliBulletGun.DESCRIPTION_PISTOL, translatedNameProvider.pistolName);
-        add(ChiliBulletGun.DESCRIPTION_RIFLE, translatedNameProvider.rifleName);
-        add(ChiliBulletGun.DESCRIPTION_SHOTGUN, translatedNameProvider.shotgunName);
-        add(ModItems.BAYONETED_GUN, translatedNameProvider.bayonetedGunName);
-        add(ChiliBulletGunBayoneted.DESCRIPTION_PISTOL, translatedNameProvider.bayonetedPistolName);
-        add(ChiliBulletGunBayoneted.DESCRIPTION_RIFLE, translatedNameProvider.bayonetedRifleName);
-        add(ChiliBulletGunBayoneted.DESCRIPTION_SHOTGUN, translatedNameProvider.bayonetedShotgunName);
-        add(ModItems.MACHINE_GUN, translatedNameProvider.machineGunName);
+        @Override
+        protected void addTranslations() {
+            // Creative mode tabs
+            add(ModCreativeModeTabs.KEY_MAIN, "Chili Bullet Weapons");
 
-        // Tooltips
-        add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_1, translatedNameProvider.tooltipUpgradeGun1);
-        add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_2, translatedNameProvider.tooltipUpgradeGun2);
-        add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_3, translatedNameProvider.tooltipUpgradeGun3);
+            // Block
+            add(ModBlocks.CHILI_PEPPER, "Chili Pepper Crops (CBW)");
 
-        // Entity
-        add(ModEntityTypes.CHILI_BULLET, translatedNameProvider.chiliBulletEntityName);
+            // Item.Plants
+            add(ModItems.BULLET_CHILI, "Bullet-like Chili Pepper");
+            add(ModItems.CURVED_CHILI, "Curved Chili Pepper");
+            add(ModItems.CHILI_SEEDS, "Chili Pepper Seeds (CBW)");
+            add(ModItems.BULLET_CHILI_SACK, "Sack of Bullet-like Chili Peppers");
+            add(ModItems.CURVED_CHILI_SACK, "Sack of Curved Chili Peppers");
+            // Item.Foods
+            add(ModItems.CHILI_CHICKEN_SANDWICH, "Chili Chicken Sandwich");
+            add(ModItems.CHILI_FISH_SANDWICH, "Chili Fish Sandwich");
+            add(ModItems.CHILI_MEAT_SANDWICH, "Chili Meat Sandwich");
+            add(ModItems.CHILI_POTATO_SANDWICH, "Chili Potato Sandwich");
+            add(ModItems.HALF_CHILI_CHICKEN_SANDWICH, "Half-sized Chili Chicken Sandwich");
+            add(ModItems.HALF_CHILI_FISH_SANDWICH, "Half-sized Chili Fish Sandwich");
+            add(ModItems.HALF_CHILI_MEAT_SANDWICH, "Half-sized Chili Meat Sandwich");
+            add(ModItems.HALF_CHILI_POTATO_SANDWICH, "Half-sized Chili Potato Sandwich");
+            add(ModItems.PASTA_OIL_AND_CHILI, "Pasta Olio e Peperoncino");
+            add(ModItems.FRIED_CHILI_PEPPER, "Fried Chili Pepper");
+            // Item.Weapons
+            add(ModItems.CHILI_BULLET, "Chili Bullet");
+            add(ModItems.UPGRADE_GUN_BAYONET, "Bayonet Upgrade");
+            add(ModItems.UPGRADE_GUN_BARREL, "Gun Barrel Upgrade");
+            add(ModItems.UPGRADE_GUN_MECHANISM, "Gun Mechanism Upgrade");
+            add(ModItems.GUN, "Chili Bullet Gun");
+            add(ChiliBulletGun.DESCRIPTION_PISTOL, "Chili Bullet Pistol");
+            add(ChiliBulletGun.DESCRIPTION_RIFLE, "Chili Bullet Rifle");
+            add(ChiliBulletGun.DESCRIPTION_SHOTGUN, "Chili Bullet Shotgun");
+            add(ModItems.BAYONETED_GUN, "Chili Bullet Gun with Bayonet");
+            add(ChiliBulletGunBayoneted.DESCRIPTION_PISTOL, "Chili Bullet Pistol with Bayonet");
+            add(ChiliBulletGunBayoneted.DESCRIPTION_RIFLE, "Chili Bullet Rifle with Bayonet");
+            add(ChiliBulletGunBayoneted.DESCRIPTION_SHOTGUN, "Chili Bullet Shotgun with Bayonet");
+            add(ModItems.MACHINE_GUN, "Chili Bullet Machine Gun");
 
-        // Subtitles
-        add(ModSoundEvents.GUN_SHOOT, translatedNameProvider.subtitleGunShoot);
-        add(ModSoundEvents.GUN_ACTION_CLOSE, translatedNameProvider.subtitleGunActionClose);
-        add(ModSoundEvents.GUN_UPGRADE, translatedNameProvider.subtitleGunUpgrade);
-    }
+            // Tooltips
+            add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_1, "Hold gun in off-hand and");
+            add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_2, "use this item in main hand");
+            add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_3, "to upgrade gun.");
 
-    private void add(SoundEvent soundEvent, String name) {
-        add("subtitles." + soundEvent.getLocation().getPath(), name);
+            // Entity
+            add(ModEntityTypes.CHILI_BULLET, "Chili Bullet");
+
+            // Subtitles
+            add(getSubtitleKey(ModSoundEvents.GUN_SHOOT), "Chili Bullet Gun fires");
+            add(getSubtitleKey(ModSoundEvents.GUN_ACTION_CLOSE), "Chili Bullet Gun loads");
+            add(getSubtitleKey(ModSoundEvents.GUN_UPGRADE), "Chili Bullet Gun upgraded");
+        }
     }
 }
