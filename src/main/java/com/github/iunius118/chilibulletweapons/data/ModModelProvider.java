@@ -50,6 +50,10 @@ public class ModModelProvider extends FabricModelProvider {
         basicItem.accept(ModItems.UPGRADE_GUN_BARREL);
         basicItem.accept(ModItems.UPGRADE_GUN_MECHANISM);
 
-        /* Other complex models are copied from the Forge version as an interim measure */
+        /* Other complex models are copied from the Forge version as an interim measure
+         * - Variants of chili bullet gun
+         * - Variants of chili bullet gun with bayonet
+         * - Chili bullet machine gun
+         */
     }
 }

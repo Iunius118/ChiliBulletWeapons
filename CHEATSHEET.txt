@@ -2,7 +2,7 @@
 
 [Chili Bullet Weapons](https://iunius118.github.io/ChiliBulletWeapons/)
 
-Version 1.2.0
+Version 1.3.0
 
 ## How to Get Started
 
@@ -110,6 +110,19 @@ Crafting (shapeless recipe):
 - 3x Curved Chili Pepper + Wheat -> 3x Fried Chili Pepper
 
 ## Weapons
+
+### Bullet Chili Arrow
+
+A bullet chili arrow serves as ammunition for bows, crossbows, and dispensers.
+
+Crafting (shapeless recipe):
+
+- Arrow + Bullet-like Chili Pepper -> Bullet Chili Arrow
+- Arrow + Chili Bullet -> Bullet Chili Arrow
+
+When a bullet chili arrow is shot and hits an entity or a block, it causes a small explosion, dealing explosive damage to nearby entities.
+
+Power enchanted bows increase the explosive power and Multishot enchanted crossbows increase the number of bullet chili arrows shot.
 
 ### Chili Bullet
 
