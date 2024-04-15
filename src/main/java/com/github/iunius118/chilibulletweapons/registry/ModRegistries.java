@@ -2,6 +2,7 @@ package com.github.iunius118.chilibulletweapons.registry;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
+import com.github.iunius118.chilibulletweapons.entity.ChiliArrow;
 import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
@@ -50,6 +51,7 @@ public class ModRegistries {
         itemRegister.register("pasta_oil_and_chili", () -> ModItems.PASTA_OIL_AND_CHILI);
         itemRegister.register("fried_chili_pepper", () -> ModItems.FRIED_CHILI_PEPPER);
         // Weapons
+        itemRegister.register("chili_arrow",() -> ModItems.CHILI_ARROW);
         itemRegister.register("chili_bullet", () -> ModItems.CHILI_BULLET);
         itemRegister.register("upgrade_gun_bayonet", () -> ModItems.UPGRADE_GUN_BAYONET);
         itemRegister.register("upgrade_gun_barrel", () -> ModItems.UPGRADE_GUN_BARREL);
@@ -76,6 +78,7 @@ public class ModRegistries {
     private static void registerEntityTypes(IEventBus modEventBus) {
         var entityTypeRegister = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, ChiliBulletWeapons.MOD_ID);
 
+        entityTypeRegister.register(ChiliArrow.ID.getPath(), () -> ModEntityTypes.CHILI_ARROW);
         entityTypeRegister.register(ChiliBullet.ID.getPath(), () -> ModEntityTypes.CHILI_BULLET);
 
         entityTypeRegister.register(modEventBus);

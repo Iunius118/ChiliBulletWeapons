@@ -32,6 +32,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.FRIED_CHILI_PEPPER);
 
                 // Weapons
+                output.accept(ModItems.CHILI_ARROW);
                 output.accept(ModItems.CHILI_BULLET);
                 output.accept(ModItems.GUN);
                 output.accept(ModItems.BAYONETED_GUN);

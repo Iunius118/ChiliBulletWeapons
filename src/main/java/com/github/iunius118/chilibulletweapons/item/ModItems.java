@@ -27,6 +27,7 @@ public class ModItems {
     public static final Item FRIED_CHILI_PEPPER = new Item(new Item.Properties().food(ModFoods.FRIED_CHILI_PEPPER));
 
     // Weapons
+    public static final Item CHILI_ARROW = new ChiliArrowItem(new Item.Properties());
     public static final Item CHILI_BULLET = new Item(new Item.Properties());
     public static final Item UPGRADE_GUN_BAYONET = new UpgradeGunBayonet(new Item.Properties());
     public static final Item UPGRADE_GUN_BARREL = new UpgradeGunBarrel(new Item.Properties());

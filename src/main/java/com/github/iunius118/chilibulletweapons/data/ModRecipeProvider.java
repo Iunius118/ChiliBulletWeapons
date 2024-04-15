@@ -140,6 +140,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeOutput, getItemId(ModItems.FRIED_CHILI_PEPPER));
 
         /* Weapons */
+        // Arrow
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, ModItems.CHILI_ARROW)
+                .group(getItemId(ModItems.CHILI_ARROW).toString())
+                .requires(Items.ARROW)
+                .requires(ModItems.BULLET_CHILI)
+                .unlockedBy("has_bullet_chili", has(ModItems.BULLET_CHILI))
+                .save(recipeOutput, getItemId(ModItems.CHILI_ARROW));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, ModItems.CHILI_ARROW)
+                .group(getItemId(ModItems.CHILI_ARROW).toString())
+                .requires(Items.ARROW)
+                .requires(ModItems.CHILI_BULLET)
+                .unlockedBy("has_chili_bullet", has(ModItems.CHILI_BULLET))
+                .save(recipeOutput, getItemId(ModItems.CHILI_ARROW) + "_from_bullet");
+
         // Bullet
         ShapelessRecipeBuilder.shapeless(RecipeCategory.COMBAT, ModItems.CHILI_BULLET)
                 .group(getItemId(ModItems.CHILI_BULLET).toString())

@@ -28,6 +28,7 @@ public class ChiliBulletWeaponsClient {
     }
 
     private static void onRegisterEntityRenderer(final EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(ModEntityTypes.CHILI_ARROW, ChiliArrowRenderer::new);
         event.registerEntityRenderer(ModEntityTypes.CHILI_BULLET, ChiliBulletRenderer::new);
     }
 }
