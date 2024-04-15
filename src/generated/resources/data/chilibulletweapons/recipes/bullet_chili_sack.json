@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "chilibulletweapons:bullet_chili_sack",
   "key": {
     "b": {
       "item": "chilibulletweapons:bullet_chili"

@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
+  "group": "chilibulletweapons:fried_chili_pepper",
   "ingredients": [
     {
       "item": "chilibulletweapons:curved_chili"

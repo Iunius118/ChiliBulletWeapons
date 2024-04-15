@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "chilibulletweapons:curved_chili_sack",
   "key": {
     "c": {
       "item": "chilibulletweapons:curved_chili"
