@@ -1,6 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
+  "group": "chilibulletweapons:pasta_oil_and_chili",
   "key": {
     "b": {
       "item": "minecraft:bowl"
