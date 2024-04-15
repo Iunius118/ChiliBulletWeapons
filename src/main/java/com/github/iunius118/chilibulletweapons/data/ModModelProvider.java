@@ -44,6 +44,7 @@ public class ModModelProvider extends FabricModelProvider {
         basicItem.accept(ModItems.PASTA_OIL_AND_CHILI);
         basicItem.accept(ModItems.FRIED_CHILI_PEPPER);
         // Weapons
+        basicItem.accept(ModItems.CHILI_ARROW);
         basicItem.accept(ModItems.CHILI_BULLET);
         basicItem.accept(ModItems.UPGRADE_GUN_BAYONET);
         basicItem.accept(ModItems.UPGRADE_GUN_BARREL);

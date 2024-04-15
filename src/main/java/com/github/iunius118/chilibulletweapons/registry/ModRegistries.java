@@ -2,19 +2,23 @@ package com.github.iunius118.chilibulletweapons.registry;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
+import com.github.iunius118.chilibulletweapons.entity.ChiliArrow;
 import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
+import com.github.iunius118.chilibulletweapons.item.ChiliArrowItem;
 import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.DispenserBlock;
 
 public class ModRegistries {
     public static void registerGameObjects() {
         registerBlocks();
         registerItems();
+        registerDispenseItemBehaviors();
         registerSoundEvents();
         registerEntityTypes();
         registerCreativeModeTabs();
@@ -47,6 +51,7 @@ public class ModRegistries {
         itemRegister.register("pasta_oil_and_chili", ModItems.PASTA_OIL_AND_CHILI);
         itemRegister.register("fried_chili_pepper", ModItems.FRIED_CHILI_PEPPER);
         // Weapons
+        itemRegister.register("chili_arrow", ModItems.CHILI_ARROW);
         itemRegister.register("chili_bullet", ModItems.CHILI_BULLET);
         itemRegister.register("upgrade_gun_bayonet", ModItems.UPGRADE_GUN_BAYONET);
         itemRegister.register("upgrade_gun_barrel", ModItems.UPGRADE_GUN_BARREL);
@@ -54,6 +59,10 @@ public class ModRegistries {
         itemRegister.register("gun", ModItems.GUN);
         itemRegister.register("bayoneted_gun", ModItems.BAYONETED_GUN);
         itemRegister.register("machine_gun", ModItems.MACHINE_GUN);
+    }
+
+    public static void registerDispenseItemBehaviors() {
+        DispenserBlock.registerBehavior(ModItems.CHILI_ARROW, new ChiliArrowItem.DispenseBehavior());
     }
 
     private static void registerSoundEvents() {
@@ -69,6 +78,7 @@ public class ModRegistries {
     private static void registerEntityTypes() {
         var entityTypeRegister = ModObjectRegistry.create(BuiltInRegistries.ENTITY_TYPE, ChiliBulletWeapons.MOD_ID);
 
+        entityTypeRegister.register(ChiliArrow.ID.getPath(), ModEntityTypes.CHILI_ARROW);
         entityTypeRegister.register(ChiliBullet.ID.getPath(), ModEntityTypes.CHILI_BULLET);
     }
 

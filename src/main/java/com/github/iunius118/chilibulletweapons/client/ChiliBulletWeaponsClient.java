@@ -33,6 +33,7 @@ public class ChiliBulletWeaponsClient implements ClientModInitializer {
     }
 
     private void registerEntityRenderer() {
+        EntityRendererRegistry.register(ModEntityTypes.CHILI_ARROW, ChiliArrowRenderer::new);
         EntityRendererRegistry.register(ModEntityTypes.CHILI_BULLET, ChiliBulletRenderer::new);
     }
 }

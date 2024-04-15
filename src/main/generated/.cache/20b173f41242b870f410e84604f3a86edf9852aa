@@ -1,7 +1,8 @@
-// 1.20.1	2024-04-10T00:04:32.6907231	Chili Bullet Weapons/Tags for minecraft:item
+// 1.20.1	2024-04-15T20:37:33.7821168	Chili Bullet Weapons/Tags for minecraft:item
 9a1cfc6047cbae7beee49b750dc36ea516b20ccd data\c\tags\items\crops.json
 a96e24ba2286ca97ef6bc436fc92ca3bdac2e2b5 data\c\tags\items\seeds.json
 491c16568754e85de8983f2660885e26edfb506a data\chilibulletweapons\tags\items\foods\cooked_fish.json
 e468e20a12179f9259188c14b765f05a9eb1d677 data\c\tags\items\crops\chili.json
 b26cada81080f64f9934f6183e67f18d27c4edcb data\chilibulletweapons\tags\items\foods\cooked_meat.json
 86062f88f8b6d5bf5a3f51ca371e764caf80c63d data\c\tags\items\seeds\chili.json
+0dbea5691e1a69869302fd48250d256e50b7a677 data\minecraft\tags\items\arrows.json

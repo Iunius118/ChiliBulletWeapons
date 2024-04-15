@@ -5,6 +5,7 @@ import com.github.iunius118.chilibulletweapons.tags.ModItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
@@ -23,5 +24,7 @@ public class ModItemTagsProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModItemTags.FOODS_COOKED_FISH).add(Items.COOKED_COD, Items.COOKED_SALMON);
         getOrCreateTagBuilder(ModItemTags.FOODS_COOKED_MEAT).add(Items.COOKED_BEEF, Items.COOKED_MUTTON, Items.COOKED_PORKCHOP, Items.COOKED_RABBIT);
+
+        getOrCreateTagBuilder(ItemTags.ARROWS).add(ModItems.CHILI_ARROW);
     }
 }
