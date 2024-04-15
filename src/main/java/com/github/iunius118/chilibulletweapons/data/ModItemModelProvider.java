@@ -36,6 +36,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.PASTA_OIL_AND_CHILI);
         basicItem(ModItems.FRIED_CHILI_PEPPER);
         // Weapons
+        basicItem(ModItems.CHILI_ARROW);
         basicItem(ModItems.CHILI_BULLET);
         basicItem(ModItems.UPGRADE_GUN_BAYONET);
         basicItem(ModItems.UPGRADE_GUN_BARREL);

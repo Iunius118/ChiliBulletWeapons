@@ -51,6 +51,7 @@ public class ModLanguageProvider {
             add(ModItems.PASTA_OIL_AND_CHILI, "Pasta Olio e Peperoncino");
             add(ModItems.FRIED_CHILI_PEPPER, "Fried Chili Pepper");
             // Item.Weapons
+            add(ModItems.CHILI_ARROW, "Bullet Chili Arrow");
             add(ModItems.CHILI_BULLET, "Chili Bullet");
             add(ModItems.UPGRADE_GUN_BAYONET, "Bayonet Upgrade");
             add(ModItems.UPGRADE_GUN_BARREL, "Gun Barrel Upgrade");
@@ -71,6 +72,7 @@ public class ModLanguageProvider {
             add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_3, "to upgrade gun.");
 
             // Entity
+            add(ModEntityTypes.CHILI_ARROW, "Bullet Chili Arrow");
             add(ModEntityTypes.CHILI_BULLET, "Chili Bullet");
 
             // Subtitles
