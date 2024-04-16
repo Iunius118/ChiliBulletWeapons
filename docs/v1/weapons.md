@@ -22,9 +22,11 @@ See also: [Weapon Data](../weapon_data.html)
 
 A bullet chili arrow serves as ammunition for bows, crossbows, and dispensers.
 
-![Crafting bullet chili arrow 1](../media/item/crafting/crafting_chili_arrow.png) ![Crafting bullet chili arrow 2](../media/item/crafting/crafting_chili_arrow_from_bullet.png)
+![Crafting bullet chili arrow from bullet-like chili pepper](../media/item/crafting/crafting_chili_arrow.png) ![Crafting bullet chili arrow from chili Bullet](../media/item/crafting/crafting_chili_arrow_from_bullet.png)
 
 When a bullet chili arrow is shot and hits an entity or a block, it causes a small explosion, dealing explosive damage to nearby entities.
+
+![Attack with bullet chili arrow](../media/item/misc/attack_with_chili_arrow.png)
 
 Power enchanted bows increase the explosive power and Multishot enchanted crossbows increase the number of bullet chili arrows shot.
 
