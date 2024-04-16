@@ -2,7 +2,7 @@
 
 A Minecraft mod to add chili peppers, foods, and weapons.
 
-![Logo](docs/media/icon.png) ![Items](docs/media/item/misc/items_v1.2.0.png)
+![Logo](docs/media/icon.png) ![Items](docs/media/item/misc/items_v1.3.0.png)
 
 ## Download Mod
 

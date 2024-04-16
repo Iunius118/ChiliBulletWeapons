@@ -1,5 +1,16 @@
 # Chili Bullet Weapons
 
+## Bullet Chili Arrow
+
+| Power | MaxDmg. | Radius |
+|:-----:|--------:|-------:|
+|   0   |    15.0 |    2.0 |
+|   1   |    17.8 |    2.4 |
+|   2   |    19.2 |    2.6 |
+|   3   |    20.6 |    2.8 |
+|   4   |    22.0 |    3.0 |
+|   5   |    23.4 |    3.2 |
+
 ## Pistol/Shotgun
 
 | Angle | Ticks | Dist. | Speed | MinDmg. | MaxDmg. |

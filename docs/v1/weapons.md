@@ -5,11 +5,28 @@
   - [Farming](farming.html)
   - [Foods](foods.html)
   - **Weapons**
+    - [Bullet Chili Arrow](#bullet-chili-arrow)
     - [Chili Bullet](#chili-bullet)
     - [Chili Bullet Gun](#chili-bullet-gun)
       - [Upgrading Guns](#upgrading-guns)
     - [Chili Bullet Gun with Bayonet](#chili-bullet-gun-with-bayonet)
     - [Chili Bullet Machine Gun (Creative Mode)](#chili-bullet-machine-gun-creative-mode)
+
+See also: [Weapon Data](../weapon_data.html)
+
+## Bullet Chili Arrow
+
+|DANGER|
+|:-:|
+|💥 **EXPLOSIVE**|
+
+A bullet chili arrow serves as ammunition for bows, crossbows, and dispensers.
+
+![Crafting bullet chili arrow 1](../media/item/crafting/crafting_chili_arrow.png) ![Crafting bullet chili arrow 2](../media/item/crafting/crafting_chili_arrow_from_bullet.png)
+
+When a bullet chili arrow is shot and hits an entity or a block, it causes a small explosion, dealing explosive damage to nearby entities.
+
+Power enchanted bows increase the explosive power and Multishot enchanted crossbows increase the number of bullet chili arrows shot.
 
 ## Chili Bullet
 
