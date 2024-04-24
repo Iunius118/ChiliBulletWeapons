@@ -38,10 +38,10 @@ A non-negative real variable `chiliBulletBaseDamage` represents the base damage 
 chiliBulletBaseDamage = 0.85
 ```
 
-> [!TIP]
-> Formula for chili bullet damage:
-> ```text
-> speed (initial) = 3 (pistols/shotguns) or 4 (rifles)
-> minDamage = ceil(speed * speed * chiliBulletBaseDamage)
-> maxDamage = minDamage + floor(minDamage / 2) + 1
-> ```
+Formula for chili bullet damage:
+
+```text
+# speed (initial) = 3 (pistols/shotguns) or 4 (rifles)
+# minDamage = ceil(speed * speed * chiliBulletBaseDamage)
+# maxDamage = floor(minDamage * 1.5) + 1
+```
