@@ -19,20 +19,20 @@ In multiplayer mode, server-side values are used.
 [common]
 ```
 
-A Boolean variable `canShotgunMultiHit` represents whether a single target can be damaged multiple times at once by bullets fired from a shotgun.
+A Boolean value of `canShotgunMultiHit` represents whether a single target can be damaged multiple times at once by bullets fired from a shotgun.
 If set to `false`, a single target will take damage from only one bullet at the same time.
 
 ```toml
 canShotgunMultiHit = true
 ```
 
-A non-negative real variable `chiliArrowDamageMultiplier` represents the multiplier of the explosive power of bullet chili arrows.
+A non-negative real number of `chiliArrowDamageMultiplier` represents the multiplier of the explosive power of bullet chili arrows.
 
 ```toml
 chiliArrowDamageMultiplier = 1.0
 ```
 
-A non-negative real variable `chiliBulletBaseDamage` represents the base damage amount of a chili bullet fired from a gun.
+A non-negative real number of `chiliBulletBaseDamage` represents the base damage amount of a chili bullet fired from a gun.
 
 ```toml
 chiliBulletBaseDamage = 0.85
