@@ -9,6 +9,7 @@
     - [Composting](#composting)
   - [Foods](foods.html)
   - [Weapons](weapons.html)
+  - [Configuration](config.html)
 
 ## Chili Pepper Seeds (CBW)
 

@@ -11,6 +11,7 @@
       - [Upgrading Guns](#upgrading-guns)
     - [Chili Bullet Gun with Bayonet](#chili-bullet-gun-with-bayonet)
     - [Chili Bullet Machine Gun (Creative Mode)](#chili-bullet-machine-gun-creative-mode)
+  - [Configuration](config.html)
 
 See also: [Weapon Data](../weapon_data.html)
 

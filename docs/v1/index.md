@@ -5,6 +5,7 @@
   - [Farming](farming.html)
   - [Foods](foods.html)
   - [Weapons](weapons.html)
+  - [Configuration](config.html)
 
 ## 1. Obtain Curved Chili Pepper
 

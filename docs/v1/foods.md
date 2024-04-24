@@ -9,6 +9,7 @@
     - [Pasta Olio e Peperoncino](#pasta-olio-e-peperoncino)
     - [Fried Chili Pepper](#fried-chili-pepper)
   - [Weapons](weapons.html)
+  - [Configuration](config.html)
 
 ## Sandwiches
 
