@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.entity;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
+import com.github.iunius118.chilibulletweapons.integration.autoconfig.ModConfig;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -15,7 +16,8 @@ import net.minecraft.world.phys.Vec3;
 
 public class ChiliArrow extends Arrow {
     public static final ResourceLocation ID = ChiliBulletWeapons.makeId("chili_arrow");
-    public static final double FUSE_SPEED = 0.8D;
+    public static final double FUSE_SPEED = 0.8;
+    public static final float DEFAULT_DAMAGE_MULTIPLIER = 1.0F;
 
     public ChiliArrow(EntityType<? extends ChiliArrow> entityType, Level level) {
         super(entityType, level);
@@ -51,7 +53,7 @@ public class ChiliArrow extends Arrow {
         this.discard();
 
         if (!this.level().isClientSide) {
-            this.explode(blockHitResult.getLocation());
+            explode(blockHitResult.getLocation(), getExplosivePower());
         }
     }
 
@@ -66,16 +68,16 @@ public class ChiliArrow extends Arrow {
         this.discard();
 
         if (!this.level().isClientSide) {
-            this.explode(entityHitResult.getLocation());
+            explode(entityHitResult.getLocation(), getExplosivePower());
         }
     }
 
-    private void explode(Vec3 pos) {
-        this.level().explode(this, pos.x, pos.y, pos.z, getExplosivePower(), Level.ExplosionInteraction.NONE);
+    private void explode(Vec3 pos, float power) {
+        this.level().explode(this, pos.x, pos.y, pos.z, power, Level.ExplosionInteraction.NONE);
     }
 
     private float getExplosivePower() {
         // Explosive power is 1.0-1.6 (Power 0-5 enchanted)
-        return (float) this.getBaseDamage() / 5.0F + 0.6F;
+        return ((float) this.getBaseDamage() / 5.0F + 0.6F) * ModConfig.getChiliArrowDamageMultiplier();
     }
 }

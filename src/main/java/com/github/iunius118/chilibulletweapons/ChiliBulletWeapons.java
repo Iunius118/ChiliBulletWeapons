@@ -1,8 +1,11 @@
 package com.github.iunius118.chilibulletweapons;
 
+import com.github.iunius118.chilibulletweapons.integration.autoconfig.ModConfig;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.registry.ModRegistries;
 import com.mojang.logging.LogUtils;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableSource;
@@ -25,6 +28,7 @@ public class ChiliBulletWeapons implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        registerConfig();
         ModRegistries.registerGameObjects();
         registerCompostableItems();
         LootTableEvents.MODIFY.register(this::onLootTableLoad);
@@ -32,6 +36,11 @@ public class ChiliBulletWeapons implements ModInitializer {
 
     public static ResourceLocation makeId(String name) {
         return new ResourceLocation(MOD_ID, name);
+    }
+
+    private void registerConfig() {
+        // Register TOML type config
+        AutoConfig.register(ModConfig.class, Toml4jConfigSerializer::new);
     }
 
     private void registerCompostableItems() {

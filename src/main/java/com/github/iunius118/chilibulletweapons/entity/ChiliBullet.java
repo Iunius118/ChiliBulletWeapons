@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.entity;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
+import com.github.iunius118.chilibulletweapons.integration.autoconfig.ModConfig;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -29,21 +30,23 @@ public class ChiliBullet extends Projectile {
     public static final ResourceLocation ID = ChiliBulletWeapons.makeId("chili_bullet");
     public static final String TAG_AGE = "Age";
     public static final String TAG_PIERCE_LEVEL = "PierceLevel";
-    public static final double BASE_DAMAGE = 0.85D;
+    public static final double DEFAULT_BASE_DAMAGE = 0.85D;
     public static final float GRAVITY = 0.03F;
     public static final byte LIFETIME = 40;
 
     private static final EntityDataAccessor<Byte> PIERCE_LEVEL = SynchedEntityData.defineId(ChiliBullet.class, EntityDataSerializers.BYTE);
+    private double baseDamage;
     private byte age = 0;
     @Nullable
     private IntOpenHashSet piercingIgnoreEntityIds;
 
     public ChiliBullet(EntityType<? extends Projectile> entityType, Level level) {
         super(entityType, level);
+        setBaseDamage(ModConfig.getChiliBulletBaseDamage());
     }
 
     public ChiliBullet(double x, double y, double z, Level level) {
-        super(ModEntityTypes.CHILI_BULLET, level);
+        this(ModEntityTypes.CHILI_BULLET, level);
         this.setPos(x, y, z);
     }
 
@@ -161,6 +164,7 @@ public class ChiliBullet extends Projectile {
         this.setPos(nextX, nextY, nextZ);
 
         /* Lifespan Management */
+
         age++;
 
         if (!level().isClientSide) {
@@ -202,7 +206,6 @@ public class ChiliBullet extends Projectile {
         final Entity entity = result.getEntity();
         final Entity owner = this.getOwner();
         final byte pierceLevel = getPierceLevel();
-        entity.invulnerableTime = 0;
 
         if (pierceLevel > 0) {
             // Apply Piercing enchantment
@@ -216,6 +219,10 @@ public class ChiliBullet extends Projectile {
             }
 
             piercingIgnoreEntityIds.add(entity.getId());
+        }
+
+        if (!this.level().isClientSide && ModConfig.canShotgunMultiHit()) {
+            entity.invulnerableTime = 0;
         }
 
         if (entity.hurt(this.damageSources().thrown(this, owner), (float) getDamage())) {
@@ -232,9 +239,17 @@ public class ChiliBullet extends Projectile {
 
     private int getDamage() {
         double speedSqr = this.getDeltaMovement().lengthSqr();
-        int force = Mth.ceil(Mth.clamp(speedSqr * BASE_DAMAGE, 0.0D, Integer.MAX_VALUE));
+        int force = Mth.ceil(Mth.clamp(speedSqr * getBaseDamage(), 0.0D, Integer.MAX_VALUE));
         long randomDamage = this.random.nextInt(force / 2 + 2);
         return (int) Math.min((long) force + randomDamage, Integer.MAX_VALUE);
+    }
+
+    public double getBaseDamage() {
+        return baseDamage;
+    }
+
+    public void setBaseDamage(double damage) {
+        baseDamage = damage;
     }
 
     @Override
