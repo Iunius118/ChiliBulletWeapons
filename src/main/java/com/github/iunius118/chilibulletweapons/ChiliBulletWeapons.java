@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons;
 
 import com.github.iunius118.chilibulletweapons.client.ChiliBulletWeaponsClient;
+import com.github.iunius118.chilibulletweapons.config.ChiliBulletWeaponsConfig;
 import com.github.iunius118.chilibulletweapons.data.*;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.registry.ModRegistries;
@@ -16,7 +17,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLLoader;
@@ -29,9 +32,11 @@ public class ChiliBulletWeapons {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public ChiliBulletWeapons() {
+        // Register config handlers
+        registerConfig();
+
         // Register mod event listeners
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
         ModRegistries.registerGameObjects(modEventBus);
         modEventBus.addListener(this::gatherData);
         modEventBus.addListener(this::onCommonSetup);
@@ -47,6 +52,10 @@ public class ChiliBulletWeapons {
 
     public static ResourceLocation makeId(String name) {
         return new ResourceLocation(MOD_ID, name);
+    }
+
+    private void registerConfig() {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ChiliBulletWeaponsConfig.commonSpec, MOD_ID + ".toml");
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {
