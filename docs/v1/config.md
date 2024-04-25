@@ -44,4 +44,5 @@ Formula for chili bullet damage:
 # speed (initial) = 3 (pistols/shotguns) or 4 (rifles)
 # minDamage = ceil(speed * speed * chiliBulletBaseDamage)
 # maxDamage = floor(minDamage * 1.5) + 1
+# damage = a random integer between minDamage and maxDamage
 ```
