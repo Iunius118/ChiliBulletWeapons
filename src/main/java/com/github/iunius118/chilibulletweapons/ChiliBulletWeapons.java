@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons;
 
 import com.github.iunius118.chilibulletweapons.client.ChiliBulletWeaponsClient;
+import com.github.iunius118.chilibulletweapons.config.ChiliBulletWeaponsConfig;
 import com.github.iunius118.chilibulletweapons.data.*;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.registry.ModRegistries;
@@ -14,9 +15,10 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.LootTableLoadEvent;
@@ -29,12 +31,15 @@ public class ChiliBulletWeapons {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public ChiliBulletWeapons(IEventBus modEventBus, Dist dist) {
+        // Register config handlers
+        registerConfig();
+
         // Register mod event listeners
         ModRegistries.registerGameObjects(modEventBus);
         modEventBus.addListener(this::gatherData);
         modEventBus.addListener(this::onCommonSetup);
 
-        if (FMLLoader.getDist().isClient()) {
+        if (dist.isClient()) {
             // Init client
             ChiliBulletWeaponsClient.onInitializeClient(modEventBus);
         }
@@ -45,6 +50,10 @@ public class ChiliBulletWeapons {
 
     public static ResourceLocation makeId(String name) {
         return new ResourceLocation(MOD_ID, name);
+    }
+
+    private void registerConfig() {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ChiliBulletWeaponsConfig.commonSpec, MOD_ID + ".toml");
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {
