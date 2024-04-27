@@ -1,7 +1,7 @@
 package com.github.iunius118.chilibulletweapons.entity;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
-import com.github.iunius118.chilibulletweapons.integration.autoconfig.ModConfig;
+import com.github.iunius118.chilibulletweapons.integration.autoconfig.ChiliBulletWeaponsConfig;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -78,6 +78,6 @@ public class ChiliArrow extends Arrow {
 
     private float getExplosivePower() {
         // Explosive power is 1.0-1.6 (Power 0-5 enchanted)
-        return ((float) this.getBaseDamage() / 5.0F + 0.6F) * ModConfig.getChiliArrowDamageMultiplier();
+        return ((float) this.getBaseDamage() / 5.0F + 0.6F) * ChiliBulletWeaponsConfig.getChiliArrowDamageMultiplier();
     }
 }

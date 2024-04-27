@@ -8,11 +8,11 @@ import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 
 @Config(name = ChiliBulletWeapons.MOD_ID)
-public class ModConfig implements ConfigData {
+public class ChiliBulletWeaponsConfig implements ConfigData {
     /* Add config items */
     CommonConfig common = new CommonConfig();
 
-    public ModConfig() {
+    public ChiliBulletWeaponsConfig() {
     }
 
     static class CommonConfig {
@@ -34,7 +34,7 @@ public class ModConfig implements ConfigData {
         return Math.max(getConfig().common.chiliBulletBaseDamage, 0);
     }
 
-    private static ModConfig getConfig() {
-        return AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+    private static ChiliBulletWeaponsConfig getConfig() {
+        return AutoConfig.getConfigHolder(ChiliBulletWeaponsConfig.class).getConfig();
     }
 }

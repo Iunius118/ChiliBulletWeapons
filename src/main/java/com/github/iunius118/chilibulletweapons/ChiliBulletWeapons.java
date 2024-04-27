@@ -1,6 +1,6 @@
 package com.github.iunius118.chilibulletweapons;
 
-import com.github.iunius118.chilibulletweapons.integration.autoconfig.ModConfig;
+import com.github.iunius118.chilibulletweapons.integration.autoconfig.ChiliBulletWeaponsConfig;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.registry.ModRegistries;
 import com.mojang.logging.LogUtils;
@@ -40,7 +40,7 @@ public class ChiliBulletWeapons implements ModInitializer {
 
     private void registerConfig() {
         // Register TOML type config
-        AutoConfig.register(ModConfig.class, Toml4jConfigSerializer::new);
+        AutoConfig.register(ChiliBulletWeaponsConfig.class, Toml4jConfigSerializer::new);
     }
 
     private void registerCompostableItems() {

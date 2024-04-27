@@ -1,7 +1,7 @@
 package com.github.iunius118.chilibulletweapons.entity;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
-import com.github.iunius118.chilibulletweapons.integration.autoconfig.ModConfig;
+import com.github.iunius118.chilibulletweapons.integration.autoconfig.ChiliBulletWeaponsConfig;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -42,7 +42,7 @@ public class ChiliBullet extends Projectile {
 
     public ChiliBullet(EntityType<? extends Projectile> entityType, Level level) {
         super(entityType, level);
-        setBaseDamage(ModConfig.getChiliBulletBaseDamage());
+        setBaseDamage(ChiliBulletWeaponsConfig.getChiliBulletBaseDamage());
     }
 
     public ChiliBullet(double x, double y, double z, Level level) {
@@ -221,7 +221,7 @@ public class ChiliBullet extends Projectile {
             piercingIgnoreEntityIds.add(entity.getId());
         }
 
-        if (!this.level().isClientSide && ModConfig.canShotgunMultiHit()) {
+        if (!this.level().isClientSide && ChiliBulletWeaponsConfig.canShotgunMultiHit()) {
             entity.invulnerableTime = 0;
         }
 
