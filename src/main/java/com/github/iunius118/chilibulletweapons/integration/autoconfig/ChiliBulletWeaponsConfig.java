@@ -6,6 +6,7 @@ import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
+import net.minecraft.util.Mth;
 
 @Config(name = ChiliBulletWeapons.MOD_ID)
 public class ChiliBulletWeaponsConfig implements ConfigData {
@@ -27,7 +28,7 @@ public class ChiliBulletWeaponsConfig implements ConfigData {
     }
 
     public static float getChiliArrowDamageMultiplier() {
-        return Math.max(getConfig().common.chiliArrowDamageMultiplier, 0);
+        return Mth.clamp(getConfig().common.chiliArrowDamageMultiplier, 0, 8);
     }
 
     public static double getChiliBulletBaseDamage() {
