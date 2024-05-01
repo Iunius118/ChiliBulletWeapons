@@ -18,5 +18,6 @@ public class ModBlockTagsProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.CROPS).add(ModBlocks.CHILI_PEPPER);
         getOrCreateTagBuilder(BlockTags.MAINTAINS_FARMLAND).add(ModBlocks.CHILI_PEPPER);
         getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.CHILI_PEPPER);
+        getOrCreateTagBuilder(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.HOT_SAUCE_BARREL);
     }
 }

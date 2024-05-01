@@ -12,6 +12,8 @@ public class ModItemTags {
     public static final TagKey<Item> COMMON_SEEDS = makeCommonTag("seeds");
     public static final TagKey<Item> COMMON_SEEDS_CHILI = makeCommonTag("seeds/chili");
 
+    public static final TagKey<Item> FOODS_CHILI_PEPPER = makeModTag("foods/chili_pepper");
+    public static final TagKey<Item> FOODS_CHILI_SEASONING = makeModTag("foods/chili_seasoning");
     public static final TagKey<Item> FOODS_COOKED_FISH = makeModTag("foods/cooked_fish");
     public static final TagKey<Item> FOODS_COOKED_MEAT = makeModTag("foods/cooked_meat");
 

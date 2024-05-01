@@ -24,6 +24,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         add(ModBlocks.CHILI_PEPPER, createChiliPepperCropDrops());
+        add(ModBlocks.HOT_SAUCE_BARREL, this.createSingleItemTable(ModBlocks.HOT_SAUCE_BARREL));
     }
 
 

@@ -28,6 +28,7 @@ public class ModRegistries {
         var blockRegister = ModObjectRegistry.create(BuiltInRegistries.BLOCK, ChiliBulletWeapons.MOD_ID);
 
         blockRegister.register("chili_pepper", ModBlocks.CHILI_PEPPER);
+        blockRegister.register("hot_sauce_barrel", ModBlocks.HOT_SAUCE_BARREL);
     }
 
     private static void registerItems() {
@@ -40,6 +41,8 @@ public class ModRegistries {
         itemRegister.register("bullet_chili_sack", ModItems.BULLET_CHILI_SACK);
         itemRegister.register("curved_chili_sack", ModItems.CURVED_CHILI_SACK);
         // Foods
+        itemRegister.register("hot_sauce", ModItems.HOT_SAUCE);
+        itemRegister.register("hot_sauce_barrel", ModItems.HOT_SAUCE_BARREL);
         itemRegister.register("chili_chicken_sandwich", ModItems.CHILI_CHICKEN_SANDWICH);
         itemRegister.register("chili_fish_sandwich", ModItems.CHILI_FISH_SANDWICH);
         itemRegister.register("chili_meat_sandwich", ModItems.CHILI_MEAT_SANDWICH);

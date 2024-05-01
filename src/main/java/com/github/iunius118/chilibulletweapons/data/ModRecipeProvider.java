@@ -6,10 +6,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
@@ -64,10 +61,42 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .save(recipeOutput, getItemId(ModItems.CURVED_CHILI) + "_from_sack");
 
         /* Foods */
+        // Hot sauce
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.HOT_SAUCE, 3)
+                .group(getItemId(ModItems.HOT_SAUCE).toString())
+                .pattern(" w ")
+                .pattern("ccc")
+                .pattern("ggg")
+                .define('w', Items.WATER_BUCKET)
+                .define('c', ModItemTags.FOODS_CHILI_PEPPER)
+                .define('g', Items.GLASS_BOTTLE)
+                .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
+                .save(recipeOutput, getItemId(ModItems.HOT_SAUCE));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.HOT_SAUCE, 8)
+                .group(getItemId(ModItems.HOT_SAUCE).toString())
+                .pattern("ggg")
+                .pattern("g#g")
+                .pattern("ggg")
+                .define('g', Items.GLASS_BOTTLE)
+                .define('#', ModItems.HOT_SAUCE_BARREL)
+                .unlockedBy("has_hot_sauce", has(ModItems.HOT_SAUCE))
+                .save(recipeOutput, getItemId(ModItems.HOT_SAUCE) + "_from_barrel");
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.HOT_SAUCE_BARREL)
+                .group(getItemId(ModItems.HOT_SAUCE_BARREL).toString())
+                .pattern(" w ")
+                .pattern("ccc")
+                .pattern("ccc")
+                .define('w', Items.WATER_BUCKET)
+                .define('c', ModItemTags.FOODS_CHILI_PEPPER)
+                .unlockedBy("has_hot_sauce", has(ModItems.HOT_SAUCE))
+                .save(recipeOutput, getItemId(ModItems.HOT_SAUCE_BARREL));
+
         // Sandwiches
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.CHILI_CHICKEN_SANDWICH, 2)
                 .group(getItemId(ModItems.CHILI_CHICKEN_SANDWICH).toString())
-                .requires(ModItems.CURVED_CHILI)
+                .requires(ModItemTags.FOODS_CHILI_SEASONING)
                 .requires(Items.COOKED_CHICKEN)
                 .requires(Items.BREAD)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
@@ -75,7 +104,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.CHILI_FISH_SANDWICH, 2)
                 .group(getItemId(ModItems.CHILI_FISH_SANDWICH).toString())
-                .requires(ModItems.CURVED_CHILI)
+                .requires(ModItemTags.FOODS_CHILI_SEASONING)
                 .requires(ModItemTags.FOODS_COOKED_FISH)
                 .requires(Items.BREAD)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
@@ -83,7 +112,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.CHILI_MEAT_SANDWICH, 2)
                 .group(getItemId(ModItems.CHILI_MEAT_SANDWICH).toString())
-                .requires(ModItems.CURVED_CHILI)
+                .requires(ModItemTags.FOODS_CHILI_SEASONING)
                 .requires(ModItemTags.FOODS_COOKED_MEAT)
                 .requires(Items.BREAD)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
@@ -91,7 +120,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.CHILI_POTATO_SANDWICH, 2)
                 .group(getItemId(ModItems.CHILI_POTATO_SANDWICH).toString())
-                .requires(ModItems.CURVED_CHILI)
+                .requires(ModItemTags.FOODS_CHILI_SEASONING)
                 .requires(Items.BAKED_POTATO)
                 .requires(Items.BREAD)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))

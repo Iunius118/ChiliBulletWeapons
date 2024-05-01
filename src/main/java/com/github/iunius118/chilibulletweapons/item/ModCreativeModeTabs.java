@@ -21,6 +21,8 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.CURVED_CHILI_SACK);
 
                 // Foods
+                output.accept(ModItems.HOT_SAUCE);
+                output.accept(ModItems.HOT_SAUCE_BARREL);
                 output.accept(ModItems.CHILI_CHICKEN_SANDWICH);
                 output.accept(ModItems.CHILI_FISH_SANDWICH);
                 output.accept(ModItems.CHILI_MEAT_SANDWICH);

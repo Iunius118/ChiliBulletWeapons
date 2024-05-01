@@ -22,6 +22,8 @@ public class ModItemTagsProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModItemTags.COMMON_SEEDS).addTag(ModItemTags.COMMON_SEEDS_CHILI);
         getOrCreateTagBuilder(ModItemTags.COMMON_SEEDS_CHILI).add(ModItems.CHILI_SEEDS);
 
+        getOrCreateTagBuilder(ModItemTags.FOODS_CHILI_PEPPER).add(ModItems.CURVED_CHILI);
+        getOrCreateTagBuilder(ModItemTags.FOODS_CHILI_SEASONING).addTag(ModItemTags.FOODS_CHILI_PEPPER).add(ModItems.HOT_SAUCE);
         getOrCreateTagBuilder(ModItemTags.FOODS_COOKED_FISH).add(Items.COOKED_COD, Items.COOKED_SALMON);
         getOrCreateTagBuilder(ModItemTags.FOODS_COOKED_MEAT).add(Items.COOKED_BEEF, Items.COOKED_MUTTON, Items.COOKED_PORKCHOP, Items.COOKED_RABBIT);
 

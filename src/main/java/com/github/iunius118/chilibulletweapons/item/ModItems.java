@@ -1,10 +1,7 @@
 package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
-import net.minecraft.world.item.BowlFoodItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.*;
 
 public class ModItems {
     // Plants
@@ -15,6 +12,8 @@ public class ModItems {
     public static final Item CURVED_CHILI_SACK = new Item(new Item.Properties());
 
     // Foods
+    public static final Item HOT_SAUCE = new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE));
+    public static final Item HOT_SAUCE_BARREL = new BlockItem(ModBlocks.HOT_SAUCE_BARREL, new Item.Properties());
     public static final Item CHILI_CHICKEN_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_CHICKEN_SANDWICH));
     public static final Item CHILI_FISH_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_FISH_SANDWICH));
     public static final Item CHILI_MEAT_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_MEAT_SANDWICH));

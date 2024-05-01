@@ -26,6 +26,7 @@ public class ModLanguageProvider {
 
             // Block
             translationBuilder.add(ModBlocks.CHILI_PEPPER, "Chili Pepper Crops (CBW)");
+            translationBuilder.add(ModBlocks.HOT_SAUCE_BARREL, "Barrel of Hot Chili Sauce");
 
             // Item.Plants
             translationBuilder.add(ModItems.BULLET_CHILI, "Bullet-like Chili Pepper");
@@ -34,6 +35,7 @@ public class ModLanguageProvider {
             translationBuilder.add(ModItems.BULLET_CHILI_SACK, "Sack of Bullet-like Chili Peppers");
             translationBuilder.add(ModItems.CURVED_CHILI_SACK, "Sack of Curved Chili Peppers");
             // Item.Foods
+            translationBuilder.add(ModItems.HOT_SAUCE, "Hot Chili Sauce");
             translationBuilder.add(ModItems.CHILI_CHICKEN_SANDWICH, "Chili Chicken Sandwich");
             translationBuilder.add(ModItems.CHILI_FISH_SANDWICH, "Chili Fish Sandwich");
             translationBuilder.add(ModItems.CHILI_MEAT_SANDWICH, "Chili Meat Sandwich");

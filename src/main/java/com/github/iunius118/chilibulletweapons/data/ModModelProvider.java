@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TexturedModel;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
@@ -20,6 +21,7 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(final BlockModelGenerators blockStateModelGenerator) {
         blockStateModelGenerator.createCropBlock(ModBlocks.CHILI_PEPPER, BlockStateProperties.AGE_7, 0, 1, 2, 3, 4, 5, 6, 7);
+        blockStateModelGenerator.createTrivialBlock(ModBlocks.HOT_SAUCE_BARREL, TexturedModel.CUBE_TOP_BOTTOM);
     }
 
     @Override
@@ -32,7 +34,10 @@ public class ModModelProvider extends FabricModelProvider {
         // Model of chili seeds is generated during block state model generation of chili pepper crop
         basicItem.accept(ModItems.BULLET_CHILI_SACK);
         basicItem.accept(ModItems.CURVED_CHILI_SACK);
+
         // Foods
+        basicItem.accept(ModItems.HOT_SAUCE);
+        // Item model of hot sauce barrel is generated during block state model generation
         basicItem.accept(ModItems.CHILI_CHICKEN_SANDWICH);
         basicItem.accept(ModItems.CHILI_FISH_SANDWICH);
         basicItem.accept(ModItems.CHILI_MEAT_SANDWICH);
@@ -43,6 +48,7 @@ public class ModModelProvider extends FabricModelProvider {
         basicItem.accept(ModItems.HALF_CHILI_POTATO_SANDWICH);
         basicItem.accept(ModItems.PASTA_OIL_AND_CHILI);
         basicItem.accept(ModItems.FRIED_CHILI_PEPPER);
+
         // Weapons
         basicItem.accept(ModItems.CHILI_ARROW);
         basicItem.accept(ModItems.CHILI_BULLET);
