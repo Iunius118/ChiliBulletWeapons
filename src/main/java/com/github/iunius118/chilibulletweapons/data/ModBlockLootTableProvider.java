@@ -15,6 +15,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
     protected ModBlockLootTableProvider(FabricDataOutput dataOutput) {
@@ -24,6 +25,7 @@ public class ModBlockLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         add(ModBlocks.CHILI_PEPPER, createChiliPepperCropDrops());
+        add(ModBlocks.CURVED_CHILI_STRING, this.createSingleItemTableWithSilkTouch(ModBlocks.CURVED_CHILI_STRING, ModItems.DRIED_CURVED_CHILI, ConstantValue.exactly(9.0F)));
         add(ModBlocks.HOT_SAUCE_BARREL, this.createSingleItemTable(ModBlocks.HOT_SAUCE_BARREL));
     }
 

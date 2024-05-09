@@ -1,25 +1,26 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "chilibulletweapons:pasta_oil_and_chili",
+  "group": "chilibulletweapons:hot_sauce",
   "key": {
-    "b": {
-      "item": "minecraft:bowl"
-    },
     "c": {
       "tag": "chilibulletweapons:foods/chili_pepper"
     },
+    "g": {
+      "item": "minecraft:glass_bottle"
+    },
     "w": {
-      "item": "minecraft:wheat"
+      "item": "minecraft:water_bucket"
     }
   },
   "pattern": [
-    " c ",
-    "www",
-    " b "
+    " w ",
+    "ccc",
+    "ggg"
   ],
   "result": {
-    "item": "chilibulletweapons:pasta_oil_and_chili"
+    "count": 3,
+    "item": "chilibulletweapons:hot_sauce"
   },
   "show_notification": true
 }

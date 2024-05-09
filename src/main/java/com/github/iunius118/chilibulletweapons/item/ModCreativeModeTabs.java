@@ -14,9 +14,11 @@ public class ModCreativeModeTabs {
             .icon(() -> new ItemStack(ModItems.BULLET_CHILI))
             .displayItems((params, output) -> {
                 // Plants
+                output.accept(ModItems.CHILI_SEEDS);
                 output.accept(ModItems.BULLET_CHILI);
                 output.accept(ModItems.CURVED_CHILI);
-                output.accept(ModItems.CHILI_SEEDS);
+                output.accept(ModItems.CURVED_CHILI_STRING);
+                output.accept(ModItems.DRIED_CURVED_CHILI);
                 output.accept(ModItems.BULLET_CHILI_SACK);
                 output.accept(ModItems.CURVED_CHILI_SACK);
 

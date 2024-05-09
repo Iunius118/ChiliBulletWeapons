@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "chilibulletweapons:block/curved_chili_string"
+  }
+}

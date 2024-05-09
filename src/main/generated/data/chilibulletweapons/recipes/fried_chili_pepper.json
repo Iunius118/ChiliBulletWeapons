@@ -4,13 +4,13 @@
   "group": "chilibulletweapons:fried_chili_pepper",
   "ingredients": [
     {
-      "item": "chilibulletweapons:curved_chili"
+      "tag": "chilibulletweapons:foods/chili_pepper"
     },
     {
-      "item": "chilibulletweapons:curved_chili"
+      "tag": "chilibulletweapons:foods/chili_pepper"
     },
     {
-      "item": "chilibulletweapons:curved_chili"
+      "tag": "chilibulletweapons:foods/chili_pepper"
     },
     {
       "item": "minecraft:wheat"

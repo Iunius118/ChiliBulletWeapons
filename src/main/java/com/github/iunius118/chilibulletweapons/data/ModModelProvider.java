@@ -19,19 +19,22 @@ public class ModModelProvider extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(final BlockModelGenerators blockStateModelGenerator) {
-        blockStateModelGenerator.createCropBlock(ModBlocks.CHILI_PEPPER, BlockStateProperties.AGE_7, 0, 1, 2, 3, 4, 5, 6, 7);
-        blockStateModelGenerator.createTrivialBlock(ModBlocks.HOT_SAUCE_BARREL, TexturedModel.CUBE_TOP_BOTTOM);
+    public void generateBlockStateModels(final BlockModelGenerators modelGen) {
+        modelGen.createCropBlock(ModBlocks.CHILI_PEPPER, BlockStateProperties.AGE_7, 0, 1, 2, 3, 4, 5, 6, 7);
+        modelGen.createTrivialBlock(ModBlocks.HOT_SAUCE_BARREL, TexturedModel.CUBE_TOP_BOTTOM);
+        modelGen.createCrossBlock(ModBlocks.CURVED_CHILI_STRING, BlockModelGenerators.TintState.NOT_TINTED);
     }
 
     @Override
-    public void generateItemModels(final ItemModelGenerators itemModelGenerator) {
-        Consumer<Item> basicItem = item -> itemModelGenerator.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
+    public void generateItemModels(final ItemModelGenerators modelGen) {
+        Consumer<Item> basicItem = item -> modelGen.generateFlatItem(item, ModelTemplates.FLAT_ITEM);
 
         // Plants
+        // Item model of chili seeds is generated during block state model generation of chili pepper crop
         basicItem.accept(ModItems.BULLET_CHILI);
         basicItem.accept(ModItems.CURVED_CHILI);
-        // Model of chili seeds is generated during block state model generation of chili pepper crop
+        basicItem.accept(ModItems.CURVED_CHILI_STRING);
+        basicItem.accept(ModItems.DRIED_CURVED_CHILI);
         basicItem.accept(ModItems.BULLET_CHILI_SACK);
         basicItem.accept(ModItems.CURVED_CHILI_SACK);
 

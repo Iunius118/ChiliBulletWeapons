@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "chilibulletweapons:curved_chili",
+  "group": "chilibulletweapons:dried_curved_chili",
   "ingredients": [
     {
       "item": "chilibulletweapons:curved_chili_sack"
@@ -9,6 +9,6 @@
   ],
   "result": {
     "count": 9,
-    "item": "chilibulletweapons:curved_chili"
+    "item": "chilibulletweapons:dried_curved_chili"
   }
 }

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_dried_curved_chili": {
+    "has_hot_sauce": {
       "conditions": {
         "items": [
           {
             "items": [
-              "chilibulletweapons:dried_curved_chili"
+              "chilibulletweapons:hot_sauce"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "chilibulletweapons:curved_chili_sack"
+        "recipe": "chilibulletweapons:hot_sauce_barrel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_dried_curved_chili",
+      "has_hot_sauce",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "chilibulletweapons:curved_chili_sack"
+      "chilibulletweapons:hot_sauce_barrel"
     ]
   },
   "sends_telemetry_event": false

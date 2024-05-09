@@ -30,6 +30,7 @@ public class ChiliBulletWeaponsClient implements ClientModInitializer {
     private void registerCropBlockLayer() {
         // Set render type of crop block to cutout
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHILI_PEPPER, RenderType.cutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CURVED_CHILI_STRING, RenderType.cutout());
     }
 
     private void registerEntityRenderer() {

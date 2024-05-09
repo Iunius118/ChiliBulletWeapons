@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Consumer;
 
@@ -28,6 +29,32 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .requires(ModItems.CURVED_CHILI)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
                 .save(recipeOutput, getItemId(ModItems.CHILI_SEEDS));
+
+        // Drying Curved Chili Peppers
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CURVED_CHILI_STRING)
+                .group(getItemId(ModItems.CURVED_CHILI_STRING).toString())
+                .pattern("ccc")
+                .pattern("ccc")
+                .pattern("ccc")
+                .define('c', ModItems.CURVED_CHILI)
+                .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
+                .save(recipeOutput, getItemId(ModItems.CURVED_CHILI_STRING));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CURVED_CHILI, 9)
+                .group(getItemId(ModItems.CURVED_CHILI).toString())
+                .requires(ModItems.CURVED_CHILI_STRING)
+                .unlockedBy("has_curved_chili_string", has(ModItems.CURVED_CHILI_STRING))
+                .save(recipeOutput, getItemId(ModItems.CURVED_CHILI) + "_from_string");
+
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.CURVED_CHILI), RecipeCategory.MISC, ModItems.DRIED_CURVED_CHILI, 0.1F, 200)
+                .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
+                .save(recipeOutput, getItemId(ModItems.DRIED_CURVED_CHILI));
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(ModItems.CURVED_CHILI), RecipeCategory.FOOD, ModItems.DRIED_CURVED_CHILI, 0.1F, 100)
+                .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
+                .save(recipeOutput, getItemId(ModItems.DRIED_CURVED_CHILI) + "_from_smoking");
+        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ModItems.CURVED_CHILI), RecipeCategory.FOOD, ModItems.DRIED_CURVED_CHILI, 0.1F, 600)
+                .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
+                .save(recipeOutput, getItemId(ModItems.DRIED_CURVED_CHILI) + "_from_campfire_cooking");
 
         // Storage items
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BULLET_CHILI_SACK)
@@ -50,12 +77,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("ccc")
                 .pattern("ccc")
                 .pattern("ccc")
-                .define('c', ModItems.CURVED_CHILI)
-                .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
+                .define('c', ModItems.DRIED_CURVED_CHILI)
+                .unlockedBy("has_dried_curved_chili", has(ModItems.DRIED_CURVED_CHILI))
                 .save(recipeOutput, getItemId(ModItems.CURVED_CHILI_SACK));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CURVED_CHILI, 9)
-                .group(getItemId(ModItems.CURVED_CHILI).toString())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.DRIED_CURVED_CHILI, 9)
+                .group(getItemId(ModItems.DRIED_CURVED_CHILI).toString())
                 .requires(ModItems.CURVED_CHILI_SACK)
                 .unlockedBy("has_curved_chili_sack", has(ModItems.CURVED_CHILI_SACK))
                 .save(recipeOutput, getItemId(ModItems.CURVED_CHILI) + "_from_sack");
@@ -157,7 +184,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern(" c ")
                 .pattern("www")
                 .pattern(" b ")
-                .define('c', ModItems.CURVED_CHILI)
+                .define('c', ModItemTags.FOODS_CHILI_PEPPER)
                 .define('w', Items.WHEAT)
                 .define('b', Items.BOWL)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
@@ -166,7 +193,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         // Fried chili pepper
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.FRIED_CHILI_PEPPER, 3)
                 .group(getItemId(ModItems.FRIED_CHILI_PEPPER).toString())
-                .requires(ModItems.CURVED_CHILI, 3)
+                .requires(ModItemTags.FOODS_CHILI_PEPPER)
+                .requires(ModItemTags.FOODS_CHILI_PEPPER)
+                .requires(ModItemTags.FOODS_CHILI_PEPPER)
                 .requires(Items.WHEAT)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
                 .save(recipeOutput, getItemId(ModItems.FRIED_CHILI_PEPPER));
