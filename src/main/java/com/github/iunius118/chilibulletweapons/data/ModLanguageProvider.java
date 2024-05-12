@@ -63,6 +63,8 @@ public class ModLanguageProvider {
             translationBuilder.add(ChiliBulletGunBayoneted.DESCRIPTION_RIFLE, "Chili Bullet Rifle with Bayonet");
             translationBuilder.add(ChiliBulletGunBayoneted.DESCRIPTION_SHOTGUN, "Chili Bullet Shotgun with Bayonet");
             translationBuilder.add(ModItems.MACHINE_GUN, "Chili Bullet Machine Gun");
+            // Item.Misc.
+            translationBuilder.add(ModItems.CAPSAICIN_POWDER, "Capsaicin Powder");
 
             // Tooltips
             translationBuilder.add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_1, "Hold gun in off-hand and");

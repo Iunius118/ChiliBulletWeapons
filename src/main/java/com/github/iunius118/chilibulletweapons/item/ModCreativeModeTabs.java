@@ -59,6 +59,9 @@ public class ModCreativeModeTabs {
                 output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));
                 // output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));  // For debug
                 output.accept(ChiliBulletMachineGun.enchant(ModItems.MACHINE_GUN, Enchantments.PIERCING));
+
+                // Misc.
+                output.accept(ModItems.CAPSAICIN_POWDER);
             })
             .build();
 }

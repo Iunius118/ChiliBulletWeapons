@@ -64,5 +64,8 @@ public class ModModelProvider extends FabricModelProvider {
          * - Variants of chili bullet gun with bayonet
          * - Chili bullet machine gun
          */
+
+        // Misc.
+        basicItem.accept(ModItems.CAPSAICIN_POWDER);
     }
 }

@@ -65,6 +65,8 @@ public class ModRegistries {
         itemRegister.register("gun", ModItems.GUN);
         itemRegister.register("bayoneted_gun", ModItems.BAYONETED_GUN);
         itemRegister.register("machine_gun", ModItems.MACHINE_GUN);
+        // Misc.
+        itemRegister.register("capsaicin_powder", ModItems.CAPSAICIN_POWDER);
     }
 
     public static void registerDispenseItemBehaviors() {
