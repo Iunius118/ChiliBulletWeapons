@@ -85,7 +85,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group(getItemId(ModItems.DRIED_CURVED_CHILI).toString())
                 .requires(ModItems.CURVED_CHILI_SACK)
                 .unlockedBy("has_curved_chili_sack", has(ModItems.CURVED_CHILI_SACK))
-                .save(recipeOutput, getItemId(ModItems.CURVED_CHILI) + "_from_sack");
+                .save(recipeOutput, getItemId(ModItems.DRIED_CURVED_CHILI) + "_from_sack");
 
         /* Foods */
         // Hot sauce

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "chilibulletweapons:curved_chili_from_sack"
+        "recipe": "chilibulletweapons:dried_curved_chili_from_sack"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "chilibulletweapons:curved_chili_from_sack"
+      "chilibulletweapons:dried_curved_chili_from_sack"
     ]
   },
   "sends_telemetry_event": false
