@@ -17,7 +17,7 @@ public class ChiliBulletWeaponsConfig {
         public CommonConfig(ModConfigSpec.Builder builder) {
             builder.push("common");
             canShotgunMultiHit = builder.define("canShotgunMultiHit", true);
-            chiliArrowDamageMultiplier = builder.defineInRange("chiliArrowDamageMultiplier", ChiliArrow.DEFAULT_DAMAGE_MULTIPLIER, 0, Double.MAX_VALUE);
+            chiliArrowDamageMultiplier = builder.defineInRange("chiliArrowDamageMultiplier", ChiliArrow.DEFAULT_DAMAGE_MULTIPLIER, 0, 8);
             chiliBulletBaseDamage = builder.defineInRange("chiliBulletBaseDamage", ChiliBullet.DEFAULT_BASE_DAMAGE, 0, Double.MAX_VALUE);
             builder.pop();
         }
@@ -39,10 +39,10 @@ public class ChiliBulletWeaponsConfig {
     }
 
     public static float getChiliArrowDamageMultiplier() {
-        return Math.max(COMMON.chiliArrowDamageMultiplier.get().floatValue(), 0);
+        return COMMON.chiliArrowDamageMultiplier.get().floatValue();
     }
 
     public static double getChiliBulletBaseDamage() {
-        return Math.max(COMMON.chiliBulletBaseDamage.get(), 0);
+        return COMMON.chiliBulletBaseDamage.get();
     }
 }
