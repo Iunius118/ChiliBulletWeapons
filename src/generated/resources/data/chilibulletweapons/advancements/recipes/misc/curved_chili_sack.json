@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_curved_chili": {
+    "has_dried_curved_chili": {
       "conditions": {
         "items": [
           {
             "items": [
-              "chilibulletweapons:curved_chili"
+              "chilibulletweapons:dried_curved_chili"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_curved_chili",
+      "has_dried_curved_chili",
       "has_the_recipe"
     ]
   ],

@@ -32,14 +32,18 @@ public class ModLanguageProvider {
 
             // Block
             add(ModBlocks.CHILI_PEPPER, "Chili Pepper Crops (CBW)");
+            add(ModBlocks.CURVED_CHILI_STRING, "String of Curved Chili Peppers");
+            add(ModBlocks.HOT_SAUCE_BARREL, "Barrel of Hot Chili Sauce");
 
             // Item.Plants
+            add(ModItems.CHILI_SEEDS, "Chili Pepper Seeds (CBW)");
             add(ModItems.BULLET_CHILI, "Bullet-like Chili Pepper");
             add(ModItems.CURVED_CHILI, "Curved Chili Pepper");
-            add(ModItems.CHILI_SEEDS, "Chili Pepper Seeds (CBW)");
+            add(ModItems.DRIED_CURVED_CHILI, "Dried Curved Chili Pepper");
             add(ModItems.BULLET_CHILI_SACK, "Sack of Bullet-like Chili Peppers");
             add(ModItems.CURVED_CHILI_SACK, "Sack of Curved Chili Peppers");
             // Item.Foods
+            add(ModItems.HOT_SAUCE, "Hot Chili Sauce");
             add(ModItems.CHILI_CHICKEN_SANDWICH, "Chili Chicken Sandwich");
             add(ModItems.CHILI_FISH_SANDWICH, "Chili Fish Sandwich");
             add(ModItems.CHILI_MEAT_SANDWICH, "Chili Meat Sandwich");
@@ -65,6 +69,8 @@ public class ModLanguageProvider {
             add(ChiliBulletGunBayoneted.DESCRIPTION_RIFLE, "Chili Bullet Rifle with Bayonet");
             add(ChiliBulletGunBayoneted.DESCRIPTION_SHOTGUN, "Chili Bullet Shotgun with Bayonet");
             add(ModItems.MACHINE_GUN, "Chili Bullet Machine Gun");
+            // Item.Misc.
+            add(ModItems.CAPSAICIN_POWDER, "Capsaicin Powder");
 
             // Tooltips
             add(AbstractUpgradeGunPart.TOOLTIP_UPGRADE_GUN_1, "Hold gun in off-hand and");

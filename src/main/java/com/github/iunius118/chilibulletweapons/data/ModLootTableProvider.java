@@ -20,6 +20,7 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import java.util.List;
 import java.util.Set;
@@ -44,6 +45,8 @@ public class ModLootTableProvider extends LootTableProvider {
         @Override
         protected void generate() {
             add(ModBlocks.CHILI_PEPPER, createChiliPepperCropDrops());
+            add(ModBlocks.CURVED_CHILI_STRING, this.createSingleItemTableWithSilkTouch(ModBlocks.CURVED_CHILI_STRING, ModItems.DRIED_CURVED_CHILI, ConstantValue.exactly(9.0F)));
+            add(ModBlocks.HOT_SAUCE_BARREL, this.createSingleItemTable(ModBlocks.HOT_SAUCE_BARREL));
         }
 
         private LootTable.Builder createChiliPepperCropDrops() {
@@ -64,7 +67,7 @@ public class ModLootTableProvider extends LootTableProvider {
 
         @Override
         protected Iterable<Block> getKnownBlocks() {
-            return List.of(ModBlocks.CHILI_PEPPER);
+            return List.of(ModBlocks.CHILI_PEPPER, ModBlocks.CURVED_CHILI_STRING, ModBlocks.HOT_SAUCE_BARREL);
         }
     }
 }

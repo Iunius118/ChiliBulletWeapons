@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chilibulletweapons:hot_sauce",
+  "key": {
+    "c": {
+      "tag": "chilibulletweapons:foods/chili_pepper"
+    },
+    "g": {
+      "item": "minecraft:glass_bottle"
+    },
+    "w": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    " w ",
+    "ccc",
+    "ggg"
+  ],
+  "result": {
+    "count": 3,
+    "item": "chilibulletweapons:hot_sauce"
+  },
+  "show_notification": true
+}

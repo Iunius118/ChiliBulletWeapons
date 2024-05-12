@@ -13,13 +13,17 @@ public class ModCreativeModeTabs {
             .icon(() -> new ItemStack(ModItems.BULLET_CHILI))
             .displayItems((params, output) -> {
                 // Plants
+                output.accept(ModItems.CHILI_SEEDS);
                 output.accept(ModItems.BULLET_CHILI);
                 output.accept(ModItems.CURVED_CHILI);
-                output.accept(ModItems.CHILI_SEEDS);
+                output.accept(ModItems.CURVED_CHILI_STRING);
+                output.accept(ModItems.DRIED_CURVED_CHILI);
                 output.accept(ModItems.BULLET_CHILI_SACK);
                 output.accept(ModItems.CURVED_CHILI_SACK);
 
                 // Foods
+                output.accept(ModItems.HOT_SAUCE);
+                output.accept(ModItems.HOT_SAUCE_BARREL);
                 output.accept(ModItems.CHILI_CHICKEN_SANDWICH);
                 output.accept(ModItems.CHILI_FISH_SANDWICH);
                 output.accept(ModItems.CHILI_MEAT_SANDWICH);
@@ -54,6 +58,9 @@ public class ModCreativeModeTabs {
                 output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));
                 // output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));  // For debug
                 output.accept(ChiliBulletMachineGun.enchant(ModItems.MACHINE_GUN, Enchantments.PIERCING));
+
+                // Misc.
+                output.accept(ModItems.CAPSAICIN_POWDER);
             })
             .build();
 }

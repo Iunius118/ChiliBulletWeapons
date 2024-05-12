@@ -26,6 +26,8 @@ public class ModRegistries {
         var blockRegister = DeferredRegister.create(ForgeRegistries.BLOCKS, ChiliBulletWeapons.MOD_ID);
 
         blockRegister.register("chili_pepper", () -> ModBlocks.CHILI_PEPPER);
+        blockRegister.register("curved_chili_string", () -> ModBlocks.CURVED_CHILI_STRING);
+        blockRegister.register("hot_sauce_barrel", () -> ModBlocks.HOT_SAUCE_BARREL);
 
         blockRegister.register(modEventBus);
     }
@@ -34,12 +36,16 @@ public class ModRegistries {
         var itemRegister = DeferredRegister.create(ForgeRegistries.ITEMS, ChiliBulletWeapons.MOD_ID);
 
         // Plants
+        itemRegister.register("chili_seeds", () -> ModItems.CHILI_SEEDS);
         itemRegister.register("bullet_chili", () -> ModItems.BULLET_CHILI);
         itemRegister.register("curved_chili", () -> ModItems.CURVED_CHILI);
-        itemRegister.register("chili_seeds", () -> ModItems.CHILI_SEEDS);
+        itemRegister.register("curved_chili_string", () -> ModItems.CURVED_CHILI_STRING);
+        itemRegister.register("dried_curved_chili", () -> ModItems.DRIED_CURVED_CHILI);
         itemRegister.register("bullet_chili_sack", () -> ModItems.BULLET_CHILI_SACK);
         itemRegister.register("curved_chili_sack", () -> ModItems.CURVED_CHILI_SACK);
         // Foods
+        itemRegister.register("hot_sauce", () -> ModItems.HOT_SAUCE);
+        itemRegister.register("hot_sauce_barrel", () -> ModItems.HOT_SAUCE_BARREL);
         itemRegister.register("chili_chicken_sandwich", () -> ModItems.CHILI_CHICKEN_SANDWICH);
         itemRegister.register("chili_fish_sandwich", () -> ModItems.CHILI_FISH_SANDWICH);
         itemRegister.register("chili_meat_sandwich", () -> ModItems.CHILI_MEAT_SANDWICH);
@@ -59,6 +65,8 @@ public class ModRegistries {
         itemRegister.register("gun", () -> ModItems.GUN);
         itemRegister.register("bayoneted_gun", () -> ModItems.BAYONETED_GUN);
         itemRegister.register("machine_gun", () -> ModItems.MACHINE_GUN);
+        // Misc.
+        itemRegister.register("capsaicin_powder", () -> ModItems.CAPSAICIN_POWDER);
 
         itemRegister.register(modEventBus);
     }

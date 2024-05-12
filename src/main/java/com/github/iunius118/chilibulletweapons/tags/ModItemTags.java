@@ -12,6 +12,8 @@ public class ModItemTags {
     public static final TagKey<Item> FORGE_SEEDS = makeForgeTag("seeds");
     public static final TagKey<Item> FORGE_SEEDS_CHILI = makeForgeTag("seeds/chili");
 
+    public static final TagKey<Item> FOODS_CHILI_PEPPER = makeModTag("foods/chili_pepper");
+    public static final TagKey<Item> FOODS_CHILI_SEASONING = makeModTag("foods/chili_seasoning");
     public static final TagKey<Item> FOODS_COOKED_FISH = makeModTag("foods/cooked_fish");
     public static final TagKey<Item> FOODS_COOKED_MEAT = makeModTag("foods/cooked_meat");
 

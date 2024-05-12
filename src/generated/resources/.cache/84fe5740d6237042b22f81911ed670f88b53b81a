@@ -1,4 +1,6 @@
-// 1.20.1	2024-04-15T23:49:07.0251395	Tags for minecraft:item mod id chilibulletweapons
+// 1.20.1	2024-05-12T21:29:06.9164844	Tags for minecraft:item mod id chilibulletweapons
+d1b789eb96a6d7c03609096352ea6643a8514e4f data/chilibulletweapons/tags/items/foods/chili_pepper.json
+2822c86ed6ca7b16a0c6659e8c957cc84d4c5073 data/chilibulletweapons/tags/items/foods/chili_seasoning.json
 bc229f680fa773a41269c1569f5a700f669eb8e5 data/chilibulletweapons/tags/items/foods/cooked_fish.json
 cd4460e5e3a22d6e78dd48c3af239f5ccc03fc9c data/chilibulletweapons/tags/items/foods/cooked_meat.json
 8718e570ff3dc5081466f4f497c25027ad82325e data/forge/tags/items/crops.json
