@@ -244,8 +244,12 @@ public class ChiliBullet extends Projectile {
     }
 
     private int getDamage() {
+        if (baseDamage <= 0) {
+            return 0;
+        }
+
         double speedSqr = this.getDeltaMovement().lengthSqr();
-        int force = Mth.ceil(Mth.clamp(speedSqr * getBaseDamage(), 0.0D, Integer.MAX_VALUE));
+        int force = Mth.ceil(Mth.clamp(speedSqr * baseDamage, 0.0D, Integer.MAX_VALUE));
         long randomDamage = this.random.nextInt(force / 2 + 2);
         return (int) Math.min((long) force + randomDamage, Integer.MAX_VALUE);
     }
