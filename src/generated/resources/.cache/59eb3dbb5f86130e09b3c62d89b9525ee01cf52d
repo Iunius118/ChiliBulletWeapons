@@ -1,2 +1,4 @@
-// 1.20.4	2024-02-17T14:21:13.910676	Loot Tables
+// 1.20.4	2024-05-13T00:09:25.9292068	Loot Tables
 45b10fa316039bc61b56ec805ced8854c08503c2 data/chilibulletweapons/loot_tables/blocks/chili_pepper.json
+cbbae07df22d062876d702d69138d424f172d7df data/chilibulletweapons/loot_tables/blocks/curved_chili_string.json
+0802ba4eda6399a039c473a9b5309bfce658dd98 data/chilibulletweapons/loot_tables/blocks/hot_sauce_barrel.json

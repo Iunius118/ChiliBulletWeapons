@@ -19,12 +19,17 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         // Plants
+        basicItem(ModItems.CHILI_SEEDS);
         basicItem(ModItems.BULLET_CHILI);
         basicItem(ModItems.CURVED_CHILI);
-        basicItem(ModItems.CHILI_SEEDS);
+        basicItem(ModItems.CURVED_CHILI_STRING);
+        basicItem(ModItems.DRIED_CURVED_CHILI);
         basicItem(ModItems.BULLET_CHILI_SACK);
         basicItem(ModItems.CURVED_CHILI_SACK);
+
         // Foods
+        basicItem(ModItems.HOT_SAUCE);
+        // Item model of hot sauce barrel is generated during block state model generation
         basicItem(ModItems.CHILI_CHICKEN_SANDWICH);
         basicItem(ModItems.CHILI_FISH_SANDWICH);
         basicItem(ModItems.CHILI_MEAT_SANDWICH);
@@ -35,6 +40,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.HALF_CHILI_POTATO_SANDWICH);
         basicItem(ModItems.PASTA_OIL_AND_CHILI);
         basicItem(ModItems.FRIED_CHILI_PEPPER);
+
         // Weapons
         basicItem(ModItems.CHILI_ARROW);
         basicItem(ModItems.CHILI_BULLET);
@@ -44,6 +50,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         registerGunModels("gun", "pistol", "rifle", "shotgun");
         registerGunModels("bayoneted_gun", "pistol_bayoneted", "rifle_bayoneted", "shotgun_bayoneted");
         registerMachineGunModel();
+
+        // Misc.
+        basicItem(ModItems.CAPSAICIN_POWDER);
     }
 
     private void registerSimpleItemModel(Item item, ModelFile modelFile, String suffix) {

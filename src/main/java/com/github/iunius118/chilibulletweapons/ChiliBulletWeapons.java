@@ -61,9 +61,11 @@ public class ChiliBulletWeapons {
     }
 
     private void registerCompostableItems() {
+        ComposterBlock.COMPOSTABLES.put(ModItems.CHILI_SEEDS, 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.BULLET_CHILI, 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.CURVED_CHILI, 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.CHILI_SEEDS, 0.3F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.CURVED_CHILI_STRING, 0.85F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.DRIED_CURVED_CHILI, 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.CHILI_POTATO_SANDWICH, 0.85F);
         ComposterBlock.COMPOSTABLES.put(ModItems.HALF_CHILI_POTATO_SANDWICH, 0.5F);
         ComposterBlock.COMPOSTABLES.put(ModItems.FRIED_CHILI_PEPPER, 0.3F);
@@ -100,7 +102,7 @@ public class ChiliBulletWeapons {
         dataGenerator.addProvider(includesServer, blockTagsProvider);
         dataGenerator.addProvider(includesServer, new ModItemTagsProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), ChiliBulletWeapons.MOD_ID, existingFileHelper));
         dataGenerator.addProvider(includesServer, new ModLootTableProvider(packOutput));
-        dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput, lookupProvider));
+        dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput));
 
         // Client
         final boolean includesClient = event.includeClient();

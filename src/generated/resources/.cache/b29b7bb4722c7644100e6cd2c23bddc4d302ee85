@@ -1,5 +1,7 @@
-// 1.20.4	2024-02-17T14:21:13.9016817	Block States: chilibulletweapons
+// 1.20.4	2024-05-13T00:09:25.9172133	Block States: chilibulletweapons
 a385f31e4236389f5c809f0c0d6126d6cd745dfb assets/chilibulletweapons/blockstates/chili_pepper.json
+1b27b872a9c25dc9a32158f9fc881904eaae430a assets/chilibulletweapons/blockstates/curved_chili_string.json
+a7220d31380e693d482f3ef3a03100c2ebb69389 assets/chilibulletweapons/blockstates/hot_sauce_barrel.json
 7785851afb76031e9ecda23c387786a18ea08edc assets/chilibulletweapons/models/block/chili_pepper_stage0.json
 a6a43261cb38fa8414195e551482f5e032e841c2 assets/chilibulletweapons/models/block/chili_pepper_stage1.json
 4fc8bfbb3a4b43afbd86a31c03b3899d299df87d assets/chilibulletweapons/models/block/chili_pepper_stage2.json
@@ -8,3 +10,6 @@ c786d4d9506e7426dc100d2d14aa8a0c626c9eec assets/chilibulletweapons/models/block/
 2552144dfcf93bb4233683dcc498b5dbf1d5873a assets/chilibulletweapons/models/block/chili_pepper_stage5.json
 182043cdbdcd6f465f70b75efc5eea56f3acc954 assets/chilibulletweapons/models/block/chili_pepper_stage6.json
 3732633ed30ac3b2f619848683cd9d5b16f14188 assets/chilibulletweapons/models/block/chili_pepper_stage7.json
+6fa1d7948becaf8620df898b6a21fcf322487d5b assets/chilibulletweapons/models/block/curved_chili_string.json
+c6c4773a1eb0852061e669d4d9a2563a871f153e assets/chilibulletweapons/models/block/hot_sauce_barrel.json
+c6c9eafd0e8e03d5cc5d1fb574e3b69f856f07b2 assets/chilibulletweapons/models/item/hot_sauce_barrel.json

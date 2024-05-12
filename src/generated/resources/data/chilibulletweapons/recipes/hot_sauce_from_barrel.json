@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chilibulletweapons:hot_sauce",
+  "key": {
+    "#": {
+      "item": "chilibulletweapons:hot_sauce_barrel"
+    },
+    "g": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "pattern": [
+    "ggg",
+    "g#g",
+    "ggg"
+  ],
+  "result": {
+    "count": 8,
+    "item": "chilibulletweapons:hot_sauce"
+  }
+}

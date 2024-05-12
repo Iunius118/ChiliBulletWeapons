@@ -19,6 +19,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.CROPS).add(ModBlocks.CHILI_PEPPER);
         tag(BlockTags.MAINTAINS_FARMLAND).add(ModBlocks.CHILI_PEPPER);
-        tag(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.CHILI_PEPPER);
+        tag(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.CHILI_PEPPER).add(ModBlocks.HOT_SAUCE_BARREL);
     }
 }

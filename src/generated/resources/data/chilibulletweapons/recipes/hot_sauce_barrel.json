@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chilibulletweapons:hot_sauce_barrel",
+  "key": {
+    "c": {
+      "tag": "chilibulletweapons:foods/chili_pepper"
+    },
+    "w": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    " w ",
+    "ccc",
+    "ccc"
+  ],
+  "result": {
+    "item": "chilibulletweapons:hot_sauce_barrel"
+  }
+}

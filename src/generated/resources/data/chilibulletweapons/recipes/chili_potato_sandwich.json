@@ -4,7 +4,7 @@
   "group": "chilibulletweapons:chili_potato_sandwich",
   "ingredients": [
     {
-      "item": "chilibulletweapons:curved_chili"
+      "tag": "chilibulletweapons:foods/chili_seasoning"
     },
     {
       "item": "minecraft:baked_potato"

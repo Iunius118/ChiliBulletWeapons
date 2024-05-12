@@ -4,7 +4,7 @@
   "group": "chilibulletweapons:chili_fish_sandwich",
   "ingredients": [
     {
-      "item": "chilibulletweapons:curved_chili"
+      "tag": "chilibulletweapons:foods/chili_seasoning"
     },
     {
       "tag": "chilibulletweapons:foods/cooked_fish"
