@@ -4,6 +4,24 @@
 
 ## [Unreleased]
 
+## [1.5.0]
+- Require Minecraft 1.20.1+, Fabric Loader 0.15.x+, Fabric API, and Cloth Config API.
+
+### Added
+- String of curved Chili peppers.
+- Dried curved chili pepper.
+- Hot chili sauce.
+- Barrel of hot chili sauce.
+
+### Changed
+- Sack of curved chili peppers is now storage item for dried curved chili peppers.
+- Dried curved chili pepper can be used as ingredient in food in place of curved chili pepper.
+- Hot chili sauce can be used as ingredient in sandwiches in place of curved chili pepper.
+- Maximum value of `chiliArrowDamageMultiplier` is now 8.
+
+### Fixed
+- Issue with chili bullets doing damage when `chiliBulletBaseDamage` is set to 0.
+
 ## [1.4.0]
 - Require Minecraft 1.20.1+, Fabric Loader 0.15.x+, Fabric API, and Cloth Config API.
 
