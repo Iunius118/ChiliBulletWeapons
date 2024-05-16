@@ -48,15 +48,15 @@ Curved chili peppers can be used fresh in food, but can also be dried before use
 A string of curved chili peppers is a block for drying curved chili peppers and can be hung from ceiling.
 
 ![Crafting string of curved chili peppers](../media/item/crafting/crafting_curved_chili_string.png)
+![Crafting curved chili peppers from string](../media/item/crafting/crafting_curved_chili_from_string.png)
 
 Dried curved chili peppers are dropped by breaking the string of curved chili peppers placed.
 If broken with Silk Touch enchanted tool, the block itself will drop.
 
 ![Breaking string of curved chili peppers](../media/item/misc/breaking_curved_chili_string.png)
 
-Curved chili peppers can also be dried by heating.
+Curved chili peppers can also be dried by heating them in a furnace, smoker, or campfire.
 
-Drying curved chili peppers in furnace/smoker/campfire  
 ![Drying curved chili peppers in furnace or smoker](../media/item/crafting/drying_curved_chili_in_furnace.png)
 ![Drying curved chili peppers in campfire](../media/item/misc/drying_curved_chili_in_campfire.png)
 
