@@ -1,23 +1,25 @@
-# Mod Description for Version 1.4.0
+# Mod Description for Version 1.5.0
 
 Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons.
 
-![Items](media/item/misc/items_v1.3.0.png)
+![Items](media/item/misc/items_v1.5.0.png)
 
 ## Download Mod
 
 - [Modrinth](https://modrinth.com/project/chili-bullet-weapons)
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/chili-bullet-weapons)
 
-## Descriptions
+## Table of Contents
 
 - [How to Get Started](v1/index.html)
 - [Farming](v1/farming.html)
   - [Chili Pepper Seeds (CBW)](v1/farming.html#chili-pepper-seeds-cbw)
   - [Chili Pepper Crops (CBW)](v1/farming.html#chili-pepper-crops-cbw)
+  - [Drying Curved Chili Peppers](v1/farming.html#drying-curved-chili-peppers)
   - [Compact Storage of Chili Peppers](v1/farming.html#compact-storage-of-chili-peppers)
   - [Composting](v1/farming.html#composting)
 - [Foods](v1/foods.html)
+  - [Hot Chili Sauce](v1/foods.html#hot-chili-sauce)
   - [Sandwiches](v1/foods.html#sandwiches)
   - [Half-sized Sandwiches](v1/foods.html#half-sized-sandwiches)
   - [Pasta Olio e Peperoncino](v1/foods.html#pasta-olio-e-peperoncino)

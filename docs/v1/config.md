@@ -26,19 +26,20 @@ If set to `false`, a single target will take damage from only one bullet at the 
 canShotgunMultiHit = true
 ```
 
-A non-negative real number of `chiliArrowDamageMultiplier` represents the multiplier of the explosive power of bullet chili arrows.
+A real number between 0.0 and 8.0 of `chiliArrowDamageMultiplier` represents the multiplier of the explosive power of bullet chili arrows.
 
 ```toml
 chiliArrowDamageMultiplier = 1.0
 ```
 
 A non-negative real number of `chiliBulletBaseDamage` represents the base damage amount of a chili bullet fired from a gun.
+If set to `0.0`, chili bullets will do no damage.
 
 ```toml
 chiliBulletBaseDamage = 0.85
 ```
 
-Formula for chili bullet damage:
+Formula for chili bullet damage (only when `chiliBulletBaseDamage` > 0):
 
 ```text
 # speed (initial) = 3 (pistols/shotguns) or 4 (rifles)
