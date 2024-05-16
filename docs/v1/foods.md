@@ -17,12 +17,15 @@
 Hot chili sauce is a hot sauce made from curved chili peppers and can be used to flavor food.
 
 ![Crafting bottles of hot chili sauce](../media/item/crafting/crafting_hot_sauce.png)
+![Crafting bottles of hot chili sauce with dried curved chili pepper](../media/item/crafting/crafting_hot_sauce_with_dried_chili.png)
 
 Glass bottles will be returned when hot chili sauce is consumed.
 
 A barrel of hot chili sauce can be used to make many bottles of hot chili sauce at one time.
 
 ![Crafting barrel of hot chili sauce](../media/item/crafting/crafting_hot_sauce_barrel.png)
+![Crafting barrel of hot chili sauce with dried curved chili pepper](../media/item/crafting/crafting_hot_sauce_barrel_with_dried_chili.png)
+
 ![Crafting bottles of hot chili sauce from barrel](../media/item/crafting/crafting_hot_sauce_from_barrel.png)
 
 ## Sandwiches
