@@ -3,6 +3,8 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    // MixinGradle:
+    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 version = minecraft_version + '-' + mod_version
@@ -65,6 +67,15 @@ minecraft {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+mixin {
+    // Mixin Gradle settings
+    add sourceSets.main, 'chilibulletweapons.mixins.refmap.json'
+    config 'chilibulletweapons.mixins.json'
+
+    disableTargetExport
+    disableTargetValidator
+}
+
 repositories {
     // flatDir {
     //     dir 'libs'
@@ -73,6 +84,9 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // Apply Mixin AP
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 tasks.named('processResources', ProcessResources).configure {
