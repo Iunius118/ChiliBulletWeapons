@@ -78,18 +78,22 @@ public class ChiliBulletGun extends CrossbowItem {
         } else if (!player.getProjectile(itemStack).isEmpty()) {
             // Begin loading
             if (!isLoading(itemStack)) {
-                setLoading(itemStack, true);
-                level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.GUN_ACTION_OPEN, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+                openAction(level, player, itemStack);
             }
 
             player.startUsingItem(hand);
             return InteractionResultHolder.consume(itemStack);
         } else {
+            if (isLoading(itemStack)) {
+                // Close action without loading
+                closeAction(level, player, itemStack);
+            }
+
             return InteractionResultHolder.fail(itemStack);
         }
     }
 
-    public void shootProjectile(Level level, Player player, InteractionHand hand, ItemStack itemStack) {
+    public void shootProjectile(Level level, LivingEntity livingEntity, InteractionHand hand, ItemStack itemStack) {
         // Server side only
         if (level.isClientSide) {
             return;
@@ -98,6 +102,7 @@ public class ChiliBulletGun extends CrossbowItem {
         final float shootingPower = getShootingPower(itemStack);
         final int piercingLevel = getPiercingLevel(itemStack);
         final int bullets = getBullets(itemStack);
+        // ChiliBulletWeapons.LOGGER.info("[CBGun] Try shooting ({} bullet(s))", bullets);
 
         for (int i = 0; i < bullets; i++) {
             float inaccuracy = getInaccuracy(itemStack);
@@ -108,8 +113,8 @@ public class ChiliBulletGun extends CrossbowItem {
             }
 
             // Shoot bullet entity
-            ChiliBullet bullet = new ChiliBullet(player, level);
-            bullet.shootFromRotation(player, shootingPower, inaccuracy);
+            ChiliBullet bullet = new ChiliBullet(livingEntity, level);
+            bullet.shootFromRotation(livingEntity, shootingPower, inaccuracy);
 
             if (piercingLevel > 0) {
                 bullet.setPierceLevel((byte) piercingLevel);
@@ -118,11 +123,11 @@ public class ChiliBulletGun extends CrossbowItem {
             level.addFreshEntity(bullet);
             // Add firing effects
             addSmokeParticle(level, bullet);
-            level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSoundEvents.GUN_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+            level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), ModSoundEvents.GUN_SHOOT, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
         }
 
         // Wear out gun
-        itemStack.hurtAndBreak(bullets, player, e -> e.broadcastBreakEvent(hand));
+        itemStack.hurtAndBreak(bullets, livingEntity, e -> e.broadcastBreakEvent(hand));
     }
 
     private void addSmokeParticle(Level level, ChiliBullet bullet) {
@@ -130,48 +135,70 @@ public class ChiliBulletGun extends CrossbowItem {
         ((ServerLevel) level).sendParticles(ParticleTypes.SMOKE, pos.x, pos.y, pos.z, 0, 0D, 0D, 0D, 2D);
     }
 
-    @Override
-    public void releaseUsing(ItemStack itemStack, Level level, LivingEntity entity, int ticks) {
-        // ChiliBulletWeapons.LOGGER.debug("Release {}/{}", itemStack.getUseDuration() - ticks, getReloadDuration());
+    public void performShootingByNonPlayer(Level level, LivingEntity livingEntity, InteractionHand hand, ItemStack itemStack) {
+        shootProjectile(level, livingEntity, hand, itemStack);
+        setLoaded(itemStack, false);
+        setBullets(itemStack, 0);
+    }
 
+    @Override
+    public void releaseUsing(ItemStack itemStack, Level level, LivingEntity livingEntity, int ticks) {
         if ((itemStack.getUseDuration() - ticks) >= getReloadDuration(itemStack) && !isLoaded(itemStack)) {
             // Ready to fire
             setLoaded(itemStack, true);
         }
+        // if (!level.isClientSide) ChiliBulletWeapons.LOGGER.info("[CBGun] Release {}/{}", itemStack.getUseDuration() - ticks, getReloadDuration(itemStack));
     }
 
     @Override
-    public void onUseTick(Level level, LivingEntity entity, ItemStack itemStack, int ticks) {
+    public void onUseTick(Level level, LivingEntity livingEntity, ItemStack itemStack, int ticks) {
+        int usingTicks = itemStack.getUseDuration() - ticks;
+
+        if (usingTicks == 0 && !isLoading(itemStack)) {
+            // For handled by non-player
+            openAction(level, livingEntity, itemStack);
+        }
+
         // Server side only
         if (level.isClientSide) {
             return;
         }
+        // ChiliBulletWeapons.LOGGER.info("[CBGun] Using {}/{}", usingTicks, getReloadDuration(itemStack));
 
-        // ChiliBulletWeapons.LOGGER.debug("Using {}/{}", itemStack.getUseDuration() - ticks, getReloadDuration());
-
-        if ((itemStack.getUseDuration() - ticks) >= getReloadDuration(itemStack)
-                && isLoading(itemStack) && tryLoadProjectile(entity, itemStack)) {
+        if (usingTicks >= getReloadDuration(itemStack)
+                && isLoading(itemStack) && tryLoadProjectile(livingEntity, itemStack)) {
             // Finish loading
-            setLoading(itemStack, false);
-            level.playSound(null, entity.getX(), entity.getY(), entity.getZ(), ModSoundEvents.GUN_ACTION_CLOSE, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+            closeAction(level, livingEntity, itemStack);
+            // ChiliBulletWeapons.LOGGER.info("[CBGun] loaded");
         }
+    }
+
+    private void openAction(Level level, LivingEntity livingEntity, ItemStack itemStack) {
+        setLoading(itemStack, true);
+        level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), ModSoundEvents.GUN_ACTION_OPEN, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+    }
+
+    private void closeAction(Level level, LivingEntity livingEntity, ItemStack itemStack) {
+        setLoading(itemStack, false);
+        level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), ModSoundEvents.GUN_ACTION_CLOSE, SoundSource.PLAYERS, 1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
     }
 
     public int getUseDuration(ItemStack itemStack) {
         return getReloadDuration(itemStack) + 3;
     }
 
-    public boolean tryLoadProjectile(LivingEntity entity, ItemStack itemStack) {
+    public boolean tryLoadProjectile(LivingEntity livingEntity, ItemStack itemStack) {
+        // ChiliBulletWeapons.LOGGER.info("[CBGun] Try loading");
         // Apply Multishot enchantment
         final int loadingBullets = (getMultishotLevel(itemStack) == 0) ? CAPACITY_BASIC : CAPACITY_MULTISHOT;
 
-        if (entity instanceof Player player && player.getAbilities().instabuild) {
+        if (livingEntity instanceof Player player && player.getAbilities().instabuild) {
             // For creative mode player
             setBullets(itemStack, loadingBullets);
             return true;
         }
 
-        ItemStack bulletStack = entity.getProjectile(itemStack);
+        ItemStack bulletStack = livingEntity.getProjectile(itemStack);
 
         if (bulletStack.isEmpty()) {
             // Player had no ammo

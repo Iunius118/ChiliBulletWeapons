@@ -28,6 +28,7 @@
     ]
   },
   "mixins": [
+    "chilibulletweapons.mixins.json",
     {
       "config": "chilibulletweapons.client.mixins.json",
       "environment": "client"
