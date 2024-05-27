@@ -13,8 +13,8 @@ credits="${mod_credits}"
 authors="${mod_authors}"
 description='''${mod_description}'''
 
-# [[mixins]]
-# config="mixins.chilibulletweapons.json"
+[[mixins]]
+config="chilibulletweapons.mixins.json"
 
 [[dependencies.${mod_id}]]
     modId="neoforge"

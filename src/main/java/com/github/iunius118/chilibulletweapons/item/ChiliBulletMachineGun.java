@@ -26,6 +26,12 @@ public class ChiliBulletMachineGun extends ChiliBulletGun {
     }
 
     @Override
+    public int getReloadDuration(ItemStack itemStack) {
+        // For handled by non-player
+        return 2;
+    }
+
+    @Override
     public boolean isUpgradable() {
         return false;
     }
