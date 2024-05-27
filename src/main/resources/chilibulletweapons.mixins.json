@@ -3,7 +3,9 @@
   "package": "com.github.iunius118.chilibulletweapons.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "MixinCrossbowItem"
+    "MixinCrossbowItem",
+    "MixinLivingEntity",
+    "MixinProjectileUtil"
   ],
   "injectors": {
     "defaultRequire": 1
