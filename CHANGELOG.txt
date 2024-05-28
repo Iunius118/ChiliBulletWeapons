@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [1.5.1]
+- Require Minecraft 1.20.1-1.20.4 and Forge.
+
+### Fixed
+- Fix to allow non-players to fire chili bullet guns.
+
 ## [1.5.0]
 - Require Minecraft 1.20.1-1.20.4 and Forge.
 
