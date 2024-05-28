@@ -6,5 +6,5 @@
   "mixins": [
     "MixinCrossbowItem"
   ],
-  "refmap": "chilibulletweapons.mixins.refmap.json"
+  "refmap": "mixins.chilibulletweapons.refmap.json"
 }
