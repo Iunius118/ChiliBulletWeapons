@@ -3,6 +3,10 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+
+## [1.5.2]
+- Require Minecraft 1.20.1-1.20.4, Fabric Loader 0.15.x+, Fabric API, and Cloth Config API.
+
 ### Changed
 - Modify rendering of chili bullets to avoid problems when using some rendering optimization mods.
 - Remove word “firearm” from description of chili bullet guns.
