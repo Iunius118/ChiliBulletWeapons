@@ -76,7 +76,7 @@ public class ModLanguageProvider {
             translationBuilder.add(ModEntityTypes.CHILI_BULLET, "Chili Bullet");
 
             // Subtitles
-            translationBuilder.add(getSubtitleKey(ModSoundEvents.GUN_SHOOT), "Chili Bullet Gun fires");
+            translationBuilder.add(getSubtitleKey(ModSoundEvents.GUN_SHOOT), "Chili Bullet Gun shoots");
             translationBuilder.add(getSubtitleKey(ModSoundEvents.GUN_ACTION_CLOSE), "Chili Bullet Gun loads");
             translationBuilder.add(getSubtitleKey(ModSoundEvents.GUN_UPGRADE), "Chili Bullet Gun upgraded");
         }

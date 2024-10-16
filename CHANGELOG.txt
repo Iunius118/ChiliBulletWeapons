@@ -4,13 +4,14 @@
 
 ## [Unreleased]
 ### Changed
-- Use entity model to render chili bullet.
+- Modify rendering of chili bullets to avoid problems when using some rendering optimization mods.
+- Remove word “firearm” from description of chili bullet guns.
 
 ## [1.5.1]
 - Require Minecraft 1.20.1-1.20.4, Fabric Loader 0.15.x+, Fabric API, and Cloth Config API.
 
 ### Fixed
-- Fix to allow non-players to fire chili bullet guns.
+- Fix to allow non-players to shoot chili bullet guns.
 
 ## [1.5.0]
 - Require Minecraft 1.20.1+, Fabric Loader 0.15.x+, Fabric API, and Cloth Config API.
@@ -64,7 +65,7 @@
 - Order of weapon items in creative mode tab.
 
 ### Fixed
-- Rendering of fired chili bullets.
+- Rendering of shot chili bullets.
 
 ## [1.2.0]
 - Require Minecraft 1.20.1+, Fabric Loader 0.15.7+, and Fabric API.
