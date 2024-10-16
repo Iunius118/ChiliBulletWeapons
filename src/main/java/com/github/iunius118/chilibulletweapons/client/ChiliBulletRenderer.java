@@ -27,8 +27,8 @@ public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet> {
         if (chiliBullet.getAge() > 0) {
             // Each bullet is rendered from the second tick to maintain the player's field of view
             poseStack.pushPose();
-            model.setupAnim(chiliBullet, partialTicks, 0.0F, -0.1F, 0.0F, 0.0F);
-            VertexConsumer vertexConsumer = multiBufferSource.getBuffer(this.model.renderType(TEXTURE_LOCATION));
+            model.setupAnim(chiliBullet, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
+            VertexConsumer vertexConsumer = multiBufferSource.getBuffer(model.renderType(TEXTURE_LOCATION));
             model.renderToBuffer(poseStack, vertexConsumer, light, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
             poseStack.popPose();
         }
