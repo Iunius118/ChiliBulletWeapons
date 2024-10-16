@@ -39,15 +39,15 @@ A chili bullet serves as ammunition for chili bullet guns and can be crafted fro
 
 ![Crafting chili bullet](../media/item/crafting/crafting_chili_bullet.png)
 
-Chili bullets will disappear two seconds after they are fired.
+Chili bullets will disappear two seconds after they are shot.
 
 ## Chili Bullet Gun
 
-A chili bullet gun is a break-action single-shot firearm that fires chili bullets to attack mobs at a distance.
+A chili bullet gun is a break-action single-shot gun that shoots chili bullets to attack mobs at a distance.
 
 ![Crafting chili bullet gun](../media/item/crafting/crafting_chili_bullet_gun.png)
 
-Chili bullet guns can be fired with the same operation as crossbows. Specifically, unloaded guns can be loaded by holding down the right mouse button, and loaded guns can be fired by right-clicking.
+Chili bullet guns can be shot with the same operation as crossbows. Specifically, unloaded guns can be loaded by holding down the right mouse button, and loaded guns can be shot by right-clicking.
 
 Chili bullet guns can have the same enchantments as crossbows, and each gun can have a different appearance, display name, and performance depending on the enchantment it has.
 
@@ -59,7 +59,7 @@ Chili bullet guns can have the same enchantments as crossbows, and each gun can 
 
 Chili bullet rifles are highly accurate, and bullets from them pass through the number of entities equal to the Piercing level.
 
-Chili bullet shotguns are less accurate, and they can fire four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
+Chili bullet shotguns are less accurate, and they can shoot four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
 
 ### Upgrading Guns
 
