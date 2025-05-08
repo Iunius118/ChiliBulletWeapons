@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "https://iunius118.github.io/ChiliBulletWeapons/",
+    "sources": "https://github.com/Iunius118/ChiliBulletWeapons"
+  },
+  "license": "${license}",
+  "icon": "assets/chilibulletweapons/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.iunius118.chilibulletweapons.ChiliBulletWeapons"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}",
+    "java": ">=${java_version}"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

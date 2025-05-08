@@ -1,2 +1,1 @@
-# ChiliBulletWeapons
-A Minecraft mod to add chili pepper, weapons, and foods.
+Chili Bullet Weapons mod for 1.20.1 Forge
