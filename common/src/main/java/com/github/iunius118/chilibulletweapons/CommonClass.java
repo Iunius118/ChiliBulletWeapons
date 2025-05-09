@@ -2,6 +2,7 @@ package com.github.iunius118.chilibulletweapons;
 
 import com.github.iunius118.chilibulletweapons.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 
 // This class is part of the common project meaning it is shared between all supported loaders. Code written here can only
@@ -24,6 +25,11 @@ public class CommonClass {
         // the platform specific approach.
         if (Services.PLATFORM.isModLoaded("chilibulletweapons")) {
             Constants.LOG.info("Hello to chilibulletweapons");
+            Constants.LOG.info("Mod Config Chack, chiliBulletBaseDamage: {}", Services.CONFIG.getChiliBulletBaseDamage());
         }
+    }
+
+    public static ResourceLocation modLocation(String name) {
+        return ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name);
     }
 }
