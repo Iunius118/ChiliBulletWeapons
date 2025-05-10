@@ -17,6 +17,10 @@
   "entrypoints": {
     "main": [
       "com.github.iunius118.chilibulletweapons.ChiliBulletWeapons"
+    ],
+    "client": [
+    ],
+    "fabric-datagen": [
     ]
   },
   "mixins": [
