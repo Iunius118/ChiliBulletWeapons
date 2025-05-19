@@ -22,13 +22,13 @@ public class NeoForgeChiliBulletWeaponsConfig implements IChiliBulletWeaponsConf
     /* Add config items */
 
     public static class CommonConfig {
-        public final BooleanValue canShotgunMultiHit;
+        public final BooleanValue canMultishotMultiHit;
         public final DoubleValue chiliArrowDamageMultiplier;
         public final DoubleValue chiliBulletBaseDamage;
 
         public CommonConfig(ModConfigSpec.Builder builder) {
             builder.push("common");
-            canShotgunMultiHit = builder.define("canShotgunMultiHit", true);
+            canMultishotMultiHit = builder.define("canMultishotMultiHit", true);
             chiliArrowDamageMultiplier = builder.defineInRange("chiliArrowDamageMultiplier",
                     Constants.ChiliArrow.DEFAULT_DAMAGE_MULTIPLIER, 0, Constants.ChiliArrow.MAX_DAMAGE_MULTIPLIER);
             chiliBulletBaseDamage = builder.defineInRange("chiliBulletBaseDamage",
@@ -40,8 +40,8 @@ public class NeoForgeChiliBulletWeaponsConfig implements IChiliBulletWeaponsConf
     /* Getters */
 
     @Override
-    public boolean canShotgunMultiHit() {
-        return COMMON_SPEC.isLoaded() ? COMMON.canShotgunMultiHit.get() : COMMON.canShotgunMultiHit.getDefault();
+    public boolean canMultishotMultiHit() {
+        return COMMON_SPEC.isLoaded() ? COMMON.canMultishotMultiHit.get() : COMMON.canMultishotMultiHit.getDefault();
     }
 
     @Override

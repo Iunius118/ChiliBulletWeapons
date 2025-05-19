@@ -21,13 +21,13 @@ public class ForgeChiliBulletWeaponsConfig implements IChiliBulletWeaponsConfig 
     /* Add config items */
 
     public static class CommonConfig {
-        public final BooleanValue canShotgunMultiHit;
+        public final BooleanValue canMultishotMultiHit;
         public final FloatValue chiliArrowDamageMultiplier;
         public final DoubleValue chiliBulletBaseDamage;
 
         public CommonConfig(ForgeConfigSpec.Builder builder) {
             builder.push("common");
-            canShotgunMultiHit = builder.define("canShotgunMultiHit", true);
+            canMultishotMultiHit = builder.define("canMultishotMultiHit", true);
             chiliArrowDamageMultiplier = builder.defineInRange("chiliArrowDamageMultiplier",
                     Constants.ChiliArrow.DEFAULT_DAMAGE_MULTIPLIER, 0, Constants.ChiliArrow.MAX_DAMAGE_MULTIPLIER);
             chiliBulletBaseDamage = builder.defineInRange("chiliBulletBaseDamage",
@@ -39,8 +39,8 @@ public class ForgeChiliBulletWeaponsConfig implements IChiliBulletWeaponsConfig 
     /* Getters */
 
     @Override
-    public boolean canShotgunMultiHit() {
-        return COMMON_SPEC.isLoaded() ? COMMON.canShotgunMultiHit.get() : COMMON.canShotgunMultiHit.getDefault();
+    public boolean canMultishotMultiHit() {
+        return COMMON_SPEC.isLoaded() ? COMMON.canMultishotMultiHit.get() : COMMON.canMultishotMultiHit.getDefault();
     }
 
     @Override

@@ -15,7 +15,7 @@ public class FabricChiliBulletWeaponsConfig implements ConfigData, IChiliBulletW
     CommonConfig common = new CommonConfig();
 
     static class CommonConfig {
-        boolean canShotgunMultiHit = true;
+        boolean canMultishotMultiHit = true;
         float chiliArrowDamageMultiplier = Constants.ChiliArrow.DEFAULT_DAMAGE_MULTIPLIER;
         double chiliBulletBaseDamage = Constants.ChiliBullet.DEFAULT_BASE_DAMAGE;
     }
@@ -23,8 +23,8 @@ public class FabricChiliBulletWeaponsConfig implements ConfigData, IChiliBulletW
     /* Getters */
 
     @Override
-    public boolean canShotgunMultiHit() {
-        return getConfig().common.canShotgunMultiHit;
+    public boolean canMultishotMultiHit() {
+        return getConfig().common.canMultishotMultiHit;
     }
 
     @Override
