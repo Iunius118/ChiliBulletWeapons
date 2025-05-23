@@ -4,7 +4,10 @@
   "package": "com.github.iunius118.chilibulletweapons.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_18",
-  "mixins": [],
+  "mixins": [
+    "MixinCrossbowItem",
+    "ProjectileAccessor"
+  ],
   "client": [
     "MixinMinecraft"
   ],

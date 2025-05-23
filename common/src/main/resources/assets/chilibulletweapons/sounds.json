@@ -1,0 +1,31 @@
+{
+  "item.chilibulletweapons.gun.action_close": {
+    "sounds": [
+      "block/iron_trapdoor/close1",
+      "block/iron_trapdoor/close2",
+      "block/iron_trapdoor/close3",
+      "block/iron_trapdoor/close4"
+    ],
+    "subtitle": "subtitles.item.chilibulletweapons.gun.action_close"
+  },
+  "item.chilibulletweapons.gun.action_open": {
+    "sounds": [
+      "block/iron_trapdoor/open1",
+      "block/iron_trapdoor/open2",
+      "block/iron_trapdoor/open3",
+      "block/iron_trapdoor/open4"
+    ]
+  },
+  "item.chilibulletweapons.gun.shoot": {
+    "sounds": [
+      "fireworks/blast1"
+    ],
+    "subtitle": "subtitles.item.chilibulletweapons.gun.shoot"
+  },
+  "item.chilibulletweapons.gun.upgrade": {
+    "sounds": [
+      "random/anvil_use"
+    ],
+    "subtitle": "subtitles.item.chilibulletweapons.gun.upgrade"
+  }
+}
