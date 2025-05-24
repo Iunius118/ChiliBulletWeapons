@@ -17,6 +17,9 @@ public class ModItems {
     public static final Item CHILI_BULLET = add(new Item(new Item.Properties()));
     public static final Item GUN = add(new ChiliBulletGunItem(new Item.Properties().stacksTo(1).durability(512)));
     public static final Item MACHINE_GUN = add(new ChiliBulletMachineGunItem(new Item.Properties().stacksTo(1).durability(64).fireResistant()));
+    public static final Item UPGRADE_GUN_BAYONET = add(new UpgradeGunBayonetItem(new Item.Properties()));
+    public static final Item UPGRADE_GUN_BARREL = add(new UpgradeGunBarrelItem(new Item.Properties()));
+    public static final Item UPGRADE_GUN_MECHANISM = add(new UpgradeGunMechanismItem(new Item.Properties()));
 
     private static Item add(Item item) {
         ITEMS.add(item);

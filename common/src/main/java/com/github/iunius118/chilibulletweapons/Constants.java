@@ -17,11 +17,11 @@ public class Constants {
         // Weapons
         public static final ResourceLocation CHILI_ARROW = CommonClass.modLocation("chili_arrow");
         public static final ResourceLocation CHILI_BULLET = CommonClass.modLocation("chili_bullet");
+        public static final ResourceLocation GUN = CommonClass.modLocation("gun");
+        public static final ResourceLocation MACHINE_GUN = CommonClass.modLocation("machine_gun");
         public static final ResourceLocation UPGRADE_GUN_BAYONET = CommonClass.modLocation("upgrade_gun_bayonet");
         public static final ResourceLocation UPGRADE_GUN_BARREL = CommonClass.modLocation("upgrade_gun_barrel");
         public static final ResourceLocation UPGRADE_GUN_MECHANISM = CommonClass.modLocation("upgrade_gun_mechanism");
-        public static final ResourceLocation GUN = CommonClass.modLocation("gun");
-        public static final ResourceLocation MACHINE_GUN = CommonClass.modLocation("machine_gun");
     }
 
     public static class EntityTypes {
@@ -100,5 +100,12 @@ public class Constants {
         public static final String DESCRIPTION_BAYONETED_PISTOL = "item.chilibulletweapons.gun.bayoneted.pistol";
         public static final String DESCRIPTION_BAYONETED_RIFLE = "item.chilibulletweapons.gun.bayoneted.rifle";
         public static final String DESCRIPTION_BAYONETED_VOLLEY_GUN = "item.chilibulletweapons.gun.bayoneted.volley_gun";
+    }
+
+    public static class UpgradeGunPart {
+        // Item tooltip keys
+        public static final String TOOLTIP_UPGRADE_GUN_1 = "tooltip.chilibulletweapons.upgrade_gun_1";
+        public static final String TOOLTIP_UPGRADE_GUN_2 = "tooltip.chilibulletweapons.upgrade_gun_2";
+        public static final String TOOLTIP_UPGRADE_GUN_3 = "tooltip.chilibulletweapons.upgrade_gun_3";
     }
 }
