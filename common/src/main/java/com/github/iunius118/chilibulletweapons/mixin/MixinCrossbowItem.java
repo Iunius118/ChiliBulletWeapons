@@ -1,6 +1,5 @@
 package com.github.iunius118.chilibulletweapons.mixin;
 
-import com.github.iunius118.chilibulletweapons.item.ChiliBulletGunHelper;
 import com.github.iunius118.chilibulletweapons.item.ChiliBulletGunItem;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
@@ -18,10 +17,10 @@ public abstract class MixinCrossbowItem {
 
     @Inject(method = "getChargeDuration", at = @At("HEAD"), cancellable = true)
     private static void onGetChargeDuration(ItemStack stack, LivingEntity shooter, CallbackInfoReturnable<Integer> cir) {
-        if (stack.getItem() instanceof ChiliBulletGunItem) {
+        if (stack.getItem() instanceof ChiliBulletGunItem chiliBulletGun) {
             // If the entity is holding a chili bullet gun,
             // return the reload duration of the gun
-            int reloadDuration = ChiliBulletGunHelper.getReloadDuration(stack);
+            int reloadDuration = chiliBulletGun.getReloadDuration(stack);
             cir.setReturnValue(reloadDuration);
         }
     }

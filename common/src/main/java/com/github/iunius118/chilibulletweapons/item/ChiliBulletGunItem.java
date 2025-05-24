@@ -170,7 +170,7 @@ public class ChiliBulletGunItem extends CrossbowItem {
 
     @Override
     public void releaseUsing(ItemStack stack, Level level, LivingEntity entityLiving, int timeLeft) {
-        if ((stack.getUseDuration(entityLiving) - timeLeft) >= ChiliBulletGunHelper.getReloadDuration(stack)
+        if ((stack.getUseDuration(entityLiving) - timeLeft) >= getReloadDuration(stack)
                 && !ChiliBulletGunHelper.isLoaded(stack)) {
             // Ready to fire
             ChiliBulletGunHelper.changeLoading(stack, false);
@@ -193,9 +193,9 @@ public class ChiliBulletGunItem extends CrossbowItem {
         }
 
         // Server side only
-        //Constants.LOG.info("[CBGun] Using {}/{}", usingCount, ChiliBulletGunHelper.getReloadDuration(stack));
+        //Constants.LOG.info("[CBGun] Using {}/{}", usingCount, getReloadDuration(stack));
 
-        if (usingCount >= ChiliBulletGunHelper.getReloadDuration(stack)
+        if (usingCount >= getReloadDuration(stack)
                 && isLoading && tryLoadProjectiles(livingEntity, stack)) {
             // Finish loading
             closeAction(level, livingEntity, stack);
@@ -217,12 +217,16 @@ public class ChiliBulletGunItem extends CrossbowItem {
 
     @Override
     public int getUseDuration(ItemStack stack, LivingEntity entity) {
-        return ChiliBulletGunHelper.getReloadDuration(stack) + 3;
+        return getReloadDuration(stack) + 3;
     }
 
     /* CrossbowItem.getChargeDuration() will be hooked using Mixin */
 
-    private static boolean tryLoadProjectiles(LivingEntity shooter, ItemStack stack) {
+    public int getReloadDuration(ItemStack stack) {
+        return ChiliBulletGunHelper.getReloadDuration(stack);
+    }
+
+    public static boolean tryLoadProjectiles(LivingEntity shooter, ItemStack stack) {
         //Constants.LOG.info("[CBGun] Try loading");
         // Get ammo stack from shooter inventory
         List<ItemStack> list = draw(stack, shooter.getProjectile(stack), shooter);

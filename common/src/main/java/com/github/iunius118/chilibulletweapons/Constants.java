@@ -78,6 +78,7 @@ public class Constants {
         // Reload duration
         public static final int RELOAD_BASIC = 14;
         public static final int RELOAD_MULTISHOT = 22;
+        public static final int RELOAD_MACHINE_GUN = 2;
         public static final int RELOAD_PER_QUICK_CHARGE = 2;
         public static final int RELOAD_BAYONETED_ADDITIONAL = 2;
         // Power
