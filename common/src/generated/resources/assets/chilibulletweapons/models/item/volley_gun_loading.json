@@ -1,0 +1,6 @@
+{
+  "parent": "chilibulletweapons:item/gun_long_open",
+  "textures": {
+    "layer0": "chilibulletweapons:item/volley_gun_loading"
+  }
+}

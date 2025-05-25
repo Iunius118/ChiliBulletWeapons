@@ -1,0 +1,6 @@
+{
+  "parent": "chilibulletweapons:item/gun_short_closed",
+  "textures": {
+    "layer0": "chilibulletweapons:item/pistol_bayoneted"
+  }
+}

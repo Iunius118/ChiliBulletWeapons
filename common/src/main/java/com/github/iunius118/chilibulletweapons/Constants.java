@@ -9,10 +9,20 @@ public class Constants {
     public static final String MOD_NAME = "Chili Bullet Weapons";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
+
+    public static class Blocks {
+        // CBW Chili Peppers And Foods
+        public static final ResourceLocation CHILI_PEPPER = CommonClass.modLocation("chili_pepper");
+    }
+
     public static class Items {
         // Plants
         public static final ResourceLocation BULLET_CHILI = CommonClass.modLocation("bullet_chili");
         public static final ResourceLocation BULLET_CHILI_SACK = CommonClass.modLocation("bullet_chili_sack");
+        // CBW Chili Peppers And Foods
+        public static final ResourceLocation CHILI_SEEDS = CommonClass.modLocation("chili_seeds");
+        public static final ResourceLocation CURVED_GREEN_CHILI = CommonClass.modLocation("curved_green_chili");
+        public static final ResourceLocation CURVED_CHILI = CommonClass.modLocation("curved_chili");
 
         // Weapons
         public static final ResourceLocation CHILI_ARROW = CommonClass.modLocation("chili_arrow");
