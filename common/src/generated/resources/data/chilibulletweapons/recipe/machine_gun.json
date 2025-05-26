@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "chilibulletweapons:machine_gun",
+  "key": {
+    "b": {
+      "item": "chilibulletweapons:chili_bullet"
+    },
+    "n": {
+      "tag": "c:ingots/netherite"
+    },
+    "p": {
+      "tag": "chilibulletweapons:fire_resistant_planks"
+    }
+  },
+  "pattern": [
+    "n  ",
+    " n ",
+    " pb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "chilibulletweapons:machine_gun"
+  }
+}

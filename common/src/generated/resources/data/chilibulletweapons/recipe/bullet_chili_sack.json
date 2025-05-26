@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chilibulletweapons:bullet_chili_sack",
+  "key": {
+    "b": {
+      "item": "chilibulletweapons:bullet_chili"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "bbb",
+    "bbb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "chilibulletweapons:bullet_chili_sack"
+  }
+}

@@ -45,7 +45,7 @@ public class ChiliBulletWeapons {
         dataGenerator.addProvider(includesServer, blockTagsProvider);
         dataGenerator.addProvider(includesServer, new ModItemTagsProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
         dataGenerator.addProvider(includesServer, new ModLootTableProvider(packOutput, lookupProvider));
-        //dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput, lookupProvider));
+        dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput, lookupProvider));
 
         // Client
         final boolean includesClient = event.includeClient();

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chilibulletweapons:bullet_chili",
+  "ingredients": [
+    {
+      "item": "chilibulletweapons:bullet_chili_sack"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "chilibulletweapons:bullet_chili"
+  }
+}
