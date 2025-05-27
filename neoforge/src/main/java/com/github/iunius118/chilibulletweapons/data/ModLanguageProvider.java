@@ -38,6 +38,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.UPGRADE_GUN_MECHANISM, "Gun Mechanism Upgrade");
 
         // Tooltips
+        add(Constants.ChiliBulletGun.TOOLTIP_BARREL_COUNT, "V%s(%s) Barrel x%s");
+        add(Constants.ChiliBulletGun.TOOLTIP_QUICK_LOAD, "Quick Load +%s");
         add(Constants.UpgradeGunPart.TOOLTIP_UPGRADE_GUN_1, "Hold gun in off-hand and");
         add(Constants.UpgradeGunPart.TOOLTIP_UPGRADE_GUN_2, "use this item in main hand");
         add(Constants.UpgradeGunPart.TOOLTIP_UPGRADE_GUN_3, "to upgrade gun.");

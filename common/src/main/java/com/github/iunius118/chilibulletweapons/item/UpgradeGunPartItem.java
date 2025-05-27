@@ -31,10 +31,12 @@ public abstract class UpgradeGunPartItem extends Item {
         ItemStack offHandStack = player.getItemInHand(InteractionHand.OFF_HAND);
 
         if (hand != InteractionHand.MAIN_HAND || !canUpgrade(offHandStack)) {
+            // If the items cannot be upgraded, do nothing
             return InteractionResultHolder.pass(player.getItemInHand(hand));
         }
 
         if (!level.isClientSide()) {
+            // In server-side, upgrade the gun in the off-hand
             ItemStack upgradedGunStack = upgrade(offHandStack);
             player.setItemInHand(InteractionHand.OFF_HAND, upgradedGunStack);
 
@@ -43,6 +45,7 @@ public abstract class UpgradeGunPartItem extends Item {
             }
         }
 
+        // Play upgrade sound effect
         player.playSound(ModSoundEvents.GUN_UPGRADE, 0.5F, 1.1F + level.getRandom().nextFloat() * 0.1F);
         return InteractionResultHolder.sidedSuccess(player.getItemInHand(hand), level.isClientSide());
     }

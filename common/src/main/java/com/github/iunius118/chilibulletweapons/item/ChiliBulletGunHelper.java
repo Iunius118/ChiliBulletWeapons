@@ -2,7 +2,9 @@ package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.component.ModDataComponents;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
 import net.minecraft.util.Unit;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -11,6 +13,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ChargedProjectiles;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+
+import java.util.List;
 
 public class ChiliBulletGunHelper {
 
@@ -181,6 +185,40 @@ public class ChiliBulletGunHelper {
                 .build();
 
         stack.set(DataComponents.ATTRIBUTE_MODIFIERS, itemAttributeModifiers);
+    }
+
+    /**
+     * Add barrel information to the tooltip.
+     * It will appear as “V[Shooting Power]([Piercing Level]) Barrel x[Barrel Count]” via placeholders.
+     *
+     * @param stack Item stack
+     * @param tooltipComponents List of components for the tooltip
+     */
+    public static void addBarrelCountTooltip(ItemStack stack, List<Component> tooltipComponents) {
+        String shootingPower = ItemAttributeModifiers.ATTRIBUTE_MODIFIER_FORMAT.format(getShootingPower(stack));
+        int barrelCount = getBarrelCount(stack);
+        int piercingLevel = getPiercing(stack);
+        var component = Component.translatable(Constants.ChiliBulletGun.TOOLTIP_BARREL_COUNT,
+                        shootingPower, piercingLevel, barrelCount)
+                .withStyle(ChatFormatting.DARK_GRAY);
+        tooltipComponents.add(component);
+    }
+
+    /**
+     * Add information about quick loading to the tooltip.
+     *
+     * @param stack Item stack
+     * @param tooltipComponents List of components for the tooltip
+     */
+    public static void addQuickLoadTooltip(ItemStack stack, List<Component> tooltipComponents) {
+        int quickLoading = ChiliBulletGunHelper.getQuickLoading(stack);
+
+        if (quickLoading > 0) {
+            // Add quick loading tooltip
+            var component = Component.translatable(Constants.ChiliBulletGun.TOOLTIP_QUICK_LOAD, quickLoading)
+                    .withStyle(ChatFormatting.GRAY);
+            tooltipComponents.add(component);
+        }
     }
 
     private ChiliBulletGunHelper() {}

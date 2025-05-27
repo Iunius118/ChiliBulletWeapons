@@ -292,6 +292,12 @@ public class ChiliBulletGunItem extends CrossbowItem {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+
+        if (tooltipFlag.isAdvanced()) {
+            ChiliBulletGunHelper.addBarrelCountTooltip(stack, tooltipComponents);
+        }
+
+        ChiliBulletGunHelper.addQuickLoadTooltip(stack, tooltipComponents);
     }
 
     @Override
