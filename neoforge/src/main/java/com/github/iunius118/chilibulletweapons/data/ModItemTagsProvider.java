@@ -2,13 +2,11 @@ package com.github.iunius118.chilibulletweapons.data;
 
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
-import com.github.iunius118.chilibulletweapons.tags.ModItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
@@ -25,7 +23,5 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(ItemTags.ARROWS).add(ModItems.CHILI_ARROW);
         tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.GUN, ModItems.MACHINE_GUN);
-
-        tag(ModItemTags.FIRE_RESISTANT_PLANKS).add(Items.CRIMSON_PLANKS, Items.WARPED_PLANKS);
     }
 }
