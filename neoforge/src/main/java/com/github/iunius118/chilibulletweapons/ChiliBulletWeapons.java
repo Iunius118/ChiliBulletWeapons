@@ -1,7 +1,5 @@
 package com.github.iunius118.chilibulletweapons;
 
-
-import com.github.iunius118.chilibulletweapons.client.ChiliBulletWeaponsClient;
 import com.github.iunius118.chilibulletweapons.data.*;
 import com.github.iunius118.chilibulletweapons.platform.NeoForgeChiliBulletWeaponsConfig;
 import com.github.iunius118.chilibulletweapons.registry.NeoForgeModRegistries;
@@ -46,6 +44,7 @@ public class ChiliBulletWeapons {
         dataGenerator.addProvider(includesServer, new ModItemTagsProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
         dataGenerator.addProvider(includesServer, new ModLootTableProvider(packOutput, lookupProvider));
         dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput, lookupProvider));
+        dataGenerator.addProvider(includesServer, new ModDataMapProvider(packOutput, lookupProvider));
 
         // Client
         final boolean includesClient = event.includeClient();

@@ -3,10 +3,13 @@ package com.github.iunius118.chilibulletweapons.item;
 import net.minecraft.world.item.Item;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ModItems {
     public static final List<Item> ITEMS = new ArrayList<>();
+    public static final Map<Item, Float> COMPOSTABLES = new HashMap<>();
 
     // Plants
     public static final Item BULLET_CHILI = add(new Item(new Item.Properties()));
@@ -24,5 +27,10 @@ public class ModItems {
     private static Item add(Item item) {
         ITEMS.add(item);
         return item;
+    }
+
+    static {
+        // Add compostable items
+        COMPOSTABLES.put(BULLET_CHILI, 0.3F);
     }
 }
