@@ -52,7 +52,7 @@ public class ChiliBulletGunHelper {
     /**
      * Change whether the gun is in the process of loading ammunition.
      *
-     * @param stack Item stack
+     * @param stack     Item stack
      * @param isLoading True if the gun is loading, false otherwise.
      */
     public static void changeLoading(ItemStack stack, boolean isLoading) {
@@ -165,9 +165,9 @@ public class ChiliBulletGunHelper {
     /**
      * Set item attribute modifiers to the item stack.
      *
-     * @param stack Item stack to attach item attribute modifiers
+     * @param stack        Item stack to attach item attribute modifiers
      * @param attackDamage attack damage
-     * @param attackSpeed attack speed
+     * @param attackSpeed  attack speed
      */
     public static void setItemAttributeModifiers(ItemStack stack, float attackDamage, float attackSpeed) {
         // Set attack damage and attack speed modifiers
@@ -191,7 +191,7 @@ public class ChiliBulletGunHelper {
      * Add barrel information to the tooltip.
      * It will appear as “V[Shooting Power]([Piercing Level]) Barrel x[Barrel Count]” via placeholders.
      *
-     * @param stack Item stack
+     * @param stack             Item stack
      * @param tooltipComponents List of components for the tooltip
      */
     public static void addBarrelCountTooltip(ItemStack stack, List<Component> tooltipComponents) {
@@ -207,7 +207,7 @@ public class ChiliBulletGunHelper {
     /**
      * Add information about quick loading to the tooltip.
      *
-     * @param stack Item stack
+     * @param stack             Item stack
      * @param tooltipComponents List of components for the tooltip
      */
     public static void addQuickLoadTooltip(ItemStack stack, List<Component> tooltipComponents) {

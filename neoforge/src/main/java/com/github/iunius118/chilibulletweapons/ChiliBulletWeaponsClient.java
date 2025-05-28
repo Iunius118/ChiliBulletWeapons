@@ -1,6 +1,9 @@
-package com.github.iunius118.chilibulletweapons.client;
+package com.github.iunius118.chilibulletweapons;
 
-import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.client.ChiliArrowRenderer;
+import com.github.iunius118.chilibulletweapons.client.ChiliBulletModel;
+import com.github.iunius118.chilibulletweapons.client.ChiliBulletRenderer;
+import com.github.iunius118.chilibulletweapons.client.ModItemProperties;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import net.minecraft.client.renderer.item.ItemProperties;

@@ -14,7 +14,7 @@ public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet> {
     public static final ResourceLocation TEXTURE_LOCATION = CommonClass.modLocation("textures/entity/chili_bullet.png");
     private final ChiliBulletModel<ChiliBullet> model;
 
-    protected ChiliBulletRenderer(EntityRendererProvider.Context context) {
+    public ChiliBulletRenderer(EntityRendererProvider.Context context) {
         super(context);
         model = new ChiliBulletModel<>(context.bakeLayer(ChiliBulletModel.LAYER_LOCATION));
     }
