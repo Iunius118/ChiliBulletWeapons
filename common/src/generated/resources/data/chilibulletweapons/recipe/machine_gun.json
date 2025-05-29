@@ -10,7 +10,7 @@
       "tag": "c:ingots/netherite"
     },
     "p": {
-      "tag": "minecraft:non_flammable_wood"
+      "tag": "chilibulletweapons:non_flammable_planks"
     }
   },
   "pattern": [

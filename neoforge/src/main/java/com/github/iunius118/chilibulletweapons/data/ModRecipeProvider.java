@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.data;
 
 import com.github.iunius118.chilibulletweapons.item.ModItems;
+import com.github.iunius118.chilibulletweapons.tags.ModItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -80,7 +81,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" n ")
                 .pattern(" pb")
                 .define('n', Tags.Items.INGOTS_NETHERITE)
-                .define('p', ItemTags.NON_FLAMMABLE_WOOD)
+                .define('p', ModItemTags.NON_FLAMMABLE_PLANKS)
                 .define('b', ModItems.CHILI_BULLET)
                 .unlockedBy("has_gun", has(ModItems.GUN))
                 .save(recipeOutput, getItemId(ModItems.MACHINE_GUN));
