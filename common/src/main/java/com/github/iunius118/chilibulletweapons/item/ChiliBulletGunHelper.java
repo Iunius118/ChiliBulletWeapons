@@ -14,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ChargedProjectiles;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChiliBulletGunHelper {
@@ -219,6 +220,43 @@ public class ChiliBulletGunHelper {
                     .withStyle(ChatFormatting.GRAY);
             tooltipComponents.add(component);
         }
+    }
+
+    /**
+     * Get a list of all guns available in creative mode.
+     *
+     * @return List of all guns available in creative mode
+     */
+    public static List<ItemStack> getCreativeGuns() {
+        if (ModItems.GUN == null) {
+            // If the gun item is null, return an empty list
+            return List.of();
+        }
+
+        List<ItemStack> guns = new ArrayList<>();
+
+        ItemStack gun = new ItemStack(ModItems.GUN);
+        guns.add(gun);
+
+        if (ModItems.UPGRADE_GUN_BARREL == null || ModItems.UPGRADE_GUN_BAYONET == null) {
+            // If upgrade items are null, return only pistol
+            return guns;
+        }
+
+        var upgradeGunBarrel = (UpgradeGunPartItem) ModItems.UPGRADE_GUN_BARREL;
+        var upgradeGunBayonet = (UpgradeGunPartItem) ModItems.UPGRADE_GUN_BAYONET;
+
+
+        ItemStack rifle = upgradeGunBarrel.upgrade(gun);
+        ItemStack volleyGun = upgradeGunBarrel.upgrade(rifle);
+
+        guns.add(rifle);
+        guns.add(volleyGun);
+        guns.add(upgradeGunBayonet.upgrade(gun));
+        guns.add(upgradeGunBayonet.upgrade(rifle));
+        guns.add(upgradeGunBayonet.upgrade(volleyGun));
+
+        return guns;
     }
 
     private ChiliBulletGunHelper() {}

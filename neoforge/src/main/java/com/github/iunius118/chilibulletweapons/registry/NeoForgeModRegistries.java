@@ -75,7 +75,7 @@ public class NeoForgeModRegistries {
 
         if (event.getTab().equals(creativeModeTab)) {
             // Add items to the main mod creative mode tab
-            ModItems.ITEMS.forEach(i -> {
+            ModItems.getCreativeModeTabItems().forEach(i -> {
                 if (i != null) event.accept(i);
             });
         }

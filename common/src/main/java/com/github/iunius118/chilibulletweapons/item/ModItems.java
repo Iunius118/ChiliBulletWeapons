@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.item;
 
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,5 +33,19 @@ public class ModItems {
     static {
         // Add compostable items
         COMPOSTABLES.put(BULLET_CHILI, 0.3F);
+    }
+
+    public static List<ItemStack> getCreativeModeTabItems() {
+        List<ItemStack> items = new ArrayList<>();
+
+        for (Item item : ITEMS) {
+            if (item == GUN) {
+                items.addAll(ChiliBulletGunHelper.getCreativeGuns());
+            } else {
+                items.add(new ItemStack(item));
+            }
+        }
+
+        return items;
     }
 }
