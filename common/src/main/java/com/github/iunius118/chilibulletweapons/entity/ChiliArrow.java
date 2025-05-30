@@ -3,10 +3,13 @@ package com.github.iunius118.chilibulletweapons.entity;
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.platform.Services;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -51,7 +54,7 @@ public class ChiliArrow extends AbstractArrow {
         this.discard();
 
         if (!level.isClientSide) {
-            explode(level, result.getLocation(), getExplosivePower());
+            explode(level, result.getLocation(), getExplosivePower(this));
         }
     }
 
@@ -67,7 +70,7 @@ public class ChiliArrow extends AbstractArrow {
         this.discard();
 
         if (!level.isClientSide) {
-            explode(level, result.getLocation(), getExplosivePower());
+            explode(level, result.getLocation(), getExplosivePower(result.getEntity()));
         }
     }
 
@@ -75,9 +78,23 @@ public class ChiliArrow extends AbstractArrow {
         level.explode(this, pos.x, pos.y, pos.z, power, Level.ExplosionInteraction.NONE);
     }
 
-    private float getExplosivePower() {
+    private float getExplosivePower(Entity entity) {
+        Entity owner = this.getOwner();
+        var damagesource = this.damageSources().arrow(this, (owner != null ? owner : this));
+        float damage = (float) this.getBaseDamage();
+
+        // getWeaponItem() may return null if the arrow has not been shot from a weapon item
+        if (this.getWeaponItem() != null && this.level() instanceof ServerLevel serverlevel) {
+            // Apply weapon enchantments to the damage
+            damage = EnchantmentHelper.modifyDamage(serverlevel, this.getWeaponItem(), entity, damagesource, damage);
+
+            if (damage > this.getBaseDamage()) {
+                damage += 0.5F;
+            }
+        }
+
         float damageMultiplier = Services.CONFIG.getChiliArrowDamageMultiplier();
         // Explosive power is 1.0-1.6 (Power 0-5 enchanted) * damageMultiplier
-        return ((float) this.getBaseDamage() / 5.0F + 0.6F) * damageMultiplier;
+        return (damage / 5.0F + 0.6F) * damageMultiplier;
     }
 }
