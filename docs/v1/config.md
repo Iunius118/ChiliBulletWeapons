@@ -1,7 +1,9 @@
 # Configuration
 
-- [Top Page](../index.html)
-  - [How to Get Started](index.html)
+Chili Bullet Weapons Version 1.5.2
+
+- [Top Page](index.html)
+  - [How to Get Started](introduction.html)
   - [Farming](farming.html)
   - [Foods](foods.html)
   - [Weapons](weapons.html)

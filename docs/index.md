@@ -11,7 +11,7 @@ Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons
 
 ## Table of Contents
 
-- [How to Get Started](v1/index.html)
+- [How to Get Started](v1/introduction.html)
 - [Farming](v1/farming.html)
   - [Chili Pepper Seeds (CBW)](v1/farming.html#chili-pepper-seeds-cbw)
   - [Chili Pepper Crops (CBW)](v1/farming.html#chili-pepper-crops-cbw)

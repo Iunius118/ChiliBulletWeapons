@@ -1,28 +1,41 @@
-# How to Get Started
+# Chili Bullet Weapons Version 1.5.2
 
-- [Top Page](../index.html)
-  - **How to Get Started**
-  - [Farming](farming.html)
-  - [Foods](foods.html)
-  - [Weapons](weapons.html)
-  - [Configuration](config.html)
+Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons.
 
-## 1. Obtain Curved Chili Pepper
+![Items](../media/item/misc/items_v1.5.0.png)
 
-Curved chili peppers can be obtained from breaking short grass.
+## Download Mod
 
-![Dropped curved chili pepper](../media/item/misc/dropped_curved_chili.png)
+- [Modrinth](https://modrinth.com/project/chili-bullet-weapons)
+- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/chili-bullet-weapons)
 
-## 2. Craft Chili Pepper Seeds
+## Requirements
 
-Chili pepper seeds can be crafted from curved chili pepper.
+- Forge version - Minecraft Forge
+- NeoForge version - NeoForge
+- Fabric version - Fabric Loader, Fabric API, and Cloth Config API
 
-![Crafting chili pepper seeds](../media/item/crafting/crafting_chili_seeds.png)
+## Table of Contents
 
-## 3. Grow Chili Pepper Crops
-
-Chili pepper seeds can be placed on farmland by right-clicking, where they grow through eight stages.
-
-![Growing chili pepper crops](../media/block/misc/chili_pepper_crops.png)
-
-Breaking the final stage produces 1 to 3 curved chili peppers and 1 to 3 bullet-like chili peppers.
+- [How to Get Started](introduction.html)
+- [Farming](farming.html)
+  - [Chili Pepper Seeds (CBW)](farming.html#chili-pepper-seeds-cbw)
+  - [Chili Pepper Crops (CBW)](farming.html#chili-pepper-crops-cbw)
+  - [Drying Curved Chili Peppers](farming.html#drying-curved-chili-peppers)
+  - [Compact Storage of Chili Peppers](farming.html#compact-storage-of-chili-peppers)
+  - [Composting](farming.html#composting)
+- [Foods](foods.html)
+  - [Hot Chili Sauce](foods.html#hot-chili-sauce)
+  - [Sandwiches](foods.html#sandwiches)
+  - [Half-sized Sandwiches](foods.html#half-sized-sandwiches)
+  - [Pasta Olio e Peperoncino](foods.html#pasta-olio-e-peperoncino)
+  - [Fried Chili Pepper](foods.html#fried-chili-pepper)
+- [Weapons](weapons.html)
+  - [Bullet Chili Arrow](weapons.html#bullet-chili-arrow)
+  - [Chili Bullet](weapons.html#chili-bullet)
+  - [Chili Bullet Gun](weapons.html#chili-bullet-gun)
+    - [Upgrading Guns](weapons.html#upgrading-guns)
+  - [Chili Bullet Gun with Bayonet](weapons.html#chili-bullet-gun-with-bayonet)
+  - [Chili Bullet Machine Gun (Creative Mode)](weapons.html#chili-bullet-machine-gun-creative-mode)
+- [Configuration](config.html)
+  - [Common](config.html#common)
