@@ -1,4 +1,10 @@
-# Chili Bullet Weapons
+# Weapon Data
+
+Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.0.0
+
+- [Top Page](../index.html)
+- ![ ](../media/icon_16.png) Chili Bullet Weapons
+  - [Weapons](weapons.html)
 
 ## Bullet Chili Arrow
 
@@ -11,7 +17,7 @@
 |        4       |    22.0 |    3.0 |
 |        5       |    23.4 |    3.2 |
 
-## Pistol/Shotgun
+## Pistol/Volley Gun/Machine Gun
 
 | Angle | Ticks | Dist. | Speed | MinDmg. | MaxDmg. |
 |------:|------:|------:|------:|--------:|--------:|

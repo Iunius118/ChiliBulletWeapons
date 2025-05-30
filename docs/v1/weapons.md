@@ -15,7 +15,7 @@ Chili Bullet Weapons Version 1.5.2
     - [Chili Bullet Machine Gun (Creative Mode)](#chili-bullet-machine-gun-creative-mode)
   - [Configuration](config.html)
 
-See also: [Weapon Data](../weapon_data.html)
+See also: [Weapon Data](weapon_data.html)
 
 ## Bullet Chili Arrow
 
