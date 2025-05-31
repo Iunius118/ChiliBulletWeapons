@@ -4,9 +4,13 @@
   "package": "com.github.iunius118.chilibulletweapons.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
+  "mixins": [
+    "MixinLivingEntity",
+    "MixinProjectileUtil"
+  ],
   "client": [
-    "MixinTitleScreen"
+    "client.MixinItemInHandRenderer",
+    "client.MixinPlayerRenderer"
   ],
   "server": [],
   "injectors": {
