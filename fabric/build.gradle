@@ -47,3 +47,5 @@ loom {
         }
     }
 }
+
+sourceSets.main.resources { srcDir '../common/src/generated/resources' }

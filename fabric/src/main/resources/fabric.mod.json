@@ -9,7 +9,8 @@
   ],
   "contact": {
     "homepage": "https://iunius118.github.io/ChiliBulletWeapons/",
-    "sources": "https://github.com/Iunius118/ChiliBulletWeapons"
+    "sources": "https://github.com/Iunius118/ChiliBulletWeapons",
+    "issues": "https://github.com/Iunius118/ChiliBulletWeapons/issues"
   },
   "license": "${license}",
   "icon": "assets/chilibulletweapons/icon.png",
@@ -19,6 +20,7 @@
       "com.github.iunius118.chilibulletweapons.ChiliBulletWeapons"
     ],
     "client": [
+      "com.github.iunius118.chilibulletweapons.ChiliBulletWeaponsClient"
     ],
     "fabric-datagen": [
     ]
