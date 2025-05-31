@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.data;
 
 import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.client.GunItemPropertyFunction;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
@@ -74,43 +75,59 @@ public class ModItemModelProvider extends ItemModelProvider {
     private void addGunModels(ItemModelBuilder builder) {
         List<String> guns = List.of("pistol", "rifle", "volley_gun");
 
-        for(int i = 0; i < 3 * 2 * 2; i++) {
+        // Variable `i` is model type flag (0-15, excluding 3 and 15):
+        //     [isLoading].b [isBayoneted].b [isVolleyGun].b [isRifle].b
+        // If isVolleyGun and isRifle are both true (`i` is 3 or 15), volley gun models will be used.
+        for(int i = 0; i < 2 * 2 * 4; i++) {
+            int gunIndex = i & 3;
+
+            if (gunIndex == 3) {
+                // Gun index 3 is not valid (there are only 3 guns)
+                continue;
+            }
+
             ItemModelBuilder.OverrideBuilder override = builder.override();
+            boolean isBayoneted = false;
+            boolean isLoading = false;
             String suffix = "";
             String action = "_closed";
 
             // isLoading
-            if ((i & 1) != 0) {
-                override.predicate(Constants.ItemProperties.PROPERTY_BAYONETED, 1.0F);
-                suffix = "_bayoneted";
-            }
-
-            // isLoading
-            if ((i & 2) != 0) {
-                override.predicate(Constants.ItemProperties.PROPERTY_LOADING, 1.0F);
+            if ((i & 8) != 0) {
+                isLoading = true;
                 suffix += "_loading";
                 action = "_open";
             }
 
-            int gunIndex = i >> 2;
+            // isBayoneted
+            if ((i & 4) != 0) {
+                isBayoneted = true;
+                suffix = "_bayoneted" + suffix;
+            }
+
             String modelName = guns.get(gunIndex) + suffix;
+            //Constants.LOG.info("Registering gun model: " + modelName);
 
             // Register gun model
             switch (gunIndex) {
                 case 0 -> {
                     // Pistol
-                    override.model(getModelFile(modelName)).end();
+                    override.predicate(Constants.ItemProperties.PROPERTY_GUN,
+                                    GunItemPropertyFunction.getValue(isLoading, isBayoneted, false, false))
+                            .model(getModelFile(modelName)).end();
                     getBuilder(modelName).parent(getModelFile("gun_short" + action)).texture("layer0", "item/" + modelName);
                 }
                 case 1 -> {
                     // Rifle
-                    override.predicate(Constants.ItemProperties.PROPERTY_PIERCING, 1.0F)
+                    override.predicate(Constants.ItemProperties.PROPERTY_GUN,
+                                    GunItemPropertyFunction.getValue(isLoading, isBayoneted, false, true))
                             .model(getModelFile(modelName)).end();
                     getBuilder(modelName).parent(getModelFile("gun_long" + action)).texture("layer0", "item/" + modelName);
                 }
                 case 2 -> {
                     // Volley gun
-                    override.predicate(Constants.ItemProperties.PROPERTY_MULTISHOT, 1.0F)
+                    override.predicate(Constants.ItemProperties.PROPERTY_GUN,
+                                    GunItemPropertyFunction.getValue(isLoading, isBayoneted, true, false))
                             .model(getModelFile(modelName)).end();
                     getBuilder(modelName).parent(getModelFile("gun_long" + action)).texture("layer0", "item/" + modelName);
                 }

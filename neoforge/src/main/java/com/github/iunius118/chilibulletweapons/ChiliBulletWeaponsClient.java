@@ -12,6 +12,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public class ChiliBulletWeaponsClient {
+
     public static void onInitializeClient(IEventBus modEventBus) {
         modEventBus.addListener(ChiliBulletWeaponsClient::onClientSetup);
         modEventBus.addListener(ChiliBulletWeaponsClient::onRegisterLayerDefinitions);
@@ -23,10 +24,7 @@ public class ChiliBulletWeaponsClient {
     }
 
     private static void registerItemProperties() {
-        ItemProperties.register(ModItems.GUN, Constants.ItemProperties.PROPERTY_LOADING, ModItemProperties.PROPERTY_LOADING);
-        ItemProperties.register(ModItems.GUN, Constants.ItemProperties.PROPERTY_MULTISHOT, ModItemProperties.PROPERTY_MULTISHOT);
-        ItemProperties.register(ModItems.GUN, Constants.ItemProperties.PROPERTY_PIERCING, ModItemProperties.PROPERTY_PIERCING);
-        ItemProperties.register(ModItems.GUN, Constants.ItemProperties.PROPERTY_BAYONETED, ModItemProperties.PROPERTY_BAYONETED);
+        ItemProperties.register(ModItems.GUN, Constants.ItemProperties.PROPERTY_GUN, ModItemProperties.PROPERTY_GUN);
     }
 
     private static void onRegisterLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions event) {

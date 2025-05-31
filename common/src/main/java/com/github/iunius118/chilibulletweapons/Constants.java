@@ -9,7 +9,6 @@ public class Constants {
     public static final String MOD_NAME = "Chili Bullet Weapons";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
 
-
     public static class Blocks {
         // CBW Chili Peppers And Foods
         public static final ResourceLocation CHILI_PEPPER = CommonClass.modLocation("chili_pepper");
@@ -59,10 +58,7 @@ public class Constants {
     }
 
     public static class ItemProperties {
-        public static final ResourceLocation PROPERTY_LOADING = CommonClass.modLocation("loading");
-        public static final ResourceLocation PROPERTY_MULTISHOT = CommonClass.modLocation("multishot");
-        public static final ResourceLocation PROPERTY_PIERCING = CommonClass.modLocation("piercing");
-        public static final ResourceLocation PROPERTY_BAYONETED = CommonClass.modLocation("bayoneted");
+        public static final ResourceLocation PROPERTY_GUN = CommonClass.modLocation("gun");
     }
 
     public static class ChiliArrow {

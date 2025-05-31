@@ -1,9 +1,9 @@
-// 1.21.1	2025-05-26T00:52:35.4229045	Item Models: chilibulletweapons
+// 1.21.1	2025-05-31T16:37:28.0301956	Item Models: chilibulletweapons
 04beba56d579567ec03732bb1a44732542ba09f7 assets/chilibulletweapons/models/item/bullet_chili.json
 586781a63776d5dcdfea55f65c041b2727a0dc06 assets/chilibulletweapons/models/item/bullet_chili_sack.json
 2b550e817b1d4a29d5e7c1b443de16af3db7e4c9 assets/chilibulletweapons/models/item/chili_arrow.json
 c72ccf8655f70e093a1217bb47c35588780cf82c assets/chilibulletweapons/models/item/chili_bullet.json
-7efc74e8a9d1a69410f6adaced8579e8d660d4c7 assets/chilibulletweapons/models/item/gun.json
+8cf2f5d5ca98c99b1b51d6fd457de3ffcb18508f assets/chilibulletweapons/models/item/gun.json
 4f2e4fa4e721fb81706a3c7ed9b46541718418c3 assets/chilibulletweapons/models/item/gun_long_closed.json
 fba128bab8d6cc957ca25f026bded73b3175cb8a assets/chilibulletweapons/models/item/gun_long_open.json
 733466d8bd65059de3a27b45fb9d79426b7417a1 assets/chilibulletweapons/models/item/gun_short_closed.json
