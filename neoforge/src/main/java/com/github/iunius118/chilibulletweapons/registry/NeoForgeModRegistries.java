@@ -12,6 +12,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class NeoForgeModRegistries {
+
     public static void registerGameObjects(IEventBus modEventBus) {
         registerItems(modEventBus);
         registerSoundEvents(modEventBus);

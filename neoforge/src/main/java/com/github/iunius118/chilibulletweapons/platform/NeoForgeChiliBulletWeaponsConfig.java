@@ -9,7 +9,6 @@ import org.apache.commons.lang3.tuple.Pair;
 
 
 public class NeoForgeChiliBulletWeaponsConfig implements IChiliBulletWeaponsConfig {
-
     public static final ModConfigSpec COMMON_SPEC;
     public static final CommonConfig COMMON;
 
