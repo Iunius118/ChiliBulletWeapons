@@ -19,6 +19,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.ChargedProjectiles;
 import net.minecraft.world.level.Level;
@@ -229,7 +230,11 @@ public class ChiliBulletGunItem extends CrossbowItem {
     public static boolean tryLoadProjectiles(LivingEntity shooter, ItemStack stack) {
         //Constants.LOG.info("[CBGun] Try loading");
         // Get ammo stack from shooter inventory
-        List<ItemStack> list = draw(stack, shooter.getProjectile(stack), shooter);
+        ItemStack ammo = shooter.getProjectile(stack);
+        // If ammo stack is arrow, replace it with chili bullet
+        ammo = ammo.is(Items.ARROW) ? new ItemStack(ModItems.CHILI_BULLET) : ammo;
+        // Draw ammo to load from ammo stack
+        List<ItemStack> list = draw(stack, ammo, shooter);
 
         if (!list.isEmpty()) {
             // Set loaded ammo to gun
