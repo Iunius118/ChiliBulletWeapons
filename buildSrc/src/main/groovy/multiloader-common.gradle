@@ -75,14 +75,22 @@ jar {
 
     from("../CHANGELOG.txt", "../CHEATSHEET.txt", "../CREDITS.txt")
 
+    Map attr = [
+            'Specification-Title'   : mod_name,
+            'Specification-Vendor'  : mod_author,
+            'Specification-Version' : project.jar.archiveVersion,
+            'Implementation-Title'  : project.name,
+            'Implementation-Version': project.jar.archiveVersion,
+            'Implementation-Vendor' : mod_author,
+            'Built-On-Minecraft'    : minecraft_version
+    ]
+
+    if (project.name == 'forge') {
+        attr.put('MixinConfigs', "${mod_id}.forge.mixins.json") // Temporary fix for Forge Mixin
+    }
+
     manifest {
-        attributes(['Specification-Title'   : mod_name,
-                    'Specification-Vendor'  : mod_author,
-                    'Specification-Version' : project.jar.archiveVersion,
-                    'Implementation-Title'  : project.name,
-                    'Implementation-Version': project.jar.archiveVersion,
-                    'Implementation-Vendor' : mod_author,
-                    'Built-On-Minecraft'    : minecraft_version])
+        attributes(attr)
     }
 }
 

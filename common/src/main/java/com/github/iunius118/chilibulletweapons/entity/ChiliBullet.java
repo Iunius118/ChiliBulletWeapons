@@ -2,7 +2,6 @@ package com.github.iunius118.chilibulletweapons.entity;
 
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.item.ChiliBulletGunHelper;
-import com.github.iunius118.chilibulletweapons.mixin.ProjectileAccessor;
 import com.github.iunius118.chilibulletweapons.platform.Services;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.particles.ParticleTypes;
@@ -22,7 +21,6 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -83,16 +81,7 @@ public class ChiliBullet extends ThrowableProjectile {
         //** Projectile.tick() **//
         // Do not use ThrowableProjectile.tick()
 
-        var projectileAccessor = (ProjectileAccessor) this;
-
-        if (!projectileAccessor.getHasBeenShot()) {
-            this.gameEvent(GameEvent.PROJECTILE_SHOOT, this.getOwner());
-            projectileAccessor.setHasBeenShot(true);
-        }
-
-        if (!projectileAccessor.getLeftOwner()) {
-            projectileAccessor.setLeftOwner(projectileAccessor.invokeCheckLeftOwner());
-        }
+        Services.PLATFORM.tickProjectile(this);
 
         //** Entity.tick() **//
 

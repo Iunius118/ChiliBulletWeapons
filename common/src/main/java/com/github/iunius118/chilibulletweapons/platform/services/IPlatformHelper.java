@@ -1,5 +1,9 @@
 package com.github.iunius118.chilibulletweapons.platform.services;
 
+import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
+import com.github.iunius118.chilibulletweapons.mixin.ProjectileAccessor;
+import net.minecraft.world.level.gameevent.GameEvent;
+
 public interface IPlatformHelper {
 
     /**
@@ -31,5 +35,24 @@ public interface IPlatformHelper {
      */
     default String getEnvironmentName() {
         return isDevelopmentEnvironment() ? "development" : "production";
+    }
+
+    /**
+     * Platform-specific tick method for ChiliBullet projectiles.
+     *
+     * @param chiliBullet Instance of ChiliBullet
+     */
+    default void tickProjectile(ChiliBullet chiliBullet) {
+        //Constants.LOG.info(getPlatformName());
+        ProjectileAccessor projectileAccessor = (ProjectileAccessor) chiliBullet;
+
+        if (!projectileAccessor.getHasBeenShot()) {
+            chiliBullet.gameEvent(GameEvent.PROJECTILE_SHOOT, chiliBullet.getOwner());
+            projectileAccessor.setHasBeenShot(true);
+        }
+
+        if (!projectileAccessor.getLeftOwner()) {
+            projectileAccessor.setLeftOwner(projectileAccessor.invokeCheckLeftOwner());
+        }
     }
 }
