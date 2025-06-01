@@ -4,92 +4,25 @@
 
 ## [Unreleased]
 
-## [1.5.1]
-- Require Minecraft 1.20.1-1.20.4 and Forge.
-
-### Fixed
-- Fix to allow non-players to fire chili bullet guns.
-
-## [1.5.0]
-- Require Minecraft 1.20.1-1.20.4 and Forge.
-
+## [2.0.0-beta.1]
 ### Added
-- String of curved Chili peppers.
-- Dried curved chili pepper.
-- Hot chili sauce.
-- Barrel of hot chili sauce.
+- Add mod data components: `loading`, `quick_loading`, `multishot`, `piercing` and `bayoneted`.
+- Add machine gun recipe.
+- Add mod item property `gun` for gun models.
 
 ### Changed
-- Sack of curved chili peppers is now storage item for dried curved chili peppers.
-- Dried curved chili pepper can be used as ingredient in food in place of curved chili pepper.
-- Hot chili sauce can be used as ingredient in sandwiches in place of curved chili pepper.
-- Maximum value of `chiliArrowDamageMultiplier` is now 8.
-
-### Fixed
-- Issue with chili bullets doing damage when `chiliBulletBaseDamage` is set to 0.
-
-## [1.4.0]
-- Require Minecraft 1.20.1-1.20.4 and Forge.
-
-### Added
-- Add configuration file to adjust performance of weapons.
-
-## [1.3.0]
-- Require Minecraft 1.20.1-1.20.4 and Forge.
-
-### Added
-- Bullet chili arrow. This item causes a small explosion, dealing explosive damage to nearby entities.
-
-### Changed
-- Add group values to recipes.
-
-## [1.2.1]
-- Require Minecraft 1.20.1-1.20.4 and Forge.
-
-### Added
-- Add item descriptions to tooltips of gun upgrade items.
-
-### Changed
-- Compatible with 1.20.1-1.20.4 except for data generators.
-- Order of weapon items in creative mode tab.
-
-### Fixed
-- Rendering of fired chili bullets.
-
-## [1.2.0]
-- Require Minecraft 1.20.1 and Forge 47.2.0+.
-
-### Added
-- Items for compact storage of chili peppers: `Sack of Bullet-like Chili Peppers` and `Sack of Curved Chili Peppers`.
-- Pasta olio e peperoncino.
-- Gun upgrade system and upgrade items.
-  - To upgrade a gun, hold the gun in the off-hand and use (right-click) the upgrade item held in the main hand.
-
-### Changed
-- Increase composting chance of half-sized chili potato sandwich.
+- Port to 1.21.1.
+- NeoForge version - require NeoForge 21.1.169.
+- Forge version - require Minecraft Forge 52.1.0.
+- Fabric version - require Fabric Loader 0.16.14, Fabric API 0.116.0+1.21.1, and Cloth Config API 15.0.140.
+- Require CBW Chili Peppers and Foods 1.0.0.
+- Rename `canShotgunMultiHit` to `canMultishotMultiHit` in config.
+- Rename shotgun to volley gun.
+- Guns now have upgrade values with data components instead of enchantments.
+- Change enchantments applicable to guns: unbreaking, mending, and curse of vanishing.
+- Change machine gun durability from 512 to 64.
+- Change recipes of gun upgrade items.
+- Use entity model for rendering of chili bullet entity.
 
 ### Removed
-- Smithing table recipe for gun with bayonet.
-
-## [1.1.0]
-- Require Minecraft 1.20.1 and Forge 47.2.0+.
-
-### Added
-- Chili bullet gun with bayonet.
-
-### Changed
-- Rename `Chili Pepper Seeds` to `Chili Pepper Seeds (CBW)`.
-- Change gun item textures.
-
-## [1.0.2]
-- Require Minecraft 1.20.1 and Forge 47.2.0+.
-
-### Changed
-- Change mod icon.
-
-### Fixed
-- Fix ammo consumption when loading machine gun.
-
-## [1.0.1]
-- Backport to 1.20.1 Forge.
-- Require Minecraft 1.20.1 and Forge 47.2.0+.
+- Remove mod item properties `loading`, `multishot`, `piercing` and `bayoneted`.
