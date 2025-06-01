@@ -7,14 +7,14 @@
 ## [2.0.0-beta.1]
 ### Added
 - Add mod data components: `loading`, `quick_loading`, `multishot`, `piercing` and `bayoneted`.
-- Add machine gun recipe.
 - Add mod item property `gun` for gun models.
+- Add machine gun recipe.
 
 ### Changed
 - Port to 1.21.1.
-- NeoForge version - require NeoForge 21.1.169.
-- Forge version - require Minecraft Forge 52.1.0.
-- Fabric version - require Fabric Loader 0.16.14, Fabric API 0.116.0+1.21.1, and Cloth Config API 15.0.140.
+- NeoForge version - Require NeoForge 21.1.169.
+- Forge version - Require Minecraft Forge 52.1.0.
+- Fabric version - Require Fabric Loader 0.16.14, Fabric API 0.116.0+1.21.1, and Cloth Config API 15.0.140.
 - Require CBW Chili Peppers and Foods 1.0.0.
 - Rename `canShotgunMultiHit` to `canMultishotMultiHit` in config.
 - Rename shotgun to volley gun.
