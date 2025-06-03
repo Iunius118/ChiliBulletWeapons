@@ -61,18 +61,6 @@ public class Constants {
         public static final ResourceLocation PROPERTY_GUN = CommonClass.modLocation("gun");
     }
 
-    public static class ChiliArrow {
-        public static final double FUSE_SPEED = 0.8D;
-        public static final float DEFAULT_DAMAGE_MULTIPLIER = 1.0F;
-        public static final float MAX_DAMAGE_MULTIPLIER = 8.0F;
-    }
-
-    public static class ChiliBullet {
-        public static final double DEFAULT_BASE_DAMAGE = 0.85D;
-        public static final float GRAVITY = 0.03F;
-        public static final byte LIFETIME = 40;
-    }
-
     public static class ChiliBulletGun {
         // Data components
         public static final int MAX_QUICK_LOADING = 3;
@@ -116,5 +104,19 @@ public class Constants {
         public static final String TOOLTIP_UPGRADE_GUN_1 = "tooltip.chilibulletweapons.upgrade_gun_1";
         public static final String TOOLTIP_UPGRADE_GUN_2 = "tooltip.chilibulletweapons.upgrade_gun_2";
         public static final String TOOLTIP_UPGRADE_GUN_3 = "tooltip.chilibulletweapons.upgrade_gun_3";
+    }
+
+    public static class ChiliArrow {
+        public static final double FUSE_SPEED = 0.8D;
+        public static final float DEFAULT_DAMAGE_MULTIPLIER = 1.0F;
+        public static final float MAX_DAMAGE_MULTIPLIER = 8.0F;
+    }
+
+    public static class ChiliBullet {
+        public static final double DEFAULT_BASE_DAMAGE = 0.85D;
+        public static final float GRAVITY = 0.03F;
+        public static final byte LIFETIME = 40;
+        public static final float CRIT_RATE = 0.1F;
+        public static final double CRIT_DAMAGE_MULTIPLIER = ChiliBulletGun.POWER_PIERCING * ChiliBulletGun.POWER_PIERCING;
     }
 }

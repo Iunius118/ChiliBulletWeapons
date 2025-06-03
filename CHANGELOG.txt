@@ -3,6 +3,8 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+### Added
+- Add critical hit to chili bullet. It has a 10% chance of occurring and dealing 22 damage.
 
 ## [2.0.0-beta.1]
 ### Added

@@ -244,7 +244,29 @@ public class ChiliBullet extends ThrowableProjectile {
         double speedSqr = this.getDeltaMovement().lengthSqr();
         int force = Mth.ceil(Mth.clamp(speedSqr * baseDamage, 0.0D, Integer.MAX_VALUE));
         long randomDamage = this.random.nextInt(force / 2 + 2);
-        return (int) Math.min((long) force + randomDamage, Integer.MAX_VALUE);
+        int damage = (int) Math.min((long) force + randomDamage, Integer.MAX_VALUE);
+
+        // Critical hit
+        boolean hasCritOccurred = this.random.nextFloat() < Constants.ChiliBullet.CRIT_RATE;
+        damage = hasCritOccurred ? Math.max(getCritDamage(), damage) : damage;
+
+        /*
+        if (!this.level().isClientSide) {
+            Constants.LOG.info("ChiliBullet damage: {} (baseDmg={}, spdSq={}, force={}, randDmg={}, Crit={})",
+                    damage, baseDamage, speedSqr, force, randomDamage, hasCritOccurred);
+        }
+        //*/
+        return damage;
+    }
+
+    private int getCritDamage() {
+        if (baseDamage <= 0) {
+            return 0;
+        }
+
+        // The current version simulates the highest damage value (without shooter's movement) of the rifle
+        long critForce = Mth.ceil(Mth.clamp(Constants.ChiliBullet.CRIT_DAMAGE_MULTIPLIER * baseDamage, 0.0D, Integer.MAX_VALUE));
+        return (int) Math.min(critForce + critForce / 2 + 1, Integer.MAX_VALUE);
     }
 
     public double getBaseDamage() {
