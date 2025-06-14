@@ -37,7 +37,7 @@ A ferro-capsicumium hoe is a tool made from ferro-capsicumium and can be used li
 
 ## Ferro-Capsicumium Shears
 
-A ferro-capsicumium hoe is a tool made from ferro-capsicumium and can be used like shears.
+Ferro-capsicumium shears are tools made from ferro-capsicumium and can be used like shears.
 
 ![Crafting ferro-capsicumium shears](../media/item/crafting/crafting_ferro-capsicumium_shears.png)
 
