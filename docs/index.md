@@ -6,15 +6,19 @@ Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons
 
 ## Download Mod
 
-- [Modrinth](https://modrinth.com/project/chili-bullet-weapons)
-- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/chili-bullet-weapons)
+- ![ ](media/cpaf_icon_16.png) CBW Chili Peppers and Foods
+  - [Modrinth](https://modrinth.com/mod/cbw-chili-peppers-and-foods)
+  - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/cbw-chili-peppers-and-foods)
+- ![ ](media/icon_16.png) Chili Bullet Weapons
+  - [Modrinth](https://modrinth.com/project/chili-bullet-weapons)
+  - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/chili-bullet-weapons)
 
 ## Requirements
 
 - NeoForge version - NeoForge
 - Forge version - Minecraft Forge
 - Fabric version - Fabric Loader, Fabric API, and Cloth Config API
-- [CBW Chili Peppers and Foods](https://github.com/Iunius118/CBWChiliPeppersAndFoods)
+- CBW Chili Peppers and Foods v1.1.0
 
 ## Table of Contents
 
@@ -38,6 +42,16 @@ Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons
   - [Fried Chili Pepper](v2/foods.html#fried-chili-pepper)
   - [Chili Chocolate](v2/foods.html#chili-chocolate)
   - [Chicken with Chili Chocolate Sauce](v2/foods.html#chicken-with-chili-chocolate-sauce)
+- [Materials](v2/materials.html)
+  - [Capsaicin Powder](v2/materials.html#capsaicin-powder)
+  - [Ferro-Capsicumium Ingot](v2/materials.html#ferro-capsicumium-ingot)
+  - [Ferro-Capsicumium Nugget](v2/materials.html#ferro-capsicumium-nugget)
+  - [Block of Ferro-Capsicumium](v2/materials.html#block-of-ferro-capsicumium)
+- [Tools](v2/tools.html)
+  - [Ferro-Capsicumium Shovel](v2/tools.html#ferro-capsicumium-shovel)
+  - [Ferro-Capsicumium Axe](v2/tools.html#ferro-capsicumium-axe)
+  - [Ferro-Capsicumium Hoe](v2/tools.html#ferro-capsicumium-hoe)
+  - [Ferro-Capsicumium Shears](v2/tools.html#ferro-capsicumium-shears)
 
 ![ ](media/icon_16.png) Chili Bullet Weapons
 

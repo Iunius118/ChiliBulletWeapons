@@ -1,12 +1,14 @@
 # How to Get Started
 
-Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.0.0
+Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.0
 
 - [Top Page](../index.html)
   - **How to Get Started**
 - ![ ](../media/cpaf_icon_16.png) CBW Chili Peppers and Foods
   - [Farming](farming.html)
   - [Foods](foods.html)
+  - [Materials](materials.html)
+  - [Tools](tools.html)
 - ![ ](../media/icon_16.png) Chili Bullet Weapons
   - [Weapons](weapons.html)
   - [Configuration](config.html)

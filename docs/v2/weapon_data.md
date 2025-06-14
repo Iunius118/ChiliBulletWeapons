@@ -1,6 +1,6 @@
 # Weapon Data
 
-Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.0.0
+Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.0
 
 - [Top Page](../index.html)
 - ![ ](../media/icon_16.png) Chili Bullet Weapons
@@ -17,7 +17,11 @@ Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.0.
 |        4       |    22.0 |    3.0 |
 |        5       |    23.4 |    3.2 |
 
-## Pistol/Volley Gun/Machine Gun
+## Chili Bullet
+
+Chili bullets have a 10% chance of a critical hit that does 22 damage.
+
+### Pistol/Volley Gun/Machine Gun
 
 | Angle | Ticks | Dist. | Speed | MinDmg. | MaxDmg. |
 |------:|------:|------:|------:|--------:|--------:|
@@ -28,7 +32,7 @@ Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.0.
 |  10.0 |    34 | 85.51 | 2.173 |       4 |       7 |
 |  12.0 |    40 | 97.14 | 2.058 |       4 |       7 |
 
-## Rifle
+### Rifle
 
 | Angle | Ticks | Dist. | Speed | MinDmg. | MaxDmg. |
 |------:|------:|------:|------:|--------:|--------:|

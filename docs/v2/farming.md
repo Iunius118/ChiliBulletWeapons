@@ -1,6 +1,6 @@
 # Farming
 
-Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.0.0
+Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.0
 
 - [Top Page](../index.html)
   - [How to Get Started](index.html)
@@ -12,6 +12,8 @@ Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.0.
     - [Compact Storage of Chili Peppers](#compact-storage-of-chili-peppers)
     - [Composting](#composting)
   - [Foods](foods.html)
+  - [Materials](materials.html)
+  - [Tools](tools.html)
 - ![ ](../media/icon_16.png) Chili Bullet Weapons
   - [Weapons](weapons.html)
   - [Configuration](config.html)
