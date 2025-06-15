@@ -34,7 +34,7 @@
     "fabric-api": "*",
     "minecraft": "${minecraft_version}",
     "java": ">=${java_version}",
-    "cbwchilipeppersandfoods": "*"
+    "cbwchilipeppersandfoods": ">=1.1.1"
   },
   "suggests": {
     "another-mod": "*"
