@@ -65,6 +65,17 @@ Crafting:
 
 - 9x Bullet-like Chili Pepper <-> 1x Sack of Bullet-like Chili Peppers
 
+### Chili Plant Biofuel
+
+Chili plant biofuel is a solid fuel made from biomass of chili pepper plants and can be used as fuel (1:20) in furnaces.
+
+Crafting (shaped recipe):
+
+    Chili Plant Biofuel
+    4x String of Curved Chili Peppers/Sack of Curved Chili Peppers/Sack of Bullet-like Chili Peppers (s)
+    | s | s |
+    | s | s |
+
 ### Composting
 
 The following item can be added to composters:

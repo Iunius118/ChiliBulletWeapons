@@ -8,6 +8,7 @@
 
 ### Changed
 - Require CBW Chili Peppers and Foods v1.1.1+.
+- Sack of bullet-like chili peppers can now be used to craft chili plant biofuel.
 - Guns with custom names will now have reduced chance of durability reduction.
 
 ## [2.0.0-beta.1]

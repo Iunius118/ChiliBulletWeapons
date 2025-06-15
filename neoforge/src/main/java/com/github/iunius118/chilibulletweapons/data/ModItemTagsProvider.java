@@ -26,6 +26,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ItemTags.ARROWS).add(ModItems.CHILI_ARROW);
         tag(ItemTags.DURABILITY_ENCHANTABLE).add(ModItems.GUN, ModItems.MACHINE_GUN);
 
+        tag(ModItemTags.CHILI_BIOMASS).add(ModItems.BULLET_CHILI_SACK);
         tag(ModItemTags.NON_FLAMMABLE_PLANKS).add(Items.CRIMSON_PLANKS, Items.WARPED_PLANKS);
     }
 }

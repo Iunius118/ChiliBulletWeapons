@@ -1,4 +1,5 @@
-// 1.21.1	2025-05-29T22:50:28.8524018	Tags for minecraft:item mod id chilibulletweapons
+// 1.21.1	2025-06-15T23:11:21.6348661	Tags for minecraft:item mod id chilibulletweapons
+bd3837e7fbbdad08f738d633328b9cd978762ab4 data/chilibulletweapons/tags/item/chili_biomass.json
 3abb47debc29a8f218cd411cbba3a651de9fab50 data/chilibulletweapons/tags/item/non_flammable_planks.json
 671111a6ec159fbe20de73c7ed0ce44b7fff02ce data/minecraft/tags/item/arrows.json
 95e6cd24211ce1ce55c130c2898280fa251a93ad data/minecraft/tags/item/enchantable/durability.json
