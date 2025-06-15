@@ -43,7 +43,7 @@ Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons
   - [Chili Chocolate](v2/foods.html#chili-chocolate)
   - [Chicken with Chili Chocolate Sauce](v2/foods.html#chicken-with-chili-chocolate-sauce)
 - [Materials](v2/materials.html)
-  - [Capsaicin Powder](v2/materials.html#capsaicin-powder)
+  - [Capsicum Crystal](v2/materials.html#capsicum-crystal)
   - [Ferro-Capsicumium Ingot](v2/materials.html#ferro-capsicumium-ingot)
   - [Ferro-Capsicumium Nugget](v2/materials.html#ferro-capsicumium-nugget)
   - [Block of Ferro-Capsicumium](v2/materials.html#block-of-ferro-capsicumium)

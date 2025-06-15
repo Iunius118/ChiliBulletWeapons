@@ -8,7 +8,7 @@ Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.
   - [Farming](farming.html)
   - [Foods](foods.html)
   - **Materials**
-    - [Capsaicin Powder](#capsaicin-powder)
+    - [Capsicum Crystal](#capsicum-crystal)
     - [Ferro-Capsicumium Ingot](#ferro-capsicumium-ingot)
     - [Ferro-Capsicumium Nugget](#ferro-capsicumium-nugget)
     - [Block of Ferro-Capsicumium](#block-of-ferro-capsicumium)
@@ -17,11 +17,11 @@ Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.
   - [Weapons](weapons.html)
   - [Configuration](config.html)
 
-## Capsaicin Powder
+## Capsicum Crystal
 
-Capsaicin powder is a component of chili peppers, a substance extracted from chili peppers with alcohol and dried.
+Capsicum crystal is a crystalline component of chili peppers, a substance extracted from chili peppers with alcohol and dried.
 
-![Crafting capsaicin powder](../media/item/crafting/crafting_capsaicin_powder.png)
+![Crafting capsicum crystal](../media/item/crafting/crafting_capsicum_crystal.png)
 
 ## Ferro-Capsicumium Ingot
 
