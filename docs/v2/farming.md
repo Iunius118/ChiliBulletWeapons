@@ -1,6 +1,6 @@
 # Farming
 
-Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.0
+Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.1
 
 - [Top Page](../index.html)
   - [How to Get Started](index.html)
@@ -10,6 +10,7 @@ Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.
     - [Chili Pepper Crops (CBW)](#chili-pepper-crops-cbw)
     - [Drying Curved Chili Peppers](#drying-curved-chili-peppers)
     - [Compact Storage of Chili Peppers](#compact-storage-of-chili-peppers)
+    - [Chili Plant Biofuel](#chili-plant-biofuel)
     - [Composting](#composting)
   - [Foods](foods.html)
   - [Materials](materials.html)
@@ -82,6 +83,13 @@ Sack of Bullet-like Chili Peppers*
 ![Crafting sack of bullet-like chili peppers](../media/item/crafting/crafting_bullet_chili_sack.png) ![Crafting bullet-like chili peppers from sack](../media/item/crafting/crafting_bullet_chili_from_sack.png)
 
 \*Sack of Bullet-like Chili Peppers is an additional item from the Chili Bullet Weapons mod.
+
+## Chili Plant Biofuel
+
+Chili plant biofuel is a solid fuel made from biomass of chili pepper plants and can be used as fuel (1:20) in furnaces.
+
+![Crafting chili Plant Biofuel from string of curved chili peppers](../media/item/crafting/crafting_chili_biofuel_with_chili_string.png)
+![Crafting chili Plant Biofuel from sack of curved chili peppers](../media/item/crafting/crafting_chili_biofuel_with_curved_chili_sack.png)
 
 ## Composting
 

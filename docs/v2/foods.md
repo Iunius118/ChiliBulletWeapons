@@ -1,6 +1,6 @@
 # Foods
 
-Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.0
+Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.1
 
 - [Top Page](../index.html)
   - [How to Get Started](index.html)
@@ -8,6 +8,7 @@ Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.
   - [Farming](farming.html)
   - **Foods**
     - [Hot Chili Sauce](#hot-chili-sauce)
+    - [Barrel of Hot Chili Sauce](#barrel-of-hot-chili-sauce)
     - [Green Hot Chili Sauce](#green-hot-chili-sauce)
     - [Pickled Green Chili Pepper](#pickled-green-chili-pepper)
     - [Sandwiches](#sandwiches)
@@ -31,15 +32,17 @@ Hot chili sauce is a hot sauce made from curved chili peppers and can be used to
 
 Glass bottles will be returned when hot chili sauce is consumed by crafting.
 
+Hot chili sauce can be thrown by using it.
+It splashes on impact and applies Slowness IV and Blindness effects (0:02) to nearby entities.
+
+## Barrel of Hot Chili Sauce
+
 A barrel of hot chili sauce can be used to make many bottles of hot chili sauce at one time.
 
 ![Crafting barrel of hot chili sauce](../media/item/crafting/crafting_hot_sauce_barrel.png)
 ![Crafting barrel of hot chili sauce with dried curved chili pepper](../media/item/crafting/crafting_hot_sauce_barrel_with_dried_chili.png)
 
 ![Crafting bottles of hot chili sauce from barrel](../media/item/crafting/crafting_hot_sauce_from_barrel.png)
-
-Hot chili sauce can be thrown by using it.
-It splashes on impact and applies Slowness IV and Blindness effects (0:02) to nearby entities.
 
 ## Green Hot Chili Sauce
 
