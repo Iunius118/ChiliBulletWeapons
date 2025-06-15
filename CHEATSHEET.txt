@@ -134,6 +134,8 @@ A chili bullet volley gun is less accurate, and it can fire four bullets in a si
 
 A chili bullet gun with bayonet is a chili bullet gun with a bayonet fitted and can deal 6 (heart × 3) damage in melee combat.
 
+A chili bullet gun with custom name will have a reduced chance of durability reduction.
+
 #### Upgrading Guns
 
 Chili bullet guns can be upgraded by using upgrade items.
@@ -193,6 +195,8 @@ The following enchantments can be applied to chili bullet machine gun:
 - Curse of Vanishing
 
 In survival mode, Unbreaking and Mending enchantments are highly recommended, as chili bullet machine gun is not durable!
+
+A chili bullet machine gun with custom name will have a reduced chance of durability reduction.
 
 Chili bullet machine gun cannot be upgraded with any upgrade items.
 

@@ -129,7 +129,7 @@ public class ChiliBulletGunItem extends CrossbowItem {
         }
 
         // Wear out gun
-        weapon.hurtAndBreak(abrasion, shooter, LivingEntity.getSlotForHand(hand));
+        hurtAndBreak(weapon, abrasion, shooter, LivingEntity.getSlotForHand(hand));
     }
 
     @Override
@@ -140,6 +140,17 @@ public class ChiliBulletGunItem extends CrossbowItem {
     @Override
     protected int getDurabilityUse(ItemStack stack) {
         return 1;
+    }
+
+    public void hurtAndBreak(ItemStack stack, int amount, LivingEntity entityLiving, EquipmentSlot slot) {
+        if (stack.has(DataComponents.CUSTOM_NAME)
+                && entityLiving.getRandom().nextInt(2) == 0) {
+            // If the item has a custom name, there is a 50% chance to not wear out the gun
+            return;
+        }
+
+        // Wear out gun
+        stack.hurtAndBreak(amount, entityLiving, slot);
     }
 
     @Override
@@ -280,7 +291,7 @@ public class ChiliBulletGunItem extends CrossbowItem {
     public void postHurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (stack.has(ModDataComponents.BAYONETED)) {
             // Wear out bayoneted gun
-            stack.hurtAndBreak(1, attacker, EquipmentSlot.MAINHAND);
+            hurtAndBreak(stack, 1, attacker, EquipmentSlot.MAINHAND);
         }
     }
 
