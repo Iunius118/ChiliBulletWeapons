@@ -91,6 +91,10 @@ Chili plant biofuel is a solid fuel made from biomass of chili pepper plants and
 ![Crafting chili Plant Biofuel from string of curved chili peppers](../media/item/crafting/crafting_chili_biofuel_with_chili_string.png)
 ![Crafting chili Plant Biofuel from sack of curved chili peppers](../media/item/crafting/crafting_chili_biofuel_with_curved_chili_sack.png)
 
+![Crafting chili Plant Biofuel from sack of bullet-like chili peppers](../media/item/crafting/crafting_chili_biofuel_with_bullet_chili_sack.png)*
+
+\*Sack of Bullet-like Chili Peppers is an additional item from the Chili Bullet Weapons mod.
+
 ## Composting
 
 The following items can be added to composters:

@@ -46,6 +46,8 @@ A chili bullet serves as ammunition for chili bullet guns and can be crafted fro
 
 Chili bullets will disappear two seconds after they are shot.
 
+When a chili bullet hits an entity, there is a 10% chance of a critical hit.
+
 ## Chili Bullet Gun
 
 A chili bullet gun is a break-action single-shot gun that shoots chili bullets to attack mobs at a distance.
@@ -77,6 +79,8 @@ A chili bullet rifle is highly accurate and powerful, and a bullet from it pass 
 A chili bullet volley gun is less accurate, and it can fire four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
 
 A chili bullet gun with bayonet is a chili bullet gun with a bayonet fitted and can deal 6 (♥ × 3) damage in melee combat.
+
+A chili bullet gun with custom name will have a reduced chance of durability reduction.
 
 ### Upgrading Guns
 
@@ -132,5 +136,7 @@ The following enchantments can be applied to chili bullet machine gun:
 - Curse of Vanishing
 
 In survival mode, Unbreaking and Mending enchantments are highly recommended, as chili bullet machine gun is not durable!
+
+A chili bullet machine gun with custom name will have a reduced chance of durability reduction.
 
 Chili bullet machine gun cannot be upgraded with any upgrade items.
