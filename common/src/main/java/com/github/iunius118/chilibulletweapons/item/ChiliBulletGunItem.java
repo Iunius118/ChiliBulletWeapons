@@ -1,6 +1,8 @@
 package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.component.DyedGunColors;
+import com.github.iunius118.chilibulletweapons.component.GunContents;
 import com.github.iunius118.chilibulletweapons.component.ModDataComponents;
 import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
@@ -39,6 +41,14 @@ public class ChiliBulletGunItem extends CrossbowItem {
     @Override
     public void verifyComponentsAfterLoad(ItemStack stack) {
         super.verifyComponentsAfterLoad(stack);
+
+        // Migrate old components to gun contents
+        GunContents.migrateFromOldComponents(stack);
+        // Apply bayonet attack damage if the gun is bayoneted
+        applyBayonetAttackDamage(stack);
+    }
+
+    public void applyBayonetAttackDamage(ItemStack stack) {
         Float bayonetAttackDamage = stack.get(ModDataComponents.BAYONETED);
 
         if (bayonetAttackDamage != null) {
@@ -309,28 +319,34 @@ public class ChiliBulletGunItem extends CrossbowItem {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
 
-        if (tooltipFlag.isAdvanced()) {
-            ChiliBulletGunHelper.addBarrelCountTooltip(stack, tooltipComponents);
-        }
+        GunContents.getOrDefault(stack).addToTooltip(tooltipComponents, tooltipFlag);
 
-        ChiliBulletGunHelper.addQuickLoadTooltip(stack, tooltipComponents);
+        var dyedGunColors = stack.get(ModDataComponents.DYED_GUN_COLORS);
+
+        if (dyedGunColors != null) {
+            DyedGunColors.getOrDefault(stack).addToTooltip(tooltipComponents, tooltipFlag);
+        }
     }
 
     @Override
     public String getDescriptionId(ItemStack stack) {
+        boolean isBayoneted = stack.has(ModDataComponents.BAYONETED);
+        boolean canMultishot = ChiliBulletGunHelper.canMultishot(stack);
+        boolean hasPiercing = ChiliBulletGunHelper.getPiercing(stack) > 0;
+
         // Change item display name by upgrading
-        if (stack.has(ModDataComponents.BAYONETED)) {
-            if (stack.has(ModDataComponents.MULTISHOT)) {
+        if (isBayoneted) {
+            if (canMultishot) {
                 return Constants.ChiliBulletGun.DESCRIPTION_BAYONETED_VOLLEY_GUN;
-            } else if (stack.has(ModDataComponents.PIERCING)) {
+            } else if (hasPiercing) {
                 return Constants.ChiliBulletGun.DESCRIPTION_BAYONETED_RIFLE;
             } else {
                 return Constants.ChiliBulletGun.DESCRIPTION_BAYONETED_PISTOL;
             }
         } else {
-            if (stack.has(ModDataComponents.MULTISHOT)) {
+            if (canMultishot) {
                 return Constants.ChiliBulletGun.DESCRIPTION_VOLLEY_GUN;
-            } else if (stack.has(ModDataComponents.PIERCING)) {
+            } else if (hasPiercing) {
                 return Constants.ChiliBulletGun.DESCRIPTION_RIFLE;
             } else {
                 return Constants.ChiliBulletGun.DESCRIPTION_PISTOL;
@@ -343,7 +359,8 @@ public class ChiliBulletGunItem extends CrossbowItem {
      *
      * @return True if this item can be upgraded with upgrade items, false otherwise.
      */
-    public boolean isUpgradable() {
-        return true;
+    public boolean isUpgradable(ItemStack stack) {
+        // ChiliBulletGunItem is upgradable if it does not have the fixed component.
+        return !stack.has(ModDataComponents.FIXED);
     }
 }

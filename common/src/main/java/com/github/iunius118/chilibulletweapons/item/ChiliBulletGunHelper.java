@@ -1,10 +1,9 @@
 package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.component.GunContents;
 import com.github.iunius118.chilibulletweapons.component.ModDataComponents;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.chat.Component;
 import net.minecraft.util.Unit;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -75,7 +74,7 @@ public class ChiliBulletGunHelper {
      * @return Quick loading level
      */
     public static int getQuickLoading(ItemStack stack) {
-        return stack.getOrDefault(ModDataComponents.QUICK_LOADING, 0);
+        return GunContents.getQuickLoading(stack);
     }
 
     /**
@@ -85,7 +84,7 @@ public class ChiliBulletGunHelper {
      * @return Piercing level
      */
     public static int getPiercing(ItemStack stack) {
-        return stack.getOrDefault(ModDataComponents.PIERCING, 0);
+        return GunContents.getPiercing(stack);
     }
 
     /**
@@ -95,7 +94,17 @@ public class ChiliBulletGunHelper {
      * @return Number of barrels
      */
     public static int getBarrelCount(ItemStack stack) {
-        return stack.getOrDefault(ModDataComponents.MULTISHOT, Constants.ChiliBulletGun.CAPACITY_BASIC);
+        return GunContents.getBarrelCount(stack);
+    }
+
+    /**
+     * Whether the gun can shoot multiple bullets at once.
+     *
+     * @param stack Item stack
+     * @return True if the gun can shoot multiple bullets at once, false otherwise.
+     */
+    public static boolean canMultishot(ItemStack stack) {
+        return getBarrelCount(stack) > Constants.ChiliBulletGun.CAPACITY_BASIC;
     }
 
     /**
@@ -109,6 +118,21 @@ public class ChiliBulletGunHelper {
     }
 
     /**
+     * Get shooting power from piercing level.
+     * The shooting power refers to the initial velocity of the bullet.
+     *
+     * @param piercing Piercing level
+     * @return Shooting power
+     */
+    public static float getShootingPower(int piercing) {
+        if (piercing < 1) {
+            return Constants.ChiliBulletGun.POWER_BASIC;
+        } else {
+            return Constants.ChiliBulletGun.POWER_PIERCING;
+        }
+    }
+
+    /**
      * Get shooting power with piercing level applied that item stack has.
      * The shooting power refers to the initial velocity of the bullet.
      *
@@ -116,11 +140,7 @@ public class ChiliBulletGunHelper {
      * @return Shooting power
      */
     public static float getShootingPower(ItemStack stack) {
-        if (getPiercing(stack) < 1) {
-            return Constants.ChiliBulletGun.POWER_BASIC;
-        } else {
-            return Constants.ChiliBulletGun.POWER_PIERCING;
-        }
+        return getShootingPower(getPiercing(stack));
     }
 
     /**
@@ -146,7 +166,7 @@ public class ChiliBulletGunHelper {
     public static int getReloadDuration(ItemStack stack) {
         int basicDuration = Constants.ChiliBulletGun.RELOAD_BASIC;
 
-        if (stack.has(ModDataComponents.MULTISHOT)) {
+        if (getBarrelCount(stack) > Constants.ChiliBulletGun.CAPACITY_BASIC) {
             basicDuration = Constants.ChiliBulletGun.RELOAD_MULTISHOT;
         }
 
@@ -186,40 +206,6 @@ public class ChiliBulletGunHelper {
                 .build();
 
         stack.set(DataComponents.ATTRIBUTE_MODIFIERS, itemAttributeModifiers);
-    }
-
-    /**
-     * Add barrel information to the tooltip.
-     * It will appear as “V[Shooting Power]([Piercing Level]) Barrel x[Barrel Count]” via placeholders.
-     *
-     * @param stack             Item stack
-     * @param tooltipComponents List of components for the tooltip
-     */
-    public static void addBarrelCountTooltip(ItemStack stack, List<Component> tooltipComponents) {
-        String shootingPower = ItemAttributeModifiers.ATTRIBUTE_MODIFIER_FORMAT.format(getShootingPower(stack));
-        int barrelCount = getBarrelCount(stack);
-        int piercingLevel = getPiercing(stack);
-        var component = Component.translatable(Constants.ChiliBulletGun.TOOLTIP_BARREL_COUNT,
-                        shootingPower, piercingLevel, barrelCount)
-                .withStyle(ChatFormatting.DARK_GRAY);
-        tooltipComponents.add(component);
-    }
-
-    /**
-     * Add information about quick loading to the tooltip.
-     *
-     * @param stack             Item stack
-     * @param tooltipComponents List of components for the tooltip
-     */
-    public static void addQuickLoadTooltip(ItemStack stack, List<Component> tooltipComponents) {
-        int quickLoading = ChiliBulletGunHelper.getQuickLoading(stack);
-
-        if (quickLoading > 0) {
-            // Add quick loading tooltip
-            var component = Component.translatable(Constants.ChiliBulletGun.TOOLTIP_QUICK_LOAD, quickLoading)
-                    .withStyle(ChatFormatting.GRAY);
-            tooltipComponents.add(component);
-        }
     }
 
     /**

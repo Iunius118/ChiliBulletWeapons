@@ -3,6 +3,16 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+### Added
+- Add mod data components: `gun_contents`, `fixed` and `dyed_gun_colors`.
+
+### Changed
+- Migrate gun upgrade data from deprecated data components to `chilibulletweapons:gun_contents`.
+- Note that the above migration will only take place during beta testing.
+- Chili bullet gun with `chilibulletweapons:fixed` data component can no longer be upgraded.
+
+### Deprecated
+- Deprecate mod data components: `quick_loading`, `piercing` and `multishot`.
 
 ## [2.0.0-beta.2]
 ### Added

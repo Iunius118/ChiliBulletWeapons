@@ -1,7 +1,7 @@
 package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.Constants;
-import com.github.iunius118.chilibulletweapons.component.ModDataComponents;
+import com.github.iunius118.chilibulletweapons.component.GunContents;
 import net.minecraft.world.item.ItemStack;
 
 public class UpgradeGunBarrelItem extends UpgradeGunPartItem {
@@ -20,13 +20,17 @@ public class UpgradeGunBarrelItem extends UpgradeGunPartItem {
     @Override
     public ItemStack upgrade(ItemStack stack) {
         ItemStack result = stack.copy();
-        int piercing = ChiliBulletGunHelper.getPiercing(stack);
+        var gunContents = GunContents.getOrDefault(stack);
 
-        if (piercing < Constants.ChiliBulletGun.BASIC_PIERCING) {
-            result.set(ModDataComponents.PIERCING, Constants.ChiliBulletGun.BASIC_PIERCING);
+        if (gunContents.piercing() < Constants.ChiliBulletGun.BASIC_PIERCING) {
+            gunContents
+                    .setPiercing(Constants.ChiliBulletGun.BASIC_PIERCING)
+                    .setTo(result);
         } else {
-            result.remove(ModDataComponents.PIERCING);
-            result.set(ModDataComponents.MULTISHOT, Constants.ChiliBulletGun.CAPACITY_MULTISHOT);
+            gunContents
+                    .setPiercing(GunContents.DEFAULT_PIERCING)
+                    .setBarrelCount(Constants.ChiliBulletGun.CAPACITY_MULTISHOT)
+                    .setTo(result);
         }
 
         return result;

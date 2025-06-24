@@ -57,10 +57,15 @@ public class FabricModRegistries {
         var dataComponentTypeRegister = ModObjectRegistry.create(BuiltInRegistries.DATA_COMPONENT_TYPE, Constants.MOD_ID);
 
         dataComponentTypeRegister.register(Constants.DataComponentTypes.LOADING.getPath(), ModDataComponents.LOADING);
-        dataComponentTypeRegister.register(Constants.DataComponentTypes.QUICK_LOADING.getPath(), ModDataComponents.QUICK_LOADING);
-        dataComponentTypeRegister.register(Constants.DataComponentTypes.MULTISHOT.getPath(), ModDataComponents.MULTISHOT);
-        dataComponentTypeRegister.register(Constants.DataComponentTypes.PIERCING.getPath(), ModDataComponents.PIERCING);
+        dataComponentTypeRegister.register(Constants.DataComponentTypes.GUN_CONTENTS.getPath(), ModDataComponents.GUN_CONTENTS);
         dataComponentTypeRegister.register(Constants.DataComponentTypes.BAYONETED.getPath(), ModDataComponents.BAYONETED);
+        dataComponentTypeRegister.register(Constants.DataComponentTypes.FIXED.getPath(), ModDataComponents.FIXED);
+        dataComponentTypeRegister.register(Constants.DataComponentTypes.DYED_GUN_COLORS.getPath(), ModDataComponents.DYED_GUN_COLORS);
+
+        // Deprecated
+        dataComponentTypeRegister.register(Constants.DataComponentTypes.QUICK_LOADING.getPath(), ModDataComponents.QUICK_LOADING);
+        dataComponentTypeRegister.register(Constants.DataComponentTypes.PIERCING.getPath(), ModDataComponents.PIERCING);
+        dataComponentTypeRegister.register(Constants.DataComponentTypes.MULTISHOT.getPath(), ModDataComponents.MULTISHOT);
     }
 
     public static void initModCreativeModeTabs() {

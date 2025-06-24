@@ -15,13 +15,16 @@ public class Constants {
     }
 
     public static class Items {
-        // Plants
-        public static final ResourceLocation BULLET_CHILI = CommonClass.modLocation("bullet_chili");
-        public static final ResourceLocation BULLET_CHILI_SACK = CommonClass.modLocation("bullet_chili_sack");
         // CBW Chili Peppers And Foods
         public static final ResourceLocation CHILI_SEEDS = CommonClass.modLocation("chili_seeds");
         public static final ResourceLocation CURVED_GREEN_CHILI = CommonClass.modLocation("curved_green_chili");
         public static final ResourceLocation CURVED_CHILI = CommonClass.modLocation("curved_chili");
+        public static final ResourceLocation FERROCAPSICUMIUM_INGOT = CommonClass.modLocation("ferrocapsicumium_ingot");
+        public static final ResourceLocation FERROCAPSICUMIUM_BLOCK = CommonClass.modLocation("ferrocapsicumium_block");
+
+        // Plants
+        public static final ResourceLocation BULLET_CHILI = CommonClass.modLocation("bullet_chili");
+        public static final ResourceLocation BULLET_CHILI_SACK = CommonClass.modLocation("bullet_chili_sack");
 
         // Weapons
         public static final ResourceLocation CHILI_ARROW = CommonClass.modLocation("chili_arrow");
@@ -47,10 +50,15 @@ public class Constants {
 
     public static class DataComponentTypes {
         public static final ResourceLocation LOADING = CommonClass.modLocation("loading");
-        public static final ResourceLocation QUICK_LOADING = CommonClass.modLocation("quick_loading");
-        public static final ResourceLocation MULTISHOT = CommonClass.modLocation("multishot");
-        public static final ResourceLocation PIERCING = CommonClass.modLocation("piercing");
+        public static final ResourceLocation GUN_CONTENTS = CommonClass.modLocation("gun_contents");
         public static final ResourceLocation BAYONETED = CommonClass.modLocation("bayoneted");
+        public static final ResourceLocation FIXED = CommonClass.modLocation("fixed");
+        public static final ResourceLocation DYED_GUN_COLORS = CommonClass.modLocation("dyed_gun_colors");
+
+        // Deprecated
+        public static final ResourceLocation QUICK_LOADING = CommonClass.modLocation("quick_loading");
+        public static final ResourceLocation PIERCING = CommonClass.modLocation("piercing");
+        public static final ResourceLocation MULTISHOT = CommonClass.modLocation("multishot");
     }
 
     public static class CreativeModeTabs {

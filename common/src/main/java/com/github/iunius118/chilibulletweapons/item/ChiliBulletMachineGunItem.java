@@ -36,7 +36,7 @@ public class ChiliBulletMachineGunItem extends ChiliBulletGunItem {
     }
 
     @Override
-    public boolean isUpgradable() {
+    public boolean isUpgradable(ItemStack stack) {
         return false;
     }
 }

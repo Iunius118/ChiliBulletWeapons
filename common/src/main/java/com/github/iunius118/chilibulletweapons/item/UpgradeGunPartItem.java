@@ -21,7 +21,7 @@ public abstract class UpgradeGunPartItem extends Item {
     }
 
     public boolean canUpgrade(ItemStack stack) {
-        return (stack.getItem() instanceof ChiliBulletGunItem gun) && gun.isUpgradable();
+        return (stack.getItem() instanceof ChiliBulletGunItem gun) && gun.isUpgradable(stack);
     }
 
     public abstract ItemStack upgrade(ItemStack stack);

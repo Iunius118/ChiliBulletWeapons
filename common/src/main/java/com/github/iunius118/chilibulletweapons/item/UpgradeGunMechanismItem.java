@@ -1,7 +1,7 @@
 package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.Constants;
-import com.github.iunius118.chilibulletweapons.component.ModDataComponents;
+import com.github.iunius118.chilibulletweapons.component.GunContents;
 import net.minecraft.world.item.ItemStack;
 
 public class UpgradeGunMechanismItem extends UpgradeGunPartItem {
@@ -20,8 +20,8 @@ public class UpgradeGunMechanismItem extends UpgradeGunPartItem {
     @Override
     public ItemStack upgrade(ItemStack stack) {
         ItemStack result = stack.copy();
-        int quickLoading = ChiliBulletGunHelper.getQuickLoading(stack);
-        result.set(ModDataComponents.QUICK_LOADING, quickLoading + 1);
+        var gunContents = GunContents.getOrDefault(stack);
+        gunContents.setQuickLoading(gunContents.quickLoading() + 1).setTo(result);
         return result;
     }
 }
