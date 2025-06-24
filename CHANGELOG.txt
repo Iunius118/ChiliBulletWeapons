@@ -10,6 +10,7 @@
 - Migrate gun upgrade data from deprecated data components to `chilibulletweapons:gun_contents`.
 - Note that the above migration will only take place during beta testing.
 - Chili bullet gun with `chilibulletweapons:fixed` data component can no longer be upgraded.
+- Chili bullet gun with `chilibulletweapons:dyed_gun_colors` data component is now dyed.
 
 ### Deprecated
 - Deprecate mod data components: `quick_loading`, `piercing` and `multishot`.

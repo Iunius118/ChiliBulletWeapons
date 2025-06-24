@@ -10,67 +10,139 @@
     {
       "model": "chilibulletweapons:item/rifle",
       "predicate": {
-        "chilibulletweapons:gun": 0.0625
+        "chilibulletweapons:gun": 0.03125
       }
     },
     {
       "model": "chilibulletweapons:item/volley_gun",
       "predicate": {
-        "chilibulletweapons:gun": 0.125
+        "chilibulletweapons:gun": 0.0625
       }
     },
     {
       "model": "chilibulletweapons:item/pistol_bayoneted",
       "predicate": {
-        "chilibulletweapons:gun": 0.25
+        "chilibulletweapons:gun": 0.125
       }
     },
     {
       "model": "chilibulletweapons:item/rifle_bayoneted",
       "predicate": {
-        "chilibulletweapons:gun": 0.3125
+        "chilibulletweapons:gun": 0.15625
       }
     },
     {
       "model": "chilibulletweapons:item/volley_gun_bayoneted",
       "predicate": {
-        "chilibulletweapons:gun": 0.375
+        "chilibulletweapons:gun": 0.1875
       }
     },
     {
       "model": "chilibulletweapons:item/pistol_loading",
       "predicate": {
-        "chilibulletweapons:gun": 0.5
+        "chilibulletweapons:gun": 0.25
       }
     },
     {
       "model": "chilibulletweapons:item/rifle_loading",
       "predicate": {
-        "chilibulletweapons:gun": 0.5625
+        "chilibulletweapons:gun": 0.28125
       }
     },
     {
       "model": "chilibulletweapons:item/volley_gun_loading",
       "predicate": {
-        "chilibulletweapons:gun": 0.625
+        "chilibulletweapons:gun": 0.3125
       }
     },
     {
       "model": "chilibulletweapons:item/pistol_bayoneted_loading",
       "predicate": {
-        "chilibulletweapons:gun": 0.75
+        "chilibulletweapons:gun": 0.375
       }
     },
     {
       "model": "chilibulletweapons:item/rifle_bayoneted_loading",
       "predicate": {
-        "chilibulletweapons:gun": 0.8125
+        "chilibulletweapons:gun": 0.40625
       }
     },
     {
       "model": "chilibulletweapons:item/volley_gun_bayoneted_loading",
       "predicate": {
+        "chilibulletweapons:gun": 0.4375
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_pistol",
+      "predicate": {
+        "chilibulletweapons:gun": 0.5
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_rifle",
+      "predicate": {
+        "chilibulletweapons:gun": 0.53125
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_volley_gun",
+      "predicate": {
+        "chilibulletweapons:gun": 0.5625
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_pistol_bayoneted",
+      "predicate": {
+        "chilibulletweapons:gun": 0.625
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_rifle_bayoneted",
+      "predicate": {
+        "chilibulletweapons:gun": 0.65625
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_volley_gun_bayoneted",
+      "predicate": {
+        "chilibulletweapons:gun": 0.6875
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_pistol_loading",
+      "predicate": {
+        "chilibulletweapons:gun": 0.75
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_rifle_loading",
+      "predicate": {
+        "chilibulletweapons:gun": 0.78125
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_volley_gun_loading",
+      "predicate": {
+        "chilibulletweapons:gun": 0.8125
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_pistol_bayoneted_loading",
+      "predicate": {
         "chilibulletweapons:gun": 0.875
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_rifle_bayoneted_loading",
+      "predicate": {
+        "chilibulletweapons:gun": 0.90625
+      }
+    },
+    {
+      "model": "chilibulletweapons:item/dyed_gun/dyed_volley_gun_bayoneted_loading",
+      "predicate": {
+        "chilibulletweapons:gun": 0.9375
       }
     }
   ]

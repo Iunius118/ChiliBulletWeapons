@@ -75,10 +75,10 @@ public class ModItemModelProvider extends ItemModelProvider {
     private void addGunModels(ItemModelBuilder builder) {
         List<String> guns = List.of("pistol", "rifle", "volley_gun");
 
-        // Variable `i` is model type flag (0-15, excluding 3 and 15):
-        //     [isLoading].b [isBayoneted].b [isVolleyGun].b [isRifle].b
-        // If isVolleyGun and isRifle are both true (`i` is 3 or 15), volley gun models will be used.
-        for(int i = 0; i < 2 * 2 * 4; i++) {
+        // Variable `i` is model type flag (0-31):
+        //     [isDyed].b [isLoading].b [isBayoneted].b [isVolleyGun].b [isRifle].b
+        // If isVolleyGun and isRifle are both true, volley gun models will be used.
+        for(int i = 0; i < 2 * 2 * 2 * 4; i++) {
             int gunIndex = i & 3;
 
             if (gunIndex == 3) {
@@ -87,10 +87,18 @@ public class ModItemModelProvider extends ItemModelProvider {
             }
 
             ItemModelBuilder.OverrideBuilder override = builder.override();
+            boolean isDyed = false;
             boolean isBayoneted = false;
             boolean isLoading = false;
+            String prefix = "";
             String suffix = "";
             String action = "_closed";
+
+            // isDyed
+            if ((i & 16) != 0) {
+                isDyed = true;
+                prefix = "dyed_gun/dyed_";
+            }
 
             // isLoading
             if ((i & 8) != 0) {
@@ -105,7 +113,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 suffix = "_bayoneted" + suffix;
             }
 
-            String modelName = guns.get(gunIndex) + suffix;
+            String modelName = prefix + guns.get(gunIndex) + suffix;
             //Constants.LOG.info("Registering gun model: " + modelName);
 
             // Register gun model
@@ -113,23 +121,56 @@ public class ModItemModelProvider extends ItemModelProvider {
                 case 0 -> {
                     // Pistol
                     override.predicate(Constants.ItemProperties.PROPERTY_GUN,
-                                    GunItemPropertyFunction.getValue(isLoading, isBayoneted, false, false))
+                                    GunItemPropertyFunction.getValue(isDyed, isLoading, isBayoneted, false, false))
                             .model(getModelFile(modelName)).end();
-                    getBuilder(modelName).parent(getModelFile("gun_short" + action)).texture("layer0", "item/" + modelName);
+
+                    if (isDyed) {
+                        ItemModelBuilder modelBuilder = getBuilder("item/" + modelName).parent(getModelFile("gun_short" + action))
+                                .texture("layer0", "item/" + modelName + "_0")
+                                .texture("layer1", "item/" + modelName + "_1");
+
+                        if (isBayoneted) {
+                            modelBuilder.texture("layer2", "item/" + modelName + "_2");
+                        }
+                    } else {
+                        getBuilder(modelName).parent(getModelFile("gun_short" + action)).texture("layer0", "item/" + modelName);
+                    }
                 }
                 case 1 -> {
                     // Rifle
                     override.predicate(Constants.ItemProperties.PROPERTY_GUN,
-                                    GunItemPropertyFunction.getValue(isLoading, isBayoneted, false, true))
+                                    GunItemPropertyFunction.getValue(isDyed, isLoading, isBayoneted, false, true))
                             .model(getModelFile(modelName)).end();
-                    getBuilder(modelName).parent(getModelFile("gun_long" + action)).texture("layer0", "item/" + modelName);
+
+                    if (isDyed) {
+                        ItemModelBuilder modelBuilder = getBuilder("item/" + modelName).parent(getModelFile("gun_long" + action))
+                                .texture("layer0", "item/" + modelName + "_0")
+                                .texture("layer1", "item/" + modelName + "_1");
+
+                        if (isBayoneted) {
+                            modelBuilder.texture("layer2", "item/" + modelName + "_2");
+                        }
+                    } else {
+                        getBuilder(modelName).parent(getModelFile("gun_long" + action)).texture("layer0", "item/" + modelName);
+                    }
                 }
                 case 2 -> {
                     // Volley gun
                     override.predicate(Constants.ItemProperties.PROPERTY_GUN,
-                                    GunItemPropertyFunction.getValue(isLoading, isBayoneted, true, false))
+                                    GunItemPropertyFunction.getValue(isDyed, isLoading, isBayoneted, true, false))
                             .model(getModelFile(modelName)).end();
-                    getBuilder(modelName).parent(getModelFile("gun_long" + action)).texture("layer0", "item/" + modelName);
+
+                    if (isDyed) {
+                        ItemModelBuilder modelBuilder = getBuilder("item/" + modelName).parent(getModelFile("gun_long" + action))
+                                .texture("layer0", "item/" + modelName + "_0")
+                                .texture("layer1", "item/" + modelName + "_1");
+
+                        if (isBayoneted) {
+                            modelBuilder.texture("layer2", "item/" + modelName + "_2");
+                        }
+                    } else {
+                        getBuilder(modelName).parent(getModelFile("gun_long" + action)).texture("layer0", "item/" + modelName);
+                    }
                 }
             }
         }

@@ -1,0 +1,8 @@
+{
+  "parent": "chilibulletweapons:item/gun_long_open",
+  "textures": {
+    "layer0": "chilibulletweapons:item/dyed_gun/dyed_volley_gun_bayoneted_loading_0",
+    "layer1": "chilibulletweapons:item/dyed_gun/dyed_volley_gun_bayoneted_loading_1",
+    "layer2": "chilibulletweapons:item/dyed_gun/dyed_volley_gun_bayoneted_loading_2"
+  }
+}
