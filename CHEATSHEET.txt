@@ -185,6 +185,65 @@ Crafting (shaped recipe):
     | b | i | b |
     | g | b | i |
 
+#### Mod Data Components
+
+The following are the main data components that are added by this mod for chili bullet guns.
+
+- `chilibulletweapons:gun_contents` - Contains upgrade data of a gun
+  - `quick_loading` - Number of loading time upgrades (non-negative integer, default is 0)
+  - `piercing` - Number of entities bullet can penetrate (integer between 0 and 5, default is 0)
+  - `barrel_count` - Number of barrel (integer between 1 and 4, default is 1)
+  - `show_in_tooltip` - Whether to show upgrade data in tooltip (boolean, default is true)
+- `chilibulletweapons:bayoneted` - Bayonet attack damage value (float). If set, this gun is fitted with a bayonet
+- `chilibulletweapons:fixed` - If set, this gun cannot be upgraded
+- `chilibulletweapons:dyed_gun_colors` - Contains colors of a gun. If set, a special model is used to dye the gun
+  - `metal_rgb` - Color of metal parts (integer in RGB24 format, default is 16777215 or #FFFFFF)
+  - `wood_rgb` - Color of wooden parts (integer in RGB24 format, default is 16777215 or #FFFFFF)
+  - `blade_rgb` - Color of bayonet blade (integer in RGB24 format, default is 16777215 or #FFFFFF)
+  - `show_in_tooltip` - Whether to show color values in tooltip (boolean, default is true)
+
+These data components can be used for commands or custom recipes.
+
+A command example:
+
+    /give @p chilibulletweapons:gun[chilibulletweapons:gun_contents={quick_loading:5,piercing:1,barrel_count:2},chilibulletweapons:bayoneted=5f,chilibulletweapons:fixed={},chilibulletweapons:dyed_gun_colors={metal_rgb:3355443,wood_rgb:10027008,blade_rgb:16764108},minecraft:custom_name='"Unguis Accipitris"',minecraft:enchantments={levels:{"minecraft:vanishing_curse":1}}]
+
+Note that this command is too long for chat and should be executed by command block.
+
+A recipe example:
+
+    {
+      "type": "minecraft:crafting_shaped",
+      "category": "equipment",
+
+      /* Define ingredients and pattern here */
+
+      "result": {
+        "components": {
+          "chilibulletweapons:gun_contents": {
+            "quick_loading": 5,
+            "piercing": 1,
+            "barrel_count": 2
+          },
+          "chilibulletweapons:bayoneted": 5.0,
+          "chilibulletweapons:fixed": {},
+          "chilibulletweapons:dyed_gun_colors": {
+            "metal_rgb": 3355443,
+            "wood_rgb": 10027008,
+            "blade_rgb": 16764108
+          },
+          "minecraft:custom_name": "\"Unguis Accipitris\"",
+          "minecraft:enchantments": {
+            "levels": {
+              "minecraft:vanishing_curse": 1
+            }
+          }
+        },
+        "count": 1,
+        "id": "chilibulletweapons:gun"
+      }
+    }
+
 ### Chili Bullet Machine Gun
 
 A chili bullet machine gun is an automatic gun that shoots chili bullets to attack mobs at a distance.
