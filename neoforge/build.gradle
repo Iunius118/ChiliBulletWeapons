@@ -34,6 +34,7 @@ neoForge {
 
         server {
             server()
+            programArguments.addAll '--nogui'
         }
     }
 

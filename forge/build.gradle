@@ -46,6 +46,7 @@ minecraft {
         server {
             workingDirectory file('runs/server')
             ideaModule "${rootProject.name}.${project.name}.main"
+            args '--nogui'
             taskName 'Server'
 
             mods {
