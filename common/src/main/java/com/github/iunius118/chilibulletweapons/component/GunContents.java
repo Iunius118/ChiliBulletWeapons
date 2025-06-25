@@ -40,7 +40,7 @@ public record GunContents(int quickLoading, int piercing, int barrelCount, boole
                     ExtraCodecs.intRange(DEFAULT_BARREL_COUNT, Constants.ChiliBulletGun.CAPACITY_MULTISHOT)
                             .optionalFieldOf("barrel_count", DEFAULT_BARREL_COUNT)
                             .forGetter(GunContents::barrelCount),
-                    Codec.BOOL.optionalFieldOf("show_in_tooltip", Boolean.TRUE).forGetter(GunContents::showInTooltip)
+                    Codec.BOOL.optionalFieldOf("show_in_tooltip", true).forGetter(GunContents::showInTooltip)
             ).apply(instance, GunContents::new)
     );
     public static final StreamCodec<ByteBuf, GunContents> STREAM_CODEC = StreamCodec.composite(
