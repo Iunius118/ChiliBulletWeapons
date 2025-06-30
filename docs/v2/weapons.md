@@ -15,6 +15,7 @@ Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.1.
     - [Chili Bullet](#chili-bullet)
     - [Chili Bullet Gun](#chili-bullet-gun)
       - [Upgrading Guns](#upgrading-guns)
+      - [Mod Data Components for Guns](#mod-data-components-for-guns)
     - [Chili Bullet Machine Gun](#chili-bullet-machine-gun)
   - [Configuration](config.html)
 
@@ -117,6 +118,81 @@ Gun Mechanism Upgrade
 
 A gun mechanism upgrade is an item to decrease loading time of a gun.
 This upgrade can be used up to three times per gun.
+
+### Mod Data Components for Guns
+
+This mod adds some data components to save the state of the chili bullet gun.
+The following is a description of the main data components among them.
+
+#### `chilibulletweapons:gun_contents`
+
+- Contains upgrade data of a gun
+  - **`quick_loading`** - Number of loading time upgrades (non-negative integer, default is `0`)
+  - **`piercing`** - Number of entities bullet can penetrate (integer between 0 and 5, default is `0`)
+  - **`barrel_count`** - Number of barrel (integer between 1 and 4, default is `1`)
+  - **`show_in_tooltip`** - Whether to show upgrade data in the tooltip (boolean, default is `true`)
+
+#### `chilibulletweapons:bayoneted`
+
+- If set, this gun is fitted with a bayonet
+- Has a float value representing the bayonet attack damage
+
+#### `chilibulletweapons:fixed`
+
+- If set, this gun cannot be upgraded with upgrade items
+
+#### `chilibulletweapons:dyed_gun_colors`
+
+- Contains colors of a gun
+  - **`metal_rgb`** - Color of metal parts (integer in RGB24 format, default is `16777215`)
+  - **`wood_rgb`** - Color of wooden parts (integer in RGB24 format, default is `16777215`)
+  - **`blade_rgb`** - Color of bayonet blade (integer in RGB24 format, default is `16777215`)
+  - **`show_in_tooltip`** - Whether to show color values in the tooltip (boolean, default is `true`)
+- If set, a special model is used to dye the gun
+
+#### Examples of Data Component Usage
+
+The data components described above can be used for commands or recipes.
+
+A command example:
+
+    /give @p chilibulletweapons:gun[chilibulletweapons:gun_contents={quick_loading:5,piercing:1,barrel_count:2},chilibulletweapons:bayoneted=5f,chilibulletweapons:fixed={},chilibulletweapons:dyed_gun_colors={metal_rgb:3355443,wood_rgb:10027008,blade_rgb:16764108},minecraft:custom_name='"Unguis Accipitris"',minecraft:enchantments={levels:{"minecraft:vanishing_curse":1}}]
+
+\*Note that this command is too long for chat and should be executed by command block.
+
+A recipe example:
+
+    {
+      "type": "minecraft:crafting_shaped",
+      "category": "equipment",
+
+      /* Define ingredients and pattern here */
+
+      "result": {
+        "components": {
+          "chilibulletweapons:gun_contents": {
+            "quick_loading": 5,
+            "piercing": 1,
+            "barrel_count": 2
+          },
+          "chilibulletweapons:bayoneted": 5.0,
+          "chilibulletweapons:fixed": {},
+          "chilibulletweapons:dyed_gun_colors": {
+            "metal_rgb": 3355443,
+            "wood_rgb": 10027008,
+            "blade_rgb": 16764108
+          },
+          "minecraft:custom_name": "\"Unguis Accipitris\"",
+          "minecraft:enchantments": {
+            "levels": {
+              "minecraft:vanishing_curse": 1
+            }
+          }
+        },
+        "count": 1,
+        "id": "chilibulletweapons:gun"
+      }
+    }
 
 ## Chili Bullet Machine Gun
 
