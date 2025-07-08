@@ -1,0 +1,32 @@
+{
+  "parent": "chilibulletweapons:main/curved_chili",
+  "criteria": {
+    "has_bullet_chili": {
+      "conditions": {
+        "items": [
+          {
+            "items": "chilibulletweapons:bullet_chili"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.bullet_chili.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "chilibulletweapons:bullet_chili"
+    },
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.bullet_chili.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_bullet_chili"
+    ]
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "parent": "chilibulletweapons:main/shot_gun",
+  "criteria": {
+    "upgraded_barrel": {
+      "conditions": {
+        "item": {
+          "items": "chilibulletweapons:upgrade_gun_barrel"
+        }
+      },
+      "trigger": "chilibulletweapons:upgraded_chili_bullet_gun"
+    },
+    "upgraded_bayonet": {
+      "conditions": {
+        "item": {
+          "items": "chilibulletweapons:upgrade_gun_bayonet"
+        }
+      },
+      "trigger": "chilibulletweapons:upgraded_chili_bullet_gun"
+    },
+    "upgraded_mechanism": {
+      "conditions": {
+        "item": {
+          "items": "chilibulletweapons:upgrade_gun_mechanism"
+        }
+      },
+      "trigger": "chilibulletweapons:upgraded_chili_bullet_gun"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.upgraded_gun.description"
+    },
+    "icon": {
+      "components": {
+        "chilibulletweapons:gun_contents": {}
+      },
+      "count": 1,
+      "id": "chilibulletweapons:gun"
+    },
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.upgraded_gun.title"
+    }
+  },
+  "requirements": [
+    [
+      "upgraded_barrel",
+      "upgraded_bayonet",
+      "upgraded_mechanism"
+    ]
+  ]
+}

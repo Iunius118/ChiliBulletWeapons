@@ -34,6 +34,9 @@ public class Constants {
         public static final ResourceLocation UPGRADE_GUN_BAYONET = CommonClass.modLocation("upgrade_gun_bayonet");
         public static final ResourceLocation UPGRADE_GUN_BARREL = CommonClass.modLocation("upgrade_gun_barrel");
         public static final ResourceLocation UPGRADE_GUN_MECHANISM = CommonClass.modLocation("upgrade_gun_mechanism");
+
+        // Creative tab icon
+        public static final ResourceLocation ICON_MAIN = CommonClass.modLocation("icon_main");
     }
 
     public static class EntityTypes {
@@ -59,6 +62,12 @@ public class Constants {
         public static final ResourceLocation QUICK_LOADING = CommonClass.modLocation("quick_loading");
         public static final ResourceLocation PIERCING = CommonClass.modLocation("piercing");
         public static final ResourceLocation MULTISHOT = CommonClass.modLocation("multishot");
+    }
+
+    public static class CriterionTriggers {
+        public static final ResourceLocation SHOT_CHILI_BULLET_GUN = CommonClass.modLocation("shot_chili_bullet_gun");
+        public static final ResourceLocation UPGRADED_CHILI_BULLET_GUN = CommonClass.modLocation("upgraded_chili_bullet_gun");
+        public static final ResourceLocation KILLED_BY_CHILI_BULLET = CommonClass.modLocation("killed_by_chili_bullet");
     }
 
     public static class CreativeModeTabs {

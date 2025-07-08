@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.entity;
 
 import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.item.ChiliBulletGunHelper;
 import com.github.iunius118.chilibulletweapons.platform.Services;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
@@ -34,6 +35,7 @@ public class ChiliBullet extends ThrowableProjectile {
     private double baseDamage;
     private byte age = 0;
     private IntOpenHashSet piercingIgnoreEntityIds;
+    private int piercedAndKilledEntities = 0;
 
     public ChiliBullet(EntityType<ChiliBullet> entityType, Level level) {
         super(entityType, level);
@@ -220,6 +222,15 @@ public class ChiliBullet extends ThrowableProjectile {
             if (entity != owner && entity instanceof Player && owner instanceof ServerPlayer ownerInServer && !this.isSilent()) {
                 // Play a ding when the bullet hit a player
                 ownerInServer.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.ARROW_HIT_PLAYER, 0.0F));
+            }
+
+            // Trigger Advancement
+            if (!entity.isAlive()) {
+                piercedAndKilledEntities++;
+            }
+
+            if (!this.level().isClientSide && owner instanceof ServerPlayer serverplayer && piercedAndKilledEntities > 0) {
+                ModCriteriaTriggers.KILLED_BY_CHILI_BULLET.trigger(serverplayer, piercedAndKilledEntities);
             }
         }
 

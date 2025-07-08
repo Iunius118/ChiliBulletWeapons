@@ -1,0 +1,46 @@
+{
+  "parent": "chilibulletweapons:main/shot_machine_gun",
+  "criteria": {
+    "has_machine_gun": {
+      "conditions": {
+        "items": [
+          {
+            "items": "chilibulletweapons:machine_gun",
+            "predicates": {
+              "minecraft:enchantments": [
+                {
+                  "enchantments": "minecraft:mending",
+                  "levels": {
+                    "min": 1
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.machine_gun_mending_1.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "components": {
+        "chilibulletweapons:gun_contents": {}
+      },
+      "count": 1,
+      "id": "chilibulletweapons:machine_gun"
+    },
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.machine_gun_mending_1.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_machine_gun"
+    ]
+  ]
+}

@@ -45,6 +45,7 @@ public class ChiliBulletWeapons {
         dataGenerator.addProvider(includesServer, new ModEntityTypeTagsProvider(packOutput, lookupProvider, existingFileHelper));
         dataGenerator.addProvider(includesServer, new ModLootTableProvider(packOutput, lookupProvider));
         dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput, lookupProvider));
+        dataGenerator.addProvider(includesServer, new ModAdvancementProvider(packOutput, lookupProvider, existingFileHelper));
         dataGenerator.addProvider(includesServer, new ModDataMapProvider(packOutput, lookupProvider));
 
         // Client

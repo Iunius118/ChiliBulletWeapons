@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.component.DyedGunColors;
 import com.github.iunius118.chilibulletweapons.component.GunContents;
 import com.github.iunius118.chilibulletweapons.component.ModDataComponents;
@@ -109,6 +110,8 @@ public class ChiliBulletGunItem extends CrossbowItem {
                         velocity, inaccuracy, false, target);
 
                 if (shooter instanceof ServerPlayer serverplayer) {
+                    // Trigger advancement
+                    ModCriteriaTriggers.SHOT_CHILI_BULLET_GUN.trigger(serverplayer, weapon);
                     serverplayer.awardStat(Stats.ITEM_USED.get(weapon.getItem()));
                 }
             }

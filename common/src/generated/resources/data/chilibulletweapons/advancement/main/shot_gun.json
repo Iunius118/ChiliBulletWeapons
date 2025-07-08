@@ -1,0 +1,42 @@
+{
+  "parent": "chilibulletweapons:main/bullet_chili",
+  "criteria": {
+    "shot_gun": {
+      "conditions": {
+        "item": {
+          "items": "chilibulletweapons:gun"
+        }
+      },
+      "trigger": "chilibulletweapons:shot_chili_bullet_gun"
+    },
+    "shot_machine_gun": {
+      "conditions": {
+        "item": {
+          "items": "chilibulletweapons:machine_gun"
+        }
+      },
+      "trigger": "chilibulletweapons:shot_chili_bullet_gun"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.shot_gun.description"
+    },
+    "icon": {
+      "components": {
+        "chilibulletweapons:gun_contents": {}
+      },
+      "count": 1,
+      "id": "chilibulletweapons:gun"
+    },
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.shot_gun.title"
+    }
+  },
+  "requirements": [
+    [
+      "shot_gun",
+      "shot_machine_gun"
+    ]
+  ]
+}

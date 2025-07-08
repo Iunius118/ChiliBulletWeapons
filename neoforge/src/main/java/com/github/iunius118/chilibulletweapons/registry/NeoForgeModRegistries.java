@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.registry;
 
 import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.component.ModDataComponents;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
@@ -18,6 +19,7 @@ public class NeoForgeModRegistries {
         registerSoundEvents(modEventBus);
         registerEntityTypes(modEventBus);
         registerDataComponentTypes(modEventBus);
+        registerCriterionTriggers(modEventBus);
         modEventBus.addListener(NeoForgeModRegistries::onCreativeModeTabBuildContents);
     }
 
@@ -74,6 +76,16 @@ public class NeoForgeModRegistries {
         dataComponentTypeRegister.register(Constants.DataComponentTypes.MULTISHOT.getPath(), () -> ModDataComponents.MULTISHOT);
 
         dataComponentTypeRegister.register(modEventBus);
+    }
+
+    private static void registerCriterionTriggers(IEventBus modEventBus) {
+        var criterionTriggerRegistry = DeferredRegister.create(Registries.TRIGGER_TYPE, Constants.MOD_ID);
+
+        criterionTriggerRegistry.register(Constants.CriterionTriggers.SHOT_CHILI_BULLET_GUN.getPath(), () -> ModCriteriaTriggers.SHOT_CHILI_BULLET_GUN);
+        criterionTriggerRegistry.register(Constants.CriterionTriggers.UPGRADED_CHILI_BULLET_GUN.getPath(), () -> ModCriteriaTriggers.UPGRADED_CHILI_BULLET_GUN);
+        criterionTriggerRegistry.register(Constants.CriterionTriggers.KILLED_BY_CHILI_BULLET.getPath(), () -> ModCriteriaTriggers.KILLED_BY_CHILI_BULLET);
+
+        criterionTriggerRegistry.register(modEventBus);
     }
 
     private static void onCreativeModeTabBuildContents(BuildCreativeModeTabContentsEvent event) {

@@ -52,6 +52,24 @@ public class ModLanguageProvider extends LanguageProvider {
         add(getSubtitleKey(ModSoundEvents.GUN_SHOOT), "Chili Bullet Gun fires");
         add(getSubtitleKey(ModSoundEvents.GUN_ACTION_CLOSE), "Chili Bullet Gun loads");
         add(getSubtitleKey(ModSoundEvents.GUN_UPGRADE), "Chili Bullet Gun upgraded");
+
+        // Advancements
+        add("advancements.chilibulletweapons.main.root.title", "Chili Bullet Weapons");
+        add("advancements.chilibulletweapons.main.root.description", "Chili peppers, foods and weapons");
+        add("advancements.chilibulletweapons.main.curved_chili.title", "Hot Topic");
+        add("advancements.chilibulletweapons.main.curved_chili.description", "Obtain a Curved Chili Pepper");
+        add("advancements.chilibulletweapons.main.bullet_chili.title", "Like a Bullet?");
+        add("advancements.chilibulletweapons.main.bullet_chili.description", "Obtain a Bullet-like Chili Pepper");
+        add("advancements.chilibulletweapons.main.shot_gun.title", "Bang!");
+        add("advancements.chilibulletweapons.main.shot_gun.description", "Shoot a Chili Bullet Gun");
+        add("advancements.chilibulletweapons.main.upgraded_gun.title", "Master Gunsmith");
+        add("advancements.chilibulletweapons.main.upgraded_gun.description", "Upgrade a gun with an upgrade item");
+        add("advancements.chilibulletweapons.main.killed_by_chili_bullet.title", "Quad-Sharp Shooter");
+        add("advancements.chilibulletweapons.main.killed_by_chili_bullet.description", "Defeat 4 mobs with one Chili Bullet");
+        add("advancements.chilibulletweapons.main.shot_machine_gun.title", "Handle With Care");
+        add("advancements.chilibulletweapons.main.shot_machine_gun.description", "Shoot a Chili Bullet Machine Gun");
+        add("advancements.chilibulletweapons.main.machine_gun_mending_1.title", "Battle Has Changed");
+        add("advancements.chilibulletweapons.main.machine_gun_mending_1.description", "Obtain a Mending enchanted Chili Bullet Machine Gun");
     }
 
     private static String getSubtitleKey(SoundEvent soundEvent) {

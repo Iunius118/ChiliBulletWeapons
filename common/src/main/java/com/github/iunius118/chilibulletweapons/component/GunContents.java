@@ -96,8 +96,9 @@ public record GunContents(int quickLoading, int piercing, int barrelCount, boole
         return stack.getOrDefault(ModDataComponents.GUN_CONTENTS, DEFAULT);
     }
 
-    public void setTo(ItemStack stack) {
+    public ItemStack setTo(ItemStack stack) {
         stack.set(ModDataComponents.GUN_CONTENTS, this);
+        return stack;
     }
 
     /**

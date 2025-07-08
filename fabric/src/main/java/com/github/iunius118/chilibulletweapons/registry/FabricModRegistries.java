@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.registry;
 
 import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.component.ModDataComponents;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
@@ -18,6 +19,7 @@ public class FabricModRegistries {
         registerSoundEvents();
         registerEntityTypes();
         registerDataComponentTypes();
+        registerCriterionTriggers();
         initModCreativeModeTabs();
     }
 
@@ -66,6 +68,14 @@ public class FabricModRegistries {
         dataComponentTypeRegister.register(Constants.DataComponentTypes.QUICK_LOADING.getPath(), ModDataComponents.QUICK_LOADING);
         dataComponentTypeRegister.register(Constants.DataComponentTypes.PIERCING.getPath(), ModDataComponents.PIERCING);
         dataComponentTypeRegister.register(Constants.DataComponentTypes.MULTISHOT.getPath(), ModDataComponents.MULTISHOT);
+    }
+
+    private static void registerCriterionTriggers() {
+        var criterionTriggerRegistry = ModObjectRegistry.create(BuiltInRegistries.TRIGGER_TYPES, Constants.MOD_ID);
+
+        criterionTriggerRegistry.register(Constants.CriterionTriggers.SHOT_CHILI_BULLET_GUN.getPath(), ModCriteriaTriggers.SHOT_CHILI_BULLET_GUN);
+        criterionTriggerRegistry.register(Constants.CriterionTriggers.UPGRADED_CHILI_BULLET_GUN.getPath(), ModCriteriaTriggers.UPGRADED_CHILI_BULLET_GUN);
+        criterionTriggerRegistry.register(Constants.CriterionTriggers.KILLED_BY_CHILI_BULLET.getPath(), ModCriteriaTriggers.KILLED_BY_CHILI_BULLET);
     }
 
     public static void initModCreativeModeTabs() {

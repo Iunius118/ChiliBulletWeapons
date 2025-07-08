@@ -1,0 +1,40 @@
+{
+  "parent": "chilibulletweapons:main/upgraded_gun",
+  "criteria": {
+    "killed_by_chili_bullet": {
+      "conditions": {
+        "killed_entities": {
+          "min": 4
+        }
+      },
+      "trigger": "chilibulletweapons:killed_by_chili_bullet"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.killed_by_chili_bullet.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "components": {
+        "chilibulletweapons:gun_contents": {
+          "piercing": 3
+        }
+      },
+      "count": 1,
+      "id": "chilibulletweapons:gun"
+    },
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.killed_by_chili_bullet.title"
+    }
+  },
+  "requirements": [
+    [
+      "killed_by_chili_bullet"
+    ]
+  ],
+  "rewards": {
+    "experience": 75
+  }
+}
