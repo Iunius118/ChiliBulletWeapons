@@ -1,5 +1,5 @@
 {
-  "parent": "chilibulletweapons:main/curved_chili",
+  "parent": "chilibulletweapons:main/root",
   "criteria": {
     "has_bullet_chili": {
       "conditions": {

@@ -56,10 +56,10 @@ public class ModLanguageProvider extends LanguageProvider {
         // Advancements
         add("advancements.chilibulletweapons.main.root.title", "Chili Bullet Weapons");
         add("advancements.chilibulletweapons.main.root.description", "Chili peppers, foods and weapons");
-        add("advancements.chilibulletweapons.main.curved_chili.title", "Hot Topic");
-        add("advancements.chilibulletweapons.main.curved_chili.description", "Obtain a Curved Chili Pepper");
         add("advancements.chilibulletweapons.main.bullet_chili.title", "Like a Bullet?");
         add("advancements.chilibulletweapons.main.bullet_chili.description", "Obtain a Bullet-like Chili Pepper");
+        add("advancements.chilibulletweapons.main.exploded_chili_arrow.title", "Boom!");
+        add("advancements.chilibulletweapons.main.exploded_chili_arrow.description", "Shoot a Bullet Chili Arrow and make it explode");
         add("advancements.chilibulletweapons.main.shot_gun.title", "Bang!");
         add("advancements.chilibulletweapons.main.shot_gun.description", "Shoot a Chili Bullet Gun");
         add("advancements.chilibulletweapons.main.upgraded_gun.title", "Master Gunsmith");

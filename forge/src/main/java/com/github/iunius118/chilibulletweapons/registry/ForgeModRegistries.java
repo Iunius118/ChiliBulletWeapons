@@ -82,6 +82,7 @@ public class ForgeModRegistries {
     private static void registerCriterionTriggers(IEventBus modEventBus) {
         var criterionTriggerRegistry = DeferredRegister.create(Registries.TRIGGER_TYPE, Constants.MOD_ID);
 
+        criterionTriggerRegistry.register(Constants.CriterionTriggers.EXPLODED_CHILI_ARROW.getPath(), () -> ModCriteriaTriggers.EXPLODED_CHILI_ARROW);
         criterionTriggerRegistry.register(Constants.CriterionTriggers.SHOT_CHILI_BULLET_GUN.getPath(), () -> ModCriteriaTriggers.SHOT_CHILI_BULLET_GUN);
         criterionTriggerRegistry.register(Constants.CriterionTriggers.UPGRADED_CHILI_BULLET_GUN.getPath(), () -> ModCriteriaTriggers.UPGRADED_CHILI_BULLET_GUN);
         criterionTriggerRegistry.register(Constants.CriterionTriggers.KILLED_BY_CHILI_BULLET.getPath(), () -> ModCriteriaTriggers.KILLED_BY_CHILI_BULLET);

@@ -65,6 +65,7 @@ public class Constants {
     }
 
     public static class CriterionTriggers {
+        public static final ResourceLocation EXPLODED_CHILI_ARROW = CommonClass.modLocation("exploded_chili_arrow");
         public static final ResourceLocation SHOT_CHILI_BULLET_GUN = CommonClass.modLocation("shot_chili_bullet_gun");
         public static final ResourceLocation UPGRADED_CHILI_BULLET_GUN = CommonClass.modLocation("upgraded_chili_bullet_gun");
         public static final ResourceLocation KILLED_BY_CHILI_BULLET = CommonClass.modLocation("killed_by_chili_bullet");

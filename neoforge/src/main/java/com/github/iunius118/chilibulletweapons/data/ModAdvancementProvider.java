@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.data;
 
 import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.advancements.ExplodedChiliArrowTrigger;
 import com.github.iunius118.chilibulletweapons.advancements.KilledByChiliBulletTrigger;
 import com.github.iunius118.chilibulletweapons.advancements.ShotChiliBulletGunTrigger;
 import com.github.iunius118.chilibulletweapons.advancements.UpgradedChiliBulletGunTrigger;
@@ -49,50 +50,60 @@ public class ModAdvancementProvider extends AdvancementProvider {
                     .addCriterion("has_curved_chili", InventoryChangeTrigger.TriggerInstance.hasItems(curvedChiliItem))
                     .save(consumer, "%s:main/root".formatted(Constants.MOD_ID));
 
-            // 1. Hot Topic
-            AdvancementHolder curvedChili = addItemAdvancement(root, curvedChiliItem, AdvancementType.TASK,
-                    new Item[]{curvedChiliItem}, "main", consumer);
-
-            // 1-1. Like a Bullet?
-            AdvancementHolder bulletChili = addItemAdvancement(curvedChili, ModItems.BULLET_CHILI, AdvancementType.TASK,
+            // 1. Like a Bullet?
+            AdvancementHolder bulletChili = addItemAdvancement(root, ModItems.BULLET_CHILI, AdvancementType.TASK,
                     new Item[]{ModItems.BULLET_CHILI}, "main", consumer);
 
-            // 1-1-1. Bang!
+            // 1-1. Boom!
+            String explodedChiliArrowName = "exploded_chili_arrow";
+            AdvancementHolder explodedChiliArrow = Advancement.Builder.recipeAdvancement()
+                    .parent(bulletChili)
+                    .display(ModItems.CHILI_ARROW,
+                            Component.translatable("advancements.%s.%s.%s.title".formatted(Constants.MOD_ID, "main", explodedChiliArrowName)),
+                            Component.translatable("advancements.%s.%s.%s.description".formatted(Constants.MOD_ID, "main", explodedChiliArrowName)),
+                            null,
+                            AdvancementType.TASK, true, true, false)
+                    .addCriterion(explodedChiliArrowName, ExplodedChiliArrowTrigger.TriggerInstance.explodedChiliArrow())
+                    .save(consumer, "%s:%s/%s".formatted(Constants.MOD_ID, "main", explodedChiliArrowName));
+
+            // 1-2. Bang!
             AdvancementHolder shotGun = addShotGunAdvancement(bulletChili, ModItems.GUN, AdvancementType.TASK,
                     new Item[]{ModItems.GUN, ModItems.MACHINE_GUN}, "main", consumer);
 
-            // 1-1-1-1. Master Gunsmith
+            // 1-2-1. Master Gunsmith
+            String upgradedGunName = "upgraded_gun";
             AdvancementHolder upgradedChiliBulletGun = Advancement.Builder.recipeAdvancement()
                     .parent(shotGun)
                     .display(ModItems.GUN,
-                            Component.translatable("advancements.%s.%s.%s.title".formatted(Constants.MOD_ID, "main", "upgraded_gun")),
-                            Component.translatable("advancements.%s.%s.%s.description".formatted(Constants.MOD_ID, "main", "upgraded_gun")),
+                            Component.translatable("advancements.%s.%s.%s.title".formatted(Constants.MOD_ID, "main", upgradedGunName)),
+                            Component.translatable("advancements.%s.%s.%s.description".formatted(Constants.MOD_ID, "main", upgradedGunName)),
                             null,
                             AdvancementType.TASK, true, true, false)
                     .addCriterion("upgraded_barrel", UpgradedChiliBulletGunTrigger.TriggerInstance.upgradedChiliBulletGun(ModItems.UPGRADE_GUN_BARREL))
                     .addCriterion("upgraded_bayonet", UpgradedChiliBulletGunTrigger.TriggerInstance.upgradedChiliBulletGun(ModItems.UPGRADE_GUN_BAYONET))
                     .addCriterion("upgraded_mechanism", UpgradedChiliBulletGunTrigger.TriggerInstance.upgradedChiliBulletGun(ModItems.UPGRADE_GUN_MECHANISM))
                     .requirements(AdvancementRequirements.Strategy.OR)
-                    .save(consumer, "%s:%s/%s".formatted(Constants.MOD_ID, "main", "upgraded_gun"));
+                    .save(consumer, "%s:%s/%s".formatted(Constants.MOD_ID, "main", upgradedGunName));
 
-            // 1-1-1-1-1. Quad-sharp Shooter
+            // 1-2-1-1. Quad-sharp Shooter
+            String killedByChiliBulletName = "killed_by_chili_bullet";
             AdvancementHolder killedByChiliBullet = Advancement.Builder.recipeAdvancement()
                     .parent(upgradedChiliBulletGun)
                     .display(GunContents.DEFAULT.setPiercing(Constants.ChiliBulletGun.BASIC_PIERCING).setTo(new ItemStack(ModItems.GUN)),
-                            Component.translatable("advancements.%s.%s.%s.title".formatted(Constants.MOD_ID, "main", "killed_by_chili_bullet")),
-                            Component.translatable("advancements.%s.%s.%s.description".formatted(Constants.MOD_ID, "main", "killed_by_chili_bullet")),
+                            Component.translatable("advancements.%s.%s.%s.title".formatted(Constants.MOD_ID, "main", killedByChiliBulletName)),
+                            Component.translatable("advancements.%s.%s.%s.description".formatted(Constants.MOD_ID, "main", killedByChiliBulletName)),
                             null,
                             AdvancementType.CHALLENGE, true, true, true)
                     .rewards(AdvancementRewards.Builder.experience(75))
-                    .addCriterion("killed_by_chili_bullet", KilledByChiliBulletTrigger.TriggerInstance
+                    .addCriterion(killedByChiliBulletName, KilledByChiliBulletTrigger.TriggerInstance
                             .killedByBullet(MinMaxBounds.Ints.atLeast(Constants.ChiliBulletGun.BASIC_PIERCING + 1)))
-                    .save(consumer, "%s:%s/%s".formatted(Constants.MOD_ID, "main", "killed_by_chili_bullet"));
+                    .save(consumer, "%s:%s/%s".formatted(Constants.MOD_ID, "main", killedByChiliBulletName));
 
-            // 1-1-1-2. Handle With Care
+            // 1-2-2. Handle With Care
             AdvancementHolder shotMachineGun = addShotGunAdvancement(shotGun, ModItems.MACHINE_GUN, AdvancementType.TASK,
                     new Item[]{ModItems.MACHINE_GUN}, "main", consumer);
 
-            // 1-1-1-2-1. Battle Has Changed
+            // 1-2-2-1. Battle Has Changed
             AdvancementHolder machineGunWithMending = addEnchantmentAdvancement(shotMachineGun, ModItems.MACHINE_GUN, AdvancementType.GOAL,
                     new Item[]{ModItems.MACHINE_GUN}, Enchantments.MENDING, 1, provider, "main", consumer);
         }

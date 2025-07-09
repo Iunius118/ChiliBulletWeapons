@@ -1,0 +1,25 @@
+{
+  "parent": "chilibulletweapons:main/bullet_chili",
+  "criteria": {
+    "exploded_chili_arrow": {
+      "trigger": "chilibulletweapons:exploded_chili_arrow"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.exploded_chili_arrow.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "chilibulletweapons:chili_arrow"
+    },
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.exploded_chili_arrow.title"
+    }
+  },
+  "requirements": [
+    [
+      "exploded_chili_arrow"
+    ]
+  ]
+}

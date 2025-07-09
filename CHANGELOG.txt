@@ -4,7 +4,7 @@
 
 ## [Unreleased]
 ### Added
-- Add advancements.
+- Add advancements (6 tasks, 1 goal and 1 secret challenge).
 
 ## [2.0.0-beta.3]
 ### Added
