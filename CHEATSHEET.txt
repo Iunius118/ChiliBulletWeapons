@@ -185,9 +185,10 @@ Crafting (shaped recipe):
     | b | i | b |
     | g | b | i |
 
-#### Mod Data Components
+#### Mod Data Components for Guns
 
-The following are the main data components that are added by this mod for chili bullet guns.
+This mod adds some data components to save the state of the chili bullet gun.
+The following is a description of the main data components among them.
 
 - `chilibulletweapons:gun_contents` - Contains upgrade data of a gun
   - `quick_loading` - Number of loading time upgrades (non-negative integer, default is 0)
@@ -197,9 +198,9 @@ The following are the main data components that are added by this mod for chili 
 - `chilibulletweapons:bayoneted` - Bayonet attack damage value (float). If set, this gun is fitted with a bayonet
 - `chilibulletweapons:fixed` - If set, this gun cannot be upgraded
 - `chilibulletweapons:dyed_gun_colors` - Contains colors of a gun. If set, a special model is used to dye the gun
-  - `metal_rgb` - Color of metal parts (integer in RGB24 format, default is 16777215 or #FFFFFF)
-  - `wood_rgb` - Color of wooden parts (integer in RGB24 format, default is 16777215 or #FFFFFF)
-  - `blade_rgb` - Color of bayonet blade (integer in RGB24 format, default is 16777215 or #FFFFFF)
+  - `metal_rgb` - Color of metal parts (integer in RGB24 format, default is 16777215)
+  - `wood_rgb` - Color of wooden parts (integer in RGB24 format, default is 16777215)
+  - `blade_rgb` - Color of bayonet blade (integer in RGB24 format, default is 16777215)
   - `show_in_tooltip` - Whether to show color values in tooltip (boolean, default is true)
 
 These data components can be used for commands or custom recipes.

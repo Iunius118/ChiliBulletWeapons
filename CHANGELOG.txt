@@ -3,8 +3,10 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+
+## [2.0.0-beta.4]
 ### Added
-- Add advancements (6 tasks, 1 goal and 1 secret challenge).
+- Add advancements.
 
 ## [2.0.0-beta.3]
 ### Added
