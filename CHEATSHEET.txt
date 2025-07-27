@@ -11,7 +11,7 @@ Version 2.0.0
 - NeoForge version - NeoForge
 - Forge version - Minecraft Forge
 - Fabric version - Fabric Loader, Fabric API, and Cloth Config API
-- CBW Chili Peppers and Foods v1.1.1+
+- CBW Chili Peppers and Foods v1.2.0+
 
 ## How to Get Started
 

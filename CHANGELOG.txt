@@ -3,6 +3,8 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+
+## [2.0.0]
 ### Changed
 - Require CBW Chili Peppers and Foods v1.2.0+.
 - Change debug info in gun item tooltips.
