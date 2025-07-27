@@ -31,9 +31,6 @@
       "translate": "advancements.chilibulletweapons.main.upgraded_gun.description"
     },
     "icon": {
-      "components": {
-        "chilibulletweapons:gun_contents": {}
-      },
       "count": 1,
       "id": "chilibulletweapons:gun"
     },

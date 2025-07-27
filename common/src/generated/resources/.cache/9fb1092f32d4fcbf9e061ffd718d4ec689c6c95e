@@ -1,4 +1,4 @@
-// 1.21.1	2025-06-24T20:48:14.4762084	Recipes
+// 1.21.1	2025-07-27T22:49:00.4086986	Recipes
 d314c90e656ba47233e0313665597fb7a79dff9e data/chilibulletweapons/advancement/recipes/combat/chili_arrow.json
 d3f54120f0bb7541cd4a2495bcd2efcccd992520 data/chilibulletweapons/advancement/recipes/combat/chili_arrow_from_bullet.json
 7119174afa662d1540f8176a66712b4354192596 data/chilibulletweapons/advancement/recipes/combat/chili_bullet.json
@@ -14,8 +14,8 @@ e03f50a037132af987ef2128cec848620fe12a33 data/chilibulletweapons/recipe/bullet_c
 8cb5ce4aab5c3ee7d349dd3943b6b6c698cb45bd data/chilibulletweapons/recipe/chili_arrow.json
 25c81bf80dad4f136937098bdff201cc6bf8d963 data/chilibulletweapons/recipe/chili_arrow_from_bullet.json
 0822c4133977edfe9dea5c11e727872c10766e31 data/chilibulletweapons/recipe/chili_bullet.json
-cb17190893d9da63280a21fb48e4428b247bfa33 data/chilibulletweapons/recipe/gun.json
-f1e6c16005a90b9ae622811d809328847104f763 data/chilibulletweapons/recipe/machine_gun.json
+f135696516755f370174549f57e870df17d08290 data/chilibulletweapons/recipe/gun.json
+e803e687487d79f8cbb7a7572dc17524d7ab37e2 data/chilibulletweapons/recipe/machine_gun.json
 cd8398f77acd94c7297b05fa4de03454ae54687f data/chilibulletweapons/recipe/upgrade_gun_barrel.json
 cc04ed97b0233505da99c8326a25d5f12e938a61 data/chilibulletweapons/recipe/upgrade_gun_bayonet.json
 d3a5f1b4f7173a1d5a7f33112166d8cbfc29142d data/chilibulletweapons/recipe/upgrade_gun_mechanism.json

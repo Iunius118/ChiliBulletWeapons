@@ -43,8 +43,6 @@ public class ChiliBulletGunItem extends CrossbowItem {
     public void verifyComponentsAfterLoad(ItemStack stack) {
         super.verifyComponentsAfterLoad(stack);
 
-        // Migrate old components to gun contents
-        GunContents.migrateFromOldComponents(stack);
         // Apply bayonet attack damage if the gun is bayoneted
         applyBayonetAttackDamage(stack);
     }

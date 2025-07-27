@@ -28,9 +28,6 @@
     },
     "frame": "goal",
     "icon": {
-      "components": {
-        "chilibulletweapons:gun_contents": {}
-      },
       "count": 1,
       "id": "chilibulletweapons:machine_gun"
     },

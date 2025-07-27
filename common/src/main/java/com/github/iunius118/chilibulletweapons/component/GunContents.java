@@ -52,41 +52,6 @@ public record GunContents(int quickLoading, int piercing, int barrelCount, boole
     );
 
     /**
-     * Migrate old components to the new GunContents component.
-     *
-     * @param stack Item stack to migrate from old components
-     */
-    public static void migrateFromOldComponents(ItemStack stack) {
-        if (stack.has(ModDataComponents.GUN_CONTENTS))        {
-            // If the GunContents component already exists, no migration is needed.
-            return;
-        }
-
-        int newQuickLoading = DEFAULT_QUICK_LOADING;
-        int newPiercing = DEFAULT_PIERCING;
-        int newBarrelCount = DEFAULT_BARREL_COUNT;
-
-        // Check for old components and migrate them to the new GunContents component
-        if (stack.has(ModDataComponents.QUICK_LOADING)) {
-            newQuickLoading = stack.get(ModDataComponents.QUICK_LOADING);
-            stack.remove(ModDataComponents.QUICK_LOADING);
-        }
-
-        if (stack.has(ModDataComponents.PIERCING)) {
-            newPiercing = stack.get(ModDataComponents.PIERCING);
-            stack.remove(ModDataComponents.PIERCING);
-        }
-
-        if (stack.has(ModDataComponents.MULTISHOT)) {
-            newBarrelCount = stack.get(ModDataComponents.MULTISHOT);
-            stack.remove(ModDataComponents.MULTISHOT);
-        }
-
-        // Set the new GunContents component
-        new GunContents(newQuickLoading, newPiercing, newBarrelCount, true).setTo(stack);
-    }
-
-    /**
      * Get the gun contents from the item stack.
      *
      * @param stack Item stack to get the GunContents from
@@ -181,7 +146,7 @@ public record GunContents(int quickLoading, int piercing, int barrelCount, boole
                 String shootingPower = ItemAttributeModifiers.ATTRIBUTE_MODIFIER_FORMAT
                         .format(ChiliBulletGunHelper.getShootingPower(piercing));
                 tooltipComponents.add(Component
-                        .translatable(Constants.ChiliBulletGun.TOOLTIP_BARREL_COUNT, shootingPower, piercing, barrelCount)
+                        .translatable(Constants.ChiliBulletGun.TOOLTIP_BARREL_INFO, shootingPower, piercing, barrelCount)
                         .withStyle(ChatFormatting.DARK_GRAY));
             }
         }
