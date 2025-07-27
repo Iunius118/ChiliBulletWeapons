@@ -36,7 +36,7 @@
   "subtitles.item.chilibulletweapons.gun.action_close": "Chili Bullet Gun loads",
   "subtitles.item.chilibulletweapons.gun.shoot": "Chili Bullet Gun fires",
   "subtitles.item.chilibulletweapons.gun.upgrade": "Chili Bullet Gun upgraded",
-  "tooltip.chilibulletweapons.barrel_count": "V%s(%s) Barrel x%s",
+  "tooltip.chilibulletweapons.barrel_info": "MuzzleV:%s, Piercing:%s, Barrel:%s",
   "tooltip.chilibulletweapons.quick_load": "Quick Load +%s",
   "tooltip.chilibulletweapons.upgrade_gun_1": "Hold gun in off-hand and",
   "tooltip.chilibulletweapons.upgrade_gun_2": "use this item in main hand",

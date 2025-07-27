@@ -113,7 +113,7 @@ public class Constants {
         public static final String DESCRIPTION_BAYONETED_RIFLE = "item.chilibulletweapons.gun.bayoneted.rifle";
         public static final String DESCRIPTION_BAYONETED_VOLLEY_GUN = "item.chilibulletweapons.gun.bayoneted.volley_gun";
         // Item tooltip keys
-        public static final String TOOLTIP_BARREL_COUNT = "tooltip.chilibulletweapons.barrel_count";
+        public static final String TOOLTIP_BARREL_INFO = "tooltip.chilibulletweapons.barrel_info";
         public static final String TOOLTIP_QUICK_LOAD = "tooltip.chilibulletweapons.quick_load";
     }
 

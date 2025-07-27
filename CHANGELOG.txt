@@ -3,6 +3,9 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+### Changed
+- Change debug info in gun item tooltips.
+
 ### Removed
 - Remove migration of gun upgrade data from deprecated data components.
 - Remove some mod data components: `quick_loading`, `piercing` and `multishot`.
