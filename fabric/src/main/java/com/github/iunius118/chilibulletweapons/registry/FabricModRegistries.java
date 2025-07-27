@@ -63,11 +63,6 @@ public class FabricModRegistries {
         dataComponentTypeRegister.register(Constants.DataComponentTypes.BAYONETED.getPath(), ModDataComponents.BAYONETED);
         dataComponentTypeRegister.register(Constants.DataComponentTypes.FIXED.getPath(), ModDataComponents.FIXED);
         dataComponentTypeRegister.register(Constants.DataComponentTypes.DYED_GUN_COLORS.getPath(), ModDataComponents.DYED_GUN_COLORS);
-
-        // Deprecated
-        dataComponentTypeRegister.register(Constants.DataComponentTypes.QUICK_LOADING.getPath(), ModDataComponents.QUICK_LOADING);
-        dataComponentTypeRegister.register(Constants.DataComponentTypes.PIERCING.getPath(), ModDataComponents.PIERCING);
-        dataComponentTypeRegister.register(Constants.DataComponentTypes.MULTISHOT.getPath(), ModDataComponents.MULTISHOT);
     }
 
     private static void registerCriterionTriggers() {
