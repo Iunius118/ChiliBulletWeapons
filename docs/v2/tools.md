@@ -1,6 +1,6 @@
 # Tools
 
-Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.2.0
+Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.2.1
 
 - [Top Page](../index.html)
   - [How to Get Started](index.html)
@@ -9,36 +9,36 @@ Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.2.
   - [Foods](foods.html)
   - [Materials](materials.html)
   - **Tools**
-    - [Ferro-Capsicumium Shovel](#ferro-capsicumium-shovel)
-    - [Ferro-Capsicumium Axe](#ferro-capsicumium-axe)
-    - [Ferro-Capsicumium Hoe](#ferro-capsicumium-hoe)
-    - [Ferro-Capsicumium Shears](#ferro-capsicumium-shears)
+    - [Fe-Cap Shovel](#fe-cap-shovel)
+    - [Fe-Cap Axe](#fe-cap-axe)
+    - [Fe-Cap Hoe](#fe-cap-hoe)
+    - [Fe-Cap Shears](#fe-cap-shears)
 - ![ ](../media/icon_16.png) Chili Bullet Weapons
   - [Weapons](weapons.html)
   - [Configuration](config.html)
 
-## Ferro-Capsicumium Shovel
+## Fe-Cap Shovel
 
-A ferro-capsicumium shovel is a tool made from ferro-capsicumium and can be used like an iron shovel.
+A Fe-Cap shovel is a tool made from ferro-capsicumium and can be used like an iron shovel.
 
-![Crafting ferro-capsicumium shovel](../media/item/crafting/crafting_ferro-capsicumium_shovel.png)
+![Crafting Fe-Cap shovel](../media/item/crafting/crafting_ferro-capsicumium_shovel.png)
 
-## Ferro-Capsicumium Axe
+## Fe-Cap Axe
 
-A ferro-capsicumium axe is a tool made from ferro-capsicumium and can be used like an iron axe.
+A Fe-Cap axe is a tool made from ferro-capsicumium and can be used like an iron axe.
 
-![Crafting ferro-capsicumium axe](../media/item/crafting/crafting_ferro-capsicumium_axe.png)
+![Crafting Fe-Cap axe](../media/item/crafting/crafting_ferro-capsicumium_axe.png)
 
-## Ferro-Capsicumium Hoe
+## Fe-Cap Hoe
 
-A ferro-capsicumium hoe is a tool made from ferro-capsicumium and can be used like an iron hoe.
+A Fe-Cap hoe is a tool made from ferro-capsicumium and can be used like an iron hoe.
 
-![Crafting ferro-capsicumium hoe](../media/item/crafting/crafting_ferro-capsicumium_hoe.png)
+![Crafting Fe-Cap hoe](../media/item/crafting/crafting_ferro-capsicumium_hoe.png)
 
-## Ferro-Capsicumium Shears
+## Fe-Cap Shears
 
-Ferro-capsicumium shears are tools made from ferro-capsicumium and can be used like shears.
+Fe-Cap shears are tools made from ferro-capsicumium and can be used like shears.
 
-![Crafting ferro-capsicumium shears](../media/item/crafting/crafting_ferro-capsicumium_shears.png)
+![Crafting Fe-Cap shears](../media/item/crafting/crafting_ferro-capsicumium_shears.png)
 
-When chili pepper crops are harvested by using ferro-capsicumium shears, chili pepper seeds will automatically be sown.
+When chili pepper crops are harvested by using Fe-Cap shears, chili pepper seeds will automatically be sown.

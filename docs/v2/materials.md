@@ -1,6 +1,6 @@
 # Materials
 
-Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.2.0
+Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.2.1
 
 - [Top Page](../index.html)
   - [How to Get Started](index.html)
@@ -9,9 +9,9 @@ Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.2.
   - [Foods](foods.html)
   - **Materials**
     - [Capsicum Crystal](#capsicum-crystal)
-    - [Ferro-Capsicumium Ingot](#ferro-capsicumium-ingot)
-    - [Ferro-Capsicumium Nugget](#ferro-capsicumium-nugget)
-    - [Block of Ferro-Capsicumium](#block-of-ferro-capsicumium)
+    - [Fe-Cap Ingot](#fe-cap-ingot)
+    - [Fe-Cap Nugget](#fe-cap-nugget)
+    - [Block of Fe-Cap](#block-of-fe-cap)
   - [Tools](tools.html)
 - ![ ](../media/icon_16.png) Chili Bullet Weapons
   - [Weapons](weapons.html)
@@ -23,28 +23,28 @@ Capsicum crystal is a crystalline component of chili peppers, a substance extrac
 
 ![Crafting capsicum crystal](../media/item/crafting/crafting_capsicum_crystal.png)
 
-## Ferro-Capsicumium Ingot
+## Fe-Cap Ingot
 
-Ferro-capsicumium is an alloy consisting of iron and curved chili pepper components with redstone as catalyst.
+Ferro-capsicumium (Fe-Cap) is an alloy consisting of iron and curved chili pepper components with redstone as catalyst.
 
-![Crafting ferro-capsicumium ingots](../media/item/crafting/crafting_ferro-capsicumium_ingot.png)
+![Crafting Fe-Cap ingots](../media/item/crafting/crafting_ferro-capsicumium_ingot.png)
 
-Ferro-capsicumium ingots can be smelted in a furnace or blast furnace to obtain iron ingots.
+Fe-Cap ingots can be smelted in a furnace or blast furnace to obtain iron ingots.
 
-![Extracting iron ingot from ferro-capsicumium ingot](../media/item/crafting/extracting_iron_ingot_in_furnace.png)
+![Extracting iron ingot from Fe-Cap ingot](../media/item/crafting/extracting_iron_ingot_in_furnace.png)
 
-## Ferro-Capsicumium Nugget
+## Fe-Cap Nugget
 
-Ferro-capsicumium nuggets are pieces of ferro-capsicumium.
+Fe-Cap nuggets are pieces of ferro-capsicumium.
 
-![Crafting ferro-capsicumium ingot from nuggets](../media/item/crafting/crafting_ferro-capsicumium_ingot_from_nuggets.png)
-![Crafting ferro-capsicumium nuggets](../media/item/crafting/crafting_ferro-capsicumium_nugget.png)
+![Crafting Fe-Cap ingot from nuggets](../media/item/crafting/crafting_ferro-capsicumium_ingot_from_nuggets.png)
+![Crafting Fe-Cap nuggets](../media/item/crafting/crafting_ferro-capsicumium_nugget.png)
 
-## Block of Ferro-Capsicumium
+## Block of Fe-Cap
 
-Block of ferro-capsicumium can be used to store ferro-capsicumium ingots in a compact fashion.
+Block of Fe-Cap can be used to store Fe-Cap ingots in a compact fashion.
 
-![Crafting block of ferro-capsicumium](../media/item/crafting/crafting_block_of_ferro-capsicumium.png)
-![Crafting ferro-capsicumium ingot from block](../media/item/crafting/crafting_ferro-capsicumium_ingot_from_block.png)
+![Crafting block of Fe-Cap](../media/item/crafting/crafting_block_of_ferro-capsicumium.png)
+![Crafting Fe-Cap ingot from block](../media/item/crafting/crafting_ferro-capsicumium_ingot_from_block.png)
 
-Block of ferro-capsicumium can be harvested when broken with a pickaxe with stone or higher mining level.
+Block of Fe-Cap can be harvested when broken with a pickaxe with stone or higher mining level.

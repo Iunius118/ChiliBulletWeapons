@@ -18,7 +18,7 @@ Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons
 - NeoForge version - NeoForge
 - Forge version - Minecraft Forge
 - Fabric version - Fabric Loader, Fabric API, and Cloth Config API
-- CBW Chili Peppers and Foods v1.2.0
+- CBW Chili Peppers and Foods v1.2.1
 
 ## Table of Contents
 
@@ -46,14 +46,14 @@ Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons
   - [Chicken with Chili Chocolate Sauce](v2/foods.html#chicken-with-chili-chocolate-sauce)
 - [Materials](v2/materials.html)
   - [Capsicum Crystal](v2/materials.html#capsicum-crystal)
-  - [Ferro-Capsicumium Ingot](v2/materials.html#ferro-capsicumium-ingot)
-  - [Ferro-Capsicumium Nugget](v2/materials.html#ferro-capsicumium-nugget)
-  - [Block of Ferro-Capsicumium](v2/materials.html#block-of-ferro-capsicumium)
+  - [Fe-Cap Ingot](v2/materials.html#fe-cap-ingot)
+  - [Fe-Cap Nugget](v2/materials.html#fe-cap-nugget)
+  - [Block of Fe-Cap](v2/materials.html#block-of-fe-cap)
 - [Tools](v2/tools.html)
-  - [Ferro-Capsicumium Shovel](v2/tools.html#ferro-capsicumium-shovel)
-  - [Ferro-Capsicumium Axe](v2/tools.html#ferro-capsicumium-axe)
-  - [Ferro-Capsicumium Hoe](v2/tools.html#ferro-capsicumium-hoe)
-  - [Ferro-Capsicumium Shears](v2/tools.html#ferro-capsicumium-shears)
+  - [Fe-Cap Shovel](v2/tools.html#fe-cap-shovel)
+  - [Fe-Cap Axe](v2/tools.html#fe-cap-axe)
+  - [Fe-Cap Hoe](v2/tools.html#fe-cap-hoe)
+  - [Fe-Cap Shears](v2/tools.html#fe-cap-shears)
 
 ![ ](media/icon_16.png) Chili Bullet Weapons
 
