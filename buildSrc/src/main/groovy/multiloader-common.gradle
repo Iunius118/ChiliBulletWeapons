@@ -9,7 +9,7 @@ base {
 
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(java_version)
-    //withSourcesJar()
+    withSourcesJar()
     //withJavadocJar()
 }
 
@@ -27,18 +27,6 @@ repositories {
         filter { includeGroupAndSubgroups('org.spongepowered') }
     }
 
-    exclusiveContent {
-        forRepositories(maven {
-            name = 'ParchmentMC'
-            url = 'https://maven.parchmentmc.org/'
-        },
-                maven {
-                    name = "NeoForge"
-                    url = 'https://maven.neoforged.net/releases'
-                })
-        filter { includeGroup('org.parchmentmc.data') }
-    }
-
     maven {
         name = 'BlameJared'
         url = 'https://maven.blamejared.com'
@@ -49,48 +37,31 @@ repositories {
     maven { url "https://maven.terraformersmc.com/releases/" }
 }
 
-// Declare capabilities on the outgoing configurations.
-// Read more about capabilities here: https://docs.gradle.org/current/userguide/component_capabilities.html#sec:declaring-additional-capabilities-for-a-local-component
-['apiElements', 'runtimeElements', /* 'sourcesElements', 'javadocElements' */].each { variant ->
-    configurations."$variant".outgoing {
-        capability("$group:${base.archivesName.get()}:$version")
-        capability("$group:$mod_id-${project.name}-${minecraft_version}:$version")
-        capability("$group:$mod_id:$version")
-    }
-    publishing.publications.configureEach {
-        suppressPomMetadataWarningsFor(variant)
-    }
-}
-
-/*
 sourcesJar {
-    from("LICENSE.txt", "CHANGELOG.txt", "CHEATSHEET.txt", "CREDITS.txt")
-}
- */
-
-jar {
-    from("../LICENSE") {
+    from(rootProject.file('LICENSE')) {
         rename { "${it}_${project.mod_id}.txt"}
     }
+    from(rootProject.file('CHANGELOG.txt'))
+    from(rootProject.file('CHEATSHEET.txt'))
+    from(rootProject.file('CREDITS.txt'))
+}
 
-    from("../CHANGELOG.txt", "../CHEATSHEET.txt", "../CREDITS.txt")
-
-    Map attr = [
-            'Specification-Title'   : mod_name,
-            'Specification-Vendor'  : mod_author,
-            'Specification-Version' : project.jar.archiveVersion,
-            'Implementation-Title'  : project.name,
-            'Implementation-Version': project.jar.archiveVersion,
-            'Implementation-Vendor' : mod_author,
-            'Built-On-Minecraft'    : minecraft_version
-    ]
-
-    if (project.name == 'forge') {
-        attr.put('MixinConfigs', "${mod_id}.forge.mixins.json") // Temporary fix for Forge Mixin
+jar {
+    from(rootProject.file('LICENSE')) {
+        rename { "${it}_${project.mod_id}.txt"}
     }
+    from(rootProject.file('CHANGELOG.txt'))
+    from(rootProject.file('CHEATSHEET.txt'))
+    from(rootProject.file('CREDITS.txt'))
 
     manifest {
-        attributes(attr)
+        attributes(['Specification-Title'   : mod_name,
+                    'Specification-Vendor'  : mod_author,
+                    'Specification-Version' : project.jar.archiveVersion,
+                    'Implementation-Title'  : project.name,
+                    'Implementation-Version': project.jar.archiveVersion,
+                    'Implementation-Vendor' : mod_author,
+                    'Built-On-Minecraft'    : minecraft_version])
     }
 }
 
@@ -113,9 +84,18 @@ processResources {
                        'credits'                      : credits,
                        'java_version'                 : java_version]
 
-    filesMatching(['pack.mcmeta', 'fabric.mod.json', 'META-INF/mods.toml', 'META-INF/neoforge.mods.toml', '*.mixins.json']) {
+    var jsonExpandProps = expandProps.collectEntries {
+        key, value -> [(key): value instanceof String ? value.replace("\n", "\\\\n") : value]
+    }
+
+    filesMatching(['META-INF/mods.toml', 'META-INF/neoforge.mods.toml']) {
         expand expandProps
     }
+
+    filesMatching(['pack.mcmeta', 'fabric.mod.json', '*.mixins.json']) {
+        expand jsonExpandProps
+    }
+
     inputs.properties(expandProps)
 }
 

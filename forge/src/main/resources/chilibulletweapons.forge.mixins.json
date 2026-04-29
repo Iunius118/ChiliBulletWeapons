@@ -2,14 +2,13 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.github.iunius118.chilibulletweapons.mixin",
-  "compatibilityLevel": "JAVA_18",
   "mixins": [
     "MixinCrossbowItem",
     "ProjectileAccessorForge"
   ],
+  "compatibilityLevel": "JAVA_21",
   "client": [],
   "server": [],
-  "refmap": "chilibulletweapons.forge.mixins.refmap.json",
   "injectors": {
     "defaultRequire": 1
   }
