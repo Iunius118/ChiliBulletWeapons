@@ -1,3 +1,5 @@
+# Workflows require read and write permissions in the repository
+
 name: release_draft
 on:
   push:
@@ -6,22 +8,15 @@ on:
 
 jobs:
   release_draft:
-    strategy:
-      matrix:
-        # Use these Java versions
-        java: [
-          21,    # Current Java LTS
-        ]
-        os: [ubuntu-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
-      - name: setup jdk ${{ matrix.java }}
+      - name: setup jdk
         uses: actions/setup-java@v4
         with:
+          java-version: '25'
           distribution: 'microsoft'   # When using Java 8, set 'temurin'
-          java-version: ${{ matrix.java }}
       - name: setup gradle
         uses: gradle/actions/setup-gradle@v4
       - name: cache
@@ -30,11 +25,10 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          key: Linux-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
-            ${{ runner.os }}-gradle-
+            Linux-gradle-
       - name: make gradle wrapper executable
-        if: ${{ runner.os != 'Windows' }}
         run: chmod +x ./gradlew
       - name: build
         run: ./gradlew build
