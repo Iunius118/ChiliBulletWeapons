@@ -31,7 +31,7 @@ side = "BOTH"
 [[dependencies."${mod_id}"]]
 modId = "cbwchilipeppersandfoods"
 type = "required"
-versionRange = "[2.0.0,)"
+versionRange = "[2.0.0-alpha,)"
 ordering = "AFTER"
 side = "BOTH"
 
