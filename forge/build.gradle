@@ -18,7 +18,7 @@ minecraft {
     def at = file('src/main/resources/META-INF/accesstransformer.cfg')
     // Automatically enable AccessTransformers if the file exists
     if (at.exists()) {
-        accessTransformer = at
+        accessTransformer = true
     }
 
     runs {
@@ -26,6 +26,9 @@ minecraft {
             workingDir = layout.projectDirectory.dir('runs')
             systemProperty 'eventbus.api.strictRuntimeChecks', 'true'
             systemProperty 'forge.enabledGameTestNamespaces', mod_id
+
+            // Mixin configs
+            args "-mixin.config=${mod_id}.mixins.json", "-mixin.config=${mod_id}.forge.mixins.json"
         }
 
         register('client') {
