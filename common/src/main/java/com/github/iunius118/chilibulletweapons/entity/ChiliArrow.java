@@ -3,13 +3,14 @@ package com.github.iunius118.chilibulletweapons.entity;
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
+import com.github.iunius118.chilibulletweapons.mixin.AbstractArrowAccessor;
 import com.github.iunius118.chilibulletweapons.platform.Services;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
@@ -52,10 +53,10 @@ public class ChiliArrow extends AbstractArrow {
         var level = this.level();
         var blockState = level.getBlockState(result.getBlockPos());
         blockState.onProjectileHit(level, blockState, result, this);
-        this.inGround = true;
+        setInGround(true);
         this.discard();
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             explode(level, result.getLocation(), getExplosivePower(this));
         }
     }
@@ -71,7 +72,7 @@ public class ChiliArrow extends AbstractArrow {
         var level = this.level();
         this.discard();
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             explode(level, result.getLocation(), getExplosivePower(result.getEntity()));
         }
     }
@@ -88,14 +89,15 @@ public class ChiliArrow extends AbstractArrow {
     private float getExplosivePower(Entity entity) {
         Entity owner = this.getOwner();
         var damagesource = this.damageSources().arrow(this, (owner != null ? owner : this));
-        float damage = (float) this.getBaseDamage();
+        final float baseDamage = (float) ((AbstractArrowAccessor) this).getBaseDamage();
+        float damage = baseDamage;
 
         // getWeaponItem() may return null if the arrow has not been shot from a weapon item
         if (this.getWeaponItem() != null && this.level() instanceof ServerLevel serverlevel) {
             // Apply weapon enchantments to the damage
             damage = EnchantmentHelper.modifyDamage(serverlevel, this.getWeaponItem(), entity, damagesource, damage);
 
-            if (damage > this.getBaseDamage()) {
+            if (damage > baseDamage) {
                 damage += 0.5F;
             }
         }

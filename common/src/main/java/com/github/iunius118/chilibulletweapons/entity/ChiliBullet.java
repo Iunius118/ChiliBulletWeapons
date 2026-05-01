@@ -3,10 +3,10 @@ package com.github.iunius118.chilibulletweapons.entity;
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.item.ChiliBulletGunHelper;
+import com.github.iunius118.chilibulletweapons.mixin.ProjectileAccessor;
 import com.github.iunius118.chilibulletweapons.platform.Services;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundGameEventPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -22,6 +22,9 @@ import net.minecraft.world.entity.projectile.ThrowableProjectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -31,7 +34,8 @@ public class ChiliBullet extends ThrowableProjectile {
     public static final String TAG_AGE = "Age";
     public static final String TAG_PIERCE_LEVEL = "PierceLevel";
 
-    private static final EntityDataAccessor<Byte> PIERCE_LEVEL = SynchedEntityData.defineId(ChiliBullet.class, EntityDataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> PIERCE_LEVEL =
+            SynchedEntityData.defineId(ChiliBullet.class, EntityDataSerializers.BYTE);
     private double baseDamage;
     private byte age = 0;
     private IntOpenHashSet piercingIgnoreEntityIds;
@@ -46,7 +50,7 @@ public class ChiliBullet extends ThrowableProjectile {
         this(ModEntityTypes.CHILI_BULLET, level);
         this.setPos(x, y, z);
 
-        if(weapon != null && !weapon.isEmpty() && !level.isClientSide) {
+        if(weapon != null && !weapon.isEmpty() && !level.isClientSide()) {
             // Apply piercing level from the weapon
             int pierceLaval = ChiliBulletGunHelper.getPiercing(weapon);
 
@@ -83,7 +87,16 @@ public class ChiliBullet extends ThrowableProjectile {
         //** Projectile.tick() **//
         // Do not use ThrowableProjectile.tick()
 
-        Services.PLATFORM.tickProjectile(this);
+        var projectileAccessor = (ProjectileAccessor) this;
+
+        if (!projectileAccessor.getHasBeenShot()) {
+            this.gameEvent(GameEvent.PROJECTILE_SHOOT, this.getOwner());
+            projectileAccessor.setHasBeenShot(true);
+        }
+
+        if (!projectileAccessor.getLeftOwner()) {
+            projectileAccessor.setLeftOwner(projectileAccessor.invokeIsOutsideOwnerCollisionRange());
+        }
 
         //** Entity.tick() **//
 
@@ -94,7 +107,8 @@ public class ChiliBullet extends ThrowableProjectile {
         final Vec3 startVec = this.position();
         final Vec3 delta = this.getDeltaMovement();
         Vec3 endVec = startVec.add(delta);
-        HitResult hitResult = this.level().clip(new ClipContext(startVec, endVec, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
+        HitResult hitResult = this.level().clip(
+                new ClipContext(startVec, endVec, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
 
         if (hitResult.getType() != HitResult.Type.MISS) {
             endVec = hitResult.getLocation();
@@ -113,7 +127,8 @@ public class ChiliBullet extends ThrowableProjectile {
                 Entity entity = entityHitResult1.getEntity();
 
                 // Exclude player that attacker cannot harm
-                if (entity instanceof Player player && this.getOwner() instanceof Player owner && !owner.canHarmPlayer(player)) {
+                if (entity instanceof Player player && this.getOwner() instanceof Player owner &&
+                        !owner.canHarmPlayer(player)) {
                     hitResult = null;
                     entityHitResult = null;
                 }
@@ -121,8 +136,8 @@ public class ChiliBullet extends ThrowableProjectile {
 
             if (hitResult != null && hitResult.getType() != HitResult.Type.MISS) {
                 // Handling of a hit
-                this.onHit(hitResult);
-                this.hasImpulse = true;
+                this.hitTargetOrDeflectSelf(hitResult);
+                this.needsSync = true;
             }
 
             if (entityHitResult == null || this.getPierceLevel() <= 0) {
@@ -138,24 +153,26 @@ public class ChiliBullet extends ThrowableProjectile {
 
         //** Movement **//
 
-        this.checkInsideBlocks();
-        Vec3 next = startVec.add(delta);
+        Vec3 nextVec = startVec.add(delta);
         this.updateRotation();
         float decelerationRatio = 0.99F;
 
         if (this.isInWater()) {
+            // Apply water inertia and spawn bubble particles
+            decelerationRatio = 0.8F;
+
             for (int i = 0; i < 4; i++) {
                 float offset = 0.25F;
                 this.level().addParticle(ParticleTypes.BUBBLE,
-                        next.x - delta.x * offset, next.y - delta.y * offset, next.z - delta.z * offset, delta.x, delta.y, delta.z);
+                        nextVec.x - delta.x * offset, nextVec.y - delta.y * offset, nextVec.z - delta.z * offset,
+                        delta.x, delta.y, delta.z);
             }
-
-            decelerationRatio = 0.8F;
         }
 
         this.setDeltaMovement(delta.scale(decelerationRatio));
         this.applyGravity();
-        this.setPos(next);
+        this.setPos(nextVec);
+        this.applyEffectsFromBlocks();
 
         //** Lifespan Management **//
 
@@ -163,9 +180,8 @@ public class ChiliBullet extends ThrowableProjectile {
     }
 
     protected void tickDespawn() {
-        age++;
-
-        if (age >= Constants.ChiliBullet.LIFETIME) {
+        // Increment age and discard the bullet if it has reached its lifetime
+        if (++age >= Constants.ChiliBullet.LIFETIME) {
             this.discard();
         }
     }
@@ -182,7 +198,8 @@ public class ChiliBullet extends ThrowableProjectile {
 
     @Override
     protected boolean canHitEntity(Entity entity) {
-        return super.canHitEntity(entity) && (piercingIgnoreEntityIds == null || !piercingIgnoreEntityIds.contains(entity.getId()));
+        return super.canHitEntity(entity) &&
+                (piercingIgnoreEntityIds == null || !piercingIgnoreEntityIds.contains(entity.getId()));
     }
 
     @Override
@@ -192,12 +209,14 @@ public class ChiliBullet extends ThrowableProjectile {
         final Entity owner = this.getOwner();
         final byte pierceLevel = getPierceLevel();
 
+        // Apply piercing
         if (pierceLevel > 0) {
-            // Apply piercing
+            // Init piercing ignore list
             if (piercingIgnoreEntityIds == null) {
                 piercingIgnoreEntityIds = new IntOpenHashSet(pierceLevel);
             }
 
+            // Discard the bullet if it has already pierced enough entities
             if (piercingIgnoreEntityIds.size() >= pierceLevel + 1) {
                 this.discard();
                 return;
@@ -210,30 +229,35 @@ public class ChiliBullet extends ThrowableProjectile {
             livingEntity.setLastHurtMob(entity);
         }
 
-        // Multi-hit
-        if (!this.level().isClientSide && Services.CONFIG.canMultishotMultiHit()) {
+        // Do multi-hit
+        if (!this.level().isClientSide() && Services.CONFIG.canMultishotMultiHit()) {
             entity.invulnerableTime = 0;
         }
 
         var damageSource = this.damageSources().thrown(this, owner != null ? owner : this);
 
         // Deal damage to the entity
-        if (entity.hurt(damageSource, (float) getDamage())) {
-            if (entity != owner && entity instanceof Player && owner instanceof ServerPlayer ownerInServer && !this.isSilent()) {
-                // Play a ding when the bullet hit a player
-                ownerInServer.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.ARROW_HIT_PLAYER, 0.0F));
+        if (entity.hurtOrSimulate(damageSource, (float) getDamage())) {
+            if (entity != owner && entity instanceof Player && owner instanceof ServerPlayer ownerInServer
+                    && !this.isSilent()) {
+                // Play sound when the bullet hit player
+                ownerInServer.connection
+                        .send(new ClientboundGameEventPacket(ClientboundGameEventPacket.PLAY_ARROW_HIT_SOUND, 0.0F));
             }
 
-            // Trigger Advancement
+            // Increment kill count to trigger advancement criteria
             if (!entity.isAlive()) {
                 piercedAndKilledEntities++;
             }
 
-            if (!this.level().isClientSide && owner instanceof ServerPlayer serverplayer && piercedAndKilledEntities > 0) {
+            // Trigger Advancement
+            if (!this.level().isClientSide() && owner instanceof ServerPlayer serverplayer &&
+                    piercedAndKilledEntities > 0) {
                 ModCriteriaTriggers.KILLED_BY_CHILI_BULLET.trigger(serverplayer, piercedAndKilledEntities);
             }
         }
 
+        // Discard the bullet
         if (pierceLevel <= 0) {
             this.discard();
         }
@@ -276,7 +300,8 @@ public class ChiliBullet extends ThrowableProjectile {
         }
 
         // The current version simulates the highest damage value (without shooter's movement) of the rifle
-        long critForce = Mth.ceil(Mth.clamp(Constants.ChiliBullet.CRIT_DAMAGE_MULTIPLIER * baseDamage, 0.0D, Integer.MAX_VALUE));
+        long critForce =
+                Mth.ceil(Mth.clamp(Constants.ChiliBullet.CRIT_DAMAGE_MULTIPLIER * baseDamage, 0.0D, Integer.MAX_VALUE));
         return (int) Math.min(critForce + critForce / 2 + 1, Integer.MAX_VALUE);
     }
 
@@ -304,16 +329,16 @@ public class ChiliBullet extends ThrowableProjectile {
     }
 
     @Override
-    protected void addAdditionalSaveData(CompoundTag compound) {
-        super.addAdditionalSaveData(compound);
-        compound.putByte(TAG_AGE, age);
-        compound.putByte(TAG_PIERCE_LEVEL, getPierceLevel());
+    protected void addAdditionalSaveData(ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putByte(TAG_AGE, age);
+        output.putByte(TAG_PIERCE_LEVEL, getPierceLevel());
     }
 
     @Override
-    protected void readAdditionalSaveData(CompoundTag compound) {
-        super.readAdditionalSaveData(compound);
-        setAge(compound.getByte(TAG_AGE));
-        setPierceLevel(compound.getByte(TAG_PIERCE_LEVEL));
+    protected void readAdditionalSaveData(ValueInput input) {
+        super.readAdditionalSaveData(input);
+        setAge(input.getByteOr(TAG_AGE, (byte) 0));
+        setPierceLevel(input.getByteOr(TAG_PIERCE_LEVEL, (byte) 0));
     }
 }

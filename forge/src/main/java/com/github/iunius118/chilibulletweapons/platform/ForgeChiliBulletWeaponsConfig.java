@@ -45,7 +45,8 @@ public class ForgeChiliBulletWeaponsConfig implements IChiliBulletWeaponsConfig 
 
     @Override
     public float getChiliArrowDamageMultiplier() {
-        return COMMON_SPEC.isLoaded() ? COMMON.chiliArrowDamageMultiplier.get() : COMMON.chiliArrowDamageMultiplier.getDefault();
+        return COMMON_SPEC.isLoaded() ?
+                COMMON.chiliArrowDamageMultiplier.get() : COMMON.chiliArrowDamageMultiplier.getDefault();
     }
 
     @Override

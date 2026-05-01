@@ -11,16 +11,16 @@ public class UpgradeGunMechanismItem extends UpgradeGunPartItem {
     }
 
     @Override
-    public boolean canUpgrade(ItemStack stack) {
-        int quickLoading = ChiliBulletGunHelper.getQuickLoading(stack);
-        return super.canUpgrade(stack)
-                && quickLoading < Constants.ChiliBulletGun.MAX_QUICK_LOADING;
+    public boolean canUpgrade(ItemStack itemStack) {
+        int quickLoading = ChiliBulletGunHelper.getQuickLoading(itemStack);
+        return super.canUpgrade(itemStack) &&
+                quickLoading < Constants.ChiliBulletGun.MAX_QUICK_LOADING;
     }
 
     @Override
-    public ItemStack upgrade(ItemStack stack) {
-        ItemStack result = stack.copy();
-        var gunContents = GunContents.getOrDefault(stack);
+    public ItemStack upgrade(ItemStack itemStack) {
+        ItemStack result = itemStack.copy();
+        var gunContents = GunContents.getOrDefault(itemStack);
         gunContents.setQuickLoading(gunContents.quickLoading() + 1).setTo(result);
         return result;
     }

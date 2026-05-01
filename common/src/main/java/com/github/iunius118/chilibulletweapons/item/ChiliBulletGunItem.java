@@ -15,20 +15,19 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.item.CrossbowItem;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ChargedProjectiles;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -37,24 +36,6 @@ public class ChiliBulletGunItem extends CrossbowItem {
 
     public ChiliBulletGunItem(Properties properties) {
         super(properties);
-    }
-
-    @Override
-    public void verifyComponentsAfterLoad(ItemStack stack) {
-        super.verifyComponentsAfterLoad(stack);
-
-        // Apply bayonet attack damage if the gun is bayoneted
-        applyBayonetAttackDamage(stack);
-    }
-
-    public void applyBayonetAttackDamage(ItemStack stack) {
-        Float bayonetAttackDamage = stack.get(ModDataComponents.BAYONETED);
-
-        if (bayonetAttackDamage != null) {
-            // Set attack damage and attack speed modifiers for bayoneted gun
-            ChiliBulletGunHelper.setItemAttributeModifiers(stack,
-                    bayonetAttackDamage, Constants.ChiliBulletGun.BAYONET_ATTACK_SPEED);
-        }
     }
 
     @Override
@@ -68,14 +49,14 @@ public class ChiliBulletGunItem extends CrossbowItem {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
         var itemStack = player.getItemInHand(hand);
 
         if (ChiliBulletGunHelper.isLoaded(itemStack) && !ChiliBulletGunHelper.isLoading(itemStack)) {
             // When the gun is loaded, shoot bullets
-            performShooting(level, player, hand, itemStack,
-                    ChiliBulletGunHelper.getShootingPower(itemStack), ChiliBulletGunHelper.getInaccuracy(itemStack), null);
-            return InteractionResultHolder.consume(itemStack);
+            performShooting(level, player, hand, itemStack, ChiliBulletGunHelper.getShootingPower(itemStack),
+                    ChiliBulletGunHelper.getInaccuracy(itemStack), null);
+            return InteractionResult.CONSUME;
         } else if (!player.getProjectile(itemStack).isEmpty()) {
             // When the gun is unloaded, start loading
             if (!ChiliBulletGunHelper.isLoading(itemStack)) {
@@ -83,7 +64,7 @@ public class ChiliBulletGunItem extends CrossbowItem {
             }
 
             player.startUsingItem(hand);
-            return InteractionResultHolder.consume(itemStack);
+            return InteractionResult.CONSUME;
         } else {
             // When the gun is unloaded and the player has no ammo
             if (ChiliBulletGunHelper.isLoading(itemStack)) {
@@ -91,7 +72,7 @@ public class ChiliBulletGunItem extends CrossbowItem {
                 closeAction(level, player, itemStack);
             }
 
-            return InteractionResultHolder.fail(itemStack);
+            return InteractionResult.FAIL;
         }
     }
 
@@ -99,12 +80,12 @@ public class ChiliBulletGunItem extends CrossbowItem {
                                 float velocity, float inaccuracy, LivingEntity target) {
         if (level instanceof ServerLevel serverlevel) {
             // Server side only
-            // Get and remove loaded projectiles
+            // Pull out loaded bullets from gun
             var chargedprojectiles = weapon.set(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.EMPTY);
 
             if (chargedprojectiles != null && !chargedprojectiles.isEmpty()) {
                 // Shoot all loaded bullets
-                shoot(serverlevel, shooter, hand, weapon, chargedprojectiles.getItems(),
+                shoot(serverlevel, shooter, hand, weapon, chargedprojectiles.itemCopies(),
                         velocity, inaccuracy, false, target);
 
                 if (shooter instanceof ServerPlayer serverplayer) {
@@ -116,14 +97,16 @@ public class ChiliBulletGunItem extends CrossbowItem {
         }
     }
 
-    public void performShootingByNonPlayer(Level level, LivingEntity livingEntity, InteractionHand hand, ItemStack stack) {
-        performShooting(level, livingEntity, hand, stack,
-                ChiliBulletGunHelper.getShootingPower(stack), ChiliBulletGunHelper.getInaccuracy(stack), null);
+    public void performShootingByNonPlayer(Level level, LivingEntity livingEntity, InteractionHand hand,
+                                           ItemStack stack) {
+        performShooting(level, livingEntity, hand, stack, ChiliBulletGunHelper.getShootingPower(stack),
+                ChiliBulletGunHelper.getInaccuracy(stack), null);
     }
 
     @Override
-    protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, List<ItemStack> projectileItems,
-                         float velocity, float inaccuracy, boolean isCrit, LivingEntity target) {
+    protected void shoot(ServerLevel level, LivingEntity shooter, InteractionHand hand, ItemStack weapon,
+                         List<ItemStack> projectileItems, float velocity, float inaccuracy, boolean isCrit,
+                         LivingEntity target) {
         int abrasion = 0;
 
         // Shoot projectiles
@@ -140,11 +123,12 @@ public class ChiliBulletGunItem extends CrossbowItem {
         }
 
         // Wear out gun
-        hurtAndBreak(weapon, abrasion, shooter, LivingEntity.getSlotForHand(hand));
+        hurtAndBreak(weapon, abrasion, shooter, hand.asEquipmentSlot());
     }
 
     @Override
-    protected Projectile createProjectile(Level level, LivingEntity shooter, ItemStack weapon, ItemStack ammo, boolean isCrit) {
+    protected Projectile createProjectile(Level level, LivingEntity shooter, ItemStack weapon, ItemStack ammo,
+                                          boolean isCrit) {
         return new ChiliBullet(level, shooter, weapon);
     }
 
@@ -153,15 +137,15 @@ public class ChiliBulletGunItem extends CrossbowItem {
         return 1;
     }
 
-    public void hurtAndBreak(ItemStack stack, int amount, LivingEntity entityLiving, EquipmentSlot slot) {
-        if (stack.has(DataComponents.CUSTOM_NAME)
+    public void hurtAndBreak(ItemStack itemStack, int amount, LivingEntity entityLiving, EquipmentSlot slot) {
+        if (itemStack.has(DataComponents.CUSTOM_NAME)
                 && entityLiving.getRandom().nextInt(2) == 0) {
             // If the item has a custom name, there is a 50% chance to not wear out the gun
             return;
         }
 
         // Wear out gun
-        stack.hurtAndBreak(amount, entityLiving, slot);
+        itemStack.hurtAndBreak(amount, entityLiving, slot);
     }
 
     @Override
@@ -192,55 +176,68 @@ public class ChiliBulletGunItem extends CrossbowItem {
     }
 
     @Override
-    public void releaseUsing(ItemStack stack, Level level, LivingEntity entityLiving, int timeLeft) {
-        if ((stack.getUseDuration(entityLiving) - timeLeft) >= getReloadDuration(stack)
-                && !ChiliBulletGunHelper.isLoaded(stack)) {
+    public boolean releaseUsing(ItemStack itemStack, Level level, LivingEntity entity, int remainingTime) {
+        int timeHeld = getUseDuration(itemStack, entity) - remainingTime;
+        if (timeHeld >= getReloadDuration(itemStack)
+                && !ChiliBulletGunHelper.isLoaded(itemStack)) {
             // Ready to fire
-            ChiliBulletGunHelper.changeLoading(stack, false);
+            ChiliBulletGunHelper.changeLoading(itemStack, false);
         }
-        //if (!level.isClientSide) Constants.LOG.info("[CBGun] Release {}/{}", itemStack.getUseDuration() - ticks, getReloadDuration(itemStack));
+
+        /* For debug
+        if (!level.isClientSide()) Constants.LOG.info("[CBGun] Release {}/{}", timeHeld, getReloadDuration(itemStack));
+        //*/
+
+        return getLoadingProgress((float) timeHeld, itemStack, entity) >= 1.0F && isCharged(itemStack);
+    }
+
+
+    public static float getLoadingProgress(float timeHeld, ItemStack itemStack, LivingEntity holder) {
+        return Math.min(timeHeld / (float) CrossbowItem.getChargeDuration(itemStack, holder), 1.0F);
     }
 
     @Override
-    public void onUseTick(Level level, LivingEntity livingEntity, ItemStack stack, int count) {
-        int usingCount = stack.getUseDuration(livingEntity) - count;
-        boolean isLoading = ChiliBulletGunHelper.isLoading(stack);
+    public void onUseTick(Level level, LivingEntity livingEntity, ItemStack itemStack, int count) {
+        int usingCount = itemStack.getUseDuration(livingEntity) - count;
+        boolean isLoading = ChiliBulletGunHelper.isLoading(itemStack);
 
         if (usingCount == 0 && !isLoading) {
             // For handled by non-player
-            openAction(level, livingEntity, stack);
+            openAction(level, livingEntity, itemStack);
         }
 
-        if (level.isClientSide) {
+        if (level.isClientSide()) {
             return;
         }
 
         // Server side only
-        //Constants.LOG.info("[CBGun] Using {}/{}", usingCount, getReloadDuration(stack));
+        //Constants.LOG.info("[CBGun] Using {}/{}", usingCount, getReloadDuration(itemStack));
 
-        if (usingCount >= getReloadDuration(stack)
-                && isLoading && tryLoadProjectiles(livingEntity, stack)) {
+        if (usingCount >= getReloadDuration(itemStack)
+                && isLoading && tryLoadProjectiles(livingEntity, itemStack)) {
             // Finish loading
-            closeAction(level, livingEntity, stack);
+            closeAction(level, livingEntity, itemStack);
             //Constants.LOG.info("[CBGun] loaded");
         }
     }
 
-    private void openAction(Level level, LivingEntity livingEntity, ItemStack stack) {
-        ChiliBulletGunHelper.changeLoading(stack, true);
+    private void openAction(Level level, LivingEntity livingEntity, ItemStack itemStack) {
+        ChiliBulletGunHelper.changeLoading(itemStack, true);
         level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(),
-                ModSoundEvents.GUN_ACTION_OPEN, livingEntity.getSoundSource(), 1.0F, getRandomPitch(livingEntity.getRandom()));
+                ModSoundEvents.GUN_ACTION_OPEN, livingEntity.getSoundSource(), 1.0F,
+                getRandomPitch(livingEntity.getRandom()));
     }
 
-    private void closeAction(Level level, LivingEntity livingEntity, ItemStack stack) {
-        ChiliBulletGunHelper.changeLoading(stack, false);
+    private void closeAction(Level level, LivingEntity livingEntity, ItemStack itemStack) {
+        ChiliBulletGunHelper.changeLoading(itemStack, false);
         level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(),
-                ModSoundEvents.GUN_ACTION_CLOSE, livingEntity.getSoundSource(), 1.0F, getRandomPitch(livingEntity.getRandom()));
+                ModSoundEvents.GUN_ACTION_CLOSE, livingEntity.getSoundSource(), 1.0F,
+                getRandomPitch(livingEntity.getRandom()));
     }
 
     @Override
-    public int getUseDuration(ItemStack stack, LivingEntity entity) {
-        return getReloadDuration(stack) + 3;
+    public int getUseDuration(ItemStack itemStack, LivingEntity entity) {
+        return getReloadDuration(itemStack) + 3;
     }
 
     /* CrossbowItem.getChargeDuration() will be hooked using Mixin */
@@ -260,7 +257,7 @@ public class ChiliBulletGunItem extends CrossbowItem {
 
         if (!list.isEmpty()) {
             // Set loaded ammo to gun
-            stack.set(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.of(list));
+            stack.set(DataComponents.CHARGED_PROJECTILES, ChargedProjectiles.ofNonEmpty(list));
             return true;
         } else {
             // No ammo found
@@ -294,65 +291,51 @@ public class ChiliBulletGunItem extends CrossbowItem {
     }
 
     @Override
-    public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        return true;
-    }
-
-    @Override
-    public void postHurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if (stack.has(ModDataComponents.BAYONETED)) {
-            // Wear out bayoneted gun
-            hurtAndBreak(stack, 1, attacker, EquipmentSlot.MAINHAND);
-        }
-    }
-
-    @Override
     public int getDefaultProjectileRange() {
         return 15;
     }
 
     @Override
-    public int getEnchantmentValue() {
-        return Constants.ChiliBulletGun.ENCHANTMENT_VALUE;
-    }
+    public void appendHoverText(ItemStack itemStack, Item.TooltipContext context, TooltipDisplay display,
+                                Consumer<Component> builder, TooltipFlag tooltipFlag) {
+        super.appendHoverText(itemStack, context, display, builder, tooltipFlag);
 
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+        GunContents.getOrDefault(itemStack).addToTooltip(builder, tooltipFlag);
 
-        GunContents.getOrDefault(stack).addToTooltip(tooltipComponents, tooltipFlag);
-
-        var dyedGunColors = stack.get(ModDataComponents.DYED_GUN_COLORS);
+        var dyedGunColors = itemStack.get(ModDataComponents.DYED_GUN_COLORS);
 
         if (dyedGunColors != null) {
-            DyedGunColors.getOrDefault(stack).addToTooltip(tooltipComponents, tooltipFlag);
+            DyedGunColors.getOrDefault(itemStack).addToTooltip(builder, tooltipFlag);
         }
     }
 
     @Override
-    public String getDescriptionId(ItemStack stack) {
-        boolean isBayoneted = stack.has(ModDataComponents.BAYONETED);
-        boolean canMultishot = ChiliBulletGunHelper.canMultishot(stack);
-        boolean hasPiercing = ChiliBulletGunHelper.getPiercing(stack) > 0;
+    public Component getName(ItemStack itemStack) {
+        boolean hasBayonet = ChiliBulletGunHelper.hasBayonet(itemStack);
+        boolean canMultishot = ChiliBulletGunHelper.canMultishot(itemStack);
+        boolean hasPiercing = ChiliBulletGunHelper.getPiercing(itemStack) > 0;
+        String nameKey;
 
         // Change item display name by upgrading
-        if (isBayoneted) {
+        if (hasBayonet) {
             if (canMultishot) {
-                return Constants.ChiliBulletGun.DESCRIPTION_BAYONETED_VOLLEY_GUN;
+                nameKey = Constants.ChiliBulletGun.DESCRIPTION_BAYONETED_VOLLEY_GUN;
             } else if (hasPiercing) {
-                return Constants.ChiliBulletGun.DESCRIPTION_BAYONETED_RIFLE;
+                nameKey = Constants.ChiliBulletGun.DESCRIPTION_BAYONETED_RIFLE;
             } else {
-                return Constants.ChiliBulletGun.DESCRIPTION_BAYONETED_PISTOL;
+                nameKey = Constants.ChiliBulletGun.DESCRIPTION_BAYONETED_PISTOL;
             }
         } else {
             if (canMultishot) {
-                return Constants.ChiliBulletGun.DESCRIPTION_VOLLEY_GUN;
+                nameKey = Constants.ChiliBulletGun.DESCRIPTION_VOLLEY_GUN;
             } else if (hasPiercing) {
-                return Constants.ChiliBulletGun.DESCRIPTION_RIFLE;
+                nameKey = Constants.ChiliBulletGun.DESCRIPTION_RIFLE;
             } else {
-                return Constants.ChiliBulletGun.DESCRIPTION_PISTOL;
+                nameKey = Constants.ChiliBulletGun.DESCRIPTION_PISTOL;
             }
         }
+
+        return Component.translatable(nameKey);
     }
 
     /**
@@ -360,8 +343,8 @@ public class ChiliBulletGunItem extends CrossbowItem {
      *
      * @return True if this item can be upgraded with upgrade items, false otherwise.
      */
-    public boolean isUpgradable(ItemStack stack) {
+    public boolean isUpgradable(ItemStack itemStack) {
         // ChiliBulletGunItem is upgradable if it does not have the fixed component.
-        return !stack.has(ModDataComponents.FIXED);
+        return !itemStack.has(ModDataComponents.FIXED);
     }
 }

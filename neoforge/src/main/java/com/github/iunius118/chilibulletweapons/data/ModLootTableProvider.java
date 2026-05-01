@@ -6,7 +6,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.mojang.serialization.JsonOps;
-import net.minecraft.advancements.critereon.StatePropertiesPredicate;
+import net.minecraft.advancements.criterion.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -15,9 +15,9 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.packs.VanillaLootTableProvider;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryOps;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -39,8 +39,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModLootTableProvider extends LootTableProvider {
 
-    public ModLootTableProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(packOutput, Set.of(), VanillaLootTableProvider.create(packOutput, lookupProvider).getTables(), lookupProvider);
+    public ModLootTableProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, Set.of(), VanillaLootTableProvider.create(output, lookupProvider).getTables(), lookupProvider);
     }
 
     @Override
@@ -76,30 +76,41 @@ public class ModLootTableProvider extends LootTableProvider {
                 @Override
                 public LootItemCondition build() {
                     var key = ResourceKey.create(Registries.BLOCK, BuiltInRegistries.BLOCK.getKey(chiliPepper));
-                    var blockHolder = BuiltInRegistries.BLOCK.getHolderOrThrow(key);
-                    return new LootItemBlockStatePropertyCondition(blockHolder, getChiliPepperOutOfHarvestAgePredicate());
+                    var blockHolder = BuiltInRegistries.BLOCK.getOrThrow(key);
+                    return new LootItemBlockStatePropertyCondition(blockHolder,
+                            getChiliPepperOutOfHarvestAgePredicate());
                 }
             };
             var greenChiliCondition = new LootItemBlockStatePropertyCondition.Builder(chiliPepper)
-                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, CropBlock.MAX_AGE - 1));
+                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE,
+                            CropBlock.MAX_AGE - 1));
             var curvedChiliCondition = new LootItemBlockStatePropertyCondition.Builder(chiliPepper)
-                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, CropBlock.MAX_AGE));
+                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE,
+                            CropBlock.MAX_AGE));
 
-            Holder.Reference<Enchantment> fortune = registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE);
+            Holder.Reference<Enchantment> fortune =
+                    registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE);
 
             // Add drops for each age of chili pepper crop
             var lootTableBuilder = LootTable.lootTable()
-                    .withPool(LootPool.lootPool().when(chiliSeedCondition).add(LootItem.lootTableItem(chiliSeeds)))
-                    .withPool(LootPool.lootPool().when(greenChiliCondition).add(LootItem.lootTableItem(curvedGreenChili)))
-                    .withPool(LootPool.lootPool().when(curvedChiliCondition).add(LootItem.lootTableItem(curvedChili)))
-                    .withPool(LootPool.lootPool().when(curvedChiliCondition).add(LootItem.lootTableItem(ModItems.BULLET_CHILI)))
+                    .withPool(LootPool.lootPool().when(chiliSeedCondition)
+                            .add(LootItem.lootTableItem(chiliSeeds)))
+                    .withPool(LootPool.lootPool().when(greenChiliCondition)
+                            .add(LootItem.lootTableItem(curvedGreenChili)))
+                    .withPool(LootPool.lootPool().when(curvedChiliCondition)
+                            .add(LootItem.lootTableItem(curvedChili)))
+                    .withPool(LootPool.lootPool().when(curvedChiliCondition)
+                            .add(LootItem.lootTableItem(ModItems.BULLET_CHILI)))
                     // Add bonus for fortune enchantment
-                    .withPool(LootPool.lootPool().when(greenChiliCondition).add(LootItem.lootTableItem(curvedGreenChili)
-                            .apply(ApplyBonusCount.addBonusBinomialDistributionCount(fortune, 0.5714286F, 2))))
-                    .withPool(LootPool.lootPool().when(curvedChiliCondition).add(LootItem.lootTableItem(curvedChili)
-                            .apply(ApplyBonusCount.addBonusBinomialDistributionCount(fortune, 0.5714286F, 2))))
-                    .withPool(LootPool.lootPool().when(curvedChiliCondition).add(LootItem.lootTableItem(ModItems.BULLET_CHILI)
-                            .apply(ApplyBonusCount.addBonusBinomialDistributionCount(fortune, 0.5714286F, 2))));
+                    .withPool(LootPool.lootPool().when(greenChiliCondition)
+                            .add(LootItem.lootTableItem(curvedGreenChili)
+                                    .apply(ApplyBonusCount.addBonusBinomialDistributionCount(fortune, 0.5714286F, 2))))
+                    .withPool(LootPool.lootPool().when(curvedChiliCondition)
+                            .add(LootItem.lootTableItem(curvedChili)
+                                    .apply(ApplyBonusCount.addBonusBinomialDistributionCount(fortune, 0.5714286F, 2))))
+                    .withPool(LootPool.lootPool().when(curvedChiliCondition)
+                            .add(LootItem.lootTableItem(ModItems.BULLET_CHILI)
+                                    .apply(ApplyBonusCount.addBonusBinomialDistributionCount(fortune, 0.5714286F, 2))));
             return this.applyExplosionDecay(chiliPepper, lootTableBuilder);
         }
 
@@ -121,12 +132,12 @@ public class ModLootTableProvider extends LootTableProvider {
             return List.of(chiliPepper);
         }
 
-        private Block getBlock(ResourceLocation id) {
-            return BuiltInRegistries.BLOCK.get(id);
+        private Block getBlock(Identifier id) {
+            return BuiltInRegistries.BLOCK.getValue(id);
         }
 
-        private Item getItem(ResourceLocation id) {
-            return BuiltInRegistries.ITEM.get(id);
+        private Item getItem(Identifier id) {
+            return BuiltInRegistries.ITEM.getValue(id);
         }
     }
 }

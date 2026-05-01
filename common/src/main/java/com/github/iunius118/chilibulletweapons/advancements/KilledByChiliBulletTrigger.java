@@ -3,10 +3,10 @@ package com.github.iunius118.chilibulletweapons.advancements;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.ContextAwarePredicate;
-import net.minecraft.advancements.critereon.EntityPredicate;
-import net.minecraft.advancements.critereon.MinMaxBounds;
-import net.minecraft.advancements.critereon.SimpleCriterionTrigger;
+import net.minecraft.advancements.criterion.ContextAwarePredicate;
+import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.criterion.MinMaxBounds;
+import net.minecraft.advancements.criterion.SimpleCriterionTrigger;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.util.Optional;
@@ -22,11 +22,13 @@ public class KilledByChiliBulletTrigger extends SimpleCriterionTrigger<KilledByC
         this.trigger(shooter, instance -> instance.matches(killedEntities));
     }
 
-    public record TriggerInstance(Optional<ContextAwarePredicate> player, MinMaxBounds.Ints killedEntities) implements SimpleCriterionTrigger.SimpleInstance {
+    public record TriggerInstance(Optional<ContextAwarePredicate> player, MinMaxBounds.Ints killedEntities)
+            implements SimpleCriterionTrigger.SimpleInstance {
         public static final Codec<TriggerInstance> CODEC = RecordCodecBuilder.create(
                 instance -> instance.group(
                         EntityPredicate.ADVANCEMENT_CODEC.optionalFieldOf("player").forGetter(TriggerInstance::player),
-                        MinMaxBounds.Ints.CODEC.optionalFieldOf("killed_entities", MinMaxBounds.Ints.ANY).forGetter(TriggerInstance::killedEntities)
+                        MinMaxBounds.Ints.CODEC.optionalFieldOf("killed_entities",
+                                MinMaxBounds.Ints.ANY).forGetter(TriggerInstance::killedEntities)
                 ).apply(instance, TriggerInstance::new)
         );
 

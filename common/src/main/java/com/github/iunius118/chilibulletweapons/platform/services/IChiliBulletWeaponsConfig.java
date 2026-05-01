@@ -6,7 +6,8 @@ public interface IChiliBulletWeaponsConfig {
      * Checks if a single target can be damaged multiple times at once by bullets shot from a volley gun.
      * If set to false, a single target will take damage from only one bullet at the same time.
      *
-     * @return True if a single target can be damaged multiple times at once by bullets shot from a volley gun, false otherwise.
+     * @return True if a single target can be damaged multiple times at once by bullets shot from a volley gun,
+     *         false otherwise.
      */
     boolean canMultishotMultiHit();
 

@@ -12,6 +12,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ChargedProjectiles;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
+import net.minecraft.world.item.component.Weapon;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +22,11 @@ public class ChiliBulletGunHelper {
     /**
      * Whether the gun is loaded with ammunition or not.
      *
-     * @param stack Item stack
+     * @param itemStack Item stack
      * @return True if the gun is loaded, false otherwise.
      */
-    public static boolean isLoaded(ItemStack stack) {
-        return isLoaded(stack.get(DataComponents.CHARGED_PROJECTILES));
+    public static boolean isLoaded(ItemStack itemStack) {
+        return isLoaded(itemStack.get(DataComponents.CHARGED_PROJECTILES));
     }
 
     /**
@@ -42,79 +43,80 @@ public class ChiliBulletGunHelper {
      * Whether the gun is in the process of loading ammunition or not.
      * In chili bullet gun, whether the action is open or not.
      *
-     * @param stack Item stack
+     * @param itemStack Item stack
      * @return True if the gun is loading, false otherwise.
      */
-    public static boolean isLoading(ItemStack stack) {
-        return stack.has(ModDataComponents.LOADING);
+    public static boolean isLoading(ItemStack itemStack) {
+        return itemStack.has(ModDataComponents.LOADING);
     }
 
     /**
      * Change whether the gun is in the process of loading ammunition.
      *
-     * @param stack     Item stack
+     * @param itemStack Item stack
      * @param isLoading True if the gun is loading, false otherwise.
      */
-    public static void changeLoading(ItemStack stack, boolean isLoading) {
-        if (stack.has(ModDataComponents.LOADING)) {
+    public static void changeLoading(ItemStack itemStack, boolean isLoading) {
+        if (itemStack.has(ModDataComponents.LOADING)) {
             if (!isLoading) {
                 // Remove IS_LOADING component if it was previously set
-                stack.remove(ModDataComponents.LOADING);
+                itemStack.remove(ModDataComponents.LOADING);
             }
         } else if (isLoading) {
             // Set IS_LOADING component if it was not previously set
-            stack.set(ModDataComponents.LOADING, Unit.INSTANCE);
+            itemStack.set(ModDataComponents.LOADING, Unit.INSTANCE);
         }
     }
 
     /**
      * Get a upgrade level of quick loading.
      *
-     * @param stack Item stack
+     * @param itemStack Item stack
      * @return Quick loading level
      */
-    public static int getQuickLoading(ItemStack stack) {
-        return GunContents.getQuickLoading(stack);
+    public static int getQuickLoading(ItemStack itemStack) {
+        return GunContents.getQuickLoading(itemStack);
     }
 
     /**
      * Get a upgrade level of piercing.
      *
-     * @param stack Item stack
+     * @param itemStack Item stack
      * @return Piercing level
      */
-    public static int getPiercing(ItemStack stack) {
-        return GunContents.getPiercing(stack);
+    public static int getPiercing(ItemStack itemStack) {
+        return GunContents.getPiercing(itemStack);
     }
 
     /**
      * Get a number of barrels that the gun has.
      *
-     * @param stack Item stack
+     * @param itemStack Item stack
      * @return Number of barrels
      */
-    public static int getBarrelCount(ItemStack stack) {
-        return GunContents.getBarrelCount(stack);
+    public static int getBarrelCount(ItemStack itemStack) {
+        return GunContents.getBarrelCount(itemStack);
     }
 
     /**
      * Whether the gun can shoot multiple bullets at once.
      *
-     * @param stack Item stack
+     * @param itemStack Item stack
      * @return True if the gun can shoot multiple bullets at once, false otherwise.
      */
-    public static boolean canMultishot(ItemStack stack) {
-        return getBarrelCount(stack) > Constants.ChiliBulletGun.CAPACITY_BASIC;
+    public static boolean canMultishot(ItemStack itemStack) {
+        return getBarrelCount(itemStack) > Constants.ChiliBulletGun.CAPACITY_BASIC;
     }
 
     /**
      * Whether the gun has a bayonet attached or not.
      *
-     * @param stack Item stack
+     * @param itemStack Item stack
      * @return True if the gun has a bayonet, false otherwise.
      */
-    public static boolean isBayoneted(ItemStack stack) {
-        return stack.has(ModDataComponents.BAYONETED);
+    public static boolean hasBayonet(ItemStack itemStack) {
+        // From v3 onward, a bayonet is considered attached if the gun item has the weapon data component
+        return itemStack.has(DataComponents.WEAPON);
     }
 
     /**
@@ -136,11 +138,11 @@ public class ChiliBulletGunHelper {
      * Get shooting power with piercing level applied that item stack has.
      * The shooting power refers to the initial velocity of the bullet.
      *
-     * @param stack Item stack
+     * @param itemStack Item stack
      * @return Shooting power
      */
-    public static float getShootingPower(ItemStack stack) {
-        return getShootingPower(getPiercing(stack));
+    public static float getShootingPower(ItemStack itemStack) {
+        return getShootingPower(getPiercing(itemStack));
     }
 
     /**
@@ -160,21 +162,21 @@ public class ChiliBulletGunHelper {
     /**
      * Get reload duration with data components applied that item stack has.
      *
-     * @param stack Item stack
+     * @param itemStack Item stack
      * @return Reload duration
      */
-    public static int getReloadDuration(ItemStack stack) {
+    public static int getReloadDuration(ItemStack itemStack) {
         int basicDuration = Constants.ChiliBulletGun.RELOAD_BASIC;
 
-        if (getBarrelCount(stack) > Constants.ChiliBulletGun.CAPACITY_BASIC) {
+        if (getBarrelCount(itemStack) > Constants.ChiliBulletGun.CAPACITY_BASIC) {
             basicDuration = Constants.ChiliBulletGun.RELOAD_MULTISHOT;
         }
 
-        if (stack.has(ModDataComponents.BAYONETED)) {
-            basicDuration += Constants.ChiliBulletGun.RELOAD_BAYONETED_ADDITIONAL;
+        if (hasBayonet(itemStack)) {
+            basicDuration += Constants.ChiliBulletGun.RELOAD_BAYONET_ADDITIONAL;
         }
 
-        int quickLoading = getQuickLoading(stack);
+        int quickLoading = getQuickLoading(itemStack);
 
         if (quickLoading == 0) {
             return basicDuration;
@@ -184,28 +186,31 @@ public class ChiliBulletGunHelper {
     }
 
     /**
-     * Set item attribute modifiers to the item stack.
+     * Attach a bayonet to the item stack by setting item attribute modifiers.
      *
-     * @param stack        Item stack to attach item attribute modifiers
+     * @param itemStack    Item stack to attach bayonet
      * @param attackDamage attack damage
      * @param attackSpeed  attack speed
      */
-    public static void setItemAttributeModifiers(ItemStack stack, float attackDamage, float attackSpeed) {
-        // Set attack damage and attack speed modifiers
+    public static void attachBayonet(ItemStack itemStack, float attackDamage, float attackSpeed) {
+        // Set attack damage and attack speed modifiers to the gun
         var itemAttributeModifiers = ItemAttributeModifiers.builder()
                 .add(
                         Attributes.ATTACK_DAMAGE,
-                        new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, attackDamage, AttributeModifier.Operation.ADD_VALUE),
+                        new AttributeModifier(
+                                Item.BASE_ATTACK_DAMAGE_ID, attackDamage, AttributeModifier.Operation.ADD_VALUE),
                         EquipmentSlotGroup.MAINHAND
                 )
                 .add(
                         Attributes.ATTACK_SPEED,
-                        new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, attackSpeed, AttributeModifier.Operation.ADD_VALUE),
+                        new AttributeModifier(
+                                Item.BASE_ATTACK_SPEED_ID, attackSpeed, AttributeModifier.Operation.ADD_VALUE),
                         EquipmentSlotGroup.MAINHAND
                 )
                 .build();
-
-        stack.set(DataComponents.ATTRIBUTE_MODIFIERS, itemAttributeModifiers);
+        itemStack.set(DataComponents.ATTRIBUTE_MODIFIERS, itemAttributeModifiers);
+        // The gun loses 1 durability with each melee attack
+        itemStack.set(DataComponents.WEAPON, new Weapon(1));
     }
 
     /**

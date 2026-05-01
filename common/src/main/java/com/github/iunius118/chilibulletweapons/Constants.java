@@ -1,6 +1,6 @@
 package com.github.iunius118.chilibulletweapons;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,72 +11,79 @@ public class Constants {
 
     public static class Blocks {
         // CBW Chili Peppers And Foods
-        public static final ResourceLocation CHILI_PEPPER = CommonClass.modLocation("chili_pepper");
+        public static final Identifier CHILI_PEPPER = CommonClass.modLocation("chili_pepper");
     }
 
     public static class Items {
         // CBW Chili Peppers And Foods
-        public static final ResourceLocation CHILI_SEEDS = CommonClass.modLocation("chili_seeds");
-        public static final ResourceLocation CURVED_GREEN_CHILI = CommonClass.modLocation("curved_green_chili");
-        public static final ResourceLocation CURVED_CHILI = CommonClass.modLocation("curved_chili");
-        public static final ResourceLocation FERROCAPSICUMIUM_INGOT = CommonClass.modLocation("ferrocapsicumium_ingot");
-        public static final ResourceLocation FERROCAPSICUMIUM_BLOCK = CommonClass.modLocation("ferrocapsicumium_block");
+        public static final Identifier CHILI_SEEDS = CommonClass.modLocation("chili_seeds");
+        public static final Identifier CURVED_GREEN_CHILI = CommonClass.modLocation("curved_green_chili");
+        public static final Identifier CURVED_CHILI = CommonClass.modLocation("curved_chili");
+        public static final Identifier FERROCAPSICUMIUM_INGOT = CommonClass.modLocation("ferrocapsicumium_ingot");
+        public static final Identifier FERROCAPSICUMIUM_BLOCK = CommonClass.modLocation("ferrocapsicumium_block");
 
         // Plants
-        public static final ResourceLocation BULLET_CHILI = CommonClass.modLocation("bullet_chili");
-        public static final ResourceLocation BULLET_CHILI_SACK = CommonClass.modLocation("bullet_chili_sack");
+        public static final Identifier BULLET_CHILI = CommonClass.modLocation("bullet_chili");
+        public static final Identifier BULLET_CHILI_SACK = CommonClass.modLocation("bullet_chili_sack");
 
         // Weapons
-        public static final ResourceLocation CHILI_ARROW = CommonClass.modLocation("chili_arrow");
-        public static final ResourceLocation CHILI_BULLET = CommonClass.modLocation("chili_bullet");
-        public static final ResourceLocation GUN = CommonClass.modLocation("gun");
-        public static final ResourceLocation MACHINE_GUN = CommonClass.modLocation("machine_gun");
-        public static final ResourceLocation UPGRADE_GUN_BAYONET = CommonClass.modLocation("upgrade_gun_bayonet");
-        public static final ResourceLocation UPGRADE_GUN_BARREL = CommonClass.modLocation("upgrade_gun_barrel");
-        public static final ResourceLocation UPGRADE_GUN_MECHANISM = CommonClass.modLocation("upgrade_gun_mechanism");
+        public static final Identifier CHILI_ARROW = CommonClass.modLocation("chili_arrow");
+        public static final Identifier CHILI_BULLET = CommonClass.modLocation("chili_bullet");
+        public static final Identifier GUN = CommonClass.modLocation("gun");
+        public static final Identifier MACHINE_GUN = CommonClass.modLocation("machine_gun");
+        public static final Identifier UPGRADE_GUN_BAYONET = CommonClass.modLocation("upgrade_gun_bayonet");
+        public static final Identifier UPGRADE_GUN_BARREL = CommonClass.modLocation("upgrade_gun_barrel");
+        public static final Identifier UPGRADE_GUN_MECHANISM = CommonClass.modLocation("upgrade_gun_mechanism");
 
         // Creative tab icon
-        public static final ResourceLocation ICON_MAIN = CommonClass.modLocation("icon_main");
+        public static final Identifier ICON_MAIN = CommonClass.modLocation("icon_main");
     }
 
     public static class EntityTypes {
-        public static final ResourceLocation CHILI_ARROW = CommonClass.modLocation("chili_arrow");
-        public static final ResourceLocation CHILI_BULLET = CommonClass.modLocation("chili_bullet");
+        public static final Identifier CHILI_ARROW = CommonClass.modLocation("chili_arrow");
+        public static final Identifier CHILI_BULLET = CommonClass.modLocation("chili_bullet");
     }
 
     public static class SoundEvents {
-        public static final ResourceLocation GUN_SHOOT = CommonClass.modLocation("item_gun_shoot");
-        public static final ResourceLocation GUN_ACTION_OPEN = CommonClass.modLocation("item_gun_action_open");
-        public static final ResourceLocation GUN_ACTION_CLOSE = CommonClass.modLocation("item_gun_action_close");
-        public static final ResourceLocation GUN_UPGRADE = CommonClass.modLocation("item_gun_upgrade");
+        public static final Identifier GUN_SHOOT = CommonClass.modLocation("item_gun_shoot");
+        public static final Identifier GUN_ACTION_OPEN = CommonClass.modLocation("item_gun_action_open");
+        public static final Identifier GUN_ACTION_CLOSE = CommonClass.modLocation("item_gun_action_close");
+        public static final Identifier GUN_UPGRADE = CommonClass.modLocation("item_gun_upgrade");
     }
 
     public static class DataComponentTypes {
-        public static final ResourceLocation LOADING = CommonClass.modLocation("loading");
-        public static final ResourceLocation GUN_CONTENTS = CommonClass.modLocation("gun_contents");
-        public static final ResourceLocation BAYONETED = CommonClass.modLocation("bayoneted");
-        public static final ResourceLocation FIXED = CommonClass.modLocation("fixed");
-        public static final ResourceLocation DYED_GUN_COLORS = CommonClass.modLocation("dyed_gun_colors");
+        public static final Identifier LOADING = CommonClass.modLocation("loading");
+        public static final Identifier GUN_CONTENTS = CommonClass.modLocation("gun_contents");
+        public static final Identifier FIXED = CommonClass.modLocation("fixed");
+        public static final Identifier DYED_GUN_COLORS = CommonClass.modLocation("dyed_gun_colors");
 
         // Deprecated
-        public static final ResourceLocation QUICK_LOADING = CommonClass.modLocation("quick_loading");
-        public static final ResourceLocation PIERCING = CommonClass.modLocation("piercing");
-        public static final ResourceLocation MULTISHOT = CommonClass.modLocation("multishot");
+        public static final Identifier QUICK_LOADING = CommonClass.modLocation("quick_loading");
+        public static final Identifier PIERCING = CommonClass.modLocation("piercing");
+        public static final Identifier MULTISHOT = CommonClass.modLocation("multishot");
+        public static final Identifier BAYONETED = CommonClass.modLocation("bayoneted");
     }
 
     public static class CriterionTriggers {
-        public static final ResourceLocation EXPLODED_CHILI_ARROW = CommonClass.modLocation("exploded_chili_arrow");
-        public static final ResourceLocation SHOT_CHILI_BULLET_GUN = CommonClass.modLocation("shot_chili_bullet_gun");
-        public static final ResourceLocation UPGRADED_CHILI_BULLET_GUN = CommonClass.modLocation("upgraded_chili_bullet_gun");
-        public static final ResourceLocation KILLED_BY_CHILI_BULLET = CommonClass.modLocation("killed_by_chili_bullet");
+        public static final Identifier EXPLODED_CHILI_ARROW = CommonClass.modLocation("exploded_chili_arrow");
+        public static final Identifier SHOT_CHILI_BULLET_GUN = CommonClass.modLocation("shot_chili_bullet_gun");
+        public static final Identifier UPGRADED_CHILI_BULLET_GUN = CommonClass.modLocation("upgraded_chili_bullet_gun");
+        public static final Identifier KILLED_BY_CHILI_BULLET = CommonClass.modLocation("killed_by_chili_bullet");
     }
 
     public static class CreativeModeTabs {
-        public static final ResourceLocation MAIN = CommonClass.modLocation("main");
+        public static final Identifier MAIN = CommonClass.modLocation("main");
+
+        // Translation keys
+        public static final String TITLE_CBW_MAIN = "itemGroup.%s.main".formatted(Constants.MOD_ID);
     }
 
     public static class ItemProperties {
-        public static final ResourceLocation PROPERTY_GUN = CommonClass.modLocation("gun");
+        public static final Identifier PROPERTY_GUN = CommonClass.modLocation("gun");
+    }
+
+    public static class ItemTintSources {
+        public static final Identifier DYED_GUN = CommonClass.modLocation("dyed_gun");
     }
 
     public static class ChiliBulletGun {
@@ -92,7 +99,7 @@ public class Constants {
         public static final int RELOAD_MULTISHOT = 22;
         public static final int RELOAD_MACHINE_GUN = 2;
         public static final int RELOAD_PER_QUICK_CHARGE = 2;
-        public static final int RELOAD_BAYONETED_ADDITIONAL = 2;
+        public static final int RELOAD_BAYONET_ADDITIONAL = 2;
         // Power
         public static final float POWER_BASIC = 3F;
         public static final float POWER_PIERCING = 4F;

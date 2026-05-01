@@ -5,8 +5,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(Projectile.class)
+@Mixin(value = Projectile.class, remap = false)
 public interface ProjectileAccessor {
+
     @Accessor
     boolean getLeftOwner();
     @Accessor
@@ -17,5 +18,5 @@ public interface ProjectileAccessor {
     void setHasBeenShot(boolean hasBeenShot);
 
     @Invoker
-    boolean invokeCheckLeftOwner();
+    boolean invokeIsOutsideOwnerCollisionRange();
 }

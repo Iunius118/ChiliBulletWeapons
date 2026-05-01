@@ -4,6 +4,8 @@ import com.github.iunius118.chilibulletweapons.platform.services.IPlatformHelper
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
 
+import java.util.Objects;
+
 public class NeoForgePlatformHelper implements IPlatformHelper {
 
     @Override
@@ -18,6 +20,6 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
 
     @Override
     public boolean isDevelopmentEnvironment() {
-        return !FMLLoader.isProduction();
+        return !Objects.requireNonNull(FMLLoader.getCurrentOrNull()).isProduction();
     }
 }

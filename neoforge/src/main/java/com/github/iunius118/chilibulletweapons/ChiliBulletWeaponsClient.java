@@ -2,32 +2,26 @@ package com.github.iunius118.chilibulletweapons;
 
 import com.github.iunius118.chilibulletweapons.client.*;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
-import com.github.iunius118.chilibulletweapons.item.ModItems;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterRangeSelectItemModelPropertyEvent;
 
 public class ChiliBulletWeaponsClient {
 
     public static void onInitializeClient(IEventBus modEventBus) {
-        modEventBus.addListener(ChiliBulletWeaponsClient::onClientSetup);
+        modEventBus.addListener(ChiliBulletWeaponsClient::registerItemProperties);
         modEventBus.addListener(ChiliBulletWeaponsClient::onItemColorHandlerEvent);
         modEventBus.addListener(ChiliBulletWeaponsClient::onRegisterLayerDefinitions);
         modEventBus.addListener(ChiliBulletWeaponsClient::onRegisterEntityRenderer);
     }
 
-    private static void onClientSetup(final FMLClientSetupEvent event) {
-        registerItemProperties();
+    private static void registerItemProperties(RegisterRangeSelectItemModelPropertyEvent event) {
+        event.register(Constants.ItemProperties.PROPERTY_GUN, GunItemModelProperty.MAP_CODEC);
     }
 
-    private static void registerItemProperties() {
-        ItemProperties.register(ModItems.GUN, Constants.ItemProperties.PROPERTY_GUN, ModItemProperties.PROPERTY_GUN);
-    }
-
-    public static void onItemColorHandlerEvent(RegisterColorHandlersEvent.Item event) {
-        event.register(new DyedGunItemColor(), ModItems.GUN);
+    public static void onItemColorHandlerEvent(RegisterColorHandlersEvent.ItemTintSources event) {
+        event.register(Constants.ItemTintSources.DYED_GUN, DyedGunItemTintSource.MAP_CODEC);
     }
 
     private static void onRegisterLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions event) {

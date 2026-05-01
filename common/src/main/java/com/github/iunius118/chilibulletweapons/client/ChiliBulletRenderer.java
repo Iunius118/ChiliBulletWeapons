@@ -3,16 +3,17 @@ package com.github.iunius118.chilibulletweapons.client;
 import com.github.iunius118.chilibulletweapons.CommonClass;
 import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
-public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet> {
-    public static final ResourceLocation TEXTURE_LOCATION = CommonClass.modLocation("textures/entity/chili_bullet.png");
-    private final ChiliBulletModel<ChiliBullet> model;
+public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet, ChiliBulletRenderState> {
+    public static final Identifier TEXTURE_LOCATION = CommonClass.modLocation("textures/entity/chili_bullet.png");
+    private final ChiliBulletModel<EntityRenderState> model;
 
     public ChiliBulletRenderer(EntityRendererProvider.Context context) {
         super(context);
@@ -20,21 +21,32 @@ public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet> {
     }
 
     @Override
-    public void render(ChiliBullet chiliBullet, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
-        if (chiliBullet.getAge() > 1) {
-            // Each bullet is rendered from the second tick to maintain the player's field of view
+    public void submit(ChiliBulletRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector,
+                       CameraRenderState camera) {
+        if (state.age > 1) {
+            // Each bullet becomes visible from age 2 to preserve the player's view
             poseStack.pushPose();
-            model.setupAnim(chiliBullet, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
-            VertexConsumer buffer = bufferSource.getBuffer(model.renderType(TEXTURE_LOCATION));
-            model.renderToBuffer(poseStack, buffer, packedLight, OverlayTexture.NO_OVERLAY, 0xFFFFFFFF);
+            model.setupAnim(state);
+            submitNodeCollector.submitModel(model, state, poseStack, getTextureLocation(state), state.lightCoords,
+                    OverlayTexture.NO_OVERLAY, state.outlineColor, null);
             poseStack.popPose();
         }
 
-        super.render(chiliBullet, entityYaw, partialTick, poseStack, bufferSource, packedLight);
+        super.submit(state, poseStack, submitNodeCollector, camera);
+    }
+
+    protected Identifier getTextureLocation(EntityRenderState state) {
+        return TEXTURE_LOCATION;
     }
 
     @Override
-    public ResourceLocation getTextureLocation(ChiliBullet entity) {
-        return TEXTURE_LOCATION;
+    public ChiliBulletRenderState createRenderState() {
+        return new ChiliBulletRenderState();
+    }
+
+    @Override
+    public void extractRenderState(ChiliBullet entity, ChiliBulletRenderState state, float partialTicks) {
+        super.extractRenderState(entity, state, partialTicks);
+        state.age = entity.getAge();
     }
 }

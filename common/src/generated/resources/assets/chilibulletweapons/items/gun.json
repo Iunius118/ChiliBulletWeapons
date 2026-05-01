@@ -1,0 +1,320 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "entries": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/pistol"
+        },
+        "threshold": 0.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/rifle"
+        },
+        "threshold": 0.03125
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/volley_gun"
+        },
+        "threshold": 0.0625
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/pistol_bayoneted"
+        },
+        "threshold": 0.125
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/rifle_bayoneted"
+        },
+        "threshold": 0.15625
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/volley_gun_bayoneted"
+        },
+        "threshold": 0.1875
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/pistol_loading"
+        },
+        "threshold": 0.25
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/rifle_loading"
+        },
+        "threshold": 0.28125
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/volley_gun_loading"
+        },
+        "threshold": 0.3125
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/pistol_bayoneted_loading"
+        },
+        "threshold": 0.375
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/rifle_bayoneted_loading"
+        },
+        "threshold": 0.40625
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/volley_gun_bayoneted_loading"
+        },
+        "threshold": 0.4375
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_pistol",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            }
+          ]
+        },
+        "threshold": 0.5
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_rifle",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            }
+          ]
+        },
+        "threshold": 0.53125
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_volley_gun",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            }
+          ]
+        },
+        "threshold": 0.5625
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_pistol_bayoneted",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 2
+            }
+          ]
+        },
+        "threshold": 0.625
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_rifle_bayoneted",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 2
+            }
+          ]
+        },
+        "threshold": 0.65625
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_volley_gun_bayoneted",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 2
+            }
+          ]
+        },
+        "threshold": 0.6875
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_pistol_loading",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            }
+          ]
+        },
+        "threshold": 0.75
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_rifle_loading",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            }
+          ]
+        },
+        "threshold": 0.78125
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_volley_gun_loading",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            }
+          ]
+        },
+        "threshold": 0.8125
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_pistol_bayoneted_loading",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 2
+            }
+          ]
+        },
+        "threshold": 0.875
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_rifle_bayoneted_loading",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 2
+            }
+          ]
+        },
+        "threshold": 0.90625
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "chilibulletweapons:item/dyed_gun/dyed_volley_gun_bayoneted_loading",
+          "tints": [
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 0
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 1
+            },
+            {
+              "type": "chilibulletweapons:dyed_gun",
+              "tintIndex": 2
+            }
+          ]
+        },
+        "threshold": 0.9375
+      }
+    ],
+    "property": "chilibulletweapons:gun"
+  }
+}

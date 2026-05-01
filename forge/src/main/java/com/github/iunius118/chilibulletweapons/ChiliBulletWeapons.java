@@ -4,7 +4,6 @@ import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.platform.ForgeChiliBulletWeaponsConfig;
 import com.github.iunius118.chilibulletweapons.registry.ForgeModRegistries;
 import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -15,21 +14,22 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 public class ChiliBulletWeapons {
 
     public ChiliBulletWeapons(FMLJavaModLoadingContext context) {
-        final IEventBus modEventBus = context.getModEventBus();
+        final var modBusGroup = context.getModBusGroup();
         // Use Forge to bootstrap the Common mod.
         //Constants.LOG.info("Hello Forge world!");
         CommonClass.init();
 
         // Register config handler
-        context.registerConfig(ModConfig.Type.COMMON, ForgeChiliBulletWeaponsConfig.COMMON_SPEC, Constants.MOD_ID + ".toml");
+        context.registerConfig(ModConfig.Type.COMMON, ForgeChiliBulletWeaponsConfig.COMMON_SPEC,
+                Constants.MOD_ID + ".toml");
 
         // Register mod event listeners
-        ForgeModRegistries.registerGameObjects(modEventBus);
-        modEventBus.addListener(this::onCommonSetup);
+        ForgeModRegistries.registerGameObjects(modBusGroup);
+        FMLCommonSetupEvent.getBus(modBusGroup).addListener(this::onCommonSetup);
 
         if (FMLEnvironment.dist.isClient()) {
             // Init client
-            ChiliBulletWeaponsClient.onInitializeClient(modEventBus);
+            ChiliBulletWeaponsClient.onInitializeClient(modBusGroup);
         }
     }
 

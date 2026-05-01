@@ -2,32 +2,28 @@ package com.github.iunius118.chilibulletweapons;
 
 import com.github.iunius118.chilibulletweapons.client.*;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
-import com.github.iunius118.chilibulletweapons.item.ModItems;
-import net.minecraft.client.renderer.item.ItemProperties;
+import com.github.iunius118.chilibulletweapons.mixin.client.RangeSelectItemModelPropertiesAccessor;
+import net.minecraft.client.color.item.ItemTintSources;
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.eventbus.api.bus.BusGroup;
 
 public class ChiliBulletWeaponsClient {
 
-    public static void onInitializeClient(IEventBus modEventBus) {
-        modEventBus.addListener(ChiliBulletWeaponsClient::onClientSetup);
-        modEventBus.addListener(ChiliBulletWeaponsClient::onItemColorHandlerEvent);
-        modEventBus.addListener(ChiliBulletWeaponsClient::onRegisterLayerDefinitions);
-        modEventBus.addListener(ChiliBulletWeaponsClient::onRegisterEntityRenderer);
+    public static void onInitializeClient(BusGroup modBusGroup) {
+        registerItemModelProperties();
+        registerItemTintSources();
+        EntityRenderersEvent.RegisterLayerDefinitions.BUS
+                .addListener(ChiliBulletWeaponsClient::onRegisterLayerDefinitions);
+        EntityRenderersEvent.RegisterRenderers.BUS.addListener(ChiliBulletWeaponsClient::onRegisterEntityRenderer);
     }
 
-    private static void onClientSetup(final FMLClientSetupEvent event) {
-        registerItemProperties();
+    private static void registerItemModelProperties() {
+        RangeSelectItemModelPropertiesAccessor.getIdMapper()
+                .put(Constants.ItemProperties.PROPERTY_GUN, GunItemModelProperty.MAP_CODEC);
     }
 
-    private static void registerItemProperties() {
-        ItemProperties.register(ModItems.GUN, Constants.ItemProperties.PROPERTY_GUN, ModItemProperties.PROPERTY_GUN);
-    }
-
-    public static void onItemColorHandlerEvent(RegisterColorHandlersEvent.Item event) {
-        event.register(new DyedGunItemColor(), ModItems.GUN);
+    private static void registerItemTintSources() {
+        ItemTintSources.ID_MAPPER.put(Constants.ItemTintSources.DYED_GUN, DyedGunItemTintSource.MAP_CODEC);
     }
 
     private static void onRegisterLayerDefinitions(final EntityRenderersEvent.RegisterLayerDefinitions event) {

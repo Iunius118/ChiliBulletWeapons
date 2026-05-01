@@ -11,16 +11,16 @@ public class UpgradeGunBarrelItem extends UpgradeGunPartItem {
     }
 
     @Override
-    public boolean canUpgrade(ItemStack stack) {
-        int barrelCount = ChiliBulletGunHelper.getBarrelCount(stack);
-        return super.canUpgrade(stack)
-                && barrelCount < Constants.ChiliBulletGun.CAPACITY_MULTISHOT;
+    public boolean canUpgrade(ItemStack itemStack) {
+        int barrelCount = ChiliBulletGunHelper.getBarrelCount(itemStack);
+        return super.canUpgrade(itemStack) &&
+                barrelCount < Constants.ChiliBulletGun.CAPACITY_MULTISHOT;
     }
 
     @Override
-    public ItemStack upgrade(ItemStack stack) {
-        ItemStack result = stack.copy();
-        var gunContents = GunContents.getOrDefault(stack);
+    public ItemStack upgrade(ItemStack itemStack) {
+        ItemStack result = itemStack.copy();
+        var gunContents = GunContents.getOrDefault(itemStack);
 
         if (gunContents.piercing() < Constants.ChiliBulletGun.BASIC_PIERCING) {
             gunContents

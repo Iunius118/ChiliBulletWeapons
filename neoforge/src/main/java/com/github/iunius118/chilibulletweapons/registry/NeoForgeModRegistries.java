@@ -6,8 +6,8 @@ import com.github.iunius118.chilibulletweapons.component.ModDataComponents;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -66,7 +66,6 @@ public class NeoForgeModRegistries {
 
         dataComponentTypeRegister.register(Constants.DataComponentTypes.LOADING.getPath(), () -> ModDataComponents.LOADING);
         dataComponentTypeRegister.register(Constants.DataComponentTypes.GUN_CONTENTS.getPath(), () -> ModDataComponents.GUN_CONTENTS);
-        dataComponentTypeRegister.register(Constants.DataComponentTypes.BAYONETED.getPath(), () -> ModDataComponents.BAYONETED);
         dataComponentTypeRegister.register(Constants.DataComponentTypes.FIXED.getPath(), () -> ModDataComponents.FIXED);
         dataComponentTypeRegister.register(Constants.DataComponentTypes.DYED_GUN_COLORS.getPath(), () -> ModDataComponents.DYED_GUN_COLORS);
 
@@ -85,9 +84,9 @@ public class NeoForgeModRegistries {
     }
 
     private static void onCreativeModeTabBuildContents(BuildCreativeModeTabContentsEvent event) {
-        var creativeModeTab = BuiltInRegistries.CREATIVE_MODE_TAB.get(Constants.CreativeModeTabs.MAIN);
+        var resourceKey = ResourceKey.create(Registries.CREATIVE_MODE_TAB, Constants.CreativeModeTabs.MAIN);
 
-        if (event.getTab().equals(creativeModeTab)) {
+        if (event.getTabKey().equals(resourceKey)) {
             // Add items to the main mod creative mode tab
             ModItems.getCreativeModeTabItems().forEach(i -> {
                 if (i != null) event.accept(i);

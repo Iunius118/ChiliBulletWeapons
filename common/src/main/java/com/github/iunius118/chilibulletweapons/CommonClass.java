@@ -1,6 +1,6 @@
 package com.github.iunius118.chilibulletweapons;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // This class is part of the common project meaning it is shared between all supported loaders. Code written here can only
 // import and access the vanilla codebase, libraries used by vanilla, and optionally third party libraries that provide
@@ -26,7 +26,7 @@ public class CommonClass {
         //}
     }
 
-    public static ResourceLocation modLocation(String name) {
-        return ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, name);
+    public static Identifier modLocation(String name) {
+        return Identifier.fromNamespaceAndPath(Constants.MOD_ID, name);
     }
 }

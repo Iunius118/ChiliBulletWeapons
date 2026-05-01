@@ -7,12 +7,12 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.util.FastColor;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 
-import java.util.List;
 import java.util.Locale;
+import java.util.function.Consumer;
 
 /**
  * Represents the colors of a dyed gun.
@@ -56,7 +56,7 @@ public record DyedGunColors(int metalRGB, int woodRGB, int bladeRGB, boolean sho
      * @return The ARGB color value.
      */
     public int metalColor() {
-        return FastColor.ARGB32.opaque(metalRGB);
+        return ARGB.opaque(metalRGB);
     }
 
     /**
@@ -65,7 +65,7 @@ public record DyedGunColors(int metalRGB, int woodRGB, int bladeRGB, boolean sho
      * @return The ARGB color value.
      */
     public int woodColor() {
-        return FastColor.ARGB32.opaque(woodRGB);
+        return ARGB.opaque(woodRGB);
     }
 
     /**
@@ -74,21 +74,24 @@ public record DyedGunColors(int metalRGB, int woodRGB, int bladeRGB, boolean sho
      * @return The ARGB color value.
      */
     public int bladeColor() {
-        return FastColor.ARGB32.opaque(bladeRGB);
+        return ARGB.opaque(bladeRGB);
     }
 
     /**
      * Adds the dye colors to the tooltip.
      *
-     * @param tooltipComponents List of tooltip components to add to
+     * @param builder Consumer of components to add the tooltip to
      * @param tooltipFlag Tooltip flag indicating whether to show advanced tooltips
      */
-    public void addToTooltip(List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    public void addToTooltip(Consumer<Component> builder, TooltipFlag tooltipFlag) {
         if (this.showInTooltip) {
             if (tooltipFlag.isAdvanced()) {
-                tooltipComponents.add(Component.translatable("item.color", String.format(Locale.ROOT, "#%06X", metalRGB)).withStyle(ChatFormatting.DARK_GRAY));
-                tooltipComponents.add(Component.translatable("item.color", String.format(Locale.ROOT, "#%06X", woodRGB)).withStyle(ChatFormatting.DARK_GRAY));
-                tooltipComponents.add(Component.translatable("item.color", String.format(Locale.ROOT, "#%06X", bladeRGB)).withStyle(ChatFormatting.DARK_GRAY));
+                builder.accept(Component.translatable("item.color",
+                        String.format(Locale.ROOT, "#%06X", metalRGB)).withStyle(ChatFormatting.DARK_GRAY));
+                builder.accept(Component.translatable("item.color",
+                        String.format(Locale.ROOT, "#%06X", woodRGB)).withStyle(ChatFormatting.DARK_GRAY));
+                builder.accept(Component.translatable("item.color",
+                        String.format(Locale.ROOT, "#%06X", bladeRGB)).withStyle(ChatFormatting.DARK_GRAY));
             }
         }
     }

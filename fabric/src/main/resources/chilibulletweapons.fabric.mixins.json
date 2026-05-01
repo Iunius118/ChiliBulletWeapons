@@ -4,13 +4,13 @@
   "package": "com.github.iunius118.chilibulletweapons.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "MixinCrossbowItem",
-    "MixinLivingEntity",
-    "MixinProjectileUtil"
+    "CreativeModeTabAccessor",
+    "LivingEntityMixin",
+    "ProjectileUtilMixin"
   ],
   "client": [
-    "client.MixinItemInHandRenderer",
-    "client.MixinPlayerRenderer"
+    "client.AvatarRendererMixin",
+    "client.ItemInHandRendererMixin"
   ],
   "server": [],
   "injectors": {

@@ -3,15 +3,9 @@
   "category": "equipment",
   "group": "chilibulletweapons:machine_gun",
   "key": {
-    "b": {
-      "item": "chilibulletweapons:chili_bullet"
-    },
-    "n": {
-      "tag": "c:ingots/netherite"
-    },
-    "p": {
-      "tag": "chilibulletweapons:non_flammable_planks"
-    }
+    "b": "chilibulletweapons:chili_bullet",
+    "n": "#c:ingots/netherite",
+    "p": "#chilibulletweapons:non_flammable_planks"
   },
   "pattern": [
     "n  ",
@@ -19,7 +13,6 @@
     " pb"
   ],
   "result": {
-    "count": 1,
     "id": "chilibulletweapons:machine_gun"
   }
 }

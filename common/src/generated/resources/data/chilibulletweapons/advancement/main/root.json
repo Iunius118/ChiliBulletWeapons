@@ -13,12 +13,11 @@
   },
   "display": {
     "announce_to_chat": false,
-    "background": "minecraft:textures/block/orange_concrete_powder.png",
+    "background": "minecraft:block/orange_concrete_powder",
     "description": {
       "translate": "advancements.chilibulletweapons.main.root.description"
     },
     "icon": {
-      "count": 1,
       "id": "chilibulletweapons:icon_main"
     },
     "show_toast": false,

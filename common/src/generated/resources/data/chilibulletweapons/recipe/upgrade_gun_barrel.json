@@ -3,15 +3,9 @@
   "category": "misc",
   "group": "chilibulletweapons:upgrade_gun_barrel",
   "key": {
-    "b": {
-      "item": "chilibulletweapons:chili_bullet"
-    },
-    "g": {
-      "tag": "c:ingots/gold"
-    },
-    "i": {
-      "tag": "c:ingots/iron"
-    }
+    "b": "chilibulletweapons:chili_bullet",
+    "g": "#c:ingots/gold",
+    "i": "#c:ingots/iron"
   },
   "pattern": [
     "ibg",
@@ -19,7 +13,6 @@
     "gbi"
   ],
   "result": {
-    "count": 1,
     "id": "chilibulletweapons:upgrade_gun_barrel"
   }
 }

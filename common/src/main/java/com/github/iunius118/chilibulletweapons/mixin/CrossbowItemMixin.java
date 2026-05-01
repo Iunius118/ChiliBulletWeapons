@@ -12,21 +12,23 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(CrossbowItem.class)
-public abstract class MixinCrossbowItem {
+@Mixin(value = CrossbowItem.class, remap = false)
+public abstract class CrossbowItemMixin {
 
     @Inject(method = "getChargeDuration", at = @At("HEAD"), cancellable = true)
-    private static void onGetChargeDuration(ItemStack stack, LivingEntity shooter, CallbackInfoReturnable<Integer> cir) {
-        if (stack.getItem() instanceof ChiliBulletGunItem chiliBulletGun) {
+    private static void onGetChargeDuration(ItemStack crossbow, LivingEntity user,
+                                            CallbackInfoReturnable<Integer> cir) {
+        if (crossbow.getItem() instanceof ChiliBulletGunItem chiliBulletGun) {
             // If the entity is holding a chili bullet gun,
             // return the reload duration of the gun
-            int reloadDuration = chiliBulletGun.getReloadDuration(stack);
+            int reloadDuration = chiliBulletGun.getReloadDuration(crossbow);
             cir.setReturnValue(reloadDuration);
         }
     }
 
     @Inject(method = "performShooting", at = @At("HEAD"), cancellable = true)
-    private void onPerformShooting(Level level, LivingEntity shooter, InteractionHand hand, ItemStack weapon, float velocity, float inaccuracy, LivingEntity target, CallbackInfo ci) {
+    private void onPerformShooting(Level level, LivingEntity shooter, InteractionHand hand, ItemStack weapon,
+                                   float power, float uncertainty, LivingEntity targetOverride, CallbackInfo ci) {
         //Constants.LOG.info("[CBGun] onPerformShooting with {} in {}", weapon, hand);
 
         if (weapon.getItem() instanceof ChiliBulletGunItem chiliBulletGun) {

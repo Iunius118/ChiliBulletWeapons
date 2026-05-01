@@ -3,18 +3,10 @@
   "category": "misc",
   "group": "chilibulletweapons:upgrade_gun_bayonet",
   "key": {
-    "b": {
-      "item": "chilibulletweapons:chili_bullet"
-    },
-    "g": {
-      "tag": "c:ingots/gold"
-    },
-    "i": {
-      "tag": "c:ingots/iron"
-    },
-    "s": {
-      "tag": "c:rods/wooden"
-    }
+    "b": "chilibulletweapons:chili_bullet",
+    "g": "#c:ingots/gold",
+    "i": "#c:ingots/iron",
+    "s": "#c:rods/wooden"
   },
   "pattern": [
     "ibg",
@@ -22,7 +14,6 @@
     "gbs"
   ],
   "result": {
-    "count": 1,
     "id": "chilibulletweapons:upgrade_gun_bayonet"
   }
 }
