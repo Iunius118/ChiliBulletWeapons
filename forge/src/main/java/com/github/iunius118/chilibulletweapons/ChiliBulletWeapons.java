@@ -37,4 +37,10 @@ public class ChiliBulletWeapons {
         // Register compostable items
         ComposterBlock.COMPOSTABLES.putAll(ModItems.COMPOSTABLES);
     }
+
+    /**
+     * A helper class for accessing this mod's constants from outside its package.
+     */
+    public static final class Constants extends com.github.iunius118.chilibulletweapons.Constants {
+    }
 }
