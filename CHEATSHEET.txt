@@ -202,11 +202,13 @@ The following is a description of the main data components among them.
   - `blade_rgb` - Color of bayonet blade (integer in RGB24 format, default is 16777215)
   - `show_in_tooltip` - Whether to show color values in tooltip (boolean, default is true)
 
+Starting with version 3, a bayonet is fitted to a gun using the `minecraft:weapon`, and its properties are configured via the `minecraft:attribute_modifiers`.
+
 These data components can be used for commands or custom recipes.
 
 A command example:
 
-    /give @p chilibulletweapons:gun[chilibulletweapons:gun_contents={quick_loading:5,piercing:1,barrel_count:2},chilibulletweapons:fixed={},chilibulletweapons:dyed_gun_colors={metal_rgb:3355443,wood_rgb:10027008,blade_rgb:16764108},minecraft:custom_name='"Unguis Accipitris"',minecraft:enchantments={levels:{"minecraft:vanishing_curse":1}}]
+    /give @p chilibulletweapons:gun[chilibulletweapons:gun_contents={quick_loading:5,piercing:1,barrel_count:2},chilibulletweapons:fixed={},chilibulletweapons:dyed_gun_colors={metal_rgb:3355443,wood_rgb:10027008,blade_rgb:16764108},minecraft:weapon={},minecraft:attribute_modifiers=[{type:attack_damage,id:base_attack_damage,amount:5.0,operation:add_value,slot:mainhand},{type:attack_speed,id:base_attack_speed,amount:-2.8,operation:add_value,slot:mainhand}],minecraft:custom_name="Unguis Accipitris",minecraft:enchantments={"minecraft:vanishing_curse":1}]
 
 Note that this command is too long for chat and should be executed by command block.
 
@@ -231,14 +233,28 @@ A recipe example:
             "wood_rgb": 10027008,
             "blade_rgb": 16764108
           },
-          "minecraft:custom_name": "\"Unguis Accipitris\"",
-          "minecraft:enchantments": {
-            "levels": {
-              "minecraft:vanishing_curse": 1
+          "minecraft:weapon": {},
+          "minecraft:attribute_modifiers": [
+            {
+              "type": "minecraft:attack_damage",
+              "id": "minecraft:base_attack_damage",
+              "amount": 5.0,
+              "operation": "add_value",
+              "slot": "mainhand"
+            },
+            {
+              "type": "minecraft:attack_speed",
+              "id": "minecraft:base_attack_speed",
+              "amount": -2.8,
+              "operation": "add_value",
+              "slot": "mainhand"
             }
+          ],
+          "minecraft:custom_name": "Unguis Accipitris",
+          "minecraft:enchantments": {
+            "minecraft:vanishing_curse": 1
           }
         },
-        "count": 1,
         "id": "chilibulletweapons:gun"
       }
     }

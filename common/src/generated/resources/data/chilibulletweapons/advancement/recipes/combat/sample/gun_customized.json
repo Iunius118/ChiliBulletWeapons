@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cbw_icon": {
+      "conditions": {
+        "items": [
+          {
+            "items": "chilibulletweapons:icon_main"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "chilibulletweapons:sample/gun_customized"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cbw_icon"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "chilibulletweapons:sample/gun_customized"
+    ]
+  }
+}

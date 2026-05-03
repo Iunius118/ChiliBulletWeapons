@@ -1,0 +1,52 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "chilibulletweapons:icon_main",
+    "b": "chilibulletweapons:chili_bullet",
+    "i": "#c:ingots/iron",
+    "p": "#minecraft:planks"
+  },
+  "pattern": [
+    "i  ",
+    " # ",
+    " pb"
+  ],
+  "result": {
+    "components": {
+      "chilibulletweapons:dyed_gun_colors": {
+        "blade_rgb": 16764108,
+        "metal_rgb": 3355443,
+        "wood_rgb": 10027008
+      },
+      "chilibulletweapons:fixed": {},
+      "chilibulletweapons:gun_contents": {
+        "barrel_count": 2,
+        "piercing": 1,
+        "quick_loading": 5
+      },
+      "minecraft:attribute_modifiers": [
+        {
+          "type": "minecraft:attack_damage",
+          "amount": 5.0,
+          "id": "minecraft:base_attack_damage",
+          "operation": "add_value",
+          "slot": "mainhand"
+        },
+        {
+          "type": "minecraft:attack_speed",
+          "amount": -2.8,
+          "id": "minecraft:base_attack_speed",
+          "operation": "add_value",
+          "slot": "mainhand"
+        }
+      ],
+      "minecraft:custom_name": "Unguis Accipitris",
+      "minecraft:enchantments": {
+        "minecraft:vanishing_curse": 1
+      },
+      "minecraft:weapon": {}
+    },
+    "id": "chilibulletweapons:gun"
+  }
+}
