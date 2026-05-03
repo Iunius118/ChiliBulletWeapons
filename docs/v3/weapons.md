@@ -1,9 +1,9 @@
 # Weapons
 
-Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.2.1
+Chili Bullet Weapons Version 3.0.0, and CBW Chili Peppers and Foods Version 2.0.0
 
-- [Top Page](index.html)
-  - [How to Get Started](introduction.html)
+- [Top Page](../index.html)
+  - [How to Get Started](index.html)
 - ![ ](../media/cpaf_icon_16.png) CBW Chili Peppers and Foods
   - [Farming](farming.html)
   - [Foods](foods.html)
@@ -132,11 +132,6 @@ The following is a description of the main data components among them.
   - **`barrel_count`** - Number of barrel (integer between 1 and 4, default is `1`)
   - **`show_in_tooltip`** - Whether to show upgrade data in the tooltip (boolean, default is `true`)
 
-#### `chilibulletweapons:bayoneted`
-
-- If set, this gun is fitted with a bayonet
-- Has a float value representing the bayonet attack damage
-
 #### `chilibulletweapons:fixed`
 
 - If set, this gun cannot be upgraded with upgrade items
@@ -152,11 +147,13 @@ The following is a description of the main data components among them.
 
 #### Examples of Data Component Usage
 
+\*Starting with version 3, a bayonet is fitted to a gun using the `minecraft:weapon`, and its properties are configured via the `minecraft:attribute_modifiers`.
+
 The data components described above can be used for commands or recipes.
 
 A command example:
 
-    /give @p chilibulletweapons:gun[chilibulletweapons:gun_contents={quick_loading:5,piercing:1,barrel_count:2},chilibulletweapons:bayoneted=5f,chilibulletweapons:fixed={},chilibulletweapons:dyed_gun_colors={metal_rgb:3355443,wood_rgb:10027008,blade_rgb:16764108},minecraft:custom_name='"Unguis Accipitris"',minecraft:enchantments={levels:{"minecraft:vanishing_curse":1}}]
+    /give @p chilibulletweapons:gun[chilibulletweapons:gun_contents={quick_loading:5,piercing:1,barrel_count:2},chilibulletweapons:fixed={},chilibulletweapons:dyed_gun_colors={metal_rgb:3355443,wood_rgb:10027008,blade_rgb:16764108},minecraft:weapon={},minecraft:attribute_modifiers=[{type:attack_damage,id:base_attack_damage,amount:5.0,operation:add_value,slot:mainhand},{type:attack_speed,id:base_attack_speed,amount:-2.8,operation:add_value,slot:mainhand}],minecraft:custom_name="Unguis Accipitris",minecraft:enchantments={"minecraft:vanishing_curse":1}]
 
 \*Note that this command is too long for chat and should be executed by command block.
 
@@ -175,21 +172,34 @@ A recipe example:
             "piercing": 1,
             "barrel_count": 2
           },
-          "chilibulletweapons:bayoneted": 5.0,
           "chilibulletweapons:fixed": {},
           "chilibulletweapons:dyed_gun_colors": {
             "metal_rgb": 3355443,
             "wood_rgb": 10027008,
             "blade_rgb": 16764108
           },
-          "minecraft:custom_name": "\"Unguis Accipitris\"",
-          "minecraft:enchantments": {
-            "levels": {
-              "minecraft:vanishing_curse": 1
+          "minecraft:weapon": {},
+          "minecraft:attribute_modifiers": [
+            {
+              "type": "minecraft:attack_damage",
+              "id": "minecraft:base_attack_damage",
+              "amount": 5.0,
+              "operation": "add_value",
+              "slot": "mainhand"
+            },
+            {
+              "type": "minecraft:attack_speed",
+              "id": "minecraft:base_attack_speed",
+              "amount": -2.8,
+              "operation": "add_value",
+              "slot": "mainhand"
             }
+          ],
+          "minecraft:custom_name": "Unguis Accipitris",
+          "minecraft:enchantments": {
+            "minecraft:vanishing_curse": 1
           }
         },
-        "count": 1,
         "id": "chilibulletweapons:gun"
       }
     }

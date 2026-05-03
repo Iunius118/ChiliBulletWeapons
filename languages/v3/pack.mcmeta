@@ -1,0 +1,10 @@
+{
+  "pack": {
+    "description": "Language files to be added to ChiliBulletWeapons",
+    "max_format": 101,
+    "min_format": [
+      101,
+      1
+    ]
+  }
+}

@@ -1,8 +1,8 @@
 # Weapon Data
 
-Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.2.1
+Chili Bullet Weapons Version 3.0.0, and CBW Chili Peppers and Foods Version 2.0.0
 
-- [Top Page](index.html)
+- [Top Page](../index.html)
 - ![ ](../media/icon_16.png) Chili Bullet Weapons
   - [Weapons](weapons.html)
 

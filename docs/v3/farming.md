@@ -1,9 +1,9 @@
 # Farming
 
-Chili Bullet Weapons Version 2.0.0, and CBW Chili Peppers and Foods Version 1.2.1
+Chili Bullet Weapons Version 3.0.0, and CBW Chili Peppers and Foods Version 2.0.0
 
-- [Top Page](index.html)
-  - [How to Get Started](introduction.html)
+- [Top Page](../index.html)
+  - [How to Get Started](index.html)
 - ![ ](../media/cpaf_icon_16.png) CBW Chili Peppers and Foods
   - **Farming**
     - [Chili Pepper Seeds (CBW)](#chili-pepper-seeds-cbw)
