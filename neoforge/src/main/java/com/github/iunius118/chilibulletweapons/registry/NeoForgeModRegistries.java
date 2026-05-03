@@ -24,63 +24,69 @@ public class NeoForgeModRegistries {
     }
 
     private static void registerItems(IEventBus modEventBus) {
-        var itemRegister = DeferredRegister.createItems(Constants.MOD_ID);
+        var items = DeferredRegister.createItems(Constants.MOD_ID);
 
         // Plants
-        itemRegister.register(Constants.Items.BULLET_CHILI.getPath(), () -> ModItems.BULLET_CHILI);
-        itemRegister.register(Constants.Items.BULLET_CHILI_SACK.getPath(), () -> ModItems.BULLET_CHILI_SACK);
+        items.register(Constants.Items.BULLET_CHILI.getPath(), () -> ModItems.BULLET_CHILI);
+        items.register(Constants.Items.BULLET_CHILI_SACK.getPath(), () -> ModItems.BULLET_CHILI_SACK);
         // Weapons
-        itemRegister.register(Constants.Items.CHILI_ARROW.getPath(), () -> ModItems.CHILI_ARROW);
-        itemRegister.register(Constants.Items.CHILI_BULLET.getPath(), () -> ModItems.CHILI_BULLET);
-        itemRegister.register(Constants.Items.GUN.getPath(), () -> ModItems.GUN);
-        itemRegister.register(Constants.Items.MACHINE_GUN.getPath(), () -> ModItems.MACHINE_GUN);
-        itemRegister.register(Constants.Items.UPGRADE_GUN_BAYONET.getPath(), () -> ModItems.UPGRADE_GUN_BAYONET);
-        itemRegister.register(Constants.Items.UPGRADE_GUN_BARREL.getPath(), () -> ModItems.UPGRADE_GUN_BARREL);
-        itemRegister.register(Constants.Items.UPGRADE_GUN_MECHANISM.getPath(), () -> ModItems.UPGRADE_GUN_MECHANISM);
+        items.register(Constants.Items.CHILI_ARROW.getPath(), () -> ModItems.CHILI_ARROW);
+        items.register(Constants.Items.CHILI_BULLET.getPath(), () -> ModItems.CHILI_BULLET);
+        items.register(Constants.Items.GUN.getPath(), () -> ModItems.GUN);
+        items.register(Constants.Items.MACHINE_GUN.getPath(), () -> ModItems.MACHINE_GUN);
+        items.register(Constants.Items.UPGRADE_GUN_BAYONET.getPath(), () -> ModItems.UPGRADE_GUN_BAYONET);
+        items.register(Constants.Items.UPGRADE_GUN_BARREL.getPath(), () -> ModItems.UPGRADE_GUN_BARREL);
+        items.register(Constants.Items.UPGRADE_GUN_MECHANISM.getPath(), () -> ModItems.UPGRADE_GUN_MECHANISM);
 
-        itemRegister.register(modEventBus);
+        items.register(modEventBus);
     }
 
     private static void registerSoundEvents(IEventBus modEventBus) {
-        var soundEventRegister = DeferredRegister.create(Registries.SOUND_EVENT, Constants.MOD_ID);
+        var soundEvents = DeferredRegister.create(Registries.SOUND_EVENT, Constants.MOD_ID);
 
-        soundEventRegister.register(Constants.SoundEvents.GUN_SHOOT.getPath(), () -> ModSoundEvents.GUN_SHOOT);
-        soundEventRegister.register(Constants.SoundEvents.GUN_ACTION_OPEN.getPath(), () -> ModSoundEvents.GUN_ACTION_OPEN);
-        soundEventRegister.register(Constants.SoundEvents.GUN_ACTION_CLOSE.getPath(), () -> ModSoundEvents.GUN_ACTION_CLOSE);
-        soundEventRegister.register(Constants.SoundEvents.GUN_UPGRADE.getPath(), () -> ModSoundEvents.GUN_UPGRADE);
+        soundEvents.register(Constants.SoundEvents.GUN_SHOOT.getPath(), () -> ModSoundEvents.GUN_SHOOT);
+        soundEvents.register(Constants.SoundEvents.GUN_ACTION_OPEN.getPath(), () -> ModSoundEvents.GUN_ACTION_OPEN);
+        soundEvents.register(Constants.SoundEvents.GUN_ACTION_CLOSE.getPath(), () -> ModSoundEvents.GUN_ACTION_CLOSE);
+        soundEvents.register(Constants.SoundEvents.GUN_UPGRADE.getPath(), () -> ModSoundEvents.GUN_UPGRADE);
 
-        soundEventRegister.register(modEventBus);
+        soundEvents.register(modEventBus);
     }
 
     private static void registerEntityTypes(IEventBus modEventBus) {
-        var entityTypeRegister = DeferredRegister.create(Registries.ENTITY_TYPE, Constants.MOD_ID);
+        var entityTypes = DeferredRegister.create(Registries.ENTITY_TYPE, Constants.MOD_ID);
 
-        entityTypeRegister.register(Constants.EntityTypes.CHILI_ARROW.getPath(), () -> ModEntityTypes.CHILI_ARROW);
-        entityTypeRegister.register(Constants.EntityTypes.CHILI_BULLET.getPath(), () -> ModEntityTypes.CHILI_BULLET);
+        entityTypes.register(Constants.EntityTypes.CHILI_ARROW.getPath(), () -> ModEntityTypes.CHILI_ARROW);
+        entityTypes.register(Constants.EntityTypes.CHILI_BULLET.getPath(), () -> ModEntityTypes.CHILI_BULLET);
 
-        entityTypeRegister.register(modEventBus);
+        entityTypes.register(modEventBus);
     }
 
     private static void registerDataComponentTypes(IEventBus modEventBus) {
-        var dataComponentTypeRegister = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, Constants.MOD_ID);
+        var dataComponentTypes = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, Constants.MOD_ID);
 
-        dataComponentTypeRegister.register(Constants.DataComponentTypes.LOADING.getPath(), () -> ModDataComponents.LOADING);
-        dataComponentTypeRegister.register(Constants.DataComponentTypes.GUN_CONTENTS.getPath(), () -> ModDataComponents.GUN_CONTENTS);
-        dataComponentTypeRegister.register(Constants.DataComponentTypes.FIXED.getPath(), () -> ModDataComponents.FIXED);
-        dataComponentTypeRegister.register(Constants.DataComponentTypes.DYED_GUN_COLORS.getPath(), () -> ModDataComponents.DYED_GUN_COLORS);
+        dataComponentTypes.register(Constants.DataComponentTypes.LOADING.getPath(), () -> ModDataComponents.LOADING);
+        dataComponentTypes.register(Constants.DataComponentTypes.GUN_CONTENTS.getPath(),
+                () -> ModDataComponents.GUN_CONTENTS);
+        dataComponentTypes.register(Constants.DataComponentTypes.FIXED.getPath(), () -> ModDataComponents.FIXED);
+        dataComponentTypes.register(Constants.DataComponentTypes.DYED_GUN_COLORS.getPath(),
+                () -> ModDataComponents.DYED_GUN_COLORS);
 
-        dataComponentTypeRegister.register(modEventBus);
+        dataComponentTypes.register(modEventBus);
     }
 
     private static void registerCriterionTriggers(IEventBus modEventBus) {
-        var criterionTriggerRegistry = DeferredRegister.create(Registries.TRIGGER_TYPE, Constants.MOD_ID);
+        var criterionTriggers = DeferredRegister.create(Registries.TRIGGER_TYPE, Constants.MOD_ID);
 
-        criterionTriggerRegistry.register(Constants.CriterionTriggers.EXPLODED_CHILI_ARROW.getPath(), () -> ModCriteriaTriggers.EXPLODED_CHILI_ARROW);
-        criterionTriggerRegistry.register(Constants.CriterionTriggers.SHOT_CHILI_BULLET_GUN.getPath(), () -> ModCriteriaTriggers.SHOT_CHILI_BULLET_GUN);
-        criterionTriggerRegistry.register(Constants.CriterionTriggers.UPGRADED_CHILI_BULLET_GUN.getPath(), () -> ModCriteriaTriggers.UPGRADED_CHILI_BULLET_GUN);
-        criterionTriggerRegistry.register(Constants.CriterionTriggers.KILLED_BY_CHILI_BULLET.getPath(), () -> ModCriteriaTriggers.KILLED_BY_CHILI_BULLET);
+        criterionTriggers.register(Constants.CriterionTriggers.EXPLODED_CHILI_ARROW.getPath(),
+                () -> ModCriteriaTriggers.EXPLODED_CHILI_ARROW);
+        criterionTriggers.register(Constants.CriterionTriggers.SHOT_CHILI_BULLET_GUN.getPath(),
+                () -> ModCriteriaTriggers.SHOT_CHILI_BULLET_GUN);
+        criterionTriggers.register(Constants.CriterionTriggers.UPGRADED_CHILI_BULLET_GUN.getPath(),
+                () -> ModCriteriaTriggers.UPGRADED_CHILI_BULLET_GUN);
+        criterionTriggers.register(Constants.CriterionTriggers.KILLED_BY_CHILI_BULLET.getPath(),
+                () -> ModCriteriaTriggers.KILLED_BY_CHILI_BULLET);
 
-        criterionTriggerRegistry.register(modEventBus);
+        criterionTriggers.register(modEventBus);
     }
 
     private static void onCreativeModeTabBuildContents(BuildCreativeModeTabContentsEvent event) {
