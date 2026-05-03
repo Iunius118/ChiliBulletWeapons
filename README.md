@@ -16,7 +16,7 @@ A Minecraft mod to add chili peppers, foods, and weapons.
 - NeoForge version - NeoForge
 - Forge version - Minecraft Forge
 - Fabric version - Fabric Loader, Fabric API, and Cloth Config API
-- [CBW Chili Peppers and Foods](https://github.com/Iunius118/CBWChiliPeppersAndFoods) (only Chili Bullet Weapons v2+)
+- [CBW Chili Peppers and Foods](https://github.com/Iunius118/CBWChiliPeppersAndFoods)
 
 ## How to Get Started
 
