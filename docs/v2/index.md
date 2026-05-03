@@ -2,14 +2,14 @@
 
 Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons.
 
-![Items](media/item/misc/items_v2.0.0.png)
+![Items](../media/item/misc/items_v2.0.0.png)
 
 ## Download Mods
 
-- ![ ](media/cpaf_icon_16.png) **CBW Chili Peppers and Foods**
+- ![ ](../media/cpaf_icon_16.png) **CBW Chili Peppers and Foods**
   - [Modrinth](https://modrinth.com/mod/cbw-chili-peppers-and-foods)
   - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/cbw-chili-peppers-and-foods)
-- ![ ](media/icon_16.png) **Chili Bullet Weapons**
+- ![ ](../media/icon_16.png) **Chili Bullet Weapons**
   - [Modrinth](https://modrinth.com/project/chili-bullet-weapons)
   - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/chili-bullet-weapons)
 
@@ -24,7 +24,7 @@ Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons
 
 - [How to Get Started](introduction.html)
 
-![ ](media/cpaf_icon_16.png) CBW Chili Peppers and Foods
+![ ](../media/cpaf_icon_16.png) CBW Chili Peppers and Foods
 
 - [Farming](farming.html)
   - [Chili Pepper Seeds (CBW)](farming.html#chili-pepper-seeds-cbw)
@@ -55,7 +55,7 @@ Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons
   - [Fe-Cap Hoe](tools.html#fe-cap-hoe)
   - [Fe-Cap Shears](tools.html#fe-cap-shears)
 
-![ ](media/icon_16.png) Chili Bullet Weapons
+![ ](../media/icon_16.png) Chili Bullet Weapons
 
 - [Weapons](weapons.html)
   - [Bullet Chili Arrow](weapons.html#bullet-chili-arrow)
