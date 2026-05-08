@@ -10,6 +10,7 @@ import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import org.jspecify.annotations.Nullable;
 
 public class GunClientItemExtensions implements IClientItemExtensions {
+
 	@Override
 	public HumanoidModel.@Nullable ArmPose getArmPose(LivingEntity entityLiving, InteractionHand hand, ItemStack itemStack) {
 		if (!entityLiving.swinging &&

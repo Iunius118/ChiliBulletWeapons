@@ -17,6 +17,7 @@ public class ModEntityTypeTagsProvider extends EntityTypeTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        // - Namespace: minecraft //
         tag(EntityTypeTags.ARROWS).add(ModEntityTypes.CHILI_ARROW);
     }
 }
