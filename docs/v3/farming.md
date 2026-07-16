@@ -1,6 +1,6 @@
 # Farming
 
-Chili Bullet Weapons Version 3.0.0, and CBW Chili Peppers and Foods Version 2.0.0
+Chili Bullet Weapons Version 3.1.0, and CBW Chili Peppers and Foods Version 2.2.0
 
 - [Top Page](../index.html)
   - [How to Get Started](index.html)
@@ -10,6 +10,7 @@ Chili Bullet Weapons Version 3.0.0, and CBW Chili Peppers and Foods Version 2.0.
     - [Chili Pepper Crops (CBW)](#chili-pepper-crops-cbw)
     - [Drying Curved Chili Peppers](#drying-curved-chili-peppers)
     - [Compact Storage of Chili Peppers](#compact-storage-of-chili-peppers)
+    - [Potted Chili Peppers](#potted-chili-peppers)
     - [Chili Plant Biofuel](#chili-plant-biofuel)
     - [Composting](#composting)
   - [Foods](foods.html)
@@ -83,6 +84,31 @@ Sack of Bullet-like Chili Peppers*
 ![Crafting sack of bullet-like chili peppers](../media/item/crafting/crafting_bullet_chili_sack.png) ![Crafting bullet-like chili peppers from sack](../media/item/crafting/crafting_bullet_chili_from_sack.png)
 
 \*Sack of Bullet-like Chili Peppers is an additional item from the Chili Bullet Weapons mod.
+
+## Potted Chili Peppers
+
+A potted chili pepper is a flower pot containing a chili pepper plant. It can be placed and used as a decorative block.
+
+There are three types of potted chili peppers:
+
+- ![ ](../media/item/potted_chili_pepper_flowering.png) Potted Flowering Chili Pepper
+- ![ ](../media/item/potted_chili_pepper_green.png) Potted Green Chili Pepper
+- ![ ](../media/item/potted_chili_pepper_red.png) Potted Red Chili Pepper
+
+Potted Flowering Chili Pepper  
+![Crafting potted flowering chili pepper](../media/item/crafting/crafting_potted_chili_pepper_flowering.png)
+
+Potted Green Chili Pepper  
+![Crafting potted green chili pepper](../media/item/crafting/crafting_potted_chili_pepper_green.png)
+
+Potted Red Chili Pepper  
+![Crafting potted red chili pepper](../media/item/crafting/crafting_potted_chili_pepper_red.png)
+
+Using bone meal on each type of placed potted chili pepper yields its corresponding item:
+
+- ![ ](../media/item/potted_chili_pepper_flowering.png) Potted Flowering Chili Pepper - 1x ![ ](../media/item/chili_seeds.png) Chili Pepper Seeds (CBW)
+- ![ ](../media/item/potted_chili_pepper_green.png) Potted Green Chili Pepper - 1x ![ ](../media/item/curved_green_chili.png) Curved Green Chili Pepper
+- ![ ](../media/item/potted_chili_pepper_red.png) Potted Red Chili Pepper - 1x ![ ](../media/item/curved_chili.png) Curved Chili Pepper
 
 ## Chili Plant Biofuel
 

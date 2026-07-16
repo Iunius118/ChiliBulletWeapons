@@ -1,6 +1,6 @@
 # Materials
 
-Chili Bullet Weapons Version 3.0.0, and CBW Chili Peppers and Foods Version 2.0.0
+Chili Bullet Weapons Version 3.1.0, and CBW Chili Peppers and Foods Version 2.2.0
 
 - [Top Page](../index.html)
   - [How to Get Started](index.html)
