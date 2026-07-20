@@ -2,7 +2,7 @@
 
 Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons.
 
-![Items](../media/item/misc/items_v2.0.0.png)
+![Items](../media/item/misc/items_v3.1.0_cpaf_v2.2.0.png)
 
 ## Download Mods
 
@@ -18,7 +18,7 @@ Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons
 - NeoForge version - NeoForge
 - Forge version - Minecraft Forge
 - Fabric version - Fabric Loader, Fabric API, and Cloth Config API
-- CBW Chili Peppers and Foods v1.2.1
+- CBW Chili Peppers and Foods v1.3.0
 
 ## Table of Contents
 
@@ -31,6 +31,7 @@ Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods, and weapons
   - [Chili Pepper Crops (CBW)](farming.html#chili-pepper-crops-cbw)
   - [Drying Curved Chili Peppers](farming.html#drying-curved-chili-peppers)
   - [Compact Storage of Chili Peppers](farming.html#compact-storage-of-chili-peppers)
+  - [Potted Chili Peppers](farming.html#potted-chili-peppers)
   - [Chili Plant Biofuel](farming.html#chili-plant-biofuel)
   - [Composting](farming.html#composting)
 - [Foods](foods.html)

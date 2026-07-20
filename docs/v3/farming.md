@@ -89,6 +89,8 @@ Sack of Bullet-like Chili Peppers*
 
 A potted chili pepper is a flower pot containing a chili pepper plant. It can be placed and used as a decorative block.
 
+![Potted chili peppers](../media/block/misc/potted_chili_peppers.png)
+
 There are three types of potted chili peppers:
 
 - ![ ](../media/item/potted_chili_pepper_flowering.png) Potted Flowering Chili Pepper
