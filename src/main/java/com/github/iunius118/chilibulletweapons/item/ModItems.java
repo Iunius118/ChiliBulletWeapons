@@ -6,6 +6,7 @@ import net.minecraft.world.item.*;
 public class ModItems {
     // Plants
     public static final Item CHILI_SEEDS = new ItemNameBlockItem(ModBlocks.CHILI_PEPPER, new Item.Properties());
+    public static final Item CURVED_GREEN_CHILI = new Item(new Item.Properties());
     public static final Item BULLET_CHILI = new Item(new Item.Properties());
     public static final Item CURVED_CHILI = new Item(new Item.Properties());
     public static final Item CURVED_CHILI_STRING = new BlockItem(ModBlocks.CURVED_CHILI_STRING, new Item.Properties());

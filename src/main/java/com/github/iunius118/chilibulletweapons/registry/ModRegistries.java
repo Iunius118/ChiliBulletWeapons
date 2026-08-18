@@ -37,6 +37,7 @@ public class ModRegistries {
 
         // Plants
         itemRegister.register("chili_seeds", () -> ModItems.CHILI_SEEDS);
+        itemRegister.register("curved_green_chili", () -> ModItems.CURVED_GREEN_CHILI);
         itemRegister.register("bullet_chili", () -> ModItems.BULLET_CHILI);
         itemRegister.register("curved_chili", () -> ModItems.CURVED_CHILI);
         itemRegister.register("curved_chili_string", () -> ModItems.CURVED_CHILI_STRING);
