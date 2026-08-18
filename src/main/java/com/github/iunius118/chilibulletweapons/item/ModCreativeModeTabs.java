@@ -14,6 +14,7 @@ public class ModCreativeModeTabs {
             .displayItems((params, output) -> {
                 // Plants
                 output.accept(ModItems.CHILI_SEEDS);
+                output.accept(ModItems.CURVED_GREEN_CHILI);
                 output.accept(ModItems.BULLET_CHILI);
                 output.accept(ModItems.CURVED_CHILI);
                 output.accept(ModItems.CURVED_CHILI_STRING);
@@ -21,9 +22,14 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.BULLET_CHILI_SACK);
                 output.accept(ModItems.CURVED_CHILI_SACK);
 
+                // Fuel
+                output.accept(ModItems.CHILI_BIOFUEL);
+
                 // Foods
                 output.accept(ModItems.HOT_SAUCE);
                 output.accept(ModItems.HOT_SAUCE_BARREL);
+                output.accept(ModItems.GREEN_HOT_SAUCE);
+                output.accept(ModItems.PICKLED_GREEN_CHILI);
                 output.accept(ModItems.CHILI_CHICKEN_SANDWICH);
                 output.accept(ModItems.CHILI_FISH_SANDWICH);
                 output.accept(ModItems.CHILI_MEAT_SANDWICH);
@@ -34,6 +40,8 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.HALF_CHILI_POTATO_SANDWICH);
                 output.accept(ModItems.PASTA_OIL_AND_CHILI);
                 output.accept(ModItems.FRIED_CHILI_PEPPER);
+                output.accept(ModItems.CHILI_CHOCOLATE);
+                output.accept(ModItems.CHILI_CHOCOLATE_CHICKEN);
 
                 // Weapons
                 output.accept(ModItems.CHILI_ARROW);
