@@ -74,6 +74,8 @@ public class ModRegistries {
         itemRegister.register("machine_gun", () -> ModItems.MACHINE_GUN);
         // Misc.
         itemRegister.register("capsaicin_powder", () -> ModItems.CAPSAICIN_POWDER);
+        // Creative tab icon
+        itemRegister.register("icon_main", () -> ModItems.ICON_MAIN);
 
         itemRegister.register(modEventBus);
     }

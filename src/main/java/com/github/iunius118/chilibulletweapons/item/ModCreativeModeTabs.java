@@ -10,7 +10,7 @@ public class ModCreativeModeTabs {
     public static final String KEY_MAIN = "itemGroup." + ChiliBulletWeapons.MOD_ID + ".main";
     public static final CreativeModeTab MAIN = CreativeModeTab.builder()
             .title(Component.translatable(KEY_MAIN))
-            .icon(() -> new ItemStack(ModItems.BULLET_CHILI))
+            .icon(() -> new ItemStack(ModItems.ICON_MAIN))
             .displayItems((params, output) -> {
                 // Plants
                 output.accept(ModItems.CHILI_SEEDS);

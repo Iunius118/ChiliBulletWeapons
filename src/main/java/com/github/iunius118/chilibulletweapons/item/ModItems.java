@@ -47,4 +47,8 @@ public class ModItems {
 
     // Misc.
     public static final Item CAPSAICIN_POWDER = new Item(new Item.Properties());
+
+    // Creative tab icon
+    // This will not be added to creative tabs
+    public static final Item ICON_MAIN = new Item(new Item.Properties());
 }
