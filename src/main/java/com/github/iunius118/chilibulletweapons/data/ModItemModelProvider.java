@@ -20,6 +20,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         // Plants
         basicItem(ModItems.CHILI_SEEDS);
+        basicItem(ModItems.CURVED_GREEN_CHILI);
         basicItem(ModItems.BULLET_CHILI);
         basicItem(ModItems.CURVED_CHILI);
         basicItem(ModItems.CURVED_CHILI_STRING);
@@ -27,9 +28,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.BULLET_CHILI_SACK);
         basicItem(ModItems.CURVED_CHILI_SACK);
 
+        // Fuel
+        basicItem(ModItems.CHILI_BIOFUEL);
+
         // Foods
         basicItem(ModItems.HOT_SAUCE);
         // Item model of hot sauce barrel is generated during block state model generation
+        basicItem(ModItems.GREEN_HOT_SAUCE);
+        basicItem(ModItems.PICKLED_GREEN_CHILI);
         basicItem(ModItems.CHILI_CHICKEN_SANDWICH);
         basicItem(ModItems.CHILI_FISH_SANDWICH);
         basicItem(ModItems.CHILI_MEAT_SANDWICH);
@@ -40,6 +46,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.HALF_CHILI_POTATO_SANDWICH);
         basicItem(ModItems.PASTA_OIL_AND_CHILI);
         basicItem(ModItems.FRIED_CHILI_PEPPER);
+        basicItem(ModItems.CHILI_CHOCOLATE);
+        basicItem(ModItems.CHILI_CHOCOLATE_CHICKEN);
 
         // Weapons
         basicItem(ModItems.CHILI_ARROW);
@@ -53,6 +61,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         // Misc.
         basicItem(ModItems.CAPSAICIN_POWDER);
+
+        // Creative tab icon
+        basicItem(ModItems.ICON_MAIN);
     }
 
     private void registerSimpleItemModel(Item item, ModelFile modelFile, String suffix) {
