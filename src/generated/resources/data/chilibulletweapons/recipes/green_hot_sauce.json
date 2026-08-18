@@ -1,10 +1,10 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "chilibulletweapons:hot_sauce",
+  "group": "chilibulletweapons:green_hot_sauce",
   "key": {
     "c": {
-      "tag": "chilibulletweapons:foods/chili_peppers/red"
+      "item": "chilibulletweapons:curved_green_chili"
     },
     "g": {
       "item": "minecraft:glass_bottle"
@@ -20,7 +20,7 @@
   ],
   "result": {
     "count": 3,
-    "item": "chilibulletweapons:hot_sauce"
+    "item": "chilibulletweapons:green_hot_sauce"
   },
   "show_notification": true
 }

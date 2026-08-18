@@ -1,6 +1,7 @@
 {
   "values": [
-    "#chilibulletweapons:foods/chili_pepper",
-    "chilibulletweapons:hot_sauce"
+    "#chilibulletweapons:foods/chili_peppers",
+    "chilibulletweapons:hot_sauce",
+    "chilibulletweapons:green_hot_sauce"
   ]
 }

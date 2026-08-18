@@ -8,47 +8,41 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "chilibulletweapons:chili_pepper",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": {
+              "max": "5",
+              "min": "0"
+            }
+          }
+        }
+      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "chilibulletweapons:chili_pepper",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "age": "7"
-              }
-            }
-          ],
-          "name": "chilibulletweapons:bullet_chili"
+          "name": "chilibulletweapons:chili_seeds"
         }
       ],
       "rolls": 1.0
     },
     {
       "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "chilibulletweapons:chili_pepper",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "6"
+          }
+        }
+      ],
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "block": "chilibulletweapons:chili_pepper",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "age": "7"
-                  }
-                }
-              ],
-              "name": "chilibulletweapons:curved_chili"
-            },
-            {
-              "type": "minecraft:item",
-              "name": "chilibulletweapons:chili_seeds"
-            }
-          ]
+          "type": "minecraft:item",
+          "name": "chilibulletweapons:curved_green_chili"
         }
       ],
       "rolls": 1.0
@@ -67,6 +61,44 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "chilibulletweapons:curved_chili"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "chilibulletweapons:chili_pepper",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "7"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "chilibulletweapons:bullet_chili"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "chilibulletweapons:chili_pepper",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "6"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
           "functions": [
             {
               "enchantment": "minecraft:fortune",
@@ -78,7 +110,7 @@
               }
             }
           ],
-          "name": "chilibulletweapons:bullet_chili"
+          "name": "chilibulletweapons:curved_green_chili"
         }
       ],
       "rolls": 1.0
@@ -109,6 +141,36 @@
             }
           ],
           "name": "chilibulletweapons:curved_chili"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "chilibulletweapons:chili_pepper",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "7"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantment": "minecraft:fortune",
+              "formula": "minecraft:binomial_with_bonus_count",
+              "function": "minecraft:apply_bonus",
+              "parameters": {
+                "extra": 2,
+                "probability": 0.5714286
+              }
+            }
+          ],
+          "name": "chilibulletweapons:bullet_chili"
         }
       ],
       "rolls": 1.0

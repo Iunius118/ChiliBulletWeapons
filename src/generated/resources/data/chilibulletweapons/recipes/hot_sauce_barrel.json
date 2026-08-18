@@ -4,7 +4,7 @@
   "group": "chilibulletweapons:hot_sauce_barrel",
   "key": {
     "c": {
-      "tag": "chilibulletweapons:foods/chili_pepper"
+      "tag": "chilibulletweapons:foods/chili_peppers/red"
     },
     "w": {
       "item": "minecraft:water_bucket"

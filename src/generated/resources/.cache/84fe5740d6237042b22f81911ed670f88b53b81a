@@ -1,6 +1,9 @@
-// 1.20.1	2024-05-12T21:29:06.9164844	Tags for minecraft:item mod id chilibulletweapons
-d1b789eb96a6d7c03609096352ea6643a8514e4f data/chilibulletweapons/tags/items/foods/chili_pepper.json
-2822c86ed6ca7b16a0c6659e8c957cc84d4c5073 data/chilibulletweapons/tags/items/foods/chili_seasoning.json
+// 1.20.1	2026-08-18T19:31:51.6373474	Tags for minecraft:item mod id chilibulletweapons
+4573191384784b61213c8496b2004b8435187a44 data/chilibulletweapons/tags/items/chili_biomass.json
+c743c46a02c2aad819a8162e30ccd2b6d12ce08e data/chilibulletweapons/tags/items/foods/chili_peppers.json
+e12f26c550300371ea4dfd5e0af7c3588c29ed13 data/chilibulletweapons/tags/items/foods/chili_peppers/green.json
+d1b789eb96a6d7c03609096352ea6643a8514e4f data/chilibulletweapons/tags/items/foods/chili_peppers/red.json
+e05c986b3501fb76dd2771f3effb0156f083a929 data/chilibulletweapons/tags/items/foods/chili_seasoning.json
 bc229f680fa773a41269c1569f5a700f669eb8e5 data/chilibulletweapons/tags/items/foods/cooked_fish.json
 cd4460e5e3a22d6e78dd48c3af239f5ccc03fc9c data/chilibulletweapons/tags/items/foods/cooked_meat.json
 8718e570ff3dc5081466f4f497c25027ad82325e data/forge/tags/items/crops.json

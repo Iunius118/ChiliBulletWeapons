@@ -1,13 +1,10 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "chilibulletweapons:hot_sauce",
+  "group": "chilibulletweapons:pickled_green_chili",
   "key": {
     "c": {
-      "tag": "chilibulletweapons:foods/chili_peppers/red"
-    },
-    "g": {
-      "item": "minecraft:glass_bottle"
+      "item": "chilibulletweapons:curved_green_chili"
     },
     "w": {
       "item": "minecraft:water_bucket"
@@ -16,11 +13,11 @@
   "pattern": [
     " w ",
     "ccc",
-    "ggg"
+    "ccc"
   ],
   "result": {
-    "count": 3,
-    "item": "chilibulletweapons:hot_sauce"
+    "count": 6,
+    "item": "chilibulletweapons:pickled_green_chili"
   },
   "show_notification": true
 }
