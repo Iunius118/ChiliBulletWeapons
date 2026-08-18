@@ -15,6 +15,7 @@
   - `chilibulletweapons:foods/chili_peppers/red`.
   - `chilibulletweapons:foods/chili_peppers/green`.
   - `chilibulletweapons:chili_biomass`.
+- Add critical hit to chili bullet. It has a 10% chance of occurring and dealing 22 damage.
 
 ### Changed
 - Change creative mode tab icon for this mod.

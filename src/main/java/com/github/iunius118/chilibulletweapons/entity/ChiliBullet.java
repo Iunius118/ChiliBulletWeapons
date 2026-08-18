@@ -2,6 +2,7 @@ package com.github.iunius118.chilibulletweapons.entity;
 
 import com.github.iunius118.chilibulletweapons.ChiliBulletWeapons;
 import com.github.iunius118.chilibulletweapons.config.ChiliBulletWeaponsConfig;
+import com.github.iunius118.chilibulletweapons.item.ChiliBulletGun;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -247,7 +248,30 @@ public class ChiliBullet extends Projectile {
         double speedSqr = this.getDeltaMovement().lengthSqr();
         int force = Mth.ceil(Mth.clamp(speedSqr * baseDamage, 0.0D, Integer.MAX_VALUE));
         long randomDamage = this.random.nextInt(force / 2 + 2);
-        return (int) Math.min((long) force + randomDamage, Integer.MAX_VALUE);
+        int damage = (int) Math.min((long) force + randomDamage, Integer.MAX_VALUE);
+
+        // Critical hit (10% chance)
+        boolean hasCritOccurred = this.random.nextFloat() < 0.1F;
+        damage = hasCritOccurred ? Math.max(getCritDamage(), damage) : damage;
+
+        /*
+        if (!this.level().isClientSide) {
+            ChiliBulletWeapons.LOGGER.info("ChiliBullet damage: {} (baseDmg={}, spdSq={}, force={}, randDmg={}, Crit={})",
+                    damage, baseDamage, speedSqr, force, randomDamage, hasCritOccurred);
+        }
+        //*/
+        return damage;
+    }
+
+    private int getCritDamage() {
+        if (baseDamage <= 0) {
+            return 0;
+        }
+
+        // The current version simulates the highest damage value (without shooter's movement) of the rifle
+        final double critDamageMultiplier = ChiliBulletGun.POWER_PIERCING * ChiliBulletGun.POWER_PIERCING;
+        long critForce = Mth.ceil(Mth.clamp(critDamageMultiplier * baseDamage, 0.0D, Integer.MAX_VALUE));
+        return (int) Math.min(critForce + critForce / 2 + 1, Integer.MAX_VALUE);
     }
 
     public double getBaseDamage() {
