@@ -14,6 +14,9 @@ public class ModItems {
     public static final Item BULLET_CHILI_SACK = new Item(new Item.Properties());
     public static final Item CURVED_CHILI_SACK = new Item(new Item.Properties());
 
+    // Fuel
+    public static final Item CHILI_BIOFUEL = new Item(new Item.Properties());
+
     // Foods
     public static final Item HOT_SAUCE = new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE));
     public static final Item HOT_SAUCE_BARREL = new BlockItem(ModBlocks.HOT_SAUCE_BARREL, new Item.Properties());

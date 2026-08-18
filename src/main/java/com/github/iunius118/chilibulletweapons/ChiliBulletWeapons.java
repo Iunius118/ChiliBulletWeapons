@@ -16,6 +16,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCon
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.LootTableLoadEvent;
+import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -47,6 +48,7 @@ public class ChiliBulletWeapons {
         }
 
         // Register forge event listeners
+        MinecraftForge.EVENT_BUS.addListener(this::onFurnaceFuelBurnTimeEvent);
         MinecraftForge.EVENT_BUS.addListener(this::onLootTableLoad);
     }
 
@@ -71,6 +73,12 @@ public class ChiliBulletWeapons {
         ComposterBlock.COMPOSTABLES.put(ModItems.CHILI_POTATO_SANDWICH, 0.85F);
         ComposterBlock.COMPOSTABLES.put(ModItems.HALF_CHILI_POTATO_SANDWICH, 0.5F);
         ComposterBlock.COMPOSTABLES.put(ModItems.FRIED_CHILI_PEPPER, 0.3F);
+    }
+
+    private void onFurnaceFuelBurnTimeEvent(final FurnaceFuelBurnTimeEvent event) {
+        if (event.getItemStack().is(ModItems.CHILI_BIOFUEL)) {
+            event.setBurnTime(1600);
+        }
     }
 
     // 1.20.2 or earlier
