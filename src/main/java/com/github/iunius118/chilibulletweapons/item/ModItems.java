@@ -20,6 +20,8 @@ public class ModItems {
     // Foods
     public static final Item HOT_SAUCE = new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE));
     public static final Item HOT_SAUCE_BARREL = new BlockItem(ModBlocks.HOT_SAUCE_BARREL, new Item.Properties());
+    public static final Item GREEN_HOT_SAUCE = new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE));
+    public static final Item PICKLED_GREEN_CHILI = new Item(new Item.Properties().food(ModFoods.PICKLED_GREEN_CHILI));
     public static final Item CHILI_CHICKEN_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_CHICKEN_SANDWICH));
     public static final Item CHILI_FISH_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_FISH_SANDWICH));
     public static final Item CHILI_MEAT_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_MEAT_SANDWICH));
@@ -30,6 +32,8 @@ public class ModItems {
     public static final Item HALF_CHILI_POTATO_SANDWICH = new Item(new Item.Properties().food(ModFoods.HALF_CHILI_POTATO_SANDWICH));
     public static final Item PASTA_OIL_AND_CHILI = new BowlFoodItem(new Item.Properties().stacksTo(1).food(ModFoods.PASTA_OIL_AND_CHILI));
     public static final Item FRIED_CHILI_PEPPER = new Item(new Item.Properties().food(ModFoods.FRIED_CHILI_PEPPER));
+    public static final Item CHILI_CHOCOLATE = new Item(new Item.Properties().food(ModFoods.CHILI_CHOCOLATE));
+    public static final Item CHILI_CHOCOLATE_CHICKEN = new Item(new Item.Properties().food(ModFoods.CHILI_CHOCOLATE_CHICKEN));
 
     // Weapons
     public static final Item CHILI_ARROW = new ChiliArrowItem(new Item.Properties());
