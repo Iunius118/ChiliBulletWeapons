@@ -2,7 +2,7 @@
 
 [Chili Bullet Weapons](https://iunius118.github.io/ChiliBulletWeapons/)
 
-Version 1.5.0
+Version 1.6.0
 
 ## How to Get Started
 
@@ -36,12 +36,13 @@ Crafting:
 
 Chili pepper seeds can be planted on farmland and the crops will grow to stage eight.
 
-Chili peppers can be harvested from the crop in the final growth stage.
+Chili peppers can be harvested from the crop in the seventh or final growth stage.
 
 Items produced when crops are broken at each stage:
 
-- Stage 1-7 - 1x Chili Pepper Seeds (CBW)
-- Stage  8  - 1-3x Curved Chili Pepper and 1-3x Bullet-like Chili Pepper
+- Stage 1-6 - 1x Chili Pepper Seeds (CBW)
+- Stage  7  - 1-3x Curved Green Chili Pepper
+- Stage  8  - 1-3x Curved Chili Pepper
 
 If harvested with Fortune enchanted tool, the number of chili peppers dropped will increase.
 
@@ -73,17 +74,31 @@ Crafting:
 - 9x Dried Curved Chili Pepper <-> 1x Sack of Curved Chili Peppers
 - 9x Bullet-like Chili Pepper <-> 1x Sack of Bullet-like Chili Peppers
 
+### Chili Plant Biofuel
+
+Chili plant biofuel is a solid fuel made from biomass of chili pepper plants and can be used as fuel (1:20) in furnaces.
+
+Crafting (shaped recipe):
+
+    Chili Plant Biofuel
+    4x String of Curved Chili Peppers/Sack of Curved Chili Peppers (s)
+    | s | s |
+    | s | s |
+
 ### Composting
 
 The following items can be added to composters:
 
 - Chili Pepper Seeds (CBW)
+- Curved Green Chili Pepper
+- Bullet-like Chili Pepper
 - Curved Chili Pepper
 - Dried Curved Chili Pepper
-- Bullet-like Chili Pepper
+- Pickled Green Chili Pepper
 - Chili Potato Sandwich
 - Half-sized Chili Potato Sandwich
 - Fried Chili Pepper
+- Chili Chocolate
 
 ## Foods
 
@@ -101,21 +116,54 @@ Crafting (shaped recipe):
 
 Glass bottles will be returned when hot chili sauce is consumed.
 
+### Barrel of Hot Chili Sauce
+
 A barrel of hot chili sauce can be used to make many bottles of hot chili sauce at one time.
 
 Crafting (shaped recipe):
 
     Barrel of Hot Chili Sauce
-    1x Water Bucket (w), 6x (Dried) Curved Chili Pepper (c)
+    1x Water Bucket (w) and 6x (Dried) Curved Chili Pepper (c)
     |   | w |   |
     | c | c | c |
     | c | c | c |
 
     Hot Chili Sauce
-    1x Barrel of Hot Chili Sauce (#), 8x Glass Bottle (g) -> 8x Hot Chili Sauce
+    1x Barrel of Hot Chili Sauce (#) and 8x Glass Bottle (g) -> 8x Hot Chili Sauce
     | g | g | g |
     | g | # | g |
     | g | g | g |
+
+### Green Hot Chili Sauce
+
+Green hot chili sauce is a hot sauce made from curved green chili peppers and can be used to flavor food.
+
+Crafting (shaped recipe):
+
+    Green Hot Chili Sauce
+    1x Water Bucket (w), 3x Curved Green Chili Pepper (c), and 3x Glass Bottle (g) -> 3x Green Hot Chili Sauce
+    |   | w |   |
+    | c | c | c |
+    | g | g | g |
+
+Glass bottles will be returned when green hot chili sauce is consumed by crafting.
+
+Green hot chili sauce can be thrown by using it.
+It splashes on impact and applies Slowness IV and Blindness effects (0:02) to nearby entities.
+
+### Pickled Green Chili Pepper
+
+A pickled green chili pepper is a pickled curved green chili pepper that can be used as an ingredient or eaten directly.
+
+A pickled green chili pepper gives Absorption I effect (0:30) when eaten by the player.
+
+Crafting (shaped recipe):
+
+    Pickled Green Chili Pepper
+    1x Water Bucket (w) and 6x Curved Green Chili Pepper (c) -> 6x Pickled Green Chili Pepper
+    |   | w |   |
+    | c | c | c |
+    | c | c | c |
 
 ### Sandwiches
 
@@ -160,6 +208,22 @@ A fried chili pepper can be crafted from curved chili peppers and wheat and give
 Crafting (shapeless recipe):
 
 - 3x (Dried) Curved Chili Pepper + Wheat -> 3x Fried Chili Pepper
+
+### Chili Chocolate
+
+Chili Chocolate is chocolate flavored with chili peppers and gives Haste I effect (0:30) when eaten by the player.
+
+Crafting (shapeless recipe):
+
+- Dried Curved Chili Pepper + 3x Cocoa Beans -> 3x Chili Chocolate
+
+### Chicken with Chili Chocolate Sauce
+
+Chicken with chili chocolate sauce is chicken braised in sauce of chili chocolate.
+
+Crafting (shapeless recipe):
+
+- Cooked Chicken + Chili Chocolate -> Chicken with Chili Chocolate Sauce
 
 ## Weapons
 

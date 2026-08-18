@@ -3,6 +3,25 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+### Added
+- Curved Green Chili Pepper, harvestable from a chili pepper crop in the seventh growth stage.
+- Green Hot Chili Sauce.
+- Pickled Green Chili Pepper.
+- Chili Chocolate.
+- Chicken with Chili Chocolate Sauce.
+- Chili Plant Biofuel, usable as furnace fuel.
+- Item tags:
+  - `chilibulletweapons:foods/chili_peppers`.
+  - `chilibulletweapons:foods/chili_peppers/red`.
+  - `chilibulletweapons:foods/chili_peppers/green`.
+  - `chilibulletweapons:chili_biomass`.
+
+### Changed
+- Change creative mode tab icon for this mod.
+- Update compostable items to include new items.
+
+### Removed
+- Item tag `chilibulletweapons:foods/chili_pepper`.
 
 ## [1.5.1]
 - Require Minecraft 1.20.1-1.20.4 and Forge.
