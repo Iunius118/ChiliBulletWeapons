@@ -87,6 +87,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_curved_chili_sack", has(ModItems.CURVED_CHILI_SACK))
                 .save(recipeOutput, getItemId(ModItems.DRIED_CURVED_CHILI) + "_from_sack");
 
+
+        /* Fuel */
+        // Chili Plant Biofuel
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CHILI_BIOFUEL)
+                .group(getItemId(ModItems.CHILI_BIOFUEL).toString())
+                .pattern("cc")
+                .pattern("cc")
+                .define('c', ModItemTags.CHILI_BIOMASS)
+                .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
+                .save(recipeOutput, getItemId(ModItems.CHILI_BIOFUEL));
+
         /* Foods */
         // Hot sauce
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.HOT_SAUCE, 3)
@@ -95,7 +106,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("ccc")
                 .pattern("ggg")
                 .define('w', Items.WATER_BUCKET)
-                .define('c', ModItemTags.FOODS_CHILI_PEPPER)
+                .define('c', ModItemTags.FOODS_RED_CHILI_PEPPER)
                 .define('g', Items.GLASS_BOTTLE)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
                 .save(recipeOutput, getItemId(ModItems.HOT_SAUCE));
@@ -116,9 +127,32 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("ccc")
                 .pattern("ccc")
                 .define('w', Items.WATER_BUCKET)
-                .define('c', ModItemTags.FOODS_CHILI_PEPPER)
+                .define('c', ModItemTags.FOODS_RED_CHILI_PEPPER)
                 .unlockedBy("has_hot_sauce", has(ModItems.HOT_SAUCE))
                 .save(recipeOutput, getItemId(ModItems.HOT_SAUCE_BARREL));
+
+        // Green chili sauce
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.GREEN_HOT_SAUCE, 3)
+                .group(getItemId(ModItems.GREEN_HOT_SAUCE).toString())
+                .pattern(" w ")
+                .pattern("ccc")
+                .pattern("ggg")
+                .define('w', Items.WATER_BUCKET)
+                .define('c', ModItems.CURVED_GREEN_CHILI)
+                .define('g', Items.GLASS_BOTTLE)
+                .unlockedBy("has_curved_chili", has(ModItems.CURVED_GREEN_CHILI))
+                .save(recipeOutput, getItemId(ModItems.GREEN_HOT_SAUCE));
+
+        // Picked green chili pepper
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.PICKLED_GREEN_CHILI, 6)
+                .group(getItemId(ModItems.PICKLED_GREEN_CHILI).toString())
+                .pattern(" w ")
+                .pattern("ccc")
+                .pattern("ccc")
+                .define('w', Items.WATER_BUCKET)
+                .define('c', ModItems.CURVED_GREEN_CHILI)
+                .unlockedBy("has_hot_sauce", has(ModItems.CURVED_GREEN_CHILI))
+                .save(recipeOutput, getItemId(ModItems.PICKLED_GREEN_CHILI));
 
         // Sandwiches
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.CHILI_CHICKEN_SANDWICH, 2)
@@ -184,7 +218,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern(" c ")
                 .pattern("www")
                 .pattern(" b ")
-                .define('c', ModItemTags.FOODS_CHILI_PEPPER)
+                .define('c', ModItemTags.FOODS_CHILI_PEPPERS)
                 .define('w', Tags.Items.CROPS_WHEAT)
                 .define('b', Items.BOWL)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
@@ -193,12 +227,30 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         // Fried chili pepper
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.FRIED_CHILI_PEPPER, 3)
                 .group(getItemId(ModItems.FRIED_CHILI_PEPPER).toString())
-                .requires(ModItemTags.FOODS_CHILI_PEPPER)
-                .requires(ModItemTags.FOODS_CHILI_PEPPER)
-                .requires(ModItemTags.FOODS_CHILI_PEPPER)
+                .requires(ModItemTags.FOODS_CHILI_PEPPERS)
+                .requires(ModItemTags.FOODS_CHILI_PEPPERS)
+                .requires(ModItemTags.FOODS_CHILI_PEPPERS)
                 .requires(Items.WHEAT)
                 .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
                 .save(recipeOutput, getItemId(ModItems.FRIED_CHILI_PEPPER));
+
+        // Chili Chocolate
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.CHILI_CHOCOLATE, 3)
+                .group(getItemId(ModItems.CHILI_CHOCOLATE).toString())
+                .requires(ModItems.DRIED_CURVED_CHILI)
+                .requires(Items.COCOA_BEANS)
+                .requires(Items.COCOA_BEANS)
+                .requires(Items.COCOA_BEANS)
+                .unlockedBy("has_curved_chili", has(ModItems.CURVED_CHILI))
+                .save(recipeOutput, getItemId(ModItems.CHILI_CHOCOLATE));
+
+        // Chicken with Chili Chocolate Sauce
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.CHILI_CHOCOLATE_CHICKEN)
+                .group(getItemId(ModItems.CHILI_CHOCOLATE_CHICKEN).toString())
+                .requires(Items.COOKED_CHICKEN)
+                .requires(ModItems.CHILI_CHOCOLATE)
+                .unlockedBy("has_chili_chocolate", has(ModItems.CHILI_CHOCOLATE))
+                .save(recipeOutput, getItemId(ModItems.CHILI_CHOCOLATE_CHICKEN));
 
         /* Weapons */
         // Arrow
