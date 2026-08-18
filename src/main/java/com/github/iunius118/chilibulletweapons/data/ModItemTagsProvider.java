@@ -25,10 +25,13 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ModItemTags.FORGE_SEEDS).addTag(ModItemTags.FORGE_SEEDS_CHILI);
         tag(ModItemTags.FORGE_SEEDS_CHILI).add(ModItems.CHILI_SEEDS);
 
-        tag(ModItemTags.FOODS_CHILI_PEPPER).add(ModItems.CURVED_CHILI, ModItems.DRIED_CURVED_CHILI);
-        tag(ModItemTags.FOODS_CHILI_SEASONING).addTag(ModItemTags.FOODS_CHILI_PEPPER).add(ModItems.HOT_SAUCE);
+        tag(ModItemTags.FOODS_RED_CHILI_PEPPER).add(ModItems.CURVED_CHILI, ModItems.DRIED_CURVED_CHILI);
+        tag(ModItemTags.FOODS_GREEN_CHILI_PEPPER).add(ModItems.CURVED_GREEN_CHILI, ModItems.PICKLED_GREEN_CHILI);
+        tag(ModItemTags.FOODS_CHILI_PEPPERS).addTag(ModItemTags.FOODS_RED_CHILI_PEPPER).addTag(ModItemTags.FOODS_GREEN_CHILI_PEPPER);
+        tag(ModItemTags.FOODS_CHILI_SEASONING).addTag(ModItemTags.FOODS_CHILI_PEPPERS).add(ModItems.HOT_SAUCE, ModItems.GREEN_HOT_SAUCE);
         tag(ModItemTags.FOODS_COOKED_FISH).add(Items.COOKED_COD, Items.COOKED_SALMON);
         tag(ModItemTags.FOODS_COOKED_MEAT).add(Items.COOKED_BEEF, Items.COOKED_MUTTON, Items.COOKED_PORKCHOP, Items.COOKED_RABBIT);
+        tag(ModItemTags.CHILI_BIOMASS).add(ModItems.CURVED_CHILI_STRING, ModItems.CURVED_CHILI_SACK, ModItems.BULLET_CHILI_SACK);
 
         tag(ItemTags.ARROWS).add(ModItems.CHILI_ARROW);
     }

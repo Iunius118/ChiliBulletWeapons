@@ -12,10 +12,13 @@ public class ModItemTags {
     public static final TagKey<Item> FORGE_SEEDS = makeForgeTag("seeds");
     public static final TagKey<Item> FORGE_SEEDS_CHILI = makeForgeTag("seeds/chili");
 
-    public static final TagKey<Item> FOODS_CHILI_PEPPER = makeModTag("foods/chili_pepper");
+    public static final TagKey<Item> FOODS_CHILI_PEPPERS = makeModTag("foods/chili_peppers");
+    public static final TagKey<Item> FOODS_RED_CHILI_PEPPER = makeModTag("foods/chili_peppers/red");
+    public static final TagKey<Item> FOODS_GREEN_CHILI_PEPPER = makeModTag("foods/chili_peppers/green");
     public static final TagKey<Item> FOODS_CHILI_SEASONING = makeModTag("foods/chili_seasoning");
     public static final TagKey<Item> FOODS_COOKED_FISH = makeModTag("foods/cooked_fish");
     public static final TagKey<Item> FOODS_COOKED_MEAT = makeModTag("foods/cooked_meat");
+    public static final TagKey<Item> CHILI_BIOMASS = makeModTag("chili_biomass");
 
     private static TagKey<Item> makeModTag(String id) {
         return ItemTags.create(ChiliBulletWeapons.makeId(id));
