@@ -4,6 +4,7 @@
   "package": "com.github.iunius118.chilibulletweapons.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "LootItemBlockStatePropertyConditionBuilderAccessor",
     "MixinCrossbowItem"
   ],
   "refmap": "chilibulletweapons.mixins.refmap.json"

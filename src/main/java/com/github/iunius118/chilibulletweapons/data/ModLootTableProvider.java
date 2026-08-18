@@ -1,25 +1,25 @@
 package com.github.iunius118.chilibulletweapons.data;
 
+import com.github.iunius118.chilibulletweapons.block.ChiliPepperCrop;
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
+import com.github.iunius118.chilibulletweapons.mixin.LootItemBlockStatePropertyConditionBuilderAccessor;
 import com.google.common.collect.ImmutableList;
+import com.google.gson.JsonObject;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.packs.VanillaLootTableProvider;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import java.util.List;
@@ -50,19 +50,51 @@ public class ModLootTableProvider extends LootTableProvider {
         }
 
         private LootTable.Builder createChiliPepperCropDrops() {
-            Block block = ModBlocks.CHILI_PEPPER;
-            Item bulletChili = ModItems.BULLET_CHILI;
-            Item curvedChili = ModItems.CURVED_CHILI;
-            Item chiliSeeds = ModItems.CHILI_SEEDS;
-            LootItemCondition.Builder conditionBuilder = LootItemBlockStatePropertyCondition
-                    .hasBlockStateProperties(ModBlocks.CHILI_PEPPER)
-                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 7));
-            LootTable.Builder lootTableBuilder = LootTable.lootTable()
-                    .withPool(LootPool.lootPool().add(LootItem.lootTableItem(bulletChili).when(conditionBuilder)))
-                    .withPool(LootPool.lootPool().add(LootItem.lootTableItem(curvedChili).when(conditionBuilder).otherwise(LootItem.lootTableItem(chiliSeeds))))
-                    .withPool(LootPool.lootPool().when(conditionBuilder).add(LootItem.lootTableItem(bulletChili).apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 2))))
-                    .withPool(LootPool.lootPool().when(conditionBuilder).add(LootItem.lootTableItem(curvedChili).apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 2))));
-            return this.applyExplosionDecay(block, lootTableBuilder);
+            // Hack to use RangedMatcher to specify block state of ChiliPepperCrop.AGE
+            var chiliSeedCondition = new LootItemBlockStatePropertyCondition.Builder(ModBlocks.CHILI_PEPPER);
+            // Use mixin to set properties of LootItemBlockStatePropertyCondition.Builder for chili seeds condition
+            var builderAccessor = (LootItemBlockStatePropertyConditionBuilderAccessor) chiliSeedCondition;
+            builderAccessor.setProperties(getChiliPepperOutOfHarvestAgePredicate());
+
+            var greenChiliCondition = new LootItemBlockStatePropertyCondition.Builder(ModBlocks.CHILI_PEPPER)
+                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ChiliPepperCrop.AGE,
+                            ChiliPepperCrop.GREEN_CHILI_AGE));
+            var matureChiliCondition = new LootItemBlockStatePropertyCondition.Builder(ModBlocks.CHILI_PEPPER)
+                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(ChiliPepperCrop.AGE,
+                            ChiliPepperCrop.MAX_AGE));
+
+            // Add drops for each age of chili pepper crop
+            var lootTableBuilder = LootTable.lootTable()
+                    .withPool(LootPool.lootPool().when(chiliSeedCondition)
+                            .add(LootItem.lootTableItem(ModItems.CHILI_SEEDS)))
+                    .withPool(LootPool.lootPool().when(greenChiliCondition)
+                            .add(LootItem.lootTableItem(ModItems.CURVED_GREEN_CHILI)))
+                    .withPool(LootPool.lootPool().when(matureChiliCondition)
+                            .add(LootItem.lootTableItem(ModItems.CURVED_CHILI)))
+                    .withPool(LootPool.lootPool().when(matureChiliCondition)
+                            .add(LootItem.lootTableItem(ModItems.BULLET_CHILI)))
+                    // Add bonus for fortune enchantment
+                    .withPool(LootPool.lootPool().when(greenChiliCondition)
+                            .add(LootItem.lootTableItem(ModItems.CURVED_GREEN_CHILI)
+                                    .apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 2))))
+                    .withPool(LootPool.lootPool().when(matureChiliCondition)
+                            .add(LootItem.lootTableItem(ModItems.CURVED_CHILI)
+                                    .apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 2))))
+                    .withPool(LootPool.lootPool().when(matureChiliCondition)
+                            .add(LootItem.lootTableItem(ModItems.BULLET_CHILI)
+                                    .apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 2))));
+            return this.applyExplosionDecay(ModBlocks.CHILI_PEPPER, lootTableBuilder);
+        }
+
+        private StatePropertiesPredicate getChiliPepperOutOfHarvestAgePredicate() {
+            var rangeJson = new JsonObject();
+            rangeJson.addProperty("min", "0");
+            rangeJson.addProperty("max", String.valueOf(ChiliPepperCrop.GREEN_CHILI_AGE - 1));
+
+            var ageJson = new JsonObject();
+            ageJson.add(ChiliPepperCrop.AGE.getName(), rangeJson);
+
+            return StatePropertiesPredicate.fromJson(ageJson);
         }
 
         @Override

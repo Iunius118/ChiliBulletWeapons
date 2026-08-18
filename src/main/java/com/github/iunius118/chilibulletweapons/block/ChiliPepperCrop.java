@@ -32,7 +32,7 @@ import java.util.List;
 
 public class ChiliPepperCrop extends CropBlock {
     public static final int REPRODUCTION_AGE = 3;
-
+    public static final int GREEN_CHILI_AGE = ChiliPepperCrop.MAX_AGE - 1;
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 3.0D, 16.0D),
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 7.0D, 16.0D),
@@ -58,7 +58,7 @@ public class ChiliPepperCrop extends CropBlock {
 
     @Override
     public InteractionResult use(BlockState blockState, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        boolean isHarvestable = (blockState.getValue(AGE) == ChiliPepperCrop.MAX_AGE);
+        boolean isHarvestable = (blockState.getValue(AGE) >= GREEN_CHILI_AGE);
         var itemStack = player.getItemInHand(hand);
 
         if (!isHarvestable && itemStack.is(Items.BONE_MEAL)) {
