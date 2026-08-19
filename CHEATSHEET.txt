@@ -74,6 +74,39 @@ Crafting:
 - 9x Dried Curved Chili Pepper <-> 1x Sack of Curved Chili Peppers
 - 9x Bullet-like Chili Pepper <-> 1x Sack of Bullet-like Chili Peppers
 
+### Potted Chili Peppers
+
+A potted chili pepper is a flower pot containing a chili pepper plant. It can be placed and used as a decorative block.
+
+There are three types of potted chili peppers:
+
+- Potted Flowering Chili Pepper
+- Potted Green Chili Pepper
+- Potted Red Chili Pepper
+
+Crafting (shaped recipe):
+
+    Potted Flowering Chili Pepper
+    1x Chili Pepper Seeds (CBW) (p) and 1x Flower Pot (#)
+    | p |
+    | # |
+
+    Potted Green Chili Pepper
+    1x Curved Green Chili Pepper (p) and 1x Flower Pot (#)
+    | p |
+    | # |
+
+    Potted Red Chili Pepper
+    1x Curved Chili Pepper (p) and 1x Flower Pot (#)
+    | p |
+    | # |
+
+Using bone meal on each type of placed potted chili pepper yields its corresponding item:
+
+- Potted Flowering Chili Pepper - 1x Chili Pepper Seeds (CBW)
+- Potted Green Chili Pepper - 1x Curved Green Chili Pepper
+- Potted Red Chili Pepper - 1x Curved Chili Pepper
+
 ### Chili Plant Biofuel
 
 Chili plant biofuel is a solid fuel made from biomass of chili pepper plants and can be used as fuel (1:20) in furnaces.
@@ -115,6 +148,9 @@ Crafting (shaped recipe):
     | g | g | g |
 
 Glass bottles will be returned when hot chili sauce is consumed.
+
+Hot chili sauce can be thrown by using it.
+It splashes on impact and applies Slowness IV and Blindness effects (0:02) to nearby entities.
 
 ### Barrel of Hot Chili Sauce
 
@@ -279,6 +315,8 @@ Chili bullet rifles are highly accurate, and bullets from them pass through the 
 
 Chili bullet shotguns are less accurate, and they can fire four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
 
+A chili bullet gun with custom name will have a reduced chance of durability reduction.
+
 #### Upgrading Guns
 
 Chili bullet guns can be upgraded by using upgrade items.
@@ -341,7 +379,25 @@ Below is a list of enchantments that guns have and their corresponding display n
 
 ### Chili Bullet Machine Gun
 
-A chili bullet machine gun is a gun for creative mode players and can only be obtained from the creative mode tab or command.
+A chili bullet machine gun is an automatic gun that shoots chili bullets to attack mobs at a distance.
+
+Crafting (shaped recipe):
+
+    Chili Bullet Machine Gun
+    2x Netherite Ingot (n), 1x Chili Bullet (b), and 1x Crimson Planks/Warped Planks (p)
+    | n |   |   |
+    |   | n |   |
+    |   | p | b |
+
+A chili bullet machine gun can resist fire and lava when dropped as an item.
+
+A chili bullet machine gun can be loaded with the first bullet by holding down the right mouse button, and then the right mouse button can be used to shoot until the inventory runs out of bullets.
+
+In survival mode, Unbreaking and Mending enchantments are highly recommended, as chili bullet machine gun is not durable!
+
+A chili bullet machine gun with custom name will have a reduced chance of durability reduction.
+
+Chili bullet machine gun cannot be upgraded with any upgrade items.
 
 ## Configuration
 
