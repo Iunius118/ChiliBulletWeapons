@@ -27,6 +27,9 @@ public class ModRegistries {
 
         blockRegister.register("chili_pepper", () -> ModBlocks.CHILI_PEPPER);
         blockRegister.register("curved_chili_string", () -> ModBlocks.CURVED_CHILI_STRING);
+        blockRegister.register("potted_chili_pepper_flowering", () -> ModBlocks.POTTED_CHILI_PEPPER_FLOWERING);
+        blockRegister.register("potted_chili_pepper_green", () -> ModBlocks.POTTED_CHILI_PEPPER_GREEN);
+        blockRegister.register("potted_chili_pepper_red", () -> ModBlocks.POTTED_CHILI_PEPPER_RED);
         blockRegister.register("hot_sauce_barrel", () -> ModBlocks.HOT_SAUCE_BARREL);
 
         blockRegister.register(modEventBus);
@@ -44,6 +47,9 @@ public class ModRegistries {
         itemRegister.register("dried_curved_chili", () -> ModItems.DRIED_CURVED_CHILI);
         itemRegister.register("bullet_chili_sack", () -> ModItems.BULLET_CHILI_SACK);
         itemRegister.register("curved_chili_sack", () -> ModItems.CURVED_CHILI_SACK);
+        itemRegister.register("potted_chili_pepper_flowering", () -> ModItems.POTTED_CHILI_PEPPER_FLOWERING);
+        itemRegister.register("potted_chili_pepper_green", () -> ModItems.POTTED_CHILI_PEPPER_GREEN);
+        itemRegister.register("potted_chili_pepper_red", () -> ModItems.POTTED_CHILI_PEPPER_RED);
         // Fuel
         itemRegister.register("chili_biofuel", () -> ModItems.CHILI_BIOFUEL);
         // Foods

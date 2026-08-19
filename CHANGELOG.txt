@@ -10,6 +10,9 @@
 - Chili Chocolate.
 - Chicken with Chili Chocolate Sauce.
 - Chili Plant Biofuel, usable as furnace fuel.
+- Potted Flowering Chili Pepper.
+- Potted Green Chili Pepper.
+- Potted Red Chili Pepper.
 - Item tags:
   - `chilibulletweapons:foods/chili_peppers`.
   - `chilibulletweapons:foods/chili_peppers/red`.

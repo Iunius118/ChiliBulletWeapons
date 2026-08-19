@@ -21,6 +21,9 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.DRIED_CURVED_CHILI);
                 output.accept(ModItems.BULLET_CHILI_SACK);
                 output.accept(ModItems.CURVED_CHILI_SACK);
+                output.accept(ModItems.POTTED_CHILI_PEPPER_FLOWERING);
+                output.accept(ModItems.POTTED_CHILI_PEPPER_GREEN);
+                output.accept(ModItems.POTTED_CHILI_PEPPER_RED);
 
                 // Fuel
                 output.accept(ModItems.CHILI_BIOFUEL);

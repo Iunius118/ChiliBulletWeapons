@@ -33,6 +33,9 @@ public class ModLanguageProvider {
             // Block
             add(ModBlocks.CHILI_PEPPER, "Chili Pepper Crops (CBW)");
             add(ModBlocks.CURVED_CHILI_STRING, "String of Curved Chili Peppers");
+            add(ModBlocks.POTTED_CHILI_PEPPER_FLOWERING, "Potted Flowering Chili Pepper");
+            add(ModBlocks.POTTED_CHILI_PEPPER_GREEN, "Potted Green Chili Pepper");
+            add(ModBlocks.POTTED_CHILI_PEPPER_RED, "Potted Red Chili Pepper");
             add(ModBlocks.HOT_SAUCE_BARREL, "Barrel of Hot Chili Sauce");
 
             // Item.Plants

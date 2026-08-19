@@ -13,6 +13,9 @@ public class ModItems {
     public static final Item DRIED_CURVED_CHILI = new Item(new Item.Properties());
     public static final Item BULLET_CHILI_SACK = new Item(new Item.Properties());
     public static final Item CURVED_CHILI_SACK = new Item(new Item.Properties());
+    public static final Item POTTED_CHILI_PEPPER_FLOWERING = new BlockItem(ModBlocks.POTTED_CHILI_PEPPER_FLOWERING, new Item.Properties());
+    public static final Item POTTED_CHILI_PEPPER_GREEN = new BlockItem(ModBlocks.POTTED_CHILI_PEPPER_GREEN, new Item.Properties());
+    public static final Item POTTED_CHILI_PEPPER_RED = new BlockItem(ModBlocks.POTTED_CHILI_PEPPER_RED, new Item.Properties());
 
     // Fuel
     public static final Item CHILI_BIOFUEL = new Item(new Item.Properties());
