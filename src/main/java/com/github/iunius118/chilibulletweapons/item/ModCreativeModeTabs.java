@@ -54,6 +54,7 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.UPGRADE_GUN_BAYONET);
                 output.accept(ModItems.UPGRADE_GUN_BARREL);
                 output.accept(ModItems.UPGRADE_GUN_MECHANISM);
+                output.accept(ModItems.MACHINE_GUN);
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING));
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.MULTISHOT));
                 // output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.MULTISHOT)); // For debug

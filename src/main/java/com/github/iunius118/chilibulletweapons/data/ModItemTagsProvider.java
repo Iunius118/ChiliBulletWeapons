@@ -32,6 +32,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ModItemTags.FOODS_COOKED_FISH).add(Items.COOKED_COD, Items.COOKED_SALMON);
         tag(ModItemTags.FOODS_COOKED_MEAT).add(Items.COOKED_BEEF, Items.COOKED_MUTTON, Items.COOKED_PORKCHOP, Items.COOKED_RABBIT);
         tag(ModItemTags.CHILI_BIOMASS).add(ModItems.CURVED_CHILI_STRING, ModItems.CURVED_CHILI_SACK, ModItems.BULLET_CHILI_SACK);
+        tag(ModItemTags.NON_FLAMMABLE_PLANKS).add(Items.CRIMSON_PLANKS, Items.WARPED_PLANKS);
 
         tag(ItemTags.ARROWS).add(ModItems.CHILI_ARROW);
     }

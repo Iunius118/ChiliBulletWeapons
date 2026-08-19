@@ -19,6 +19,7 @@ public class ModItemTags {
     public static final TagKey<Item> FOODS_COOKED_FISH = makeModTag("foods/cooked_fish");
     public static final TagKey<Item> FOODS_COOKED_MEAT = makeModTag("foods/cooked_meat");
     public static final TagKey<Item> CHILI_BIOMASS = makeModTag("chili_biomass");
+    public static final TagKey<Item> NON_FLAMMABLE_PLANKS = makeModTag("non_flammable_planks");
 
     private static TagKey<Item> makeModTag(String id) {
         return ItemTags.create(ChiliBulletWeapons.makeId(id));

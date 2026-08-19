@@ -352,6 +352,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModItems.GUN)
                 .unlockedBy("has_gun", has(ModItems.GUN))
                 .save(recipeOutput, getItemId(ModItems.BAYONETED_GUN));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.MACHINE_GUN)
+                .group(getItemId(ModItems.MACHINE_GUN).toString())
+                .pattern("n  ")
+                .pattern(" n ")
+                .pattern(" pb")
+                .define('n', Tags.Items.INGOTS_NETHERITE)
+                .define('p', ModItemTags.NON_FLAMMABLE_PLANKS)
+                .define('b', ModItems.CHILI_BULLET)
+                .unlockedBy("has_gun", has(ModItems.GUN))
+                .save(recipeOutput, getItemId(ModItems.MACHINE_GUN));
     }
 
     private ResourceLocation getItemId(Item item) {
