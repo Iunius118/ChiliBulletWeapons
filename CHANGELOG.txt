@@ -22,6 +22,7 @@
 
 ### Changed
 - Hot chili sauces can now be thrown like splash potions, causing Slowness and Blindness for 2 seconds.
+- Guns with custom names will now have reduced chance of durability reduction.
 - Change creative mode tab icon for this mod.
 - Update compostable items to include new items.
 

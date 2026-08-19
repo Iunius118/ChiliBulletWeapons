@@ -31,7 +31,7 @@ public class ChiliBulletGunBayoneted extends ChiliBulletGun {
     @Override
     public boolean hurtEnemy(ItemStack itemStack, LivingEntity target, LivingEntity attacker) {
         // Wear out item with melee attacks.
-        itemStack.hurtAndBreak(1, attacker, e -> e.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+        this.hurtAndBreak(itemStack, 1, attacker, e -> e.broadcastBreakEvent(EquipmentSlot.MAINHAND));
         return true;
     }
 

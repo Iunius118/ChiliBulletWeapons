@@ -26,6 +26,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class ChiliBulletGun extends CrossbowItem {
@@ -127,7 +128,17 @@ public class ChiliBulletGun extends CrossbowItem {
         }
 
         // Wear out gun
-        itemStack.hurtAndBreak(bullets, livingEntity, e -> e.broadcastBreakEvent(hand));
+        hurtAndBreak(itemStack, bullets, livingEntity, e -> e.broadcastBreakEvent(hand));
+    }
+
+    public void hurtAndBreak(ItemStack stack, int amount, LivingEntity entityLiving, Consumer<LivingEntity> consumer) {
+        if (stack.hasCustomHoverName() && entityLiving.getRandom().nextInt(2) == 0) {
+            // If the item has a custom name, there is a 50% chance to not wear out the gun
+            return;
+        }
+
+        // Wear out gun
+        stack.hurtAndBreak(amount, entityLiving, consumer);
     }
 
     private void addSmokeParticle(Level level, ChiliBullet bullet) {
