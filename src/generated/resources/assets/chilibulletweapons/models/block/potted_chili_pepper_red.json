@@ -1,0 +1,6 @@
+{
+  "parent": "chilibulletweapons:block/chili_pepper_pot",
+  "textures": {
+    "plant": "chilibulletweapons:block/potted_chili_pepper_red"
+  }
+}

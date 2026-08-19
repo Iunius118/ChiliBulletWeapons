@@ -1,4 +1,4 @@
-// 1.20.1	2026-08-18T20:45:56.3215271	Item Models: chilibulletweapons
+// 1.20.1	2026-08-19T19:44:44.4926159	Item Models: chilibulletweapons
 a3f34e7c906ece5045655eaf4982e13d29ab32b3 assets/chilibulletweapons/models/item/bayoneted_gun.json
 04beba56d579567ec03732bb1a44732542ba09f7 assets/chilibulletweapons/models/item/bullet_chili.json
 586781a63776d5dcdfea55f65c041b2727a0dc06 assets/chilibulletweapons/models/item/bullet_chili_sack.json
@@ -34,6 +34,9 @@ c280df9418b31cfb882e9a815978c992e2f5e5bd assets/chilibulletweapons/models/item/p
 ebed399ec529640fa6f803d62f7dc5705eabb95c assets/chilibulletweapons/models/item/pistol_bayoneted.json
 0284b9cad618f4b724cbad0d34ca8c6b3b8bfbc8 assets/chilibulletweapons/models/item/pistol_bayoneted_loading.json
 b91d83551b5698267eee91a1ee1c54a200533304 assets/chilibulletweapons/models/item/pistol_loading.json
+ab786819c2b0d20326bc13b397b33c7a62e36e64 assets/chilibulletweapons/models/item/potted_chili_pepper_flowering.json
+bd221c5c5ccf829c8da2b49da84e9fc8665b88e6 assets/chilibulletweapons/models/item/potted_chili_pepper_green.json
+9d859e9460cbac0069cf28efb33361f29de8f8e8 assets/chilibulletweapons/models/item/potted_chili_pepper_red.json
 0611686a73378d0fa4364af1805d1a6eb85071c4 assets/chilibulletweapons/models/item/rifle.json
 f97278c97da01da2a0a5f46139b6c8ca860aecf7 assets/chilibulletweapons/models/item/rifle_bayoneted.json
 2adb068e3f4b4d616fe5da314caa6bf18758328a assets/chilibulletweapons/models/item/rifle_bayoneted_loading.json
