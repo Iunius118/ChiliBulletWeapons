@@ -18,9 +18,9 @@ public class ModItems {
     public static final Item CHILI_BIOFUEL = new Item(new Item.Properties());
 
     // Foods
-    public static final Item HOT_SAUCE = new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE));
+    public static final Item HOT_SAUCE = new HotSauce(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE), HotSauce.HOT_SAUCE_DURATION, HotSauce.RED_HOT_SAUCE_COLOR);
     public static final Item HOT_SAUCE_BARREL = new BlockItem(ModBlocks.HOT_SAUCE_BARREL, new Item.Properties());
-    public static final Item GREEN_HOT_SAUCE = new Item(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE));
+    public static final Item GREEN_HOT_SAUCE = new HotSauce(new Item.Properties().craftRemainder(Items.GLASS_BOTTLE), HotSauce.HOT_SAUCE_DURATION, HotSauce.GREEN_HOT_SAUCE_COLOR);
     public static final Item PICKLED_GREEN_CHILI = new Item(new Item.Properties().food(ModFoods.PICKLED_GREEN_CHILI));
     public static final Item CHILI_CHICKEN_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_CHICKEN_SANDWICH));
     public static final Item CHILI_FISH_SANDWICH = new Item(new Item.Properties().food(ModFoods.CHILI_FISH_SANDWICH));

@@ -18,6 +18,7 @@
 - Add critical hit to chili bullet. It has a 10% chance of occurring and dealing 22 damage.
 
 ### Changed
+- Hot chili sauces can now be thrown like splash potions, causing Slowness and Blindness for 2 seconds.
 - Change creative mode tab icon for this mod.
 - Update compostable items to include new items.
 
