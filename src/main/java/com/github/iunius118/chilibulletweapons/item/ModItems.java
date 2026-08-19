@@ -46,7 +46,7 @@ public class ModItems {
     public static final Item UPGRADE_GUN_MECHANISM = new UpgradeGunMechanism(new Item.Properties());
     public static final Item GUN = new ChiliBulletGun(new Item.Properties().stacksTo(1).durability(512));
     public static final Item BAYONETED_GUN = new ChiliBulletGunBayoneted(new Item.Properties().stacksTo(1).durability(512));
-    public static final Item MACHINE_GUN = new ChiliBulletMachineGun(new Item.Properties().stacksTo(1).durability(512).rarity(Rarity.RARE).fireResistant());
+    public static final Item MACHINE_GUN = new ChiliBulletMachineGun(new Item.Properties().stacksTo(1).durability(64).fireResistant());
 
     // Misc.
     public static final Item CAPSAICIN_POWDER = new Item(new Item.Properties());
