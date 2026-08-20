@@ -35,6 +35,11 @@ public class PottedChiliPepperBlock extends Block implements BonemealableBlock {
         return true;
     }
 
+    // isValidBonemealTarget for 1.20.4
+    public boolean m_7370_(LevelReader level, BlockPos pos, BlockState state) {
+        return true;
+    }
+
     @Override
     public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
         return true;
