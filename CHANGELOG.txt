@@ -3,6 +3,8 @@
 [Source](https://github.com/Iunius118/ChiliBulletWeapons).
 
 ## [Unreleased]
+
+## [1.6.0]
 ### Added
 - Curved Green Chili Pepper, harvestable from a chili pepper crop in the seventh growth stage.
 - Green Hot Chili Sauce.
