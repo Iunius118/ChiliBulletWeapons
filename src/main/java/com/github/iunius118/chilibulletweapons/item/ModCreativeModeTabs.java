@@ -50,29 +50,30 @@ public class ModCreativeModeTabs {
                 output.accept(ModItems.CHILI_ARROW);
                 output.accept(ModItems.CHILI_BULLET);
                 output.accept(ModItems.GUN);
+                output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING));
+                output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.MULTISHOT));
                 output.accept(ModItems.BAYONETED_GUN);
+                output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING));
+                output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.MULTISHOT));
+                output.accept(ModItems.MACHINE_GUN);
                 output.accept(ModItems.UPGRADE_GUN_BAYONET);
                 output.accept(ModItems.UPGRADE_GUN_BARREL);
                 output.accept(ModItems.UPGRADE_GUN_MECHANISM);
-                output.accept(ModItems.MACHINE_GUN);
-                output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING));
-                output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.MULTISHOT));
-                // output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.MULTISHOT)); // For debug
+                // Guns with extra enchantments for debug
+                //output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.MULTISHOT)); // For debug
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.QUICK_CHARGE));
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.QUICK_CHARGE));
                 output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));
-                // output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));  // For debug
-                output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING));
-                output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.MULTISHOT));
-                // output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING, Enchantments.MULTISHOT)); // For debug
+                //output.accept(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));  // For debug
+                //output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING, Enchantments.MULTISHOT)); // For debug
                 output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.QUICK_CHARGE));
                 output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING, Enchantments.QUICK_CHARGE));
                 output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));
-                // output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));  // For debug
-                output.accept(ChiliBulletMachineGun.enchant(ModItems.MACHINE_GUN, Enchantments.PIERCING));
+                //output.accept(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING, Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));  // For debug
+                output.accept(ChiliBulletMachineGun.enchant(ModItems.MACHINE_GUN, Enchantments.UNBREAKING, Enchantments.MENDING));
 
                 // Misc.
-                output.accept(ModItems.CAPSAICIN_POWDER);
+                //output.accept(ModItems.CAPSAICIN_POWDER);
             })
             .build();
 }

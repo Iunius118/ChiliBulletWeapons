@@ -27,6 +27,7 @@
 - Guns with custom names will now have reduced chance of durability reduction.
 - Change durability of chili bullet machine gun from 512 to 64.
 - Change creative mode tab icon for this mod.
+- Reorder items in mod creative mode tab.
 - Update compostable items to include new items.
 
 ### Removed
