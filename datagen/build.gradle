@@ -1,0 +1,60 @@
+plugins {
+    id 'multiloader-loader'
+    id 'net.neoforged.moddev.legacyforge'
+}
+
+base {
+    archivesName = "${mod_id}-${project.name}-forge-${minecraft_version}"
+}
+
+mixin {
+    add(sourceSets.main, "${mod_id}.refmap.json")
+
+    config("${mod_id}.mixins.json")
+    config("${mod_id}.forge.mixins.json")
+}
+
+legacyForge {
+    version = "${minecraft_version}-${forge_version}"
+
+    validateAccessTransformers = true
+
+    def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
+    if (at.exists()) {
+        accessTransformers = ['../common/src/main/resources/META-INF/accesstransformer.cfg']
+    }
+    parchment {
+        minecraftVersion = parchment_minecraft
+        mappingsVersion = parchment_version
+    }
+    runs {
+        data {
+            data()
+            ideName = "Datagen Forge Data"
+            gameDirectory = this.mkdir(this.file("runs/data"))
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('../common/src/generated/resources/').getAbsolutePath(), '--existing', file('../common/src/main/resources/').getAbsolutePath()
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+dependencies {
+    compileOnly project(":common")
+    annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
+}
+
+jar {
+    finalizedBy('reobfJar')
+    manifest.attributes([
+            "MixinConfigs": "${mod_id}.mixins.json,${mod_id}.forge.mixins.json"
+    ])
+}
+
+sourceSets.main.resources {
+    srcDir '../common/src/generated/resources'
+}
