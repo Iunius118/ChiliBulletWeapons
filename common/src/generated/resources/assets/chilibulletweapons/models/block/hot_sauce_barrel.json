@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "chilibulletweapons:block/hot_sauce_barrel_bottom",
+    "side": "chilibulletweapons:block/hot_sauce_barrel_side",
+    "top": "chilibulletweapons:block/hot_sauce_barrel_top"
+  }
+}

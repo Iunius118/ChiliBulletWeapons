@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "chilibulletweapons:chili_arrow",
+  "ingredients": [
+    {
+      "item": "minecraft:arrow"
+    },
+    {
+      "item": "chilibulletweapons:chili_bullet"
+    }
+  ],
+  "result": {
+    "item": "chilibulletweapons:chili_arrow"
+  }
+}

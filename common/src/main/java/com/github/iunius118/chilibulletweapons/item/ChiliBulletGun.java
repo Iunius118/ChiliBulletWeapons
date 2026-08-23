@@ -1,0 +1,315 @@
+package com.github.iunius118.chilibulletweapons.item;
+
+import com.github.iunius118.chilibulletweapons.CommonClass;
+import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
+import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+
+import java.util.Arrays;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+
+public class ChiliBulletGun extends CrossbowItem {
+    public static final Predicate<ItemStack> IS_CHILI_BULLET = itemStack -> itemStack.is(ModItems.CHILI_BULLET);
+    public static final ResourceLocation PROPERTY_LOADING = CommonClass.modLocation("loading");
+    public static final ResourceLocation PROPERTY_MULTISHOT = CommonClass.modLocation("multishot");
+    public static final ResourceLocation PROPERTY_PIERCING = CommonClass.modLocation("piercing");
+    public static final String TAG_LOADING = "Loading";
+    public static final String TAG_LOADED_BULLETS = "LoadedBullets";
+
+    public ChiliBulletGun(Properties properties) {
+        super(properties);
+    }
+
+    @Override
+    public Predicate<ItemStack> getAllSupportedProjectiles() {
+        return IS_CHILI_BULLET;
+    }
+
+    @Override
+    public Predicate<ItemStack> getSupportedHeldProjectiles() {
+        return getAllSupportedProjectiles();
+    }
+
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack itemStack = player.getItemInHand(hand);
+
+        if (isLoaded(itemStack) && !isLoading(itemStack)) {
+            // Shoot
+            shootProjectile(level, player, hand, itemStack);
+            setLoaded(itemStack, false);
+            setBullets(itemStack, 0);
+            return InteractionResultHolder.consume(itemStack);
+        } else if (!player.getProjectile(itemStack).isEmpty()) {
+            // Begin loading
+            if (!isLoading(itemStack)) {
+                openAction(level, player, itemStack);
+            }
+
+            player.startUsingItem(hand);
+            return InteractionResultHolder.consume(itemStack);
+        } else {
+            if (isLoading(itemStack)) {
+                // Close action without loading
+                closeAction(level, player, itemStack);
+            }
+
+            return InteractionResultHolder.fail(itemStack);
+        }
+    }
+
+    public void shootProjectile(Level level, LivingEntity livingEntity, InteractionHand hand, ItemStack itemStack) {
+        // Server side only
+        if (level.isClientSide) {
+            return;
+        }
+
+        final float shootingPower = getShootingPower(itemStack);
+        final int piercingLevel = getPiercingLevel(itemStack);
+        final int bullets = getBullets(itemStack);
+        // Constants.LOG.info("[CBGun] Try shooting ({} bullet(s))", bullets);
+
+        for (int i = 0; i < bullets; i++) {
+            float inaccuracy = getInaccuracy(itemStack);
+
+            if (i > 0 && getMultishotLevel(itemStack) != 0) {
+                // Multishot is less accurate after the second shot
+                inaccuracy += Constants.ChiliBulletGun.INACCURACY_MULTISHOT_CORRECTION;
+            }
+
+            // Shoot bullet entity
+            ChiliBullet bullet = new ChiliBullet(livingEntity, level);
+            bullet.shootFromRotation(livingEntity, shootingPower, inaccuracy);
+
+            if (piercingLevel > 0) {
+                bullet.setPierceLevel((byte) piercingLevel);
+            }
+
+            level.addFreshEntity(bullet);
+            // Add firing effects
+            addSmokeParticle(level, bullet);
+            level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(),
+                    ModSoundEvents.GUN_SHOOT, SoundSource.PLAYERS,
+                    1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+        }
+
+        // Wear out gun
+        hurtAndBreak(itemStack, bullets, livingEntity, e -> e.broadcastBreakEvent(hand));
+    }
+
+    public void hurtAndBreak(ItemStack stack, int amount, LivingEntity entityLiving, Consumer<LivingEntity> consumer) {
+        if (stack.hasCustomHoverName() && entityLiving.getRandom().nextInt(2) == 0) {
+            // If the item has a custom name, there is a 50% chance to not wear out the gun
+            return;
+        }
+
+        // Wear out gun
+        stack.hurtAndBreak(amount, entityLiving, consumer);
+    }
+
+    private void addSmokeParticle(Level level, ChiliBullet bullet) {
+        Vec3 pos = bullet.position().add(bullet.getDeltaMovement().normalize());
+        ((ServerLevel) level).sendParticles(ParticleTypes.SMOKE, pos.x, pos.y, pos.z, 0, 0D, 0D, 0D, 2D);
+    }
+
+    public void performShootingByNonPlayer(Level level, LivingEntity livingEntity, InteractionHand hand,
+                                           ItemStack itemStack) {
+        shootProjectile(level, livingEntity, hand, itemStack);
+        setLoaded(itemStack, false);
+        setBullets(itemStack, 0);
+    }
+
+    @Override
+    public void releaseUsing(ItemStack itemStack, Level level, LivingEntity livingEntity, int ticks) {
+        if ((itemStack.getUseDuration() - ticks) >= getReloadDuration(itemStack) && !isLoaded(itemStack)) {
+            // Ready to fire
+            setLoaded(itemStack, true);
+        }
+
+        /*
+        if (!level.isClientSide) {
+            Constants.LOG.info("[CBGun] Release {}/{}",
+                    itemStack.getUseDuration() - ticks, getReloadDuration(itemStack));
+        }
+        //*/
+    }
+
+    @Override
+    public void onUseTick(Level level, LivingEntity livingEntity, ItemStack itemStack, int ticks) {
+        int usingTicks = itemStack.getUseDuration() - ticks;
+
+        if (usingTicks == 0 && !isLoading(itemStack)) {
+            // For handled by non-player
+            openAction(level, livingEntity, itemStack);
+        }
+
+        // Server side only
+        if (level.isClientSide) {
+            return;
+        }
+
+        //Constants.LOG.info("[CBGun] Using {}/{}", usingTicks, getReloadDuration(itemStack));
+
+        if (usingTicks >= getReloadDuration(itemStack)
+                && isLoading(itemStack) && tryLoadProjectile(livingEntity, itemStack)) {
+            // Finish loading
+            closeAction(level, livingEntity, itemStack);
+            //Constants.LOG.info("[CBGun] loaded");
+        }
+    }
+
+    private void openAction(Level level, LivingEntity livingEntity, ItemStack itemStack) {
+        setLoading(itemStack, true);
+        level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(),
+                ModSoundEvents.GUN_ACTION_OPEN, SoundSource.PLAYERS,
+                1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+    }
+
+    private void closeAction(Level level, LivingEntity livingEntity, ItemStack itemStack) {
+        setLoading(itemStack, false);
+        level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(),
+                ModSoundEvents.GUN_ACTION_CLOSE, SoundSource.PLAYERS,
+                1.0F, 1.0F / (level.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
+    }
+
+    public int getUseDuration(ItemStack itemStack) {
+        return getReloadDuration(itemStack) + 3;
+    }
+
+    public boolean tryLoadProjectile(LivingEntity livingEntity, ItemStack itemStack) {
+        // Constants.LOG.info("[CBGun] Try loading");
+        // Apply Multishot enchantment
+        final int loadingBullets = (getMultishotLevel(itemStack) == 0) ?
+                Constants.ChiliBulletGun.CAPACITY_BASIC : Constants.ChiliBulletGun.CAPACITY_MULTISHOT;
+
+        if (livingEntity instanceof Player player && player.getAbilities().instabuild) {
+            // For creative mode player
+            setBullets(itemStack, loadingBullets);
+            return true;
+        }
+
+        ItemStack bulletStack = livingEntity.getProjectile(itemStack);
+
+        if (bulletStack.isEmpty()) {
+            // Player had no ammo
+            return false;
+        }
+
+        // Load ammo
+        int bullets = Math.min(bulletStack.getCount(), loadingBullets);
+        setBullets(itemStack, bullets);
+        bulletStack.shrink(bullets);
+        return true;
+    }
+
+    public static boolean isLoaded(ItemStack itemStack) {
+        return isCharged(itemStack);
+    }
+
+    public static void setLoaded(ItemStack itemStack, boolean isLoaded) {
+        setCharged(itemStack, isLoaded);
+    }
+
+    public static boolean isLoading(ItemStack itemStack) {
+        CompoundTag compoundTag = itemStack.getTag();
+        return compoundTag != null && compoundTag.getBoolean(TAG_LOADING);
+    }
+
+    public static void setLoading(ItemStack itemStack, boolean isReloading) {
+        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        compoundTag.putBoolean(TAG_LOADING, isReloading);
+    }
+
+    public static int getBullets(ItemStack itemStack) {
+        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        return compoundTag.getInt(TAG_LOADED_BULLETS);
+    }
+
+    public static void setBullets(ItemStack itemStack, int count) {
+        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        compoundTag.putInt(TAG_LOADED_BULLETS, count);
+    }
+
+    public static int getQuickChargeLevel(ItemStack itemStack) {
+        return EnchantmentHelper.getItemEnchantmentLevel(Enchantments.QUICK_CHARGE, itemStack);
+    }
+
+    public static int getMultishotLevel(ItemStack itemStack) {
+        return EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MULTISHOT, itemStack);
+    }
+
+    public static int getPiercingLevel(ItemStack itemStack) {
+        return EnchantmentHelper.getItemEnchantmentLevel(Enchantments.PIERCING, itemStack);
+    }
+
+    public float getShootingPower(ItemStack itemStack) {
+        // Apply Piercing enchantment
+        return (getPiercingLevel(itemStack) <= 0) ?
+                Constants.ChiliBulletGun.POWER_BASIC : Constants.ChiliBulletGun.POWER_PIERCING;
+    }
+
+    public float getInaccuracy(ItemStack itemStack) {
+        // Apply Piercing enchantment
+        return (getPiercingLevel(itemStack) <= 0) ?
+                Constants.ChiliBulletGun.INACCURACY_BASIC : Constants.ChiliBulletGun.INACCURACY_PIERCING;
+    }
+
+    public int getReloadDuration(ItemStack itemStack) {
+        // Apply Quick Charge and Multishot enchantments
+        int basicDuration = (getMultishotLevel(itemStack) == 0) ?
+                Constants.ChiliBulletGun.RELOAD_BASIC : Constants.ChiliBulletGun.RELOAD_MULTISHOT;
+        int quickChargeLevel = getQuickChargeLevel(itemStack);
+        return (quickChargeLevel == 0) ?
+                basicDuration : (basicDuration - Constants.ChiliBulletGun.RELOAD_PER_QUICK_CHARGE * quickChargeLevel);
+    }
+
+    public boolean isUpgradable() {
+        return true;
+    }
+
+    public static ItemStack enchant(ItemLike item, Enchantment... enchantments) {
+        ItemStack itemStack = new ItemStack(item);
+        Arrays.asList(enchantments).forEach(e -> itemStack.enchant(e, e.getMaxLevel()));
+        return itemStack;
+    }
+
+    @Override
+    public int getEnchantmentValue() {
+        return Constants.ChiliBulletGun.ENCHANTMENT_VALUE;
+    }
+
+    @Override
+    public int getDefaultProjectileRange() {
+        return 15;
+    }
+
+    @Override
+    public String getDescriptionId(ItemStack itemStack) {
+        // Change item display name by enchantment
+        if (getMultishotLevel(itemStack) != 0) {
+            return Constants.ChiliBulletGun.DESCRIPTION_VOLLEY_GUN;
+        } else if (getPiercingLevel(itemStack) > 0) {
+            return Constants.ChiliBulletGun.DESCRIPTION_RIFLE;
+        } else {
+            return Constants.ChiliBulletGun.DESCRIPTION_PISTOL;
+        }
+    }
+}

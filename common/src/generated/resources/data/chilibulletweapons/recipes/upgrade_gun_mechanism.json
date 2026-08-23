@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chilibulletweapons:upgrade_gun_mechanism",
+  "key": {
+    "b": {
+      "item": "chilibulletweapons:chili_bullet"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "p": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "pii",
+    "bbb"
+  ],
+  "result": {
+    "item": "chilibulletweapons:upgrade_gun_mechanism"
+  },
+  "show_notification": true
+}

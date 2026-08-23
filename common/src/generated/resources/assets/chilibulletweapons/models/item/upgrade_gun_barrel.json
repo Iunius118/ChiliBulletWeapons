@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "chilibulletweapons:item/upgrade_gun_barrel"
+  }
+}

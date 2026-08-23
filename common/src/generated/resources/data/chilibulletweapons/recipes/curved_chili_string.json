@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chilibulletweapons:curved_chili_string",
+  "key": {
+    "c": {
+      "item": "chilibulletweapons:curved_chili"
+    }
+  },
+  "pattern": [
+    "ccc",
+    "ccc",
+    "ccc"
+  ],
+  "result": {
+    "item": "chilibulletweapons:curved_chili_string"
+  },
+  "show_notification": true
+}

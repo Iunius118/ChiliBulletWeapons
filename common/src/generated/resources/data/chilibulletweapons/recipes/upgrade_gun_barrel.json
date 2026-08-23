@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chilibulletweapons:upgrade_gun_barrel",
+  "key": {
+    "b": {
+      "item": "chilibulletweapons:chili_bullet"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "iii",
+    "bbb"
+  ],
+  "result": {
+    "item": "chilibulletweapons:upgrade_gun_barrel"
+  },
+  "show_notification": true
+}

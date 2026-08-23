@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "chilibulletweapons:item/pickled_green_chili"
+  }
+}

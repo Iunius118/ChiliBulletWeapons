@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chilibulletweapons:chili_potato_sandwich",
+  "ingredients": [
+    {
+      "tag": "chilibulletweapons:foods/chili_seasoning"
+    },
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "item": "minecraft:bread"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "chilibulletweapons:chili_potato_sandwich"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chilibulletweapons:pickled_green_chili",
+  "key": {
+    "c": {
+      "item": "chilibulletweapons:curved_green_chili"
+    },
+    "w": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    " w ",
+    "ccc",
+    "ccc"
+  ],
+  "result": {
+    "count": 6,
+    "item": "chilibulletweapons:pickled_green_chili"
+  },
+  "show_notification": true
+}

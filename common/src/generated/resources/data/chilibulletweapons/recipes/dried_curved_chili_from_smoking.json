@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "chilibulletweapons:curved_chili"
+  },
+  "result": "chilibulletweapons:dried_curved_chili"
+}

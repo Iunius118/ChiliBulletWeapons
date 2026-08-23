@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "chilibulletweapons:upgrade_gun_bayonet",
+  "key": {
+    "b": {
+      "item": "chilibulletweapons:chili_bullet"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "iis",
+    "bbb"
+  ],
+  "result": {
+    "item": "chilibulletweapons:upgrade_gun_bayonet"
+  },
+  "show_notification": true
+}

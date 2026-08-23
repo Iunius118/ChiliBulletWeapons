@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chilibulletweapons:fried_chili_pepper",
+  "ingredients": [
+    {
+      "tag": "chilibulletweapons:foods/chili_peppers"
+    },
+    {
+      "tag": "chilibulletweapons:foods/chili_peppers"
+    },
+    {
+      "tag": "chilibulletweapons:foods/chili_peppers"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "chilibulletweapons:fried_chili_pepper"
+  }
+}

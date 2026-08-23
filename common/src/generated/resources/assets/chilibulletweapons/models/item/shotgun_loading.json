@@ -1,0 +1,6 @@
+{
+  "parent": "chilibulletweapons:item/rifle_loading",
+  "textures": {
+    "layer0": "chilibulletweapons:item/shotgun_loading"
+  }
+}
