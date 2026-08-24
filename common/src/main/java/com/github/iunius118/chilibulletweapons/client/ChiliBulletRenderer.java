@@ -11,7 +11,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 
 public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet> {
-    public static final ResourceLocation TEXTURE_LOCATION = CommonClass.modLocation("textures/item/chili_bullet.png");
+    public static final ResourceLocation TEXTURE_LOCATION = CommonClass.modLocation("textures/entity/chili_bullet.png");
     private final ChiliBulletModel<ChiliBullet> model;
 
     public ChiliBulletRenderer(EntityRendererProvider.Context context) {
@@ -25,7 +25,7 @@ public class ChiliBulletRenderer extends EntityRenderer<ChiliBullet> {
         if (chiliBullet.getAge() > 1) {
             // Each bullet is rendered from the second tick to maintain the player's field of view
             poseStack.pushPose();
-            model.setupAnim(chiliBullet, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
+            model.setupAnim(chiliBullet, 0F, 0F, 0F, 0F, 0F);
             VertexConsumer buffer = bufferSource.getBuffer(model.renderType(TEXTURE_LOCATION));
             model.renderToBuffer(poseStack, buffer, packedLight, OverlayTexture.NO_OVERLAY, 1F, 1F, 1F, 1F);
             poseStack.popPose();
