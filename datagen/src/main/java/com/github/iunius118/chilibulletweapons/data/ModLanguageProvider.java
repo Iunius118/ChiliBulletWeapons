@@ -17,10 +17,6 @@ public class ModLanguageProvider {
         gen.addProvider(needsRun, new ModEnglishLanguageProvider(packOutput, Constants.MOD_ID));
     }
 
-    private static String getSubtitleKey(SoundEvent soundEvent) {
-        return "subtitles." + soundEvent.getLocation().getPath();
-    }
-
     public static class ModEnglishLanguageProvider extends LanguageProvider {
 
         public ModEnglishLanguageProvider(PackOutput output, String modId) {
@@ -97,6 +93,41 @@ public class ModLanguageProvider {
             add(getSubtitleKey(ModSoundEvents.GUN_SHOOT), "Chili Bullet Gun fires");
             add(getSubtitleKey(ModSoundEvents.GUN_ACTION_CLOSE), "Chili Bullet Gun loads");
             add(getSubtitleKey(ModSoundEvents.GUN_UPGRADE), "Chili Bullet Gun upgraded");
+
+            // Advancements
+            addModAdvancement("main", "root",
+                    "Chili Bullet Weapons", "Chili peppers, foods and weapons");
+            addModAdvancement("main", "curved_chili",
+                    "Hot Topic", "Obtain a Curved Chili Pepper");
+            addModAdvancement("main", "harvested_chili_pepper_with_shears",
+                    "Be Gentle", "Harvest Curved Chili Peppers using shears");
+            addModAdvancement("main", "half_sandwich",
+                    "Let's Go Halves", "Obtain half-sized sandwiches");
+            addModAdvancement("main", "threw_hot_sauce",
+                    "Non-Lethal?", "Throw hot sauce at enemies");
+            addModAdvancement("main", "bullet_chili",
+                    "Like a Bullet?", "Obtain a Bullet-like Chili Pepper");
+            addModAdvancement("main", "exploded_chili_arrow",
+                    "Boom!", "Shoot a Bullet Chili Arrow and make it explode");
+            addModAdvancement("main", "shot_gun",
+                    "Bang!", "Shoot a Chili Bullet Gun");
+            addModAdvancement("main", "upgraded_gun",
+                    "Master Gunsmith", "Upgrade a gun with an upgrade item");
+            addModAdvancement("main", "killed_by_chili_bullet",
+                    "Quad-Sharp Shooter", "Defeat 4 mobs with one Chili Bullet");
+            addModAdvancement("main", "shot_machine_gun",
+                    "Handle With Care", "Shoot a Chili Bullet Machine Gun");
+            addModAdvancement("main", "machine_gun_mending_1",
+                    "Battle Has Changed", "Obtain a Mending enchanted Chili Bullet Machine Gun");
+        }
+
+        private String getSubtitleKey(SoundEvent soundEvent) {
+            return "subtitles." + soundEvent.getLocation().getPath();
+        }
+
+        private void addModAdvancement(String tab, String name, String title, String description) {
+            add("advancements.%s.%s.%s.title".formatted(Constants.MOD_ID, tab, name), title);
+            add("advancements.%s.%s.%s.description".formatted(Constants.MOD_ID, tab, name), description);
         }
     }
 }

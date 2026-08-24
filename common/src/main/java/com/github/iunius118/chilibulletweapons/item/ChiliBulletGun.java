@@ -2,13 +2,16 @@ package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.CommonClass;
 import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -113,6 +116,12 @@ public class ChiliBulletGun extends CrossbowItem {
 
         // Wear out gun
         hurtAndBreak(itemStack, bullets, livingEntity, e -> e.broadcastBreakEvent(hand));
+
+        if (bullets > 0 && livingEntity instanceof ServerPlayer serverplayer) {
+            // Trigger advancement
+            ModCriteriaTriggers.SHOT_CHILI_BULLET_GUN.trigger(serverplayer, itemStack);
+            serverplayer.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
+        }
     }
 
     public void hurtAndBreak(ItemStack stack, int amount, LivingEntity entityLiving, Consumer<LivingEntity> consumer) {

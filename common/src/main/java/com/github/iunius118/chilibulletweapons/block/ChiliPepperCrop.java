@@ -1,11 +1,13 @@
 package com.github.iunius118.chilibulletweapons.block;
 
 import com.github.iunius118.chilibulletweapons.CommonClass;
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.platform.Services;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -66,8 +68,15 @@ public class ChiliPepperCrop extends CropBlock {
         if (!isHarvestable && itemStack.is(Items.BONE_MEAL)) {
             return InteractionResult.PASS;
         } else if (isHarvestable && Services.PLATFORM.isHarvestingTool(itemStack)) {
+            // Use shears on harvestable crop
             if (level.isClientSide) {
+                // Return on client side
                 return InteractionResult.CONSUME;
+            }
+
+            // Trigger advancement
+            if (player instanceof ServerPlayer serverPlayer) {
+                ModCriteriaTriggers.HARVESTED_CHILI_PEPPER_WITH_SHEARS.trigger(serverPlayer);
             }
 
             // Harvest

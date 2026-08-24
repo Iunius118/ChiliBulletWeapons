@@ -1,0 +1,59 @@
+{
+  "parent": "chilibulletweapons:main/bullet_chili",
+  "criteria": {
+    "shot_bayoneted_gun": {
+      "conditions": {
+        "item": {
+          "items": [
+            "chilibulletweapons:bayoneted_gun"
+          ]
+        }
+      },
+      "trigger": "chilibulletweapons:shot_chili_bullet_gun"
+    },
+    "shot_gun": {
+      "conditions": {
+        "item": {
+          "items": [
+            "chilibulletweapons:gun"
+          ]
+        }
+      },
+      "trigger": "chilibulletweapons:shot_chili_bullet_gun"
+    },
+    "shot_machine_gun": {
+      "conditions": {
+        "item": {
+          "items": [
+            "chilibulletweapons:machine_gun"
+          ]
+        }
+      },
+      "trigger": "chilibulletweapons:shot_chili_bullet_gun"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.shot_gun.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "chilibulletweapons:gun",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.shot_gun.title"
+    }
+  },
+  "requirements": [
+    [
+      "shot_gun",
+      "shot_bayoneted_gun",
+      "shot_machine_gun"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

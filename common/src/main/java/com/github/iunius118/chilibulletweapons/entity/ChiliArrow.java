@@ -1,7 +1,9 @@
 package com.github.iunius118.chilibulletweapons.entity;
 
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.platform.Services;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Arrow;
@@ -70,6 +72,11 @@ public class ChiliArrow extends Arrow {
     }
 
     private void explode(Vec3 pos, float power) {
+        if (this.getOwner() instanceof ServerPlayer shooter) {
+            // Trigger advancement
+            ModCriteriaTriggers.EXPLODED_CHILI_ARROW.trigger(shooter);
+        }
+
         this.level().explode(this, pos.x, pos.y, pos.z, power, Level.ExplosionInteraction.NONE);
     }
 

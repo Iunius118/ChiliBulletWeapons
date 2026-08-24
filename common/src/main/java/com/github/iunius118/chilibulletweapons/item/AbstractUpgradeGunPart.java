@@ -1,9 +1,12 @@
 package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -29,6 +32,7 @@ public abstract class AbstractUpgradeGunPart extends Item {
 
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack usedStack = player.getItemInHand(hand);
         ItemStack offHandStack = player.getItemInHand(InteractionHand.OFF_HAND);
 
         if (hand != InteractionHand.MAIN_HAND || !canUpgrade(offHandStack)) {
@@ -39,8 +43,14 @@ public abstract class AbstractUpgradeGunPart extends Item {
             ItemStack upgradedGunStack = upgrade(offHandStack);
             player.setItemInHand(InteractionHand.OFF_HAND, upgradedGunStack);
 
+            if (player instanceof ServerPlayer serverplayer) {
+                // Trigger advancement
+                ModCriteriaTriggers.UPGRADED_CHILI_BULLET_GUN.trigger(serverplayer, usedStack);
+                serverplayer.awardStat(Stats.ITEM_USED.get(this));
+            }
+
             if (!player.getAbilities().instabuild) {
-                player.getItemInHand(hand).shrink(1);
+                usedStack.shrink(1);
             }
         }
 

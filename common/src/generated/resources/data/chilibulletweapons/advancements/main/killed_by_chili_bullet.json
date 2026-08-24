@@ -1,0 +1,38 @@
+{
+  "parent": "chilibulletweapons:main/upgraded_gun",
+  "criteria": {
+    "killed_by_chili_bullet": {
+      "conditions": {
+        "killed_entities": {
+          "min": 4
+        }
+      },
+      "trigger": "chilibulletweapons:killed_by_chili_bullet"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.killed_by_chili_bullet.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "chilibulletweapons:gun",
+      "nbt": "{Damage:0,Enchantments:[{id:\"minecraft:piercing\",lvl:4s}]}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.killed_by_chili_bullet.title"
+    }
+  },
+  "requirements": [
+    [
+      "killed_by_chili_bullet"
+    ]
+  ],
+  "rewards": {
+    "experience": 75
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,47 @@
+{
+  "parent": "chilibulletweapons:main/curved_chili",
+  "criteria": {
+    "threw_green_hot_sauce": {
+      "conditions": {
+        "item": {
+          "items": [
+            "chilibulletweapons:green_hot_sauce"
+          ]
+        }
+      },
+      "trigger": "chilibulletweapons:threw_hot_sauce"
+    },
+    "threw_hot_sauce": {
+      "conditions": {
+        "item": {
+          "items": [
+            "chilibulletweapons:hot_sauce"
+          ]
+        }
+      },
+      "trigger": "chilibulletweapons:threw_hot_sauce"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.threw_hot_sauce.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "chilibulletweapons:hot_sauce"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.threw_hot_sauce.title"
+    }
+  },
+  "requirements": [
+    [
+      "threw_hot_sauce",
+      "threw_green_hot_sauce"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

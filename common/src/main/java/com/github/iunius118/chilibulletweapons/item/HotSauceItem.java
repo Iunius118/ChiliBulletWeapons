@@ -1,7 +1,9 @@
 package com.github.iunius118.chilibulletweapons.item;
 
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import net.minecraft.core.Position;
 import net.minecraft.core.dispenser.AbstractProjectileDispenseBehavior;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -58,10 +60,13 @@ public class HotSauceItem extends Item {
             level.playSound(null, thrownpotion.getX(), thrownpotion.getY(), thrownpotion.getZ(),
                     SoundEvents.SPLASH_POTION_THROW, SoundSource.PLAYERS,
                     0.5F, 0.4F / (level.getRandom().nextFloat() * 0.4F + 0.8F));
-        }
 
-        // Trigger advancement
-        player.awardStat(Stats.ITEM_USED.get(this));
+            if (player instanceof ServerPlayer serverPlayer) {
+                // Trigger advancement
+                ModCriteriaTriggers.THREW_HOT_SAUCE.trigger(serverPlayer, itemstack);
+                serverPlayer.awardStat(Stats.ITEM_USED.get(this));
+            }
+        }
 
         if (!player.getAbilities().instabuild) {
             itemstack.shrink(1);

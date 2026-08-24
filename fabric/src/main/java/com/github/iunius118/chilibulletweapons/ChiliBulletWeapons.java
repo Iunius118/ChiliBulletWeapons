@@ -1,5 +1,6 @@
 package com.github.iunius118.chilibulletweapons;
 
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.platform.FabricChiliBulletWeaponsConfig;
 import me.shedaniel.autoconfig.AutoConfig;
@@ -8,6 +9,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableSource;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -29,6 +31,7 @@ public class ChiliBulletWeapons implements ModInitializer {
         //Constants.LOG.info("Hello Fabric world!");
         CommonClass.init();
 
+        registerCriterionTriggers();
         registerCompostableItems();
         registerFuelItems();
         LootTableEvents.MODIFY.register(this::onLootTableLoad);
@@ -39,11 +42,15 @@ public class ChiliBulletWeapons implements ModInitializer {
         AutoConfig.register(FabricChiliBulletWeaponsConfig.class, Toml4jConfigSerializer::new);
     }
 
+    private void registerCriterionTriggers() {
+        ModCriteriaTriggers.CRITERION_TRIGGERS.forEach(CriteriaTriggers::register);
+    }
+
     private void registerCompostableItems() {
         ComposterBlock.COMPOSTABLES.putAll(ModItems.COMPOSTABLES);
     }
 
-    private static void registerFuelItems() {
+    private void registerFuelItems() {
         ModItems.FURNACE_FUELS.forEach(FuelRegistry.INSTANCE::add);
     }
 

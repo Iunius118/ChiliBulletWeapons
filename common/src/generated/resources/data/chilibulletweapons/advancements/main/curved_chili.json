@@ -1,0 +1,38 @@
+{
+  "parent": "chilibulletweapons:main/root",
+  "criteria": {
+    "has_curved_chili": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "chilibulletweapons:curved_chili"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.curved_chili.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "chilibulletweapons:curved_chili"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.curved_chili.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_curved_chili"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

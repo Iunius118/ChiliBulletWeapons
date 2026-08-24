@@ -1,5 +1,6 @@
 package com.github.iunius118.chilibulletweapons.item;
 
+import com.github.iunius118.chilibulletweapons.Constants;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -29,7 +30,7 @@ public class ChiliBulletMachineGun extends ChiliBulletGun {
     @Override
     public int getReloadDuration(ItemStack itemStack) {
         // For handled by non-player
-        return 2;
+        return Constants.ChiliBulletGun.RELOAD_MACHINE_GUN;
     }
 
     @Override

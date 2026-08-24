@@ -1,6 +1,7 @@
 package com.github.iunius118.chilibulletweapons.entity;
 
 import com.github.iunius118.chilibulletweapons.Constants;
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.platform.Services;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.core.particles.ParticleTypes;
@@ -39,6 +40,7 @@ public class ChiliBullet extends Projectile {
     private byte age = 0;
     @Nullable
     private IntOpenHashSet piercingIgnoreEntityIds;
+    private int piercedAndKilledEntities = 0;
 
     public ChiliBullet(EntityType<? extends Projectile> entityType, Level level) {
         super(entityType, level);
@@ -223,6 +225,7 @@ public class ChiliBullet extends Projectile {
                 this.piercingIgnoreEntityIds = new IntOpenHashSet(5);
             }
 
+            // Discard the bullet if it has already pierced enough entities
             if (piercingIgnoreEntityIds.size() >= pierceLevel + 1) {
                 this.discard();
                 return;
@@ -231,6 +234,7 @@ public class ChiliBullet extends Projectile {
             piercingIgnoreEntityIds.add(entity.getId());
         }
 
+        // Do multi-hit
         if (!this.level().isClientSide && Services.CONFIG.canMultishotMultiHit()) {
             entity.invulnerableTime = 0;
         }
@@ -241,6 +245,17 @@ public class ChiliBullet extends Projectile {
                 // Play a ding when the bullet hit a player
                 ownerInServer.connection
                         .send(new ClientboundGameEventPacket(ClientboundGameEventPacket.ARROW_HIT_PLAYER, 0.0F));
+            }
+
+            // Increment kill count to trigger advancement criteria
+            if (!entity.isAlive()) {
+                piercedAndKilledEntities++;
+            }
+
+            // Trigger Advancement
+            if (!this.level().isClientSide() && owner instanceof ServerPlayer serverplayer &&
+                    piercedAndKilledEntities > 0) {
+                ModCriteriaTriggers.KILLED_BY_CHILI_BULLET.trigger(serverplayer, piercedAndKilledEntities);
             }
         }
 

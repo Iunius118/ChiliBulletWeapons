@@ -1,8 +1,10 @@
 package com.github.iunius118.chilibulletweapons;
 
+import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.data.*;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.platform.ForgeChiliBulletWeaponsConfig;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -39,14 +41,14 @@ public class ChiliBulletWeapons {
         modEventBus.addListener(this::gatherData);
         modEventBus.addListener(this::onCommonSetup);
 
+        // Register forge event listeners
+        MinecraftForge.EVENT_BUS.addListener(this::onFurnaceFuelBurnTimeEvent);
+        MinecraftForge.EVENT_BUS.addListener(this::onLootTableLoad);
+
         if (FMLLoader.getDist().isClient()) {
             // Init client
             ChiliBulletWeaponsClient.onInitializeClient(modEventBus);
         }
-
-        // Register forge event listeners
-        MinecraftForge.EVENT_BUS.addListener(this::onFurnaceFuelBurnTimeEvent);
-        MinecraftForge.EVENT_BUS.addListener(this::onLootTableLoad);
     }
 
     private void registerConfig(FMLJavaModLoadingContext context) {
@@ -55,6 +57,7 @@ public class ChiliBulletWeapons {
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {
+        ModCriteriaTriggers.CRITERION_TRIGGERS.forEach(CriteriaTriggers::register);
         ComposterBlock.COMPOSTABLES.putAll(ModItems.COMPOSTABLES);
     }
 
@@ -97,10 +100,13 @@ public class ChiliBulletWeapons {
         // Server
         final boolean includesServer = event.includeServer();
         dataGenerator.addProvider(includesServer, blockTagsProvider);
-        dataGenerator.addProvider(includesServer, new ModItemTagsProvider(packOutput, lookupProvider,
+        dataGenerator.addProvider(includesServer,
+                new ModItemTagsProvider(packOutput, lookupProvider,
                 blockTagsProvider.contentsGetter(), existingFileHelper));
         dataGenerator.addProvider(includesServer, new ModLootTableProvider(packOutput));
         dataGenerator.addProvider(includesServer, new ModRecipeProvider(packOutput));
+        dataGenerator.addProvider(includesServer,
+                new ModAdvancementProvider(packOutput, lookupProvider, existingFileHelper));
 
         // Client
         final boolean includesClient = event.includeClient();

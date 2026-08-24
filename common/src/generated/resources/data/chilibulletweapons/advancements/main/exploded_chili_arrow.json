@@ -1,0 +1,30 @@
+{
+  "parent": "chilibulletweapons:main/bullet_chili",
+  "criteria": {
+    "exploded_chili_arrow": {
+      "conditions": {},
+      "trigger": "chilibulletweapons:exploded_chili_arrow"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.exploded_chili_arrow.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "chilibulletweapons:chili_arrow"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.exploded_chili_arrow.title"
+    }
+  },
+  "requirements": [
+    [
+      "exploded_chili_arrow"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

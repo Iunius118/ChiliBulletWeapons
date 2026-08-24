@@ -1,0 +1,37 @@
+{
+  "parent": "chilibulletweapons:main/shot_gun",
+  "criteria": {
+    "shot_machine_gun": {
+      "conditions": {
+        "item": {
+          "items": [
+            "chilibulletweapons:machine_gun"
+          ]
+        }
+      },
+      "trigger": "chilibulletweapons:shot_chili_bullet_gun"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.chilibulletweapons.main.shot_machine_gun.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "chilibulletweapons:machine_gun",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.chilibulletweapons.main.shot_machine_gun.title"
+    }
+  },
+  "requirements": [
+    [
+      "shot_machine_gun"
+    ]
+  ],
+  "sends_telemetry_event": false
+}
