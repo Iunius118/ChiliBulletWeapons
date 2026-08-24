@@ -5,6 +5,26 @@
 ## [Unreleased]
 
 ## [1.7.0]
-- Backport to 1.20.1 Forge/Fabric.
+- Backport some features to 1.20.1 Forge/Fabric.
 - Forge version - Require Minecraft Forge 47.4.10.
 - Fabric version - Require Fabric Loader 0.19.3, Fabric API 0.92.11+1.20.1, and Cloth Config API 11.1.136.
+
+### Added
+- Curved Green Chili Pepper, harvestable from a chili pepper crop in the seventh growth stage.
+- Green chili pepper-related items.
+- Potted chili pepper blocks.
+- Chili Plant Biofuel, usable as furnace fuel.
+- Chili Chocolate and related item.
+- Chili bullet machine gun recipe.
+- Item tags for chili peppers.
+- Add 12 advancements.
+- Add critical hit to chili bullet. It has a 10% chance of occurring and dealing 22 damage.
+
+### Changed
+- Bump the mod version to 1.7.0.
+- Rename Shotgun to Volley gun.
+- Rename `canShotgunMultiHit` to `canMultishotMultiHit` in config.
+- Hot chili sauces can now be thrown like splash potions, causing Slowness and Blindness for 2 seconds.
+- Guns with custom names will now have reduced chance of durability reduction.
+- Change durability of chili bullet machine gun from 512 to 64.
+- Update compostable items to include new items.
