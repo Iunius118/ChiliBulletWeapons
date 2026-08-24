@@ -87,7 +87,7 @@ public class ModItems {
     // This will not be added to creative tabs
     public static final Item ICON_MAIN = new Item(new Item.Properties());
 
-    private static Item add(Item item) {
+    private static <T extends Item> T add(T item) {
         ITEMS.add(item);
         return item;
     }
