@@ -35,16 +35,6 @@ public class PottedChiliPepperBlock extends Block implements BonemealableBlock {
         return true;
     }
 
-    // BonemealableBlock#isValidBonemealTarget for 1.20.4 Forge
-    public boolean m_7370_(LevelReader level, BlockPos pos, BlockState state) {
-        return true;
-    }
-
-    // BonemealableBlock#isValidBonemealTarget for 1.20.4 Fabric
-    public boolean method_9651(LevelReader level, BlockPos pos, BlockState state) {
-        return true;
-    }
-
     @Override
     public boolean isBonemealSuccess(Level level, RandomSource random, BlockPos pos, BlockState state) {
         return true;
