@@ -3,10 +3,6 @@ plugins {
     id 'net.neoforged.moddev.legacyforge'
 }
 
-base {
-    archivesName = "${mod_id}-${project.name}-forge-${minecraft_version}"
-}
-
 mixin {
     add(sourceSets.main, "${mod_id}.refmap.json")
 
