@@ -168,9 +168,9 @@ public class Constants {
 		public static final String DESCRIPTION_PISTOL = "item.chilibulletweapons.gun.pistol";
 		public static final String DESCRIPTION_RIFLE = "item.chilibulletweapons.gun.rifle";
 		public static final String DESCRIPTION_VOLLEY_GUN = "item.chilibulletweapons.gun.volley_gun";
-		public static final String DESCRIPTION_BAYONETED_PISTOL = "item.chilibulletweapons.gun.bayoneted.pistol";
-		public static final String DESCRIPTION_BAYONETED_RIFLE = "item.chilibulletweapons.gun.bayoneted.rifle";
-		public static final String DESCRIPTION_BAYONETED_VOLLEY_GUN = "item.chilibulletweapons.gun.bayoneted.volley_gun";
+		public static final String DESCRIPTION_BAYONETED_PISTOL = "item.chilibulletweapons.bayoneted_gun.pistol";
+		public static final String DESCRIPTION_BAYONETED_RIFLE = "item.chilibulletweapons.bayoneted_gun.rifle";
+		public static final String DESCRIPTION_BAYONETED_VOLLEY_GUN = "item.chilibulletweapons.bayoneted_gun.volley_gun";
 		// Item tooltip keys
 		public static final String TOOLTIP_BARREL_INFO = "tooltip.chilibulletweapons.barrel_info";
 		public static final String TOOLTIP_QUICK_LOAD = "tooltip.chilibulletweapons.quick_load";
