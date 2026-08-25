@@ -18,7 +18,7 @@ public class MixinLivingEntity {
                 && LivingEntity.class.cast(this).isHolding(is -> is.getItem() instanceof ChiliBulletGun)) {
             // If item is Items.CROSSBOW and livingEntity is holding a chili bullet gun,
             // return true
-            // ChiliBulletWeapons.LOGGER.info("[CBGun] A living entity is holding a chili bullet gun");
+            // Constants.LOG.info("[CBGun] A living entity is holding a chili bullet gun");
             cir.setReturnValue(true);
         }
     }

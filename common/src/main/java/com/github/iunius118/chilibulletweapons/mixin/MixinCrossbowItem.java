@@ -27,7 +27,7 @@ public class MixinCrossbowItem {
     @Inject(method = "performShooting", at = @At("HEAD"), cancellable = true)
     private static void onPerformShooting(Level level, LivingEntity livingEntity, InteractionHand hand,
                                           ItemStack itemStack, float velocity, float inaccuracy, CallbackInfo ci) {
-        // ChiliBulletWeapons.LOGGER.info("[CBGun] onPerformShooting with {} in {}", itemStack, hand);
+        // Constants.LOG.info("[CBGun] onPerformShooting with {} in {}", itemStack, hand);
         if (itemStack.getItem() instanceof ChiliBulletGun chiliBulletGun) {
             // If the entity is holding a chili bullet gun,
             // fire it instead of crossbow
