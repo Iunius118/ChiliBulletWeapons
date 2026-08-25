@@ -35,4 +35,4 @@ jobs:
             common/build/libs/*.jar
             fabric/build/libs/*.jar
             forge/build/libs/*.jar
-            datagen/build/libs/*.jar
+            datagen*/build/libs/*.jar
