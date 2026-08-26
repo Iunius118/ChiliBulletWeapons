@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [1.7.1+1.20.1]
+## Fixed
+- Fix translation keys for bayoneted guns.
+
 ## [1.7.0+1.20.1]
 - Backport some features to 1.20.1 Forge/Fabric.
 - Forge version - Require Minecraft Forge 47.4.10.

@@ -1,7 +1,7 @@
 # Cheatsheet
 
 [Chili Bullet Weapons](https://iunius118.github.io/ChiliBulletWeapons/)
-Version 1.7.0+1.20.1
+Version 1.7.1+1.20.1
 
 ## Requirements
 
@@ -380,6 +380,8 @@ Below is a list of enchantments that guns have and their corresponding display n
 - Piercing - Chili Bullet Rifle with Bayonet
 - Multishot - Chili Bullet Volley Gun with Bayonet
 - Other than above - Chili Bullet Pistol with Bayonet
+
+A chili bullet gun with bayonet with custom name will have a reduced chance of durability reduction.
 
 ### Chili Bullet Machine Gun
 
