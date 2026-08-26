@@ -1,6 +1,6 @@
 # Weapon Data
 
-Chili Bullet Weapons Version 1.5.2
+Chili Bullet Weapons Version 1.7.0
 
 - [Top Page](index.html)
   - [Weapons](weapons.html)
@@ -16,7 +16,7 @@ Chili Bullet Weapons Version 1.5.2
 |        4       |    22.0 |    3.0 |
 |        5       |    23.4 |    3.2 |
 
-## Pistol/Shotgun
+## Pistol/Volley Gun/Machine Gun
 
 | Angle | Ticks | Dist. | Speed | MinDmg. | MaxDmg. |
 |------:|------:|------:|------:|--------:|--------:|

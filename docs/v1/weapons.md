@@ -1,6 +1,6 @@
 # Weapons
 
-Chili Bullet Weapons Version 1.5.2
+Chili Bullet Weapons Version 1.7.0
 
 - [Top Page](index.html)
   - [How to Get Started](introduction.html)
@@ -12,7 +12,7 @@ Chili Bullet Weapons Version 1.5.2
     - [Chili Bullet Gun](#chili-bullet-gun)
       - [Upgrading Guns](#upgrading-guns)
     - [Chili Bullet Gun with Bayonet](#chili-bullet-gun-with-bayonet)
-    - [Chili Bullet Machine Gun (Creative Mode)](#chili-bullet-machine-gun-creative-mode)
+    - [Chili Bullet Machine Gun](#chili-bullet-machine-gun)
   - [Configuration](config.html)
 
 See also: [Weapon Data](weapon_data.html)
@@ -56,12 +56,14 @@ Chili bullet guns can have the same enchantments as crossbows, and each gun can 
 |Enchantment|Appearances<br/>(Closed/Open)|Display Name|
 |-----------|:---------------------------:|------------|
 |Piercing|![ ](../media/item/rifle_32.png)![ ](../media/item/rifle_loading_32.png)|Chili Bullet Rifle|
-|Multishot|![ ](../media/item/shotgun_32.png)![ ](../media/item/shotgun_loading_32.png)|Chili Bullet Shotgun|
+|Multishot|![ ](../media/item/shotgun_32.png)![ ](../media/item/shotgun_loading_32.png)|Chili Bullet Volley Gun|
 |Other than above|![ ](../media/item/pistol_32.png)![ ](../media/item/pistol_loading_32.png)|Chili Bullet Pistol|
 
 Chili bullet rifles are highly accurate, and bullets from them pass through the number of entities equal to the Piercing level.
 
-Chili bullet shotguns are less accurate, and they can shoot four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
+Chili bullet volley guns are less accurate, and they can shoot four bullets in a single shot but also have four times the ammunition consumption and wear per shot.
+
+A chili bullet gun with custom name will have a reduced chance of durability reduction.
 
 ### Upgrading Guns
 
@@ -115,11 +117,24 @@ Each chili bullet gun with bayonet can also have a different appearance, display
 |Enchantment|Appearances<br/>(Closed/Open)|Display Name|
 |-----------|:---------------------------:|------------|
 |Piercing|![ ](../media/item/rifle_bayoneted_32.png)![ ](../media/item/rifle_bayoneted_loading_32.png)|Chili Bullet Rifle with Bayonet|
-|Multishot|![ ](../media/item/shotgun_bayoneted_32.png)![ ](../media/item/shotgun_bayoneted_loading_32.png)|Chili Bullet Shotgun with Bayonet|
+|Multishot|![ ](../media/item/shotgun_bayoneted_32.png)![ ](../media/item/shotgun_bayoneted_loading_32.png)|Chili Bullet Volley Gun with Bayonet|
 |Other than above|![ ](../media/item/pistol_bayoneted_32.png)![ ](../media/item/pistol_bayoneted_loading_32.png)|Chili Bullet Pistol with Bayonet|
 
-## Chili Bullet Machine Gun (Creative Mode)
+A chili bullet gun with bayonet with custom name will have a reduced chance of durability reduction.
 
-![ ](../media/item/machine_gun_32.png)
+## Chili Bullet Machine Gun
 
-A chili bullet machine gun is a gun for creative mode players and can only be obtained from the creative mode tab or command.
+A chili bullet machine gun is an automatic gun that shoots chili bullets to attack mobs at a distance.
+
+![Crafting chili bullet machine gun with crimson planks](../media/item/crafting/crafting_chili_bullet_machine_gun_with_crimson_planks.png)
+![Crafting chili bullet machine gun with warped planks](../media/item/crafting/crafting_chili_bullet_machine_gun_with_warped_planks.png)
+
+A chili bullet machine gun can resist fire and lava when dropped as an item.
+
+A chili bullet machine gun can be loaded with the first bullet by holding down the right mouse button, and then the right mouse button can be used to shoot until the inventory runs out of bullets.
+
+In survival mode, Unbreaking and Mending enchantments are highly recommended, as chili bullet machine gun is not durable!
+
+A chili bullet machine gun with custom name will have a reduced chance of durability reduction.
+
+Chili bullet machine gun cannot be upgraded with any upgrade items.

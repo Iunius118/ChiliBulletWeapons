@@ -1,6 +1,6 @@
 # How to Get Started
 
-Chili Bullet Weapons Version 1.5.2
+Chili Bullet Weapons Version 1.7.0
 
 - [Top Page](index.html)
   - **How to Get Started**

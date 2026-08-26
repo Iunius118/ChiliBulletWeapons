@@ -1,16 +1,21 @@
 # Foods
 
-Chili Bullet Weapons Version 1.5.2
+Chili Bullet Weapons Version 1.7.0
 
 - [Top Page](index.html)
   - [How to Get Started](introduction.html)
   - [Farming](farming.html)
   - **Foods**
     - [Hot Chili Sauce](#hot-chili-sauce)
+    - [Barrel of Hot Chili Sauce](#barrel-of-hot-chili-sauce)
+    - [Green Hot Chili Sauce](#green-hot-chili-sauce)
+    - [Pickled Green Chili Pepper](#pickled-green-chili-pepper)
     - [Sandwiches](#sandwiches)
     - [Half-sized Sandwiches](#half-sized-sandwiches)
     - [Pasta Olio e Peperoncino](#pasta-olio-e-peperoncino)
     - [Fried Chili Pepper](#fried-chili-pepper)
+    - [Chili Chocolate](#chili-chocolate)
+    - [Chicken with Chili Chocolate Sauce](#chicken-with-chili-chocolate-sauce)
   - [Weapons](weapons.html)
   - [Configuration](config.html)
 
@@ -21,7 +26,12 @@ Hot chili sauce is a hot sauce made from curved chili peppers and can be used to
 ![Crafting bottles of hot chili sauce](../media/item/crafting/crafting_hot_sauce.png)
 ![Crafting bottles of hot chili sauce with dried curved chili pepper](../media/item/crafting/crafting_hot_sauce_with_dried_chili.png)
 
-Glass bottles will be returned when hot chili sauce is consumed.
+Glass bottles will be returned when hot chili sauce is consumed by crafting.
+
+Hot chili sauce can be thrown by using it.
+It splashes on impact and applies Slowness IV and Blindness effects (0:02) to nearby entities.
+
+## Barrel of Hot Chili Sauce
 
 A barrel of hot chili sauce can be used to make many bottles of hot chili sauce at one time.
 
@@ -29,6 +39,25 @@ A barrel of hot chili sauce can be used to make many bottles of hot chili sauce 
 ![Crafting barrel of hot chili sauce with dried curved chili pepper](../media/item/crafting/crafting_hot_sauce_barrel_with_dried_chili.png)
 
 ![Crafting bottles of hot chili sauce from barrel](../media/item/crafting/crafting_hot_sauce_from_barrel.png)
+
+## Green Hot Chili Sauce
+
+Green hot chili sauce is a hot sauce made from curved green chili peppers and can be used to flavor food.
+
+![Crafting bottles of green hot chili sauce](../media/item/crafting/crafting_green_hot_sauce.png)
+
+Glass bottles will be returned when hot chili sauce is consumed by crafting.
+
+Green hot chili sauce can be thrown by using it.
+It splashes on impact and applies Slowness IV and Blindness effects (0:02) to nearby entities.
+
+## Pickled Green Chili Pepper
+
+A pickled green chili pepper is a pickled curved green chili pepper that can be used as an ingredient or eaten directly.
+
+A pickled green chili pepper gives Absorption I effect (0:30) when eaten by the player.
+
+![Crafting pickled green chili pepper](../media/item/crafting/crafting_pickled_green_chili.png)
 
 ## Sandwiches
 
@@ -76,3 +105,15 @@ A fried chili pepper can be crafted from curved chili peppers and wheat and give
 
 ![Crafting fried chili peppers](../media/item/crafting/crafting_fried_chili_pepper.png)
 ![Crafting fried chili peppers with dried curved chili pepper](../media/item/crafting/crafting_fried_chili_pepper_with_dried_chili.png)
+
+## Chili Chocolate
+
+Chili Chocolate is chocolate flavored with dried curved chili pepper and gives Haste I effect (0:30) when eaten by the player.
+
+![Crafting chili chocolate](../media/item/crafting/crafting_chili_chocolate.png)
+
+## Chicken with Chili Chocolate Sauce
+
+Chicken with chili chocolate sauce is cooked chicken braised in sauce of chili chocolate.
+
+![Crafting chicken with chili chocolate saucee](../media/item/crafting/crafting_chili_chocolate_chicken.png)

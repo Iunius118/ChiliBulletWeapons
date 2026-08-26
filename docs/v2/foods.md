@@ -117,7 +117,6 @@ A fried chili pepper can be crafted from curved chili peppers and wheat and give
 ![Crafting fried chili peppers with curved green chili pepper](../media/item/crafting/crafting_fried_chili_pepper_with_green_chili.png)
 ![Crafting fried chili peppers with pickled green chili pepper](../media/item/crafting/crafting_fried_chili_pepper_with_pickled_chili.png)
 
-
 ## Chili Chocolate
 
 Chili Chocolate is chocolate flavored with dried curved chili pepper and gives Haste I effect (0:30) when eaten by the player.

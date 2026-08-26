@@ -1,6 +1,6 @@
 # Configuration
 
-Chili Bullet Weapons Version 1.5.2
+Chili Bullet Weapons Version 1.7.0
 
 - [Top Page](index.html)
   - [How to Get Started](introduction.html)
@@ -21,11 +21,11 @@ In multiplayer mode, server-side values are used.
 [common]
 ```
 
-A Boolean value of `canShotgunMultiHit` represents whether a single target can be damaged multiple times at once by bullets shot from a shotgun.
+A Boolean value of `canMultishotMultiHit` represents whether a single target can be damaged multiple times at once by bullets shot from a volley gun.
 If set to `false`, a single target will take damage from only one bullet at the same time.
 
 ```toml
-canShotgunMultiHit = true
+canMultishotMultiHit = true
 ```
 
 A real number between 0.0 and 8.0 of `chiliArrowDamageMultiplier` represents the multiplier of the explosive power of bullet chili arrows.
@@ -44,7 +44,7 @@ chiliBulletBaseDamage = 0.85
 Formula for chili bullet damage (only when `chiliBulletBaseDamage` > 0):
 
 ```text
-# speed (initial) = 3 (pistols/shotguns) or 4 (rifles)
+# speed (initial) = 3 (pistol/volley gun/machine gun) or 4 (rifle)
 # minDamage = ceil(speed * speed * chiliBulletBaseDamage)
 # maxDamage = floor(minDamage * 1.5) + 1
 # damage = a random integer between minDamage and maxDamage

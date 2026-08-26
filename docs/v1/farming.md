@@ -1,6 +1,6 @@
 # Farming
 
-Chili Bullet Weapons Version 1.5.2
+Chili Bullet Weapons Version 1.7.0
 
 - [Top Page](index.html)
   - [How to Get Started](introduction.html)
@@ -9,6 +9,8 @@ Chili Bullet Weapons Version 1.5.2
     - [Chili Pepper Crops (CBW)](#chili-pepper-crops-cbw)
     - [Drying Curved Chili Peppers](#drying-curved-chili-peppers)
     - [Compact Storage of Chili Peppers](#compact-storage-of-chili-peppers)
+    - [Potted Chili Peppers](#potted-chili-peppers)
+    - [Chili Plant Biofuel](#chili-plant-biofuel)
     - [Composting](#composting)
   - [Foods](foods.html)
   - [Weapons](weapons.html)
@@ -32,13 +34,14 @@ Different stages of crop growth:
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |![1st stage](../media/block/chili_pepper_stage0_32.png)|![2nd stage](../media/block/chili_pepper_stage1_32.png)|![3rd stage](../media/block/chili_pepper_stage2_32.png)|![4th stage](../media/block/chili_pepper_stage3_32.png)|![5th stage](../media/block/chili_pepper_stage4_32.png)|![6th stage](../media/block/chili_pepper_stage5_32.png)|![7th stage](../media/block/chili_pepper_stage6_32.png)|![8th stage](../media/block/chili_pepper_stage7_32.png)|
 
-Chili peppers can be harvested from the crop in the final growth stage.
+Chili peppers can be harvested from the crop in the seventh or final growth stage.
 
 Items produced when crops are broken at each stage:
 
 |Stage|Drop Items|Quantity|
 |:---:|----------|:------:|
-|1–7|![ ](../media/item/chili_seeds.png) Chili Pepper Seeds (CBW)|1|
+|1–6|![ ](../media/item/chili_seeds.png) Chili Pepper Seeds (CBW)|1|
+| 7 |![ ](../media/item/curved_green_chili.png) Curved Green Chili Pepper|1–3|
 |8|![ ](../media/item/curved_chili.png) Curved Chili Pepper <br />![ ](../media/item/bullet_chili.png) Bullet-like Chili Pepper|1–3 each|
 
 If harvested with Fortune enchanted tool, the number of chili peppers dropped will increase.
@@ -74,15 +77,53 @@ Sack of Curved Chili Peppers
 Sack of Bullet-like Chili Peppers  
 ![Crafting sack of bullet-like chili peppers](../media/item/crafting/crafting_bullet_chili_sack.png) ![Crafting bullet-like chili peppers from sack](../media/item/crafting/crafting_bullet_chili_from_sack.png)
 
+## Potted Chili Peppers
+
+A potted chili pepper is a flower pot containing a chili pepper plant. It can be placed and used as a decorative block.
+
+![Potted chili peppers](../media/block/misc/potted_chili_peppers.png)
+
+There are three types of potted chili peppers:
+
+- ![ ](../media/item/potted_chili_pepper_flowering.png) Potted Flowering Chili Pepper
+- ![ ](../media/item/potted_chili_pepper_green.png) Potted Green Chili Pepper
+- ![ ](../media/item/potted_chili_pepper_red.png) Potted Red Chili Pepper
+
+Potted Flowering Chili Pepper  
+![Crafting potted flowering chili pepper](../media/item/crafting/crafting_potted_chili_pepper_flowering.png)
+
+Potted Green Chili Pepper  
+![Crafting potted green chili pepper](../media/item/crafting/crafting_potted_chili_pepper_green.png)
+
+Potted Red Chili Pepper  
+![Crafting potted red chili pepper](../media/item/crafting/crafting_potted_chili_pepper_red.png)
+
+Using bone meal on each type of placed potted chili pepper yields its corresponding item:
+
+- ![ ](../media/item/potted_chili_pepper_flowering.png) Potted Flowering Chili Pepper - 1x ![ ](../media/item/chili_seeds.png) Chili Pepper Seeds (CBW)
+- ![ ](../media/item/potted_chili_pepper_green.png) Potted Green Chili Pepper - 1x ![ ](../media/item/curved_green_chili.png) Curved Green Chili Pepper
+- ![ ](../media/item/potted_chili_pepper_red.png) Potted Red Chili Pepper - 1x ![ ](../media/item/curved_chili.png) Curved Chili Pepper
+
+## Chili Plant Biofuel
+
+Chili plant biofuel is a solid fuel made from biomass of chili pepper plants and can be used as fuel (1:20) in furnaces.
+
+![Crafting chili Plant Biofuel from string of curved chili peppers](../media/item/crafting/crafting_chili_biofuel_with_chili_string.png)
+![Crafting chili Plant Biofuel from sack of curved chili peppers](../media/item/crafting/crafting_chili_biofuel_with_curved_chili_sack.png)
+![Crafting chili Plant Biofuel from sack of bullet-like chili peppers](../media/item/crafting/crafting_chili_biofuel_with_bullet_chili_sack.png)
+
 ## Composting
 
 The following items can be added to composters:
 
 - ![ ](../media/item/chili_seeds.png) Chili Pepper Seeds (CBW)
+- ![ ](../media/item/curved_green_chili.png) Curved Green Chili Pepper
+- ![ ](../media/item/bullet_chili.png) Bullet-like Chili Pepper
 - ![ ](../media/item/curved_chili.png) Curved Chili Pepper
 - ![ ](../media/block/curved_chili_string.png) String of Curved Chili Peppers
 - ![ ](../media/item/dried_curved_chili.png) Dried Curved Chili Pepper
-- ![ ](../media/item/bullet_chili.png) Bullet-like Chili Pepper
+- ![ ](../media/item/pickled_green_chili.png) Pickled Green Chili Pepper
 - ![ ](../media/item/chili_potato_sandwich.png) Chili Potato Sandwich
 - ![ ](../media/item/half_chili_potato_sandwich.png) Half-sized Chili Potato Sandwich
 - ![ ](../media/item/fried_chili_pepper.png) Fried Chili Pepper
+- ![ ](../media/item/chili_chocolate.png) Chili Chocolate
