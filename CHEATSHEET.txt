@@ -1,7 +1,7 @@
 # Cheatsheet
 
 [Chili Bullet Weapons](https://iunius118.github.io/ChiliBulletWeapons/)
-Version 1.7.1+1.20.1
+Version 1.7.2+1.20.1
 
 ## Requirements
 
