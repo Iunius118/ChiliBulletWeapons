@@ -12,7 +12,7 @@ A Minecraft mod to add chili peppers, foods and weapons.
 
 ## Requirements
 
-- Minecraft 1.20.1
+- Minecraft 1.19-1.19.2
 - Forge version - Minecraft Forge
 - Fabric version - Fabric Loader, Fabric API, and Cloth Config API
 
