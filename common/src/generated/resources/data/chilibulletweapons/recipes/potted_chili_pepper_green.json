@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "chilibulletweapons:potted_chili_pepper_green",
   "key": {
     "#": {
@@ -16,6 +15,5 @@
   ],
   "result": {
     "item": "chilibulletweapons:potted_chili_pepper_green"
-  },
-  "show_notification": true
+  }
 }

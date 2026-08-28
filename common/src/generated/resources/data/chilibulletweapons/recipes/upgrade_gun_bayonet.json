@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "chilibulletweapons:upgrade_gun_bayonet",
   "key": {
     "b": {
@@ -20,6 +19,5 @@
   ],
   "result": {
     "item": "chilibulletweapons:upgrade_gun_bayonet"
-  },
-  "show_notification": true
+  }
 }

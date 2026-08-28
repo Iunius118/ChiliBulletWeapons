@@ -54,6 +54,5 @@
       "shot_bayoneted_gun",
       "shot_machine_gun"
     ]
-  ],
-  "sends_telemetry_event": false
+  ]
 }

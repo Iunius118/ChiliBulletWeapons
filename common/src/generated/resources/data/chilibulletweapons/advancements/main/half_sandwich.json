@@ -72,6 +72,5 @@
       "has_half_chili_meat_sandwich",
       "has_half_chili_potato_sandwich"
     ]
-  ],
-  "sends_telemetry_event": false
+  ]
 }

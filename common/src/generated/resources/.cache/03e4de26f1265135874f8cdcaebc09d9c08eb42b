@@ -1,0 +1,18 @@
+// 1.19	2026-08-28T04:32:22.3649512	Tags for minecraft:item
+4573191384784b61213c8496b2004b8435187a44 data/chilibulletweapons/tags/items/chili_biomass.json
+c743c46a02c2aad819a8162e30ccd2b6d12ce08e data/chilibulletweapons/tags/items/foods/chili_peppers.json
+e12f26c550300371ea4dfd5e0af7c3588c29ed13 data/chilibulletweapons/tags/items/foods/chili_peppers/green.json
+d1b789eb96a6d7c03609096352ea6643a8514e4f data/chilibulletweapons/tags/items/foods/chili_peppers/red.json
+e05c986b3501fb76dd2771f3effb0156f083a929 data/chilibulletweapons/tags/items/foods/chili_seasoning.json
+bc229f680fa773a41269c1569f5a700f669eb8e5 data/chilibulletweapons/tags/items/foods/cooked_fish.json
+cd4460e5e3a22d6e78dd48c3af239f5ccc03fc9c data/chilibulletweapons/tags/items/foods/cooked_meat.json
+3abb47debc29a8f218cd411cbba3a651de9fab50 data/chilibulletweapons/tags/items/non_flammable_planks.json
+da46f96bc13c4a27c511298908a9f8207f94e1fe data/c/tags/items/crops.json
+26d53ae8511ea58cf4d3f071b417baef82dbb62d data/c/tags/items/crops/chili.json
+f22737b0c8878bd60d56ea4cc00e35184bc9ffae data/c/tags/items/seeds.json
+5ae775032c52f263ebaaa8c5499f282078592830 data/c/tags/items/seeds/chili.json
+8718e570ff3dc5081466f4f497c25027ad82325e data/forge/tags/items/crops.json
+26d53ae8511ea58cf4d3f071b417baef82dbb62d data/forge/tags/items/crops/chili.json
+8c5187e6f9d924bb052faf3b8e5297cbe888ce96 data/forge/tags/items/seeds.json
+5ae775032c52f263ebaaa8c5499f282078592830 data/forge/tags/items/seeds/chili.json
+671111a6ec159fbe20de73c7ed0ce44b7fff02ce data/minecraft/tags/items/arrows.json

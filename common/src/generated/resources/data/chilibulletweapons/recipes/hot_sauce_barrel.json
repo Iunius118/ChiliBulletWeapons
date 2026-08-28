@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "chilibulletweapons:hot_sauce_barrel",
   "key": {
     "c": {
@@ -17,6 +16,5 @@
   ],
   "result": {
     "item": "chilibulletweapons:hot_sauce_barrel"
-  },
-  "show_notification": true
+  }
 }

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "chilibulletweapons:pickled_green_chili",
   "key": {
     "c": {
@@ -18,6 +17,5 @@
   "result": {
     "count": 6,
     "item": "chilibulletweapons:pickled_green_chili"
-  },
-  "show_notification": true
+  }
 }

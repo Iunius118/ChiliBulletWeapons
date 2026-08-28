@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "chilibulletweapons:hot_sauce",
   "key": {
     "#": {
@@ -18,6 +17,5 @@
   "result": {
     "count": 8,
     "item": "chilibulletweapons:hot_sauce"
-  },
-  "show_notification": true
+  }
 }

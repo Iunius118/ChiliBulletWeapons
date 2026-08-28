@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "chilibulletweapons:chili_biofuel",
   "key": {
     "c": {
@@ -13,6 +12,5 @@
   ],
   "result": {
     "item": "chilibulletweapons:chili_biofuel"
-  },
-  "show_notification": true
+  }
 }
