@@ -15,7 +15,7 @@
     "issues": "https://github.com/Iunius118/ChiliBulletWeapons/issues"
   },
   "license": "${license}",
-  "icon": "assets/chilibulletweapons/icon.png",
+  "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
