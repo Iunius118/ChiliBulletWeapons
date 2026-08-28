@@ -5,6 +5,7 @@ import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.advancements.ModCriteriaTriggers;
 import com.github.iunius118.chilibulletweapons.entity.ChiliBullet;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -17,6 +18,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CrossbowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -328,6 +330,23 @@ public class ChiliBulletGun extends CrossbowItem {
             return Constants.ChiliBulletGun.DESCRIPTION_RIFLE;
         } else {
             return Constants.ChiliBulletGun.DESCRIPTION_PISTOL;
+        }
+    }
+
+    @Override
+    public void fillItemCategory(CreativeModeTab category, NonNullList<ItemStack> items) {
+        if (this.allowedIn(category)) {
+            items.add(new ItemStack(ModItems.GUN));
+            items.add(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING));
+            items.add(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.MULTISHOT));
+
+            // Guns with extra enchantments for debug
+            items.add(ChiliBulletGun.enchant(ModItems.GUN,
+                    Enchantments.QUICK_CHARGE));
+            items.add(ChiliBulletGun.enchant(ModItems.GUN,
+                    Enchantments.PIERCING, Enchantments.QUICK_CHARGE));
+            items.add(ChiliBulletGun.enchant(ModItems.GUN,
+                    Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));
         }
     }
 }

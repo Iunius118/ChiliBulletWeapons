@@ -15,23 +15,23 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(CrossbowItem.class)
 public class MixinCrossbowItem {
     @Inject(method = "getChargeDuration", at = @At("HEAD"), cancellable = true)
-    private static void onGetChargeDuration(ItemStack itemStack, CallbackInfoReturnable<Integer> cir) {
-        if (itemStack.getItem() instanceof ChiliBulletGun chiliBulletGun) {
+    private static void onGetChargeDuration(ItemStack crossbowStack, CallbackInfoReturnable<Integer> cir) {
+        if (crossbowStack.getItem() instanceof ChiliBulletGun chiliBulletGun) {
             // If the entity is holding a chili bullet gun,
             // return the reload duration of the gun
-            int reloadDuration = chiliBulletGun.getReloadDuration(itemStack);
+            int reloadDuration = chiliBulletGun.getReloadDuration(crossbowStack);
             cir.setReturnValue(reloadDuration);
         }
     }
 
     @Inject(method = "performShooting", at = @At("HEAD"), cancellable = true)
     private static void onPerformShooting(Level level, LivingEntity livingEntity, InteractionHand hand,
-                                          ItemStack itemStack, float velocity, float inaccuracy, CallbackInfo ci) {
+                                          ItemStack crossbowStack, float velocity, float inaccuracy, CallbackInfo ci) {
         // Constants.LOG.info("[CBGun] onPerformShooting with {} in {}", itemStack, hand);
-        if (itemStack.getItem() instanceof ChiliBulletGun chiliBulletGun) {
+        if (crossbowStack.getItem() instanceof ChiliBulletGun chiliBulletGun) {
             // If the entity is holding a chili bullet gun,
             // fire it instead of crossbow
-            chiliBulletGun.performShootingByNonPlayer(level, livingEntity, hand, itemStack);
+            chiliBulletGun.performShootingByNonPlayer(level, livingEntity, hand, crossbowStack);
             ci.cancel();
         }
     }

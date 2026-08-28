@@ -2,7 +2,7 @@ package com.github.iunius118.chilibulletweapons.data;
 
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -13,11 +13,10 @@ import java.util.Arrays;
 
 public class ModSoundDefinitionsProvider extends SoundDefinitionsProvider {
 
-    public ModSoundDefinitionsProvider(PackOutput output, ExistingFileHelper helper) {
-        super(output, Constants.MOD_ID, helper);
+    public ModSoundDefinitionsProvider(DataGenerator generator, ExistingFileHelper helper) {
+        super(generator, Constants.MOD_ID, helper);
     }
 
-    @SuppressWarnings("removal")
     @Override
     public void registerSounds() {
         ResourceLocation[] actionOpenSoundLocations = {

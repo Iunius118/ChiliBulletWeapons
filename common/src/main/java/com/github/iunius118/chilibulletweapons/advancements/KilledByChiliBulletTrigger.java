@@ -9,10 +9,10 @@ import net.minecraft.server.level.ServerPlayer;
 public class KilledByChiliBulletTrigger extends SimpleCriterionTrigger<KilledByChiliBulletTrigger.TriggerInstance> {
 
     @Override
-    public KilledByChiliBulletTrigger.TriggerInstance createInstance(JsonObject json, ContextAwarePredicate predicate,
-                                                                     DeserializationContext deserializationContext) {
+    public KilledByChiliBulletTrigger.TriggerInstance createInstance(
+            JsonObject json, EntityPredicate.Composite entityPredicate, DeserializationContext deserializationContext) {
         MinMaxBounds.Ints killedEntities = MinMaxBounds.Ints.fromJson(json.get("killed_entities"));
-        return new KilledByChiliBulletTrigger.TriggerInstance(predicate, killedEntities);
+        return new KilledByChiliBulletTrigger.TriggerInstance(entityPredicate, killedEntities);
     }
 
     public void trigger(ServerPlayer shooter, int killedEntities) {
@@ -27,13 +27,13 @@ public class KilledByChiliBulletTrigger extends SimpleCriterionTrigger<KilledByC
     public static class TriggerInstance extends AbstractCriterionTriggerInstance {
         private final MinMaxBounds.Ints killedEntities;
 
-        public TriggerInstance(ContextAwarePredicate player, MinMaxBounds.Ints killedEntities) {
+        public TriggerInstance(EntityPredicate.Composite player, MinMaxBounds.Ints killedEntities) {
             super(Constants.CriterionTriggers.KILLED_BY_CHILI_BULLET, player);
             this.killedEntities = killedEntities;
         }
 
         public static TriggerInstance killedByBullet(MinMaxBounds.Ints killedEntities) {
-            return new TriggerInstance(ContextAwarePredicate.ANY, killedEntities);
+            return new TriggerInstance(EntityPredicate.Composite.ANY, killedEntities);
         }
 
         public boolean matches(int killedEntities) {

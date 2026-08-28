@@ -3,8 +3,8 @@ package com.github.iunius118.chilibulletweapons.advancements;
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.google.gson.JsonObject;
 import net.minecraft.advancements.critereon.AbstractCriterionTriggerInstance;
-import net.minecraft.advancements.critereon.ContextAwarePredicate;
 import net.minecraft.advancements.critereon.DeserializationContext;
+import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.SimpleCriterionTrigger;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -14,8 +14,8 @@ public class HarvestedChiliPepperWithShearsTrigger
 
     @Override
     protected HarvestedChiliPepperWithShearsTrigger.TriggerInstance createInstance(
-            JsonObject json, ContextAwarePredicate predicate, DeserializationContext deserializationContext) {
-        return new TriggerInstance(predicate);
+            JsonObject json, EntityPredicate.Composite entityPredicate, DeserializationContext deserializationContext) {
+        return new TriggerInstance(entityPredicate);
     }
 
     public void trigger(ServerPlayer player) {
@@ -29,12 +29,12 @@ public class HarvestedChiliPepperWithShearsTrigger
 
     public static class TriggerInstance extends AbstractCriterionTriggerInstance {
 
-        public TriggerInstance(ContextAwarePredicate player) {
+        public TriggerInstance(EntityPredicate.Composite player) {
             super(Constants.CriterionTriggers.HARVESTED_CHILI_PEPPER_WITH_SHEARS, player);
         }
 
         public static TriggerInstance harvestedChiliPepperWithShears() {
-            return new TriggerInstance(ContextAwarePredicate.ANY);
+            return new TriggerInstance(EntityPredicate.Composite.ANY);
         }
 
         public boolean matches() {

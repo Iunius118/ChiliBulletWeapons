@@ -12,10 +12,11 @@ public class UpgradedChiliBulletGunTrigger
         extends SimpleCriterionTrigger<UpgradedChiliBulletGunTrigger.TriggerInstance> {
 
     @Override
-    protected UpgradedChiliBulletGunTrigger.TriggerInstance createInstance(JsonObject json, ContextAwarePredicate predicate,
-                                                                  DeserializationContext deserializationContext) {
+    protected UpgradedChiliBulletGunTrigger.TriggerInstance
+    createInstance(
+            JsonObject json, EntityPredicate.Composite entityPredicate, DeserializationContext deserializationContext) {
         ItemPredicate itempredicate = ItemPredicate.fromJson(json.get("item"));
-        return new UpgradedChiliBulletGunTrigger.TriggerInstance(predicate, itempredicate);
+        return new UpgradedChiliBulletGunTrigger.TriggerInstance(entityPredicate, itempredicate);
     }
 
     public void trigger(ServerPlayer player, ItemStack stack) {
@@ -30,13 +31,13 @@ public class UpgradedChiliBulletGunTrigger
     public static class TriggerInstance extends AbstractCriterionTriggerInstance {
         private final ItemPredicate item;
 
-        public TriggerInstance(ContextAwarePredicate player, ItemPredicate item) {
+        public TriggerInstance(EntityPredicate.Composite player, ItemPredicate item) {
             super(Constants.CriterionTriggers.UPGRADED_CHILI_BULLET_GUN, player);
             this.item = item;
         }
 
         public static TriggerInstance upgradedChiliBulletGun(ItemPredicate item) {
-            return new TriggerInstance(ContextAwarePredicate.ANY, item);
+            return new TriggerInstance(EntityPredicate.Composite.ANY, item);
         }
 
         public static TriggerInstance upgradedChiliBulletGun(ItemLike item) {

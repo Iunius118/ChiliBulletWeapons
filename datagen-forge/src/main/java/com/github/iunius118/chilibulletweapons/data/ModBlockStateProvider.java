@@ -4,10 +4,11 @@ import com.github.iunius118.chilibulletweapons.CommonClass;
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import net.minecraft.core.Direction;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -16,8 +17,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModBlockStateProvider extends BlockStateProvider {
 
-    public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
-        super(output, Constants.MOD_ID, exFileHelper);
+    public ModBlockStateProvider(DataGenerator generator, ExistingFileHelper exFileHelper) {
+        super(generator, Constants.MOD_ID, exFileHelper);
     }
 
     @Override
@@ -41,20 +42,19 @@ public class ModBlockStateProvider extends BlockStateProvider {
         });
     }
 
-    @SuppressWarnings("removal")
     private void registerTrivialBlockWithItem(Block block) {
         ResourceLocation id = getBlockId(block);
         String namespace = id.getNamespace();
         String path = id.getPath();
-        this.simpleBlockWithItem(block,
-                models().cubeBottomTop(path,
-                        new ResourceLocation(namespace, "block/" + path + "_side"),
-                        new ResourceLocation(namespace, "block/" + path + "_bottom"),
-                        new ResourceLocation(namespace, "block/" + path + "_top")
-                ));
+        BlockModelBuilder model = models().cubeBottomTop(path,
+                new ResourceLocation(namespace, "block/" + path + "_side"),
+                new ResourceLocation(namespace, "block/" + path + "_bottom"),
+                new ResourceLocation(namespace, "block/" + path + "_top")
+        );
+        this.simpleBlock(block, model);
+        this.simpleBlockItem(block, model);
     }
 
-    @SuppressWarnings("removal")
     private void registerCrossBlock(Block block) {
         ResourceLocation id = getBlockId(block);
         String namespace = id.getNamespace();
@@ -139,9 +139,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void createPottedChiliPepperModel(Block block, ResourceLocation potModel) {
         ResourceLocation blockId = getBlockId(block);
+        ResourceLocation textureLoc = new ResourceLocation(blockId.getNamespace(), "block/" + blockId.getPath());
         this.simpleBlock(block,
                 models().withExistingParent(blockId.toString(), potModel)
-                        .texture("plant", blockId.withPrefix("block/")));
+                        .texture("plant", textureLoc));
     }
 
     private ResourceLocation getBlockId(Block block) {

@@ -2,10 +2,13 @@ package com.github.iunius118.chilibulletweapons.platform.services;
 
 import com.github.iunius118.chilibulletweapons.registry.ModObjectRegistry;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.HitResult;
+
+import java.util.function.Supplier;
 
 public interface IPlatformHelper {
 
@@ -51,11 +54,13 @@ public interface IPlatformHelper {
     <V, T extends V> ModObjectRegistry<V, T> createModObjectRegistry(Registry<V> registry, String namespace);
 
     /**
-     * Creates a new creative mode tab builder.
+     * Creates a new creative mode tab.
      *
-     * @return A creative mode tab builder
+     * @param id           The ID of the creative mode tab
+     * @param iconSupplier The item stack supplier for the creative mode tab icon
+     * @return A creative mode tab
      */
-    CreativeModeTab.Builder createCreativeModeTabBuilder();
+    CreativeModeTab createCreativeModeTab(ResourceLocation id, Supplier<ItemStack> iconSupplier);
 
     /**
      * Checks whether the given item stack is a tool that can harvest crops.

@@ -4,55 +4,61 @@ import com.github.iunius118.chilibulletweapons.block.ChiliPepperCrop;
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.mixin.LootItemBlockStatePropertyConditionBuilderAccessor;
-import com.google.common.collect.ImmutableList;
 import com.google.gson.JsonObject;
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.loot.LootTableProvider;
-import net.minecraft.data.loot.packs.VanillaLootTableProvider;
-import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class ModLootTableProvider extends LootTableProvider {
 
-    public ModLootTableProvider(PackOutput packOutput) {
-        super(packOutput, Set.of(), VanillaLootTableProvider.create(packOutput).getTables());
+    public ModLootTableProvider(DataGenerator generator) {
+        super(generator);
     }
 
     @Override
-    public List<SubProviderEntry> getTables() {
-        return ImmutableList.of(
-                new SubProviderEntry(ModBlockLootTables::new, LootContextParamSets.BLOCK)
+    public List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>>
+    getTables() {
+        return List.of(
+                Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK)
         );
     }
 
-    private static class ModBlockLootTables extends BlockLootSubProvider {
-        protected ModBlockLootTables() {
-            super(Set.of(), FeatureFlags.REGISTRY.allFlags());
-        }
+    @Override
+    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationtracker) {
+        // do not validate against all registered loot tables
+    }
+
+    private static class ModBlockLootTables extends BlockLoot {
 
         @Override
-        protected void generate() {
+        protected void addTables() {
             add(ModBlocks.CHILI_PEPPER, createChiliPepperCropDrops());
-            add(ModBlocks.CURVED_CHILI_STRING, this.createSingleItemTableWithSilkTouch(ModBlocks.CURVED_CHILI_STRING,
+            add(ModBlocks.CURVED_CHILI_STRING, createSingleItemTableWithSilkTouch(ModBlocks.CURVED_CHILI_STRING,
                     ModItems.DRIED_CURVED_CHILI, ConstantValue.exactly(9.0F)));
-            add(ModBlocks.POTTED_CHILI_PEPPER_FLOWERING,
-                    this.createSingleItemTable(ModBlocks.POTTED_CHILI_PEPPER_FLOWERING));
-            add(ModBlocks.POTTED_CHILI_PEPPER_GREEN, this.createSingleItemTable(ModBlocks.POTTED_CHILI_PEPPER_GREEN));
-            add(ModBlocks.POTTED_CHILI_PEPPER_RED, this.createSingleItemTable(ModBlocks.POTTED_CHILI_PEPPER_RED));
-            add(ModBlocks.HOT_SAUCE_BARREL, this.createSingleItemTable(ModBlocks.HOT_SAUCE_BARREL));
+            dropSelf(ModBlocks.POTTED_CHILI_PEPPER_FLOWERING);
+            dropSelf(ModBlocks.POTTED_CHILI_PEPPER_GREEN);
+            dropSelf(ModBlocks.POTTED_CHILI_PEPPER_RED);
+            dropSelf(ModBlocks.HOT_SAUCE_BARREL);
         }
 
         private LootTable.Builder createChiliPepperCropDrops() {

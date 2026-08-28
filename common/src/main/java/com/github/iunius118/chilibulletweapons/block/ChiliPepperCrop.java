@@ -22,10 +22,11 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -113,12 +114,12 @@ public class ChiliPepperCrop extends CropBlock {
         }
 
         var lootTableLocation = CommonClass.modLocation("blocks/chili_pepper");
-        var lootTable = server.getLootData().getLootTable(lootTableLocation);
-        var lootParams = new LootParams.Builder((ServerLevel) level)
-                .withParameter(LootContextParams.ORIGIN, pos.getCenter())
+        var lootTable = server.getLootTables().get(lootTableLocation);
+        var lootContext = new LootContext.Builder((ServerLevel) level)
+                .withParameter(LootContextParams.ORIGIN, Vec3.atCenterOf(pos))
                 .withParameter(LootContextParams.TOOL, tool)
                 .withParameter(LootContextParams.BLOCK_STATE, blockState)
                 .create(LootContextParamSets.BLOCK);
-        return lootTable.getRandomItems(lootParams);
+        return lootTable.getRandomItems(lootContext);
     }
 }

@@ -1,5 +1,6 @@
 package com.github.iunius118.chilibulletweapons.registry;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 
@@ -10,9 +11,8 @@ public record FabricModObjectRegistry<V, T extends V>(Registry<V> registry, Stri
 
     @Override
     public ModRegistryObject<V> register(String name, Supplier<T> object) {
-        return ModRegistryObject.of(
-                Registry.registerForHolder(registry, new ResourceLocation(namespace, name), object.get())
-        );
+        T registered = Registry.register(registry, new ResourceLocation(namespace, name), object.get());
+        return ModRegistryObject.of(Holder.direct(registered));
     }
 
     @Override

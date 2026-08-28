@@ -6,21 +6,19 @@ import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.PackOutput;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class ModLanguageProvider {
 
-    public static void addProviders(boolean needsRun, DataGenerator gen) {
-        var packOutput = gen.getPackOutput();
-        gen.addProvider(needsRun, new ModEnglishLanguageProvider(packOutput, Constants.MOD_ID));
+    public static void addProviders(boolean needsRun, DataGenerator generator) {
+        generator.addProvider(needsRun, new ModEnglishLanguageProvider(generator));
     }
 
     public static class ModEnglishLanguageProvider extends LanguageProvider {
 
-        public ModEnglishLanguageProvider(PackOutput output, String modId) {
-            super(output, modId, "en_us");
+        public ModEnglishLanguageProvider(DataGenerator generator) {
+            super(generator, Constants.MOD_ID, "en_us");
         }
 
         @Override

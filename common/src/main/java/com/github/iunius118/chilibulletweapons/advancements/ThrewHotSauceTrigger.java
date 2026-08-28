@@ -11,10 +11,10 @@ import net.minecraft.world.level.ItemLike;
 public class ThrewHotSauceTrigger extends SimpleCriterionTrigger<ThrewHotSauceTrigger.TriggerInstance> {
 
     @Override
-    protected ThrewHotSauceTrigger.TriggerInstance createInstance(JsonObject json, ContextAwarePredicate predicate,
-                                                                  DeserializationContext deserializationContext) {
+    protected ThrewHotSauceTrigger.TriggerInstance createInstance(
+            JsonObject json, EntityPredicate.Composite entityPredicate, DeserializationContext deserializationContext) {
         ItemPredicate itempredicate = ItemPredicate.fromJson(json.get("item"));
-        return new TriggerInstance(predicate, itempredicate);
+        return new TriggerInstance(entityPredicate, itempredicate);
     }
 
     public void trigger(ServerPlayer shooter, ItemStack itemStack) {
@@ -29,13 +29,13 @@ public class ThrewHotSauceTrigger extends SimpleCriterionTrigger<ThrewHotSauceTr
     public static class TriggerInstance extends AbstractCriterionTriggerInstance {
         private final ItemPredicate item;
 
-        public TriggerInstance(ContextAwarePredicate player, ItemPredicate item) {
+        public TriggerInstance(EntityPredicate.Composite player, ItemPredicate item) {
             super(Constants.CriterionTriggers.THREW_HOT_SAUCE, player);
             this.item = item;
         }
 
         public static TriggerInstance threwHotSauce(ItemPredicate item) {
-            return new TriggerInstance(ContextAwarePredicate.ANY, item);
+            return new TriggerInstance(EntityPredicate.Composite.ANY, item);
         }
 
         public static TriggerInstance threwHotSauce(ItemLike item) {

@@ -3,12 +3,15 @@ package com.github.iunius118.chilibulletweapons.item;
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.core.NonNullList;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantments;
 
 public class ChiliBulletGunBayoneted extends ChiliBulletGun {
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
@@ -55,6 +58,23 @@ public class ChiliBulletGunBayoneted extends ChiliBulletGun {
             return Constants.ChiliBulletGun.DESCRIPTION_BAYONETED_RIFLE;
         } else {
             return Constants.ChiliBulletGun.DESCRIPTION_BAYONETED_PISTOL;
+        }
+    }
+
+    @Override
+    public void fillItemCategory(CreativeModeTab category, NonNullList<ItemStack> items) {
+        if (this.allowedIn(category)) {
+            items.add(new ItemStack(ModItems.BAYONETED_GUN));
+            items.add(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.PIERCING));
+            items.add(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN, Enchantments.MULTISHOT));
+
+            // Guns with extra enchantments for debug
+            items.add(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN,
+                    Enchantments.QUICK_CHARGE));
+            items.add(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN,
+                    Enchantments.PIERCING, Enchantments.QUICK_CHARGE));
+            items.add(ChiliBulletGun.enchant(ModItems.BAYONETED_GUN,
+                    Enchantments.MULTISHOT, Enchantments.QUICK_CHARGE));
         }
     }
 }

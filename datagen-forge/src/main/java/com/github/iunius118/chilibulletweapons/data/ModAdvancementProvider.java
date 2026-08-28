@@ -10,8 +10,8 @@ import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.advancements.AdvancementProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -21,45 +21,43 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-public class ModAdvancementProvider extends ForgeAdvancementProvider {
+public class ModAdvancementProvider extends AdvancementProvider {
 
-    public ModAdvancementProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries,
-                                  ExistingFileHelper existingFileHelper) {
-        super(output, registries, existingFileHelper, java.util.List.of(new ModMainAdvancementGenerator()));
+    public ModAdvancementProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+        super(generator, existingFileHelper);
     }
 
-    private static class ModMainAdvancementGenerator implements AdvancementGenerator {
+    @Override
+    protected void registerAdvancements(Consumer<Advancement> saver, ExistingFileHelper fileHelper) {
+        new ModMainAdvancements().accept(saver);
+    }
 
-        @SuppressWarnings("removal")
-        @Override
-        public void generate(HolderLookup.Provider registries, Consumer<Advancement> consumer,
-                             ExistingFileHelper existingFileHelper) {
+    public static class ModMainAdvancements implements Consumer<Consumer<Advancement>> {
+        public void accept(Consumer<Advancement> saver) {
             final Item curvedChiliItem = getItem(Constants.Items.CURVED_CHILI.location());
 
             // Main root
-            Advancement root = Advancement.Builder.recipeAdvancement()
+            Advancement root = Advancement.Builder.advancement()
                     .display(getItem(Constants.Items.ICON_MAIN.location()),
                             getTranslatableTitle("main", "root"),
                             getTranslatableDescription("main", "root"),
                             new ResourceLocation("textures/block/orange_concrete_powder.png"),
                             FrameType.TASK, false, false, false)
                     .addCriterion("has_curved_chili", InventoryChangeTrigger.TriggerInstance.hasItems(curvedChiliItem))
-                    .save(consumer, getModAdvancementID("main", "root"));
+                    .save(saver, getModAdvancementID("main", "root"));
 
             // 1. Hot Topic
             Advancement curvedChili = addItemAdvancement(root, ModItems.CURVED_CHILI, FrameType.TASK,
-                    List.of(ModItems.CURVED_CHILI), "main", consumer);
+                    List.of(ModItems.CURVED_CHILI), "main", saver);
 
             // 1-1. Be Gentle
             String harvestedChiliPepperWithShearsName = "harvested_chili_pepper_with_shears";
-            Advancement harvestedChiliPepperWithShears = Advancement.Builder.recipeAdvancement()
+            Advancement harvestedChiliPepperWithShears = Advancement.Builder.advancement()
                     .parent(curvedChili)
                     .display(Items.SHEARS,
                             getTranslatableTitle("main", harvestedChiliPepperWithShearsName),
@@ -68,7 +66,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
                             FrameType.TASK, true, true, false)
                     .addCriterion(harvestedChiliPepperWithShearsName,
                             HarvestedChiliPepperWithShearsTrigger.TriggerInstance.harvestedChiliPepperWithShears())
-                    .save(consumer, getModAdvancementID("main", harvestedChiliPepperWithShearsName));
+                    .save(saver, getModAdvancementID("main", harvestedChiliPepperWithShearsName));
 
             // 1-2. Let's Go Halves
             List<Item> halfSandwiches = List.of(
@@ -77,11 +75,11 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
                     ModItems.HALF_CHILI_MEAT_SANDWICH,
                     ModItems.HALF_CHILI_POTATO_SANDWICH);
             Advancement halfSandwich = addItemAdvancement(curvedChili, ModItems.HALF_CHILI_POTATO_SANDWICH,
-                    FrameType.TASK, "half_sandwich", halfSandwiches, "main", consumer);
+                    FrameType.TASK, "half_sandwich", halfSandwiches, "main", saver);
 
             // 1-3. Non-Lethal?
             String threwHotSauceName = "threw_hot_sauce";
-            Advancement threwHotSauce = Advancement.Builder.recipeAdvancement()
+            Advancement threwHotSauce = Advancement.Builder.advancement()
                     .parent(curvedChili)
                     .display(ModItems.HOT_SAUCE,
                             getTranslatableTitle("main", threwHotSauceName),
@@ -93,15 +91,15 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
                     .addCriterion("threw_green_hot_sauce",
                             ThrewHotSauceTrigger.TriggerInstance.threwHotSauce(ModItems.GREEN_HOT_SAUCE))
                     .requirements(RequirementsStrategy.OR)
-                    .save(consumer, getModAdvancementID("main", threwHotSauceName));
+                    .save(saver, getModAdvancementID("main", threwHotSauceName));
 
             // 2. Like a Bullet?
             Advancement bulletChili = addItemAdvancement(root, ModItems.BULLET_CHILI, FrameType.TASK,
-                    List.of(ModItems.BULLET_CHILI), "main", consumer);
+                    List.of(ModItems.BULLET_CHILI), "main", saver);
 
             // 2-1. Boom!
             String explodedChiliArrowName = "exploded_chili_arrow";
-            Advancement explodedChiliArrow = Advancement.Builder.recipeAdvancement()
+            Advancement explodedChiliArrow = Advancement.Builder.advancement()
                     .parent(bulletChili)
                     .display(ModItems.CHILI_ARROW,
                             getTranslatableTitle("main", explodedChiliArrowName),
@@ -110,15 +108,15 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
                             FrameType.TASK, true, true, false)
                     .addCriterion(explodedChiliArrowName,
                             ExplodedChiliArrowTrigger.TriggerInstance.explodedChiliArrow())
-                    .save(consumer, getModAdvancementID("main", explodedChiliArrowName));
+                    .save(saver, getModAdvancementID("main", explodedChiliArrowName));
 
             // 2-2. Bang!
             Advancement shotGun = addShotGunAdvancement(bulletChili, ModItems.GUN, FrameType.TASK,
-                    List.of(ModItems.GUN, ModItems.BAYONETED_GUN, ModItems.MACHINE_GUN), "main", consumer);
+                    List.of(ModItems.GUN, ModItems.BAYONETED_GUN, ModItems.MACHINE_GUN), "main", saver);
 
             // 2-2-1. Master Gunsmith
             String upgradedGunName = "upgraded_gun";
-            Advancement upgradedChiliBulletGun = Advancement.Builder.recipeAdvancement()
+            Advancement upgradedChiliBulletGun = Advancement.Builder.advancement()
                     .parent(shotGun)
                     .display(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.QUICK_CHARGE),
                             getTranslatableTitle("main", upgradedGunName),
@@ -132,11 +130,11 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
                     .addCriterion("upgraded_mechanism", UpgradedChiliBulletGunTrigger.TriggerInstance
                             .upgradedChiliBulletGun(ModItems.UPGRADE_GUN_MECHANISM))
                     .requirements(RequirementsStrategy.OR)
-                    .save(consumer, getModAdvancementID("main", upgradedGunName));
+                    .save(saver, getModAdvancementID("main", upgradedGunName));
 
             // 2-2-1-1. Quad-sharp Shooter
             String killedByChiliBulletName = "killed_by_chili_bullet";
-            Advancement killedByChiliBullet = Advancement.Builder.recipeAdvancement()
+            Advancement killedByChiliBullet = Advancement.Builder.advancement()
                     .parent(upgradedChiliBulletGun)
                     .display(ChiliBulletGun.enchant(ModItems.GUN, Enchantments.PIERCING),
                             getTranslatableTitle("main", killedByChiliBulletName),
@@ -146,16 +144,16 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
                     .rewards(AdvancementRewards.Builder.experience(75))
                     .addCriterion(killedByChiliBulletName, KilledByChiliBulletTrigger.TriggerInstance
                             .killedByBullet(MinMaxBounds.Ints.atLeast(Constants.ChiliBulletGun.BASIC_PIERCING + 1)))
-                    .save(consumer, getModAdvancementID("main", killedByChiliBulletName));
+                    .save(saver, getModAdvancementID("main", killedByChiliBulletName));
 
             // 2-2-2. Handle With Care
             Advancement shotMachineGun = addShotGunAdvancement(shotGun, ModItems.MACHINE_GUN, FrameType.TASK,
-                    List.of(ModItems.MACHINE_GUN), "main", consumer);
+                    List.of(ModItems.MACHINE_GUN), "main", saver);
 
             // 2-2-2-1. Battle Has Changed
             Advancement machineGunWithMending = addEnchantmentAdvancement(shotMachineGun,
                     ChiliBulletMachineGun.enchant(ModItems.MACHINE_GUN, Enchantments.MENDING),
-                    FrameType.GOAL, List.of(ModItems.MACHINE_GUN), Enchantments.MENDING, 1, "main", consumer);
+                    FrameType.GOAL, List.of(ModItems.MACHINE_GUN), Enchantments.MENDING, 1, "main", saver);
         }
 
         /**
@@ -169,7 +167,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
                     getTranslatableDescription(tab, name),
                     null,
                     frameType, true, true, false);
-            Advancement.Builder builder = Advancement.Builder.recipeAdvancement()
+            Advancement.Builder builder = Advancement.Builder.advancement()
                     .parent(parent)
                     .display(displayInfo)
                     .requirements(RequirementsStrategy.OR);
@@ -194,7 +192,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
         private Advancement addShotGunAdvancement(Advancement parent, Item icon, FrameType frameType,
                                                   List<Item> requirements, String tab, Consumer<Advancement> saver) {
             String name = "shot_" + getItemId(requirements.get(0)).getPath();
-            Advancement.Builder builder = Advancement.Builder.recipeAdvancement()
+            Advancement.Builder builder = Advancement.Builder.advancement()
                     .parent(parent)
                     .display(icon,
                             getTranslatableTitle(tab, name),
@@ -220,7 +218,7 @@ public class ModAdvancementProvider extends ForgeAdvancementProvider {
                                                       String tab, Consumer<Advancement> saver) {
             String name = "%s_%s_%d".formatted(getItemId(requirements.get(0)).getPath(),
                     getEnchantmentId(enchantment).getPath(), level);
-            Advancement.Builder builder = Advancement.Builder.recipeAdvancement()
+            Advancement.Builder builder = Advancement.Builder.advancement()
                     .parent(parent)
                     .display(icon,
                             getTranslatableTitle(tab, name),

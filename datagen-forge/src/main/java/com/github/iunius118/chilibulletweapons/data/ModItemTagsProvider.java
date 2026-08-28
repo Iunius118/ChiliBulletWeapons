@@ -3,27 +3,23 @@ package com.github.iunius118.chilibulletweapons.data;
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.tags.ModItemTags;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.concurrent.CompletableFuture;
-
 public class ModItemTagsProvider extends ItemTagsProvider {
 
-    public ModItemTagsProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider,
-                               CompletableFuture<TagLookup<Block>> blockTagProvider,
+    public ModItemTagsProvider(DataGenerator generator, BlockTagsProvider blockTagsProvider,
                                @Nullable ExistingFileHelper existingFileHelper) {
-        super(packOutput, lookupProvider, blockTagProvider, Constants.MOD_ID, existingFileHelper);
+        super(generator, blockTagsProvider, Constants.MOD_ID, existingFileHelper);
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags() {
         tag(ModItemTags.FORGE_CROPS).addTag(ModItemTags.FORGE_CROPS_CHILI);
         tag(ModItemTags.FORGE_CROPS_CHILI).add(ModItems.CURVED_CHILI);
         tag(ModItemTags.FORGE_SEEDS).addTag(ModItemTags.FORGE_SEEDS_CHILI);

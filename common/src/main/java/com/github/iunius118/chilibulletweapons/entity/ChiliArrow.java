@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
@@ -45,13 +46,12 @@ public class ChiliArrow extends Arrow {
             return;
         }
 
-        Level level = this.level();
-        BlockState blockState = level.getBlockState(blockHitResult.getBlockPos());
-        blockState.onProjectileHit(level, blockState, blockHitResult, this);
+        BlockState blockState = this.level.getBlockState(blockHitResult.getBlockPos());
+        blockState.onProjectileHit(this.level, blockState, blockHitResult, this);
         this.inGround = true;
         this.discard();
 
-        if (!this.level().isClientSide) {
+        if (!this.level.isClientSide) {
             explode(blockHitResult.getLocation(), getExplosivePower());
         }
     }
@@ -66,7 +66,7 @@ public class ChiliArrow extends Arrow {
 
         this.discard();
 
-        if (!this.level().isClientSide) {
+        if (!this.level.isClientSide) {
             explode(entityHitResult.getLocation(), getExplosivePower());
         }
     }
@@ -77,7 +77,7 @@ public class ChiliArrow extends Arrow {
             ModCriteriaTriggers.EXPLODED_CHILI_ARROW.trigger(shooter);
         }
 
-        this.level().explode(this, pos.x, pos.y, pos.z, power, Level.ExplosionInteraction.NONE);
+        this.level.explode(this, pos.x, pos.y, pos.z, power, Explosion.BlockInteraction.NONE);
     }
 
     private float getExplosivePower() {

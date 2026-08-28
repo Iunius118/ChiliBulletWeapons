@@ -11,10 +11,10 @@ import net.minecraft.world.level.ItemLike;
 public class ShotChiliBulletGunTrigger extends SimpleCriterionTrigger<ShotChiliBulletGunTrigger.TriggerInstance> {
 
     @Override
-    protected ShotChiliBulletGunTrigger.TriggerInstance createInstance(JsonObject json, ContextAwarePredicate predicate,
-                                                                  DeserializationContext deserializationContext) {
+    protected ShotChiliBulletGunTrigger.TriggerInstance createInstance(
+            JsonObject json, EntityPredicate.Composite entityPredicate, DeserializationContext deserializationContext) {
         ItemPredicate itempredicate = ItemPredicate.fromJson(json.get("item"));
-        return new ShotChiliBulletGunTrigger.TriggerInstance(predicate, itempredicate);
+        return new ShotChiliBulletGunTrigger.TriggerInstance(entityPredicate, itempredicate);
     }
 
     public void trigger(ServerPlayer shooter, ItemStack stack) {
@@ -29,13 +29,13 @@ public class ShotChiliBulletGunTrigger extends SimpleCriterionTrigger<ShotChiliB
     public static class TriggerInstance extends AbstractCriterionTriggerInstance {
         private final ItemPredicate item;
 
-        public TriggerInstance(ContextAwarePredicate player, ItemPredicate item) {
+        public TriggerInstance(EntityPredicate.Composite player, ItemPredicate item) {
             super(Constants.CriterionTriggers.SHOT_CHILI_BULLET_GUN, player);
             this.item = item;
         }
 
         public static TriggerInstance shotChiliBulletGun(ItemPredicate item) {
-            return new TriggerInstance(ContextAwarePredicate.ANY, item);
+            return new TriggerInstance(EntityPredicate.Composite.ANY, item);
         }
 
         public static TriggerInstance shotChiliBulletGun(ItemLike item) {

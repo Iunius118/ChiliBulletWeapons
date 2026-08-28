@@ -1,7 +1,7 @@
 package com.github.iunius118.chilibulletweapons.tags;
 
 import com.github.iunius118.chilibulletweapons.CommonClass;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -27,16 +27,14 @@ public class ModItemTags {
     public static final TagKey<Item> NON_FLAMMABLE_PLANKS = makeModTag("non_flammable_planks");
 
     private static TagKey<Item> makeModTag(String id) {
-        return TagKey.create(Registries.ITEM, CommonClass.modLocation(id));
+        return TagKey.create(Registry.ITEM_REGISTRY, CommonClass.modLocation(id));
     }
 
-    @SuppressWarnings("removal")
     private static TagKey<Item> makeCommonTag(String path) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation("c", path));
+        return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("c", path));
     }
 
-    @SuppressWarnings("removal")
     private static TagKey<Item> makeForgeTag(String path) {
-        return TagKey.create(Registries.ITEM, new ResourceLocation("forge", path));
+        return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation("forge", path));
     }
 }

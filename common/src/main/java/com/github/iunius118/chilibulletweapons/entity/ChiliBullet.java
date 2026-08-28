@@ -12,6 +12,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -97,7 +98,7 @@ public class ChiliBullet extends Projectile {
 
         Vec3 pos = this.position();
         Vec3 nextPos = pos.add(deltaV);
-        HitResult hitResult = this.level()
+        HitResult hitResult = this.level
                 .clip(new ClipContext(pos, nextPos, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this));
 
         if (hitResult.getType() != HitResult.Type.MISS) {
@@ -155,7 +156,7 @@ public class ChiliBullet extends Projectile {
         if (this.isInWater()) {
             for(int i = 0; i < 4; ++i) {
                 double offset = 0.25;
-                this.level().addParticle(ParticleTypes.BUBBLE,
+                this.level.addParticle(ParticleTypes.BUBBLE,
                         nextX - deltaV.x * offset, nextY - deltaV.y * offset, nextZ - deltaV.z * offset,
                         deltaV.x, deltaV.y, deltaV.z);
             }
@@ -177,14 +178,14 @@ public class ChiliBullet extends Projectile {
 
         age++;
 
-        if (!level().isClientSide) {
+        if (!level.isClientSide) {
             tickDespawn();
         }
     }
 
     @Nullable
     protected EntityHitResult findHitEntity(Vec3 pos, Vec3 nextPos) {
-        return ProjectileUtil.getEntityHitResult(this.level(), this, pos, nextPos,
+        return ProjectileUtil.getEntityHitResult(this.level, this, pos, nextPos,
                 this.getBoundingBox().expandTowards(this.getDeltaMovement()).inflate(1.0D), this::canHitEntity);
     }
 
@@ -235,11 +236,11 @@ public class ChiliBullet extends Projectile {
         }
 
         // Do multi-hit
-        if (!this.level().isClientSide && Services.CONFIG.canMultishotMultiHit()) {
+        if (!this.level.isClientSide && Services.CONFIG.canMultishotMultiHit()) {
             entity.invulnerableTime = 0;
         }
 
-        if (entity.hurt(this.damageSources().thrown(this, owner), (float) getDamage())) {
+        if (entity.hurt(DamageSource.thrown(this, owner), (float) getDamage())) {
             if (entity != owner && entity instanceof Player
                     && owner instanceof ServerPlayer ownerInServer && !this.isSilent()) {
                 // Play a ding when the bullet hit a player
@@ -253,7 +254,7 @@ public class ChiliBullet extends Projectile {
             }
 
             // Trigger Advancement
-            if (!this.level().isClientSide() && owner instanceof ServerPlayer serverplayer &&
+            if (!this.level.isClientSide() && owner instanceof ServerPlayer serverplayer &&
                     piercedAndKilledEntities > 0) {
                 ModCriteriaTriggers.KILLED_BY_CHILI_BULLET.trigger(serverplayer, piercedAndKilledEntities);
             }

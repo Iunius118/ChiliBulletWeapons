@@ -15,6 +15,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -25,11 +26,11 @@ import net.minecraftforge.fml.loading.FMLLoader;
 public class ChiliBulletWeapons {
     public static IEventBus modEventBus;
 
-    public ChiliBulletWeapons(FMLJavaModLoadingContext context) {
-        modEventBus = context.getModEventBus();
+    public ChiliBulletWeapons() {
+        modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register config handlers
-        registerConfig(context);
+        registerConfig(ModLoadingContext.get());
 
         // Use Forge to bootstrap the Common mod.
         //Constants.LOG.info("Hello Forge world!");
@@ -48,7 +49,7 @@ public class ChiliBulletWeapons {
         }
     }
 
-    private void registerConfig(FMLJavaModLoadingContext context) {
+    private void registerConfig(ModLoadingContext context) {
         context.registerConfig(ModConfig.Type.COMMON, ForgeChiliBulletWeaponsConfig.COMMON_SPEC,
                 Constants.MOD_ID + ".toml");
     }

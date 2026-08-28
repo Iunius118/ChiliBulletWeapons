@@ -1,11 +1,10 @@
 package com.github.iunius118.chilibulletweapons;
 
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import org.slf4j.Logger;
@@ -26,7 +25,7 @@ public class Constants {
         public static final ResourceKey<Block> POTTED_CHILI_PEPPER_RED = createKey("potted_chili_pepper_red");
 
         private static ResourceKey<Block> createKey(String path) {
-            return ResourceKey.create(Registries.BLOCK, CommonClass.modLocation(path));
+            return ResourceKey.create(Registry.BLOCK_REGISTRY, CommonClass.modLocation(path));
         }
     }
 
@@ -83,7 +82,7 @@ public class Constants {
         public static final ResourceKey<Item> ICON_MAIN = createKey("icon_main");
 
         private static ResourceKey<Item> createKey(String path) {
-            return ResourceKey.create(Registries.ITEM, CommonClass.modLocation(path));
+            return ResourceKey.create(Registry.ITEM_REGISTRY, CommonClass.modLocation(path));
         }
     }
 
@@ -96,7 +95,7 @@ public class Constants {
         public static final ResourceKey<SoundEvent> GUN_UPGRADE = createKey("item_gun_upgrade");
 
         private static ResourceKey<SoundEvent> createKey(String path) {
-            return ResourceKey.create(Registries.SOUND_EVENT, CommonClass.modLocation(path));
+            return ResourceKey.create(Registry.SOUND_EVENT_REGISTRY, CommonClass.modLocation(path));
         }
     }
 
@@ -105,11 +104,11 @@ public class Constants {
         public static final ResourceKey<EntityType<?>> CHILI_BULLET = createKey(ChiliBullet.ID);
 
         private static ResourceKey<EntityType<?>> createKey(String path) {
-            return ResourceKey.create(Registries.ENTITY_TYPE, CommonClass.modLocation(path));
+            return ResourceKey.create(Registry.ENTITY_TYPE_REGISTRY, CommonClass.modLocation(path));
         }
 
         private static ResourceKey<EntityType<?>> createKey(ResourceLocation id) {
-            return ResourceKey.create(Registries.ENTITY_TYPE, id);
+            return ResourceKey.create(Registry.ENTITY_TYPE_REGISTRY, id);
         }
     }
 
@@ -128,13 +127,21 @@ public class Constants {
     }
 
     public static class CreativeModeTabs {
-        public static final ResourceKey<CreativeModeTab> MAIN = createKey("main");
+        public static final ResourceLocation MAIN = createId("main");
 
         // Translation keys
         public static final String TITLE_MOD_MAIN = "itemGroup.%s.main".formatted(Constants.MOD_ID);
 
-        private static ResourceKey<CreativeModeTab> createKey(String path) {
-            return ResourceKey.create(Registries.CREATIVE_MODE_TAB, CommonClass.modLocation(path));
+        private static ResourceLocation createId(String path) {
+            return CommonClass.modLocation(path);
+        }
+    }
+
+    public static class LootModifiers {
+        public static final ResourceLocation CURVED_CHILI = createId("curved_chili_loot_modifier");
+
+        private static ResourceLocation createId(String path) {
+            return CommonClass.modLocation(path);
         }
     }
 

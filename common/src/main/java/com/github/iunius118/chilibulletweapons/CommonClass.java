@@ -29,7 +29,6 @@ public class CommonClass {
         ModRegistries.registerGameObjects();
     }
 
-    @SuppressWarnings("removal")
     public static ResourceLocation modLocation(String name) {
         return new ResourceLocation(Constants.MOD_ID, name);
     }

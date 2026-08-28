@@ -14,9 +14,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraft.world.level.storage.loot.LootDataManager;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.LootTables;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
@@ -59,7 +59,7 @@ public class ChiliBulletWeapons implements ModInitializer {
     // 1.20.3 or later
     private static final ResourceLocation NEW_GRASS_LOOT_PATH = new ResourceLocation("blocks/short_grass");
 
-    void onLootTableLoad(ResourceManager resourceManager, LootDataManager lootManager, ResourceLocation id,
+    void onLootTableLoad(ResourceManager resourceManager, LootTables lootManager, ResourceLocation id,
                          LootTable.Builder tableBuilder, LootTableSource source) {
         if (source.isBuiltin()) {
             if (OLD_GRASS_LOOT_PATH.equals(id) || NEW_GRASS_LOOT_PATH.equals(id)) {

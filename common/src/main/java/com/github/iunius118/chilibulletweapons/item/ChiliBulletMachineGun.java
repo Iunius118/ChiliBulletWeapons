@@ -1,10 +1,13 @@
 package com.github.iunius118.chilibulletweapons.item;
 
 import com.github.iunius118.chilibulletweapons.Constants;
+import net.minecraft.core.NonNullList;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 
 public class ChiliBulletMachineGun extends ChiliBulletGun {
@@ -41,5 +44,16 @@ public class ChiliBulletMachineGun extends ChiliBulletGun {
     @Override
     public String getDescriptionId(ItemStack itemStack) {
         return this.getDescriptionId();
+    }
+
+    @Override
+    public void fillItemCategory(CreativeModeTab category, NonNullList<ItemStack> items) {
+        if (this.allowedIn(category)) {
+            items.add(new ItemStack(ModItems.MACHINE_GUN));
+
+            // Guns with extra enchantments for debug
+            items.add(ChiliBulletMachineGun.enchant(ModItems.MACHINE_GUN,
+                    Enchantments.UNBREAKING, Enchantments.MENDING));
+        }
     }
 }

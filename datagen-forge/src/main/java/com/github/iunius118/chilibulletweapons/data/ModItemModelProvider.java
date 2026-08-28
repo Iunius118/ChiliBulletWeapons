@@ -3,10 +3,10 @@ package com.github.iunius118.chilibulletweapons.data;
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.item.ChiliBulletGun;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
-import net.minecraft.data.PackOutput;
+import net.minecraft.client.renderer.block.model.ItemTransforms;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -14,8 +14,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItemModelProvider extends ItemModelProvider {
 
-    public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, Constants.MOD_ID, existingFileHelper);
+    public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+        super(generator, Constants.MOD_ID, existingFileHelper);
     }
 
     @Override
@@ -104,46 +104,46 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         getBuilder(pistol).parent(parent).texture("layer0", "item/" + pistol)
                 .transforms()
-                    .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
+                    .transform(ItemTransforms.TransformType.FIRST_PERSON_RIGHT_HAND)
                         .scale(0.68F).rotation(0F, -90F, 25F).translation(3.0F, 3.2F, 1.13F).end()
-                    .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND)
+                    .transform(ItemTransforms.TransformType.FIRST_PERSON_LEFT_HAND)
                         .scale(0.68F).rotation(0F, 90F, -25F).translation(3.0F, 3.2F, 1.13F).end()
-                    .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
+                    .transform(ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND)
                         .scale(0.85F).rotation(-40F, -90F, 0F).translation(0F, 1F, -0.25F).end()
-                    .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND)
+                    .transform(ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND)
                         .scale(0.85F).rotation(-40F, 90F, 0F).translation(0F, 1F, -0.25F).end()
                     .end();
         getBuilder(pistol_loading).parent(parent).texture("layer0", "item/" + pistol_loading)
                 .transforms()
-                    .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
+                    .transform(ItemTransforms.TransformType.FIRST_PERSON_RIGHT_HAND)
                         .scale(0.68F).rotation(0F, -90F, 25F).translation(1.13F, 3.2F, 1.13F).end()
-                    .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND)
+                    .transform(ItemTransforms.TransformType.FIRST_PERSON_LEFT_HAND)
                         .scale(0.68F).rotation(0F, 90F, -25F).translation(1.13F, 3.2F, 1.13F).end()
-                    .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
+                    .transform(ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND)
                         .scale(0.85F).rotation(-40F, -90F, 0F).translation(0F, 1F, -0.25F).end()
-                    .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND)
+                    .transform(ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND)
                         .scale(0.85F).rotation(-40F, 90F, 0F).translation(0F, 1F, -0.25F).end()
                     .end();
         getBuilder(rifle).parent(parent).texture("layer0", "item/" + rifle)
                 .transforms()
-                    .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
+                    .transform(ItemTransforms.TransformType.FIRST_PERSON_RIGHT_HAND)
                         .scale(0.68F).rotation(0F, -90F, 25F).translation(3.0F, 3.2F, -0.4F).end()
-                    .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND)
+                    .transform(ItemTransforms.TransformType.FIRST_PERSON_LEFT_HAND)
                         .scale(0.68F).rotation(0F, 90F, -25F).translation(3.0F, 3.2F, -0.4F).end()
-                    .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
+                    .transform(ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND)
                         .scale(0.85F).rotation(-40F, -90F, 0F).translation(0F, 0.5F, -2.2F).end()
-                    .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND)
+                    .transform(ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND)
                         .scale(0.85F).rotation(-40F, 90F, 0F).translation(0F, 0.5F, -2.2F).end()
                     .end();
         getBuilder(rifle_loading).parent(parent).texture("layer0", "item/" + rifle_loading)
                 .transforms()
-                    .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
+                    .transform(ItemTransforms.TransformType.FIRST_PERSON_RIGHT_HAND)
                         .scale(0.68F).rotation(0F, -90F, 25F).translation(1.13F, 3.2F, -0.4F).end()
-                    .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND)
+                    .transform(ItemTransforms.TransformType.FIRST_PERSON_LEFT_HAND)
                         .scale(0.68F).rotation(0F, 90F, -25F).translation(1.13F, 3.2F, -0.4F).end()
-                    .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
+                    .transform(ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND)
                         .scale(0.85F).rotation(-40F, -90F, 0F).translation(0F, 0.5F, -2.2F).end()
-                    .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND)
+                    .transform(ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND)
                         .scale(0.85F).rotation(-40F, 90F, 0F).translation(0F, 0.5F, -2.2F).end()
                     .end();
         getBuilder(shotgun).parent(new ModelFile.UncheckedModelFile(getModelLocation(rifle))).texture("layer0", "item/" + shotgun);
@@ -154,18 +154,17 @@ public class ModItemModelProvider extends ItemModelProvider {
         final String machineGun = "machine_gun";
         getBuilder(machineGun).parent(new ModelFile.UncheckedModelFile("item/generated")).texture("layer0", "item/" + machineGun)
                 .transforms()
-                .transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND)
+                .transform(ItemTransforms.TransformType.FIRST_PERSON_RIGHT_HAND)
                     .scale(0.68F).rotation(0F, -90F, 25F).translation(3.0F, 3.2F, -0.4F).end()
-                .transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND)
+                .transform(ItemTransforms.TransformType.FIRST_PERSON_LEFT_HAND)
                     .scale(0.68F).rotation(0F, 90F, -25F).translation(3.0F, 3.2F, -0.4F).end()
-                .transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND)
+                .transform(ItemTransforms.TransformType.THIRD_PERSON_RIGHT_HAND)
                     .scale(0.85F).rotation(-40F, -90F, 0F).translation(0F, 0.5F, -2.2F).end()
-                .transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND)
+                .transform(ItemTransforms.TransformType.THIRD_PERSON_LEFT_HAND)
                     .scale(0.85F).rotation(-40F, 90F, 0F).translation(0F, 0.5F, -2.2F).end()
                 .end();
     }
 
-    @SuppressWarnings("removal")
     private ResourceLocation getModelLocation(String name) {
         return new ResourceLocation(modid, "item/" + name);
     }

@@ -4,16 +4,18 @@ import com.github.iunius118.chilibulletweapons.platform.services.IPlatformHelper
 import com.github.iunius118.chilibulletweapons.registry.ForgeModObjectRegistry;
 import com.github.iunius118.chilibulletweapons.registry.ModObjectRegistry;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.ForgeEventFactory;
-import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 public class ForgePlatformHelper implements IPlatformHelper {
 
@@ -38,8 +40,14 @@ public class ForgePlatformHelper implements IPlatformHelper {
     }
 
     @Override
-    public CreativeModeTab.Builder createCreativeModeTabBuilder() {
-        return CreativeModeTab.builder();
+    public CreativeModeTab createCreativeModeTab(ResourceLocation id, Supplier<ItemStack> iconSupplier) {
+        return new CreativeModeTab("%s.%s".formatted(id.getNamespace(), id.getPath())) {
+
+            @Override
+            public ItemStack makeIcon() {
+                return iconSupplier.get();
+            }
+        };
     }
 
     @Override
@@ -49,7 +57,6 @@ public class ForgePlatformHelper implements IPlatformHelper {
 
     @Override
     public boolean shouldCancelProjectileImpact(Projectile projectile, HitResult hitResult) {
-        return ForgeEventFactory.onProjectileImpactResult(projectile, hitResult)
-                == ProjectileImpactEvent.ImpactResult.SKIP_ENTITY;
+        return ForgeEventFactory.onProjectileImpact(projectile, hitResult);
     }
 }

@@ -3,11 +3,10 @@ package com.github.iunius118.chilibulletweapons.registry;
 import com.github.iunius118.chilibulletweapons.Constants;
 import com.github.iunius118.chilibulletweapons.block.ModBlocks;
 import com.github.iunius118.chilibulletweapons.entity.ModEntityTypes;
-import com.github.iunius118.chilibulletweapons.item.ModCreativeModeTabs;
 import com.github.iunius118.chilibulletweapons.item.ModItems;
 import com.github.iunius118.chilibulletweapons.platform.Services;
 import com.github.iunius118.chilibulletweapons.sounds.ModSoundEvents;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.world.item.Item;
 
 public class ModRegistries {
@@ -15,7 +14,7 @@ public class ModRegistries {
 
     public static void registerGameObjects() {
         // Blocks
-        Services.PLATFORM.createModObjectRegistry(BuiltInRegistries.BLOCK, Constants.MOD_ID)
+        Services.PLATFORM.createModObjectRegistry(Registry.BLOCK, Constants.MOD_ID)
                 .registerObjects(r -> {
                     r.register(Constants.Blocks.CHILI_PEPPER, () -> ModBlocks.CHILI_PEPPER);
                     r.register(Constants.Blocks.CURVED_CHILI_STRING, () -> ModBlocks.CURVED_CHILI_STRING);
@@ -26,7 +25,7 @@ public class ModRegistries {
                     r.register(Constants.Blocks.HOT_SAUCE_BARREL, () -> ModBlocks.HOT_SAUCE_BARREL);
                 });
         // Items
-        Services.PLATFORM.createModObjectRegistry(BuiltInRegistries.ITEM, Constants.MOD_ID)
+        Services.PLATFORM.createModObjectRegistry(Registry.ITEM, Constants.MOD_ID)
                 .registerObjects(r -> {
                     // Plants
                     r.register(Constants.Items.CHILI_SEEDS, () -> ModItems.CHILI_SEEDS);
@@ -75,7 +74,7 @@ public class ModRegistries {
                     iconMain = r.register(Constants.Items.ICON_MAIN, () -> ModItems.ICON_MAIN);
                 });
         // Sound events
-        Services.PLATFORM.createModObjectRegistry(BuiltInRegistries.SOUND_EVENT, Constants.MOD_ID)
+        Services.PLATFORM.createModObjectRegistry(Registry.SOUND_EVENT, Constants.MOD_ID)
                 .registerObjects(r -> {
                     r.register(Constants.SoundEvents.CHILI_PEPPER_PICK_CHILI_PEPPERS,
                             () -> ModSoundEvents.CHILI_PEPPER_PICK_CHILI_PEPPERS);
@@ -85,15 +84,10 @@ public class ModRegistries {
                     r.register(Constants.SoundEvents.GUN_UPGRADE, () -> ModSoundEvents.GUN_UPGRADE);
                 });
         // Entity types
-        Services.PLATFORM.createModObjectRegistry(BuiltInRegistries.ENTITY_TYPE, Constants.MOD_ID)
+        Services.PLATFORM.createModObjectRegistry(Registry.ENTITY_TYPE, Constants.MOD_ID)
                 .registerObjects(r -> {
                     r.register(Constants.EntityTypes.CHILI_ARROW, () -> ModEntityTypes.CHILI_ARROW);
                     r.register(Constants.EntityTypes.CHILI_BULLET, () -> ModEntityTypes.CHILI_BULLET);
-                });
-        // Creative mode tabs
-        Services.PLATFORM.createModObjectRegistry(BuiltInRegistries.CREATIVE_MODE_TAB, Constants.MOD_ID)
-                .registerObjects(r -> {
-                    r.register(Constants.CreativeModeTabs.MAIN, () -> ModCreativeModeTabs.MAIN);
                 });
     }
 }
