@@ -1,10 +1,11 @@
 # Cheatsheet
 
 [Chili Bullet Weapons](https://iunius118.github.io/ChiliBulletWeapons/)
-Version 1.7.1+1.19
+Version 1.7.2+1.19
 
 ## Requirements
 
+- Minecraft 1.19-1.19.2
 - Forge version - Minecraft Forge
 - Fabric version - Fabric Loader, Fabric API, and Cloth Config API
 

@@ -4,8 +4,18 @@
 
 ## [Unreleased]
 
+## [1.7.2+1.19]
+### Changed
+- Backport to 1.19-1.19.2 Forge/Fabric.
+- Forge version - Require Minecraft Forge.
+- Fabric version - Require Fabric Loader 0.19.3, Fabric API, and Cloth Config API.
+
+## [1.7.2+1.20.1]
+### Fixed
+- Fix `id` in fabric.mod.json.
+
 ## [1.7.1+1.20.1]
-## Fixed
+### Fixed
 - Fix translation keys for bayoneted guns.
 
 ## [1.7.0+1.20.1]
