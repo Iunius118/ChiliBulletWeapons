@@ -70,5 +70,5 @@ Chili Bullet Weapons is a Minecraft mod to add chili peppers, foods and weapons.
 
 ### Older Versions
 
-- [Version 1 for Minecraft 1.20.1](v1/index.html)
+- [Version 1 for Minecraft 1.20.1/1.19-1.19.2](v1/index.html)
 - [Version 2 for Minecraft 1.21.1](v2/index.html)
