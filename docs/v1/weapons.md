@@ -43,6 +43,8 @@ A chili bullet serves as ammunition for chili bullet guns and can be crafted fro
 
 Chili bullets will disappear two seconds after they are shot.
 
+When a chili bullet hits an entity, there is a 10% chance of a critical hit.
+
 ## Chili Bullet Gun
 
 A chili bullet gun is a break-action single-shot gun that shoots chili bullets to attack mobs at a distance.

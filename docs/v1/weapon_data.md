@@ -16,6 +16,10 @@ Chili Bullet Weapons Version 1.7.0
 |        4       |    22.0 |    3.0 |
 |        5       |    23.4 |    3.2 |
 
+## Chili Bullet
+
+Chili bullets have a 10% chance of a critical hit that does 22 damage.
+
 ## Pistol/Volley Gun/Machine Gun
 
 | Angle | Ticks | Dist. | Speed | MinDmg. | MaxDmg. |
